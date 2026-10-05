@@ -1,0 +1,6 @@
+# SDPCombat Phase 1: vanilla places deliberate misses at least 1 m from V
+# (measured: minimumDistanceAroundTarget = 1). Bring them closer so a miss from
+# an enrolled shooter reads as a near miss. 0.6 m stays outside V's ~0.25 m
+# half-width so a miss cannot turn into a body hit by collision.
+# Applies to every shooter's misses (cosmetic only; hit/miss decisions are unchanged).
+TimeBetweenHits.missShotOffset.minimumDistanceAroundTarget: 0.6
