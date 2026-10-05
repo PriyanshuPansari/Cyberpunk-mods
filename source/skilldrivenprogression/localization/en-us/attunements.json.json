@@ -1,0 +1,314 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.17.4",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2310,
+    "ExportedDateTime": "2026-09-27T19:40:34.8121644Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "skilldrivenprogression\\localization\\en-us\\attunements.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Health</> scales with each Solo level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}</>",
+              "maleVariant": "",
+              "primaryKey": "89235",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyHealth"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Quickhack damage</> scales with each Netrunner level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91097",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceQuickhacks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cooldown</> scales with each Netrunner level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{stat_0} sec.</>",
+              "maleVariant": "",
+              "primaryKey": "91098",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceCooldownReduction"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cooldown</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{stat_0} sec.</>",
+              "maleVariant": "",
+              "primaryKey": "91100",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexesCooldown"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Mitigation Chance</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91180",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexesMitigationChance"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Crit Damage</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91184",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolCritDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Armor</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}</>",
+              "maleVariant": "",
+              "primaryKey": "91185",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechnicalAbilityArmor"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Explosion damage</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91356",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechnicalAbilityExplosiveDmg"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Health Item efficiency</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91357",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechnicalAbilityConsumableBoost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Mitigation Strength</> scales with each Solo level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91358",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyMitigationStrength"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Health Regen Rate</> scales with each Solo level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91359",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyHealthRegen"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Crit Chance</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91360",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexCritChance"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Stamina cost reduction</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91361",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexStaminaConsumption"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">All dealt damage</> scales with each Netrunner level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91362",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceAllDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Smart weapon damage</> scales with each Netrunner level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91363",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceSmartDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Stealth damage</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91364",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolStealthDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Headshot and weakspot damage</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91365",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolHeadshotDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage reduction</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91593",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolDamageReduction"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Duration</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0} sec.</>",
+              "maleVariant": "",
+              "primaryKey": "91595",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolOpticalDuration"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage-over-time resistance</> scales with each Solo level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91596",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyDOTReduction"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage during Berserk</> scales with each Solo level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91598",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyHPDecay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Duration</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0} sec.</>",
+              "maleVariant": "",
+              "primaryKey": "91599",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexesSandyDuration"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Ricochet damage</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91600",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechRicochetDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91601",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechProjectileDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91602",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexesMantisDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage</> scales with each Solo level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91603",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyGorillaArmsDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage</> scales with each Netrunner level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91604",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceMonowire"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Max RAM</> scales with each Netrunner level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}</>",
+              "maleVariant": "",
+              "primaryKey": "91662",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceRam"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Damage</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91751",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolArmsDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Scales with each Engineer level:\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">explosion resistance</>\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Tech weapon damage</>\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_1}%</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Health Item recharge speed</>\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_2}%</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">grenade recharge speed</>\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_3}%</>",
+              "maleVariant": "",
+              "primaryKey": "91752",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechMasterCyberware"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Activation chance</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91753",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexesChanceIncrease"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Tech weapon damage</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "91754",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechWeaponDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Activation chance</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "93351",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechChanceIncrease"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Solo Attuned",
+              "maleVariant": "",
+              "primaryKey": "94149",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-BodyName"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Headhunter Attuned",
+              "maleVariant": "",
+              "primaryKey": "94150",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolName"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Netrunner Attuned",
+              "maleVariant": "",
+              "primaryKey": "94151",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-IntelligenceName"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Shinobi Attuned",
+              "maleVariant": "",
+              "primaryKey": "94152",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexesName"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Engineer Attuned",
+              "maleVariant": "",
+              "primaryKey": "94153",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechnicalAbilityName"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Health Item effectiveness</> scales with each Engineer level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "94474",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-TechHealingItemEffectiveness"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cooldown</> scales with each Headhunter level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{stat_0} sec.</>",
+              "maleVariant": "",
+              "primaryKey": "94516",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-CoolCooldownReduction"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Crit Chance during Berserk</> scales with each Shinobi level.\\nCurrent total: <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{stat_0}%</>",
+              "maleVariant": "",
+              "primaryKey": "96059",
+              "secondaryKey": "Gameplay-Cyberware-Attunement-ReflexCritChanceBerserk"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

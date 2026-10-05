@@ -1,0 +1,1972 @@
+# Generated from design/other-shard-catalog.json; edit that catalog or its source order.
+
+SkillDrivenProgression.AdrenalineTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPAdrenaline
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier1_training
+  displayName: LocKey#sdp_adrenaline_tier1_name
+  localizedDescription: LocKey#sdp_adrenaline_tier1_description
+
+SkillDrivenProgression.AdrenalineTier1PlusShard:
+  $base: SkillDrivenProgression.AdrenalineTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier1plus_training
+  displayName: LocKey#sdp_adrenaline_tier1plus_name
+  localizedDescription: LocKey#sdp_adrenaline_tier1plus_description
+
+SkillDrivenProgression.AdrenalineTier2Shard:
+  $base: SkillDrivenProgression.AdrenalineTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier2_training
+  displayName: LocKey#sdp_adrenaline_tier2_name
+  localizedDescription: LocKey#sdp_adrenaline_tier2_description
+
+SkillDrivenProgression.AdrenalineTier2PlusShard:
+  $base: SkillDrivenProgression.AdrenalineTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier2plus_training
+  displayName: LocKey#sdp_adrenaline_tier2plus_name
+  localizedDescription: LocKey#sdp_adrenaline_tier2plus_description
+
+SkillDrivenProgression.AdrenalineTier3Shard:
+  $base: SkillDrivenProgression.AdrenalineTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier3_training
+  displayName: LocKey#sdp_adrenaline_tier3_name
+  localizedDescription: LocKey#sdp_adrenaline_tier3_description
+
+SkillDrivenProgression.AdrenalineTier3PlusShard:
+  $base: SkillDrivenProgression.AdrenalineTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier3plus_training
+  displayName: LocKey#sdp_adrenaline_tier3plus_name
+  localizedDescription: LocKey#sdp_adrenaline_tier3plus_description
+
+SkillDrivenProgression.AdrenalineTier4Shard:
+  $base: SkillDrivenProgression.AdrenalineTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier4_training
+  displayName: LocKey#sdp_adrenaline_tier4_name
+  localizedDescription: LocKey#sdp_adrenaline_tier4_description
+
+SkillDrivenProgression.AdrenalineTier4PlusShard:
+  $base: SkillDrivenProgression.AdrenalineTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier4plus_training
+  displayName: LocKey#sdp_adrenaline_tier4plus_name
+  localizedDescription: LocKey#sdp_adrenaline_tier4plus_description
+
+SkillDrivenProgression.AdrenalineTier5Shard:
+  $base: SkillDrivenProgression.AdrenalineTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier5_training
+  displayName: LocKey#sdp_adrenaline_tier5_name
+  localizedDescription: LocKey#sdp_adrenaline_tier5_description
+
+SkillDrivenProgression.AdrenalineTier5PlusShard:
+  $base: SkillDrivenProgression.AdrenalineTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier5plus_training
+  displayName: LocKey#sdp_adrenaline_tier5plus_name
+  localizedDescription: LocKey#sdp_adrenaline_tier5plus_description
+
+SkillDrivenProgression.AdrenalineTier5PlusPlusShard:
+  $base: SkillDrivenProgression.AdrenalineTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_adrenaline_tier5plusplus_training
+  displayName: LocKey#sdp_adrenaline_tier5plusplus_name
+  localizedDescription: LocKey#sdp_adrenaline_tier5plusplus_description
+
+SkillDrivenProgression.ObliterationTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPObliteration
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier1_training
+  displayName: LocKey#sdp_obliteration_tier1_name
+  localizedDescription: LocKey#sdp_obliteration_tier1_description
+
+SkillDrivenProgression.ObliterationTier1PlusShard:
+  $base: SkillDrivenProgression.ObliterationTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier1plus_training
+  displayName: LocKey#sdp_obliteration_tier1plus_name
+  localizedDescription: LocKey#sdp_obliteration_tier1plus_description
+
+SkillDrivenProgression.ObliterationTier2Shard:
+  $base: SkillDrivenProgression.ObliterationTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier2_training
+  displayName: LocKey#sdp_obliteration_tier2_name
+  localizedDescription: LocKey#sdp_obliteration_tier2_description
+
+SkillDrivenProgression.ObliterationTier2PlusShard:
+  $base: SkillDrivenProgression.ObliterationTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier2plus_training
+  displayName: LocKey#sdp_obliteration_tier2plus_name
+  localizedDescription: LocKey#sdp_obliteration_tier2plus_description
+
+SkillDrivenProgression.ObliterationTier3Shard:
+  $base: SkillDrivenProgression.ObliterationTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier3_training
+  displayName: LocKey#sdp_obliteration_tier3_name
+  localizedDescription: LocKey#sdp_obliteration_tier3_description
+
+SkillDrivenProgression.ObliterationTier3PlusShard:
+  $base: SkillDrivenProgression.ObliterationTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier3plus_training
+  displayName: LocKey#sdp_obliteration_tier3plus_name
+  localizedDescription: LocKey#sdp_obliteration_tier3plus_description
+
+SkillDrivenProgression.ObliterationTier4Shard:
+  $base: SkillDrivenProgression.ObliterationTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier4_training
+  displayName: LocKey#sdp_obliteration_tier4_name
+  localizedDescription: LocKey#sdp_obliteration_tier4_description
+
+SkillDrivenProgression.ObliterationTier4PlusShard:
+  $base: SkillDrivenProgression.ObliterationTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier4plus_training
+  displayName: LocKey#sdp_obliteration_tier4plus_name
+  localizedDescription: LocKey#sdp_obliteration_tier4plus_description
+
+SkillDrivenProgression.ObliterationTier5Shard:
+  $base: SkillDrivenProgression.ObliterationTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier5_training
+  displayName: LocKey#sdp_obliteration_tier5_name
+  localizedDescription: LocKey#sdp_obliteration_tier5_description
+
+SkillDrivenProgression.ObliterationTier5PlusShard:
+  $base: SkillDrivenProgression.ObliterationTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier5plus_training
+  displayName: LocKey#sdp_obliteration_tier5plus_name
+  localizedDescription: LocKey#sdp_obliteration_tier5plus_description
+
+SkillDrivenProgression.ObliterationTier5PlusPlusShard:
+  $base: SkillDrivenProgression.ObliterationTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_obliteration_tier5plusplus_training
+  displayName: LocKey#sdp_obliteration_tier5plusplus_name
+  localizedDescription: LocKey#sdp_obliteration_tier5plusplus_description
+
+SkillDrivenProgression.QuakeTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPQuake
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier1_training
+  displayName: LocKey#sdp_quake_tier1_name
+  localizedDescription: LocKey#sdp_quake_tier1_description
+
+SkillDrivenProgression.QuakeTier1PlusShard:
+  $base: SkillDrivenProgression.QuakeTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier1plus_training
+  displayName: LocKey#sdp_quake_tier1plus_name
+  localizedDescription: LocKey#sdp_quake_tier1plus_description
+
+SkillDrivenProgression.QuakeTier2Shard:
+  $base: SkillDrivenProgression.QuakeTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier2_training
+  displayName: LocKey#sdp_quake_tier2_name
+  localizedDescription: LocKey#sdp_quake_tier2_description
+
+SkillDrivenProgression.QuakeTier2PlusShard:
+  $base: SkillDrivenProgression.QuakeTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier2plus_training
+  displayName: LocKey#sdp_quake_tier2plus_name
+  localizedDescription: LocKey#sdp_quake_tier2plus_description
+
+SkillDrivenProgression.QuakeTier3Shard:
+  $base: SkillDrivenProgression.QuakeTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier3_training
+  displayName: LocKey#sdp_quake_tier3_name
+  localizedDescription: LocKey#sdp_quake_tier3_description
+
+SkillDrivenProgression.QuakeTier3PlusShard:
+  $base: SkillDrivenProgression.QuakeTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier3plus_training
+  displayName: LocKey#sdp_quake_tier3plus_name
+  localizedDescription: LocKey#sdp_quake_tier3plus_description
+
+SkillDrivenProgression.QuakeTier4Shard:
+  $base: SkillDrivenProgression.QuakeTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier4_training
+  displayName: LocKey#sdp_quake_tier4_name
+  localizedDescription: LocKey#sdp_quake_tier4_description
+
+SkillDrivenProgression.QuakeTier4PlusShard:
+  $base: SkillDrivenProgression.QuakeTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier4plus_training
+  displayName: LocKey#sdp_quake_tier4plus_name
+  localizedDescription: LocKey#sdp_quake_tier4plus_description
+
+SkillDrivenProgression.QuakeTier5Shard:
+  $base: SkillDrivenProgression.QuakeTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier5_training
+  displayName: LocKey#sdp_quake_tier5_name
+  localizedDescription: LocKey#sdp_quake_tier5_description
+
+SkillDrivenProgression.QuakeTier5PlusShard:
+  $base: SkillDrivenProgression.QuakeTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier5plus_training
+  displayName: LocKey#sdp_quake_tier5plus_name
+  localizedDescription: LocKey#sdp_quake_tier5plus_description
+
+SkillDrivenProgression.QuakeTier5PlusPlusShard:
+  $base: SkillDrivenProgression.QuakeTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_quake_tier5plusplus_training
+  displayName: LocKey#sdp_quake_tier5plusplus_name
+  localizedDescription: LocKey#sdp_quake_tier5plusplus_description
+
+SkillDrivenProgression.AirDashTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPAirDash
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier1_training
+  displayName: LocKey#sdp_airdash_tier1_name
+  localizedDescription: LocKey#sdp_airdash_tier1_description
+
+SkillDrivenProgression.AirDashTier1PlusShard:
+  $base: SkillDrivenProgression.AirDashTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier1plus_training
+  displayName: LocKey#sdp_airdash_tier1plus_name
+  localizedDescription: LocKey#sdp_airdash_tier1plus_description
+
+SkillDrivenProgression.AirDashTier2Shard:
+  $base: SkillDrivenProgression.AirDashTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier2_training
+  displayName: LocKey#sdp_airdash_tier2_name
+  localizedDescription: LocKey#sdp_airdash_tier2_description
+
+SkillDrivenProgression.AirDashTier2PlusShard:
+  $base: SkillDrivenProgression.AirDashTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier2plus_training
+  displayName: LocKey#sdp_airdash_tier2plus_name
+  localizedDescription: LocKey#sdp_airdash_tier2plus_description
+
+SkillDrivenProgression.AirDashTier3Shard:
+  $base: SkillDrivenProgression.AirDashTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier3_training
+  displayName: LocKey#sdp_airdash_tier3_name
+  localizedDescription: LocKey#sdp_airdash_tier3_description
+
+SkillDrivenProgression.AirDashTier3PlusShard:
+  $base: SkillDrivenProgression.AirDashTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier3plus_training
+  displayName: LocKey#sdp_airdash_tier3plus_name
+  localizedDescription: LocKey#sdp_airdash_tier3plus_description
+
+SkillDrivenProgression.AirDashTier4Shard:
+  $base: SkillDrivenProgression.AirDashTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier4_training
+  displayName: LocKey#sdp_airdash_tier4_name
+  localizedDescription: LocKey#sdp_airdash_tier4_description
+
+SkillDrivenProgression.AirDashTier4PlusShard:
+  $base: SkillDrivenProgression.AirDashTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier4plus_training
+  displayName: LocKey#sdp_airdash_tier4plus_name
+  localizedDescription: LocKey#sdp_airdash_tier4plus_description
+
+SkillDrivenProgression.AirDashTier5Shard:
+  $base: SkillDrivenProgression.AirDashTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier5_training
+  displayName: LocKey#sdp_airdash_tier5_name
+  localizedDescription: LocKey#sdp_airdash_tier5_description
+
+SkillDrivenProgression.AirDashTier5PlusShard:
+  $base: SkillDrivenProgression.AirDashTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier5plus_training
+  displayName: LocKey#sdp_airdash_tier5plus_name
+  localizedDescription: LocKey#sdp_airdash_tier5plus_description
+
+SkillDrivenProgression.AirDashTier5PlusPlusShard:
+  $base: SkillDrivenProgression.AirDashTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_airdash_tier5plusplus_training
+  displayName: LocKey#sdp_airdash_tier5plusplus_name
+  localizedDescription: LocKey#sdp_airdash_tier5plusplus_description
+
+SkillDrivenProgression.SharpshooterTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPSharpshooter
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier1_training
+  displayName: LocKey#sdp_sharpshooter_tier1_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier1_description
+
+SkillDrivenProgression.SharpshooterTier1PlusShard:
+  $base: SkillDrivenProgression.SharpshooterTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier1plus_training
+  displayName: LocKey#sdp_sharpshooter_tier1plus_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier1plus_description
+
+SkillDrivenProgression.SharpshooterTier2Shard:
+  $base: SkillDrivenProgression.SharpshooterTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier2_training
+  displayName: LocKey#sdp_sharpshooter_tier2_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier2_description
+
+SkillDrivenProgression.SharpshooterTier2PlusShard:
+  $base: SkillDrivenProgression.SharpshooterTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier2plus_training
+  displayName: LocKey#sdp_sharpshooter_tier2plus_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier2plus_description
+
+SkillDrivenProgression.SharpshooterTier3Shard:
+  $base: SkillDrivenProgression.SharpshooterTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier3_training
+  displayName: LocKey#sdp_sharpshooter_tier3_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier3_description
+
+SkillDrivenProgression.SharpshooterTier3PlusShard:
+  $base: SkillDrivenProgression.SharpshooterTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier3plus_training
+  displayName: LocKey#sdp_sharpshooter_tier3plus_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier3plus_description
+
+SkillDrivenProgression.SharpshooterTier4Shard:
+  $base: SkillDrivenProgression.SharpshooterTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier4_training
+  displayName: LocKey#sdp_sharpshooter_tier4_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier4_description
+
+SkillDrivenProgression.SharpshooterTier4PlusShard:
+  $base: SkillDrivenProgression.SharpshooterTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier4plus_training
+  displayName: LocKey#sdp_sharpshooter_tier4plus_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier4plus_description
+
+SkillDrivenProgression.SharpshooterTier5Shard:
+  $base: SkillDrivenProgression.SharpshooterTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier5_training
+  displayName: LocKey#sdp_sharpshooter_tier5_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier5_description
+
+SkillDrivenProgression.SharpshooterTier5PlusShard:
+  $base: SkillDrivenProgression.SharpshooterTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier5plus_training
+  displayName: LocKey#sdp_sharpshooter_tier5plus_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier5plus_description
+
+SkillDrivenProgression.SharpshooterTier5PlusPlusShard:
+  $base: SkillDrivenProgression.SharpshooterTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_sharpshooter_tier5plusplus_training
+  displayName: LocKey#sdp_sharpshooter_tier5plusplus_name
+  localizedDescription: LocKey#sdp_sharpshooter_tier5plusplus_description
+
+SkillDrivenProgression.BladeRunnerTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPBladeRunner
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier1_training
+  displayName: LocKey#sdp_bladerunner_tier1_name
+  localizedDescription: LocKey#sdp_bladerunner_tier1_description
+
+SkillDrivenProgression.BladeRunnerTier1PlusShard:
+  $base: SkillDrivenProgression.BladeRunnerTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier1plus_training
+  displayName: LocKey#sdp_bladerunner_tier1plus_name
+  localizedDescription: LocKey#sdp_bladerunner_tier1plus_description
+
+SkillDrivenProgression.BladeRunnerTier2Shard:
+  $base: SkillDrivenProgression.BladeRunnerTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier2_training
+  displayName: LocKey#sdp_bladerunner_tier2_name
+  localizedDescription: LocKey#sdp_bladerunner_tier2_description
+
+SkillDrivenProgression.BladeRunnerTier2PlusShard:
+  $base: SkillDrivenProgression.BladeRunnerTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier2plus_training
+  displayName: LocKey#sdp_bladerunner_tier2plus_name
+  localizedDescription: LocKey#sdp_bladerunner_tier2plus_description
+
+SkillDrivenProgression.BladeRunnerTier3Shard:
+  $base: SkillDrivenProgression.BladeRunnerTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier3_training
+  displayName: LocKey#sdp_bladerunner_tier3_name
+  localizedDescription: LocKey#sdp_bladerunner_tier3_description
+
+SkillDrivenProgression.BladeRunnerTier3PlusShard:
+  $base: SkillDrivenProgression.BladeRunnerTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier3plus_training
+  displayName: LocKey#sdp_bladerunner_tier3plus_name
+  localizedDescription: LocKey#sdp_bladerunner_tier3plus_description
+
+SkillDrivenProgression.BladeRunnerTier4Shard:
+  $base: SkillDrivenProgression.BladeRunnerTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier4_training
+  displayName: LocKey#sdp_bladerunner_tier4_name
+  localizedDescription: LocKey#sdp_bladerunner_tier4_description
+
+SkillDrivenProgression.BladeRunnerTier4PlusShard:
+  $base: SkillDrivenProgression.BladeRunnerTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier4plus_training
+  displayName: LocKey#sdp_bladerunner_tier4plus_name
+  localizedDescription: LocKey#sdp_bladerunner_tier4plus_description
+
+SkillDrivenProgression.BladeRunnerTier5Shard:
+  $base: SkillDrivenProgression.BladeRunnerTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier5_training
+  displayName: LocKey#sdp_bladerunner_tier5_name
+  localizedDescription: LocKey#sdp_bladerunner_tier5_description
+
+SkillDrivenProgression.BladeRunnerTier5PlusShard:
+  $base: SkillDrivenProgression.BladeRunnerTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier5plus_training
+  displayName: LocKey#sdp_bladerunner_tier5plus_name
+  localizedDescription: LocKey#sdp_bladerunner_tier5plus_description
+
+SkillDrivenProgression.BladeRunnerTier5PlusPlusShard:
+  $base: SkillDrivenProgression.BladeRunnerTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bladerunner_tier5plusplus_training
+  displayName: LocKey#sdp_bladerunner_tier5plusplus_name
+  localizedDescription: LocKey#sdp_bladerunner_tier5plusplus_description
+
+SkillDrivenProgression.ChromeTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPChrome
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier1_training
+  displayName: LocKey#sdp_chrome_tier1_name
+  localizedDescription: LocKey#sdp_chrome_tier1_description
+
+SkillDrivenProgression.ChromeTier1PlusShard:
+  $base: SkillDrivenProgression.ChromeTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier1plus_training
+  displayName: LocKey#sdp_chrome_tier1plus_name
+  localizedDescription: LocKey#sdp_chrome_tier1plus_description
+
+SkillDrivenProgression.ChromeTier2Shard:
+  $base: SkillDrivenProgression.ChromeTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier2_training
+  displayName: LocKey#sdp_chrome_tier2_name
+  localizedDescription: LocKey#sdp_chrome_tier2_description
+
+SkillDrivenProgression.ChromeTier2PlusShard:
+  $base: SkillDrivenProgression.ChromeTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier2plus_training
+  displayName: LocKey#sdp_chrome_tier2plus_name
+  localizedDescription: LocKey#sdp_chrome_tier2plus_description
+
+SkillDrivenProgression.ChromeTier3Shard:
+  $base: SkillDrivenProgression.ChromeTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier3_training
+  displayName: LocKey#sdp_chrome_tier3_name
+  localizedDescription: LocKey#sdp_chrome_tier3_description
+
+SkillDrivenProgression.ChromeTier3PlusShard:
+  $base: SkillDrivenProgression.ChromeTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier3plus_training
+  displayName: LocKey#sdp_chrome_tier3plus_name
+  localizedDescription: LocKey#sdp_chrome_tier3plus_description
+
+SkillDrivenProgression.ChromeTier4Shard:
+  $base: SkillDrivenProgression.ChromeTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier4_training
+  displayName: LocKey#sdp_chrome_tier4_name
+  localizedDescription: LocKey#sdp_chrome_tier4_description
+
+SkillDrivenProgression.ChromeTier4PlusShard:
+  $base: SkillDrivenProgression.ChromeTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier4plus_training
+  displayName: LocKey#sdp_chrome_tier4plus_name
+  localizedDescription: LocKey#sdp_chrome_tier4plus_description
+
+SkillDrivenProgression.ChromeTier5Shard:
+  $base: SkillDrivenProgression.ChromeTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier5_training
+  displayName: LocKey#sdp_chrome_tier5_name
+  localizedDescription: LocKey#sdp_chrome_tier5_description
+
+SkillDrivenProgression.ChromeTier5PlusShard:
+  $base: SkillDrivenProgression.ChromeTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier5plus_training
+  displayName: LocKey#sdp_chrome_tier5plus_name
+  localizedDescription: LocKey#sdp_chrome_tier5plus_description
+
+SkillDrivenProgression.ChromeTier5PlusPlusShard:
+  $base: SkillDrivenProgression.ChromeTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_chrome_tier5plusplus_training
+  displayName: LocKey#sdp_chrome_tier5plusplus_name
+  localizedDescription: LocKey#sdp_chrome_tier5plusplus_description
+
+SkillDrivenProgression.PyromaniaTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPPyromania
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier1_training
+  displayName: LocKey#sdp_pyromania_tier1_name
+  localizedDescription: LocKey#sdp_pyromania_tier1_description
+
+SkillDrivenProgression.PyromaniaTier1PlusShard:
+  $base: SkillDrivenProgression.PyromaniaTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier1plus_training
+  displayName: LocKey#sdp_pyromania_tier1plus_name
+  localizedDescription: LocKey#sdp_pyromania_tier1plus_description
+
+SkillDrivenProgression.PyromaniaTier2Shard:
+  $base: SkillDrivenProgression.PyromaniaTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier2_training
+  displayName: LocKey#sdp_pyromania_tier2_name
+  localizedDescription: LocKey#sdp_pyromania_tier2_description
+
+SkillDrivenProgression.PyromaniaTier2PlusShard:
+  $base: SkillDrivenProgression.PyromaniaTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier2plus_training
+  displayName: LocKey#sdp_pyromania_tier2plus_name
+  localizedDescription: LocKey#sdp_pyromania_tier2plus_description
+
+SkillDrivenProgression.PyromaniaTier3Shard:
+  $base: SkillDrivenProgression.PyromaniaTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier3_training
+  displayName: LocKey#sdp_pyromania_tier3_name
+  localizedDescription: LocKey#sdp_pyromania_tier3_description
+
+SkillDrivenProgression.PyromaniaTier3PlusShard:
+  $base: SkillDrivenProgression.PyromaniaTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier3plus_training
+  displayName: LocKey#sdp_pyromania_tier3plus_name
+  localizedDescription: LocKey#sdp_pyromania_tier3plus_description
+
+SkillDrivenProgression.PyromaniaTier4Shard:
+  $base: SkillDrivenProgression.PyromaniaTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier4_training
+  displayName: LocKey#sdp_pyromania_tier4_name
+  localizedDescription: LocKey#sdp_pyromania_tier4_description
+
+SkillDrivenProgression.PyromaniaTier4PlusShard:
+  $base: SkillDrivenProgression.PyromaniaTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier4plus_training
+  displayName: LocKey#sdp_pyromania_tier4plus_name
+  localizedDescription: LocKey#sdp_pyromania_tier4plus_description
+
+SkillDrivenProgression.PyromaniaTier5Shard:
+  $base: SkillDrivenProgression.PyromaniaTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier5_training
+  displayName: LocKey#sdp_pyromania_tier5_name
+  localizedDescription: LocKey#sdp_pyromania_tier5_description
+
+SkillDrivenProgression.PyromaniaTier5PlusShard:
+  $base: SkillDrivenProgression.PyromaniaTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier5plus_training
+  displayName: LocKey#sdp_pyromania_tier5plus_name
+  localizedDescription: LocKey#sdp_pyromania_tier5plus_description
+
+SkillDrivenProgression.PyromaniaTier5PlusPlusShard:
+  $base: SkillDrivenProgression.PyromaniaTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_pyromania_tier5plusplus_training
+  displayName: LocKey#sdp_pyromania_tier5plusplus_name
+  localizedDescription: LocKey#sdp_pyromania_tier5plusplus_description
+
+SkillDrivenProgression.BoltTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPBolt
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier1_training
+  displayName: LocKey#sdp_bolt_tier1_name
+  localizedDescription: LocKey#sdp_bolt_tier1_description
+
+SkillDrivenProgression.BoltTier1PlusShard:
+  $base: SkillDrivenProgression.BoltTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier1plus_training
+  displayName: LocKey#sdp_bolt_tier1plus_name
+  localizedDescription: LocKey#sdp_bolt_tier1plus_description
+
+SkillDrivenProgression.BoltTier2Shard:
+  $base: SkillDrivenProgression.BoltTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier2_training
+  displayName: LocKey#sdp_bolt_tier2_name
+  localizedDescription: LocKey#sdp_bolt_tier2_description
+
+SkillDrivenProgression.BoltTier2PlusShard:
+  $base: SkillDrivenProgression.BoltTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier2plus_training
+  displayName: LocKey#sdp_bolt_tier2plus_name
+  localizedDescription: LocKey#sdp_bolt_tier2plus_description
+
+SkillDrivenProgression.BoltTier3Shard:
+  $base: SkillDrivenProgression.BoltTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier3_training
+  displayName: LocKey#sdp_bolt_tier3_name
+  localizedDescription: LocKey#sdp_bolt_tier3_description
+
+SkillDrivenProgression.BoltTier3PlusShard:
+  $base: SkillDrivenProgression.BoltTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier3plus_training
+  displayName: LocKey#sdp_bolt_tier3plus_name
+  localizedDescription: LocKey#sdp_bolt_tier3plus_description
+
+SkillDrivenProgression.BoltTier4Shard:
+  $base: SkillDrivenProgression.BoltTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier4_training
+  displayName: LocKey#sdp_bolt_tier4_name
+  localizedDescription: LocKey#sdp_bolt_tier4_description
+
+SkillDrivenProgression.BoltTier4PlusShard:
+  $base: SkillDrivenProgression.BoltTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier4plus_training
+  displayName: LocKey#sdp_bolt_tier4plus_name
+  localizedDescription: LocKey#sdp_bolt_tier4plus_description
+
+SkillDrivenProgression.BoltTier5Shard:
+  $base: SkillDrivenProgression.BoltTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier5_training
+  displayName: LocKey#sdp_bolt_tier5_name
+  localizedDescription: LocKey#sdp_bolt_tier5_description
+
+SkillDrivenProgression.BoltTier5PlusShard:
+  $base: SkillDrivenProgression.BoltTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier5plus_training
+  displayName: LocKey#sdp_bolt_tier5plus_name
+  localizedDescription: LocKey#sdp_bolt_tier5plus_description
+
+SkillDrivenProgression.BoltTier5PlusPlusShard:
+  $base: SkillDrivenProgression.BoltTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_bolt_tier5plusplus_training
+  displayName: LocKey#sdp_bolt_tier5plusplus_name
+  localizedDescription: LocKey#sdp_bolt_tier5plusplus_description
+
+SkillDrivenProgression.OverclockTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPOverclock
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier1_training
+  displayName: LocKey#sdp_overclock_tier1_name
+  localizedDescription: LocKey#sdp_overclock_tier1_description
+
+SkillDrivenProgression.OverclockTier1PlusShard:
+  $base: SkillDrivenProgression.OverclockTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier1plus_training
+  displayName: LocKey#sdp_overclock_tier1plus_name
+  localizedDescription: LocKey#sdp_overclock_tier1plus_description
+
+SkillDrivenProgression.OverclockTier2Shard:
+  $base: SkillDrivenProgression.OverclockTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier2_training
+  displayName: LocKey#sdp_overclock_tier2_name
+  localizedDescription: LocKey#sdp_overclock_tier2_description
+
+SkillDrivenProgression.OverclockTier2PlusShard:
+  $base: SkillDrivenProgression.OverclockTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier2plus_training
+  displayName: LocKey#sdp_overclock_tier2plus_name
+  localizedDescription: LocKey#sdp_overclock_tier2plus_description
+
+SkillDrivenProgression.OverclockTier3Shard:
+  $base: SkillDrivenProgression.OverclockTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier3_training
+  displayName: LocKey#sdp_overclock_tier3_name
+  localizedDescription: LocKey#sdp_overclock_tier3_description
+
+SkillDrivenProgression.OverclockTier3PlusShard:
+  $base: SkillDrivenProgression.OverclockTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier3plus_training
+  displayName: LocKey#sdp_overclock_tier3plus_name
+  localizedDescription: LocKey#sdp_overclock_tier3plus_description
+
+SkillDrivenProgression.OverclockTier4Shard:
+  $base: SkillDrivenProgression.OverclockTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier4_training
+  displayName: LocKey#sdp_overclock_tier4_name
+  localizedDescription: LocKey#sdp_overclock_tier4_description
+
+SkillDrivenProgression.OverclockTier4PlusShard:
+  $base: SkillDrivenProgression.OverclockTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier4plus_training
+  displayName: LocKey#sdp_overclock_tier4plus_name
+  localizedDescription: LocKey#sdp_overclock_tier4plus_description
+
+SkillDrivenProgression.OverclockTier5Shard:
+  $base: SkillDrivenProgression.OverclockTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier5_training
+  displayName: LocKey#sdp_overclock_tier5_name
+  localizedDescription: LocKey#sdp_overclock_tier5_description
+
+SkillDrivenProgression.OverclockTier5PlusShard:
+  $base: SkillDrivenProgression.OverclockTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier5plus_training
+  displayName: LocKey#sdp_overclock_tier5plus_name
+  localizedDescription: LocKey#sdp_overclock_tier5plus_description
+
+SkillDrivenProgression.OverclockTier5PlusPlusShard:
+  $base: SkillDrivenProgression.OverclockTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_overclock_tier5plusplus_training
+  displayName: LocKey#sdp_overclock_tier5plusplus_name
+  localizedDescription: LocKey#sdp_overclock_tier5plusplus_description
+
+SkillDrivenProgression.HackQueueTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPHackQueue
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier1_training
+  displayName: LocKey#sdp_hackqueue_tier1_name
+  localizedDescription: LocKey#sdp_hackqueue_tier1_description
+
+SkillDrivenProgression.HackQueueTier1PlusShard:
+  $base: SkillDrivenProgression.HackQueueTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier1plus_training
+  displayName: LocKey#sdp_hackqueue_tier1plus_name
+  localizedDescription: LocKey#sdp_hackqueue_tier1plus_description
+
+SkillDrivenProgression.HackQueueTier2Shard:
+  $base: SkillDrivenProgression.HackQueueTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier2_training
+  displayName: LocKey#sdp_hackqueue_tier2_name
+  localizedDescription: LocKey#sdp_hackqueue_tier2_description
+
+SkillDrivenProgression.HackQueueTier2PlusShard:
+  $base: SkillDrivenProgression.HackQueueTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier2plus_training
+  displayName: LocKey#sdp_hackqueue_tier2plus_name
+  localizedDescription: LocKey#sdp_hackqueue_tier2plus_description
+
+SkillDrivenProgression.HackQueueTier3Shard:
+  $base: SkillDrivenProgression.HackQueueTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier3_training
+  displayName: LocKey#sdp_hackqueue_tier3_name
+  localizedDescription: LocKey#sdp_hackqueue_tier3_description
+
+SkillDrivenProgression.HackQueueTier3PlusShard:
+  $base: SkillDrivenProgression.HackQueueTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier3plus_training
+  displayName: LocKey#sdp_hackqueue_tier3plus_name
+  localizedDescription: LocKey#sdp_hackqueue_tier3plus_description
+
+SkillDrivenProgression.HackQueueTier4Shard:
+  $base: SkillDrivenProgression.HackQueueTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier4_training
+  displayName: LocKey#sdp_hackqueue_tier4_name
+  localizedDescription: LocKey#sdp_hackqueue_tier4_description
+
+SkillDrivenProgression.HackQueueTier4PlusShard:
+  $base: SkillDrivenProgression.HackQueueTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier4plus_training
+  displayName: LocKey#sdp_hackqueue_tier4plus_name
+  localizedDescription: LocKey#sdp_hackqueue_tier4plus_description
+
+SkillDrivenProgression.HackQueueTier5Shard:
+  $base: SkillDrivenProgression.HackQueueTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier5_training
+  displayName: LocKey#sdp_hackqueue_tier5_name
+  localizedDescription: LocKey#sdp_hackqueue_tier5_description
+
+SkillDrivenProgression.HackQueueTier5PlusShard:
+  $base: SkillDrivenProgression.HackQueueTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier5plus_training
+  displayName: LocKey#sdp_hackqueue_tier5plus_name
+  localizedDescription: LocKey#sdp_hackqueue_tier5plus_description
+
+SkillDrivenProgression.HackQueueTier5PlusPlusShard:
+  $base: SkillDrivenProgression.HackQueueTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_hackqueue_tier5plusplus_training
+  displayName: LocKey#sdp_hackqueue_tier5plusplus_name
+  localizedDescription: LocKey#sdp_hackqueue_tier5plusplus_description
+
+SkillDrivenProgression.SmartLockTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPSmartLock
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier1_training
+  displayName: LocKey#sdp_smartlock_tier1_name
+  localizedDescription: LocKey#sdp_smartlock_tier1_description
+
+SkillDrivenProgression.SmartLockTier1PlusShard:
+  $base: SkillDrivenProgression.SmartLockTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier1plus_training
+  displayName: LocKey#sdp_smartlock_tier1plus_name
+  localizedDescription: LocKey#sdp_smartlock_tier1plus_description
+
+SkillDrivenProgression.SmartLockTier2Shard:
+  $base: SkillDrivenProgression.SmartLockTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier2_training
+  displayName: LocKey#sdp_smartlock_tier2_name
+  localizedDescription: LocKey#sdp_smartlock_tier2_description
+
+SkillDrivenProgression.SmartLockTier2PlusShard:
+  $base: SkillDrivenProgression.SmartLockTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier2plus_training
+  displayName: LocKey#sdp_smartlock_tier2plus_name
+  localizedDescription: LocKey#sdp_smartlock_tier2plus_description
+
+SkillDrivenProgression.SmartLockTier3Shard:
+  $base: SkillDrivenProgression.SmartLockTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier3_training
+  displayName: LocKey#sdp_smartlock_tier3_name
+  localizedDescription: LocKey#sdp_smartlock_tier3_description
+
+SkillDrivenProgression.SmartLockTier3PlusShard:
+  $base: SkillDrivenProgression.SmartLockTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier3plus_training
+  displayName: LocKey#sdp_smartlock_tier3plus_name
+  localizedDescription: LocKey#sdp_smartlock_tier3plus_description
+
+SkillDrivenProgression.SmartLockTier4Shard:
+  $base: SkillDrivenProgression.SmartLockTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier4_training
+  displayName: LocKey#sdp_smartlock_tier4_name
+  localizedDescription: LocKey#sdp_smartlock_tier4_description
+
+SkillDrivenProgression.SmartLockTier4PlusShard:
+  $base: SkillDrivenProgression.SmartLockTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier4plus_training
+  displayName: LocKey#sdp_smartlock_tier4plus_name
+  localizedDescription: LocKey#sdp_smartlock_tier4plus_description
+
+SkillDrivenProgression.SmartLockTier5Shard:
+  $base: SkillDrivenProgression.SmartLockTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier5_training
+  displayName: LocKey#sdp_smartlock_tier5_name
+  localizedDescription: LocKey#sdp_smartlock_tier5_description
+
+SkillDrivenProgression.SmartLockTier5PlusShard:
+  $base: SkillDrivenProgression.SmartLockTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier5plus_training
+  displayName: LocKey#sdp_smartlock_tier5plus_name
+  localizedDescription: LocKey#sdp_smartlock_tier5plus_description
+
+SkillDrivenProgression.SmartLockTier5PlusPlusShard:
+  $base: SkillDrivenProgression.SmartLockTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_smartlock_tier5plusplus_training
+  displayName: LocKey#sdp_smartlock_tier5plusplus_name
+  localizedDescription: LocKey#sdp_smartlock_tier5plusplus_description
+
+SkillDrivenProgression.NinjutsuTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPNinjutsu
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier1_training
+  displayName: LocKey#sdp_ninjutsu_tier1_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier1_description
+
+SkillDrivenProgression.NinjutsuTier1PlusShard:
+  $base: SkillDrivenProgression.NinjutsuTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier1plus_training
+  displayName: LocKey#sdp_ninjutsu_tier1plus_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier1plus_description
+
+SkillDrivenProgression.NinjutsuTier2Shard:
+  $base: SkillDrivenProgression.NinjutsuTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier2_training
+  displayName: LocKey#sdp_ninjutsu_tier2_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier2_description
+
+SkillDrivenProgression.NinjutsuTier2PlusShard:
+  $base: SkillDrivenProgression.NinjutsuTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier2plus_training
+  displayName: LocKey#sdp_ninjutsu_tier2plus_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier2plus_description
+
+SkillDrivenProgression.NinjutsuTier3Shard:
+  $base: SkillDrivenProgression.NinjutsuTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier3_training
+  displayName: LocKey#sdp_ninjutsu_tier3_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier3_description
+
+SkillDrivenProgression.NinjutsuTier3PlusShard:
+  $base: SkillDrivenProgression.NinjutsuTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier3plus_training
+  displayName: LocKey#sdp_ninjutsu_tier3plus_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier3plus_description
+
+SkillDrivenProgression.NinjutsuTier4Shard:
+  $base: SkillDrivenProgression.NinjutsuTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier4_training
+  displayName: LocKey#sdp_ninjutsu_tier4_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier4_description
+
+SkillDrivenProgression.NinjutsuTier4PlusShard:
+  $base: SkillDrivenProgression.NinjutsuTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier4plus_training
+  displayName: LocKey#sdp_ninjutsu_tier4plus_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier4plus_description
+
+SkillDrivenProgression.NinjutsuTier5Shard:
+  $base: SkillDrivenProgression.NinjutsuTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier5_training
+  displayName: LocKey#sdp_ninjutsu_tier5_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier5_description
+
+SkillDrivenProgression.NinjutsuTier5PlusShard:
+  $base: SkillDrivenProgression.NinjutsuTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier5plus_training
+  displayName: LocKey#sdp_ninjutsu_tier5plus_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier5plus_description
+
+SkillDrivenProgression.NinjutsuTier5PlusPlusShard:
+  $base: SkillDrivenProgression.NinjutsuTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_ninjutsu_tier5plusplus_training
+  displayName: LocKey#sdp_ninjutsu_tier5plusplus_name
+  localizedDescription: LocKey#sdp_ninjutsu_tier5plusplus_description
+
+SkillDrivenProgression.JugglerTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.Common
+  nextUpgradeItem: None
+  shardType: SDPJuggler
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier1_training
+  displayName: LocKey#sdp_juggler_tier1_name
+  localizedDescription: LocKey#sdp_juggler_tier1_description
+
+SkillDrivenProgression.JugglerTier1PlusShard:
+  $base: SkillDrivenProgression.JugglerTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier1plus_training
+  displayName: LocKey#sdp_juggler_tier1plus_name
+  localizedDescription: LocKey#sdp_juggler_tier1plus_description
+
+SkillDrivenProgression.JugglerTier2Shard:
+  $base: SkillDrivenProgression.JugglerTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier2_training
+  displayName: LocKey#sdp_juggler_tier2_name
+  localizedDescription: LocKey#sdp_juggler_tier2_description
+
+SkillDrivenProgression.JugglerTier2PlusShard:
+  $base: SkillDrivenProgression.JugglerTier2Shard
+  quality: Quality.UncommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier2plus_training
+  displayName: LocKey#sdp_juggler_tier2plus_name
+  localizedDescription: LocKey#sdp_juggler_tier2plus_description
+
+SkillDrivenProgression.JugglerTier3Shard:
+  $base: SkillDrivenProgression.JugglerTier2PlusShard
+  quality: Quality.Rare
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier3_training
+  displayName: LocKey#sdp_juggler_tier3_name
+  localizedDescription: LocKey#sdp_juggler_tier3_description
+
+SkillDrivenProgression.JugglerTier3PlusShard:
+  $base: SkillDrivenProgression.JugglerTier3Shard
+  quality: Quality.RarePlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier3plus_training
+  displayName: LocKey#sdp_juggler_tier3plus_name
+  localizedDescription: LocKey#sdp_juggler_tier3plus_description
+
+SkillDrivenProgression.JugglerTier4Shard:
+  $base: SkillDrivenProgression.JugglerTier3PlusShard
+  quality: Quality.Epic
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier4_training
+  displayName: LocKey#sdp_juggler_tier4_name
+  localizedDescription: LocKey#sdp_juggler_tier4_description
+
+SkillDrivenProgression.JugglerTier4PlusShard:
+  $base: SkillDrivenProgression.JugglerTier4Shard
+  quality: Quality.EpicPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier4plus_training
+  displayName: LocKey#sdp_juggler_tier4plus_name
+  localizedDescription: LocKey#sdp_juggler_tier4plus_description
+
+SkillDrivenProgression.JugglerTier5Shard:
+  $base: SkillDrivenProgression.JugglerTier4PlusShard
+  quality: Quality.Legendary
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier5_training
+  displayName: LocKey#sdp_juggler_tier5_name
+  localizedDescription: LocKey#sdp_juggler_tier5_description
+
+SkillDrivenProgression.JugglerTier5PlusShard:
+  $base: SkillDrivenProgression.JugglerTier5Shard
+  quality: Quality.LegendaryPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier5plus_training
+  displayName: LocKey#sdp_juggler_tier5plus_name
+  localizedDescription: LocKey#sdp_juggler_tier5plus_description
+
+SkillDrivenProgression.JugglerTier5PlusPlusShard:
+  $base: SkillDrivenProgression.JugglerTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_juggler_tier5plusplus_training
+  displayName: LocKey#sdp_juggler_tier5plusplus_name
+  localizedDescription: LocKey#sdp_juggler_tier5plusplus_description
+
+SkillDrivenProgression.VehicleChip:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  shardType: SDPVehicle
+  quality: Quality.Common
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_vehiclechip_training
+  displayName: LocKey#sdp_vehiclechip_name
+  localizedDescription: LocKey#sdp_vehiclechip_description
+
+SkillDrivenProgression.OSExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPOSExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_osexpansionchip_training
+  displayName: LocKey#sdp_osexpansionchip_name
+  localizedDescription: LocKey#sdp_osexpansionchip_description
+
+SkillDrivenProgression.FrontalCortexExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPFrontalCortexExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_frontalcortexexpansionchip_training
+  displayName: LocKey#sdp_frontalcortexexpansionchip_name
+  localizedDescription: LocKey#sdp_frontalcortexexpansionchip_description
+
+SkillDrivenProgression.CardiovascularExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPCardiovascularExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_cardiovascularexpansionchip_training
+  displayName: LocKey#sdp_cardiovascularexpansionchip_name
+  localizedDescription: LocKey#sdp_cardiovascularexpansionchip_description
+
+SkillDrivenProgression.NervousSystemExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPNervousSystemExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_nervoussystemexpansionchip_training
+  displayName: LocKey#sdp_nervoussystemexpansionchip_name
+  localizedDescription: LocKey#sdp_nervoussystemexpansionchip_description
+
+SkillDrivenProgression.IntegumentaryExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPIntegumentaryExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_integumentaryexpansionchip_training
+  displayName: LocKey#sdp_integumentaryexpansionchip_name
+  localizedDescription: LocKey#sdp_integumentaryexpansionchip_description
+
+SkillDrivenProgression.ArmsExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPArmsExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_armsexpansionchip_training
+  displayName: LocKey#sdp_armsexpansionchip_name
+  localizedDescription: LocKey#sdp_armsexpansionchip_description
+
+SkillDrivenProgression.HandsExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPHandsExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_handsexpansionchip_training
+  displayName: LocKey#sdp_handsexpansionchip_name
+  localizedDescription: LocKey#sdp_handsexpansionchip_description
+
+SkillDrivenProgression.LegsExpansionChip:
+  $base: SkillDrivenProgression.VehicleChip
+  shardType: SDPLegsExpansion
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_legsexpansionchip_training
+  displayName: LocKey#sdp_legsexpansionchip_name
+  localizedDescription: LocKey#sdp_legsexpansionchip_description

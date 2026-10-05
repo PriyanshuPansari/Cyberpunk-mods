@@ -1,0 +1,193 @@
+{
+  "audited_on": "2026-10-01",
+  "staging_root": "C:\\Users\\incre\\AppData\\Roaming\\Vortex\\cyberpunk2077\\mods",
+  "status": "Staged source; user reports disabled. Not a deployment inventory.",
+  "files": [
+    {
+      "mod_folder": "Enemies of Night City-8467-PL-Beta-1-8-8-Hotfix-1720272238",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Enemies of NC/init.lua",
+      "sha256": "046e81aef9fc5291e5ef2ce42b0a80a05fe7c3ea226c2f80bb98bbcb4a42e36c",
+      "bytes": 530
+    },
+    {
+      "mod_folder": "Enemies of Night City-8467-PL-Beta-1-8-8-Hotfix-1720272238",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Enemies of NC/Modules/Native Settings.lua",
+      "sha256": "028be016b878111ba25915bf16f25d0d88500cb38d37bb77077af5b098b6c21d",
+      "bytes": 68781
+    },
+    {
+      "mod_folder": "Enemies of Night City-8467-PL-Beta-1-8-8-Hotfix-1720272238",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Enemies of NC/Modules/Base.lua",
+      "sha256": "87fa50bb7e681767ac1f8201a23798950785b21bf6f5a8190c28cdbf6f8d3eb0",
+      "bytes": 1116138
+    },
+    {
+      "mod_folder": "Enemies of Night City-8467-PL-Beta-1-8-8-Hotfix-1720272238",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Enemies of NC/Modules/reloadable_config.lua",
+      "sha256": "d650ba1aaea24a5264828fa685654cf99fac56c8a0ca54fe144b207ff9308d50",
+      "bytes": 7147
+    },
+    {
+      "mod_folder": "Enemies of Night City-8467-PL-Beta-1-8-8-Hotfix-1720272238",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Enemies of NC/Modules/TimeDilation.lua",
+      "sha256": "72ca26413ffd7c5ecefb808724b97ca622c9a7db7e4c04990eff581f6dc2142a",
+      "bytes": 590
+    },
+    {
+      "mod_folder": "Reinforcements System 21532 1.2.1 2026-08-24T21-54Z cB3xB0qyh",
+      "relative_path": "r6/scripts/ReinforcementsSystem/Settings.reds",
+      "sha256": "7e4f62fda353155e737b2319fe27d786ed969ea348d0b9eda239498e2b7b5b8b",
+      "bytes": 104113
+    },
+    {
+      "mod_folder": "Reinforcements System 21532 1.2.1 2026-08-24T21-54Z cB3xB0qyh",
+      "relative_path": "r6/scripts/ReinforcementsSystem/GangHandlers/baseHandler.reds",
+      "sha256": "8d105fd2d3316be71c1cc73e7dabe8ae59c4db22c7f7da2b1af9e4eee54ca430",
+      "bytes": 9229
+    },
+    {
+      "mod_folder": "Reinforcements System 21532 1.2.1 2026-08-24T21-54Z cB3xB0qyh",
+      "relative_path": "r6/scripts/ReinforcementsSystem/ReinforcementSystem.reds",
+      "sha256": "b5851a3fad5cb88abb98394adbe05e6c00ccd6ec8a9cf8192c7989d481b4ef62",
+      "bytes": 21916
+    },
+    {
+      "mod_folder": "Reinforcements System 21532 1.2.1 2026-08-24T21-54Z cB3xB0qyh",
+      "relative_path": "r6/scripts/ReinforcementsSystem/Abilities/biomons.reds",
+      "sha256": "667951c78220521776c8ff64b10c1be6a53fb58a111e20c8dcd7ea270d705c8b",
+      "bytes": 5124
+    },
+    {
+      "mod_folder": "Reinforcements System 21532 1.2.1 2026-08-24T21-54Z cB3xB0qyh",
+      "relative_path": "r6/scripts/ReinforcementsSystem/TickSystem.reds",
+      "sha256": "b4cba6a9f59720e3cdba4b8e1d0c78980d4f77e0c409be74da55f7dd62f1659f",
+      "bytes": 15965
+    },
+    {
+      "mod_folder": "They Will Remember 19747 2.6.7 2026-09-19T23-09Z LACBAICha",
+      "relative_path": "r6/scripts/They_Will_Remember/Settings.reds",
+      "sha256": "0fb0407fe78788030b976c7965c5ea74a9183743bc43ba22c895f5711b2125be",
+      "bytes": 39938
+    },
+    {
+      "mod_folder": "They Will Remember 19747 2.6.7 2026-09-19T23-09Z LACBAICha",
+      "relative_path": "r6/scripts/They_Will_Remember/ReinforcementsStubs.reds",
+      "sha256": "16fc6a462f98b36891d99b7741ce36aa6d7712b1b69754d77328225dcd37368a",
+      "bytes": 4163
+    },
+    {
+      "mod_folder": "Combat Evolved 29125 4.16.8 2026-09-25T11-47Z HncQn2uME",
+      "relative_path": "r6/scripts/CombatEvolved/GBP_Config.reds",
+      "sha256": "500c871b88b5c07bb7faedd5389015611ce4bf9e0d57be8608fc7c66a361b19e",
+      "bytes": 14962
+    },
+    {
+      "mod_folder": "Combat Evolved 29125 4.16.8 2026-09-25T11-47Z HncQn2uME",
+      "relative_path": "r6/scripts/CombatEvolved/GBP_PlayerHP.reds",
+      "sha256": "9dbd90b4ac3abb2fbf20a94560f32daf5a8a81ae2784f38499837adc92195769",
+      "bytes": 3798
+    },
+    {
+      "mod_folder": "Combat Evolved 29125 4.16.8 2026-09-25T11-47Z HncQn2uME",
+      "relative_path": "r6/scripts/CombatEvolved/GBP_ChromeDist.reds",
+      "sha256": "43a267b707d527eb68ca0c17a962f25d706d44a5709ac3f32f5f2610f9a044d6",
+      "bytes": 2305
+    },
+    {
+      "mod_folder": "Combat-20225-1-4-3-1755242153",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Combat/init.lua",
+      "sha256": "49b4dc0663f9ca60a5a6d449c7f5e35ef34463448c97fb6fffb993e3d4754678",
+      "bytes": 866
+    },
+    {
+      "mod_folder": "Combat-20225-1-4-3-1755242153",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/Combat/Modules/No Shooting Delay.lua",
+      "sha256": "14fd983565945b9d192da8d1d72c129be3c9347a055408b37995c85d3b45ce2c",
+      "bytes": 1587
+    },
+    {
+      "mod_folder": "Sandevistan Enhanced-20953-1-0-0-1744552512",
+      "relative_path": "r6/tweaks/Sandevistan/Sandevistan/SandevistanVersusSandevistan.yaml",
+      "sha256": "54fac2b494a0f08da6314c9b7577165a1d8e536abd6cdf8ea0ee7097a95623be",
+      "bytes": 3219
+    },
+    {
+      "mod_folder": "Sandevistan Enhanced-20953-1-0-0-1744552512",
+      "relative_path": "r6/tweaks/Sandevistan/Sandevistan/SandevistanCondition.yaml",
+      "sha256": "08b63dc5e76b0cb4a873df51470e89233189a6b70dfcbe9f962354010ccce1a5",
+      "bytes": 2919
+    },
+    {
+      "mod_folder": "Time Dilation Overhaul 4931 2.35 2026-09-10T23-59Z YfTif7TMU",
+      "relative_path": "r6/scripts/EnemySandevistanRework/settings.reds",
+      "sha256": "80fa31fe148108d6d815ceac138e2c4cd41e6ef3c83e28af0e84b42e564d42f1",
+      "bytes": 5246
+    },
+    {
+      "mod_folder": "Time Dilation Overhaul 4931 2.35 2026-09-10T23-59Z YfTif7TMU",
+      "relative_path": "r6/scripts/EnemySandevistanRework/RecordLogicExtensions/wrappers.reds",
+      "sha256": "6647d9ff29b50845ff4cd70c4ef2813e83baf195e9debc3be2ad36e1d2054d3e",
+      "bytes": 8229
+    },
+    {
+      "mod_folder": "Time Dilation Overhaul 4931 2.35 2026-09-10T23-59Z YfTif7TMU",
+      "relative_path": "r6/scripts/EnemySandevistanRework/RecordLogicExtensions/sandevistanAdditionalFunctions.reds",
+      "sha256": "c77713ba5d31ed05b5b754b40ec7afae7fd704386f1227e0063a658f0934b38f",
+      "bytes": 9150
+    },
+    {
+      "mod_folder": "Time Dilation Overhaul 4931 2.35 2026-09-10T23-59Z YfTif7TMU",
+      "relative_path": "r6/scripts/TDO/Scanning/ScanningTimeDilation.reds",
+      "sha256": "6a32d368f63a076d8581cc8336ba9f83a10300d3f406d9a428b555460e8b26db",
+      "bytes": 9862
+    },
+    {
+      "mod_folder": "Enemy Rarity Fixes Improved 30958 1.2 2026-09-02T17-49Z aI50IA5my",
+      "relative_path": "r6/scripts/Enemy Rarity Fixes Improved/enemy_competitive_sandevistan.reds",
+      "sha256": "215b9fbc91cb74539b84d2ee3ac679a64f2e1ef5191f6d391ed306d791ea5461",
+      "bytes": 3811
+    },
+    {
+      "mod_folder": "Gunsensical Reloaded 30771 release-1.5.1 2026-09-02T09-09Z tvQTvsQmo",
+      "relative_path": "r6/scripts/zzz_GunsensicalReloaded/PerkChanges.reds",
+      "sha256": "1420bc51fca3d7b0d28b6a16fd521b4da5e9c69061ac7845859057205b27eeca",
+      "bytes": 965
+    },
+    {
+      "mod_folder": "Gunsensical Reloaded 30771 release-1.5.1 2026-09-02T09-09Z tvQTvsQmo",
+      "relative_path": "r6/tweaks/zzz_GunsensicalReloaded/perks/body_new_perks.tweak",
+      "sha256": "637375f9fe69513ad213db99cb15bf18f287d234eb1f0184eed01ed2f82154f0",
+      "bytes": 2580
+    },
+    {
+      "mod_folder": "Gunsensical Reloaded 30771 release-1.5.1 2026-09-02T09-09Z tvQTvsQmo",
+      "relative_path": "r6/tweaks/zzz_GunsensicalReloaded/perks/reflexes_new_perks.tweak",
+      "sha256": "e12064d83c7f2d9d4da161b3f675dbb48b0dd77be7347666e020da1e5a1a998d",
+      "bytes": 2141
+    },
+    {
+      "mod_folder": "Harder Gunfights-14544-0-1-1714887560",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/HarderGunfights/init.lua",
+      "sha256": "48975c3dd21d3922f6a6df273844364a11860b36f1cf0fbc6ffdb0c38cf54470",
+      "bytes": 1599
+    },
+    {
+      "mod_folder": "No Shooting Delay-15559-1-2-fix-1751896989",
+      "relative_path": "bin/x64/plugins/cyber_engine_tweaks/mods/NoShootingDelay/init.lua",
+      "sha256": "af7a9f231931eb2bc4f876418132eff72c075bac873238eb5a94d048ce70d9e9",
+      "bytes": 8607
+    },
+    {
+      "mod_folder": "More Levels 1.3.0-22768-1-3-0-1753401397",
+      "relative_path": "r6/scripts/MoreLevels/Settings.reds",
+      "sha256": "9221a6532b3a3447446304eb95708f0661f9a1f58ee490fc9df905b46e54f830",
+      "bytes": 11902
+    },
+    {
+      "mod_folder": "More Levels 1.3.0-22768-1-3-0-1753401397",
+      "relative_path": "r6/scripts/MoreLevels/MoreLevels.reds",
+      "sha256": "a4016d83c53bf3ccf587d25c15d9f24e0900750501568c603faa98eac8406731",
+      "bytes": 8541
+    }
+  ]
+}

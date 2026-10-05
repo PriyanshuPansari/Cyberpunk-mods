@@ -1,0 +1,572 @@
+# Private package copies owned by the mod. Source IDs are recorded in ShardPackageSources.generated.reds.
+# Package-free ranks use the perk-rank adapter; Chrome rank 3 also uses ShardChrome.reds.
+
+SkillDrivenProgression.SDPAdrenalineG1E1:
+  $base: NewPerks.Body_Central_Milestone_1_inline1
+
+SkillDrivenProgression.SDPAdrenalineG2E1:
+  $base: NewPerks.Body_Central_Milestone_3_inline2
+
+SkillDrivenProgression.SDPAdrenalineG3E1:
+  $base: NewPerks.Body_Central_Perk_1_1_inline2
+
+SkillDrivenProgression.SDPAdrenalineG3E2:
+  $base: NewPerks.Body_Central_Perk_1_2_inline2
+
+SkillDrivenProgression.SDPAdrenalineG4E1:
+  $base: NewPerks.Body_Central_Milestone_3_inline6
+
+SkillDrivenProgression.SDPAdrenalineG5E1:
+  $base: NewPerks.Body_Central_Milestone_3_inline10
+
+SkillDrivenProgression.SDPAdrenalineG6E1:
+  $base: NewPerks.Body_Central_Perk_1_4_inline2
+
+SkillDrivenProgression.SDPAdrenalineG7E1:
+  $base: NewPerks.Body_Central_Perk_1_3_inline2
+
+SkillDrivenProgression.SDPAdrenalineG8E1:
+  $base: NewPerks.Body_Central_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPAdrenalineG8E2:
+  $base: NewPerks.Body_Inbetween_Left_3_inline2
+
+SkillDrivenProgression.SDPAdrenalineG9E1:
+  $base: NewPerks.Body_Central_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPAdrenalineG10E1:
+  $base: NewPerks.Body_Central_Perk_3_4_inline1
+
+SkillDrivenProgression.SDPAdrenalineG11E1:
+  $base: NewPerks.Body_Master_Perk_3_inline2
+
+SkillDrivenProgression.SDPObliterationG1E1:
+  $base: NewPerks.Body_Left_Milestone_2_inline2
+
+SkillDrivenProgression.SDPObliterationG2E1:
+  $base: NewPerks.Body_Left_Milestone_2_inline8
+
+SkillDrivenProgression.SDPObliterationG3E1:
+  $base: NewPerks.Body_Left_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPObliterationG3E2:
+  $base: NewPerks.Body_Left_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPObliterationG4E1:
+  $base: NewPerks.Body_Left_Milestone_3_inline2
+
+SkillDrivenProgression.SDPObliterationG5E1:
+  $base: NewPerks.Body_Left_Milestone_3_inline16
+
+SkillDrivenProgression.SDPObliterationG6E1:
+  $base: NewPerks.Body_Left_Milestone_3_inline8
+
+SkillDrivenProgression.SDPObliterationG6E2:
+  $base: NewPerks.Body_Left_Perk_2_3_inline2
+
+SkillDrivenProgression.SDPObliterationG7E1:
+  $base: NewPerks.Body_Left_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPObliterationG8E1:
+  $base: NewPerks.Body_Left_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPObliterationG9E1:
+  $base: NewPerks.Body_Left_Perk_3_3_inline2
+
+SkillDrivenProgression.SDPObliterationG10E1:
+  $base: NewPerks.Body_Left_Perk_3_4_inline2
+
+SkillDrivenProgression.SDPObliterationG11E1:
+  $base: NewPerks.Body_Master_Perk_1_inline2
+
+SkillDrivenProgression.SDPObliterationG11E2:
+  $base: NewPerks.Body_Master_Perk_2_inline2
+
+SkillDrivenProgression.SDPQuakeG1E1:
+  $base: NewPerks.Body_Right_Milestone_2_inline2
+
+SkillDrivenProgression.SDPQuakeG2E1:
+  $base: NewPerks.Body_Right_Milestone_2_inline12
+
+SkillDrivenProgression.SDPQuakeG3E1:
+  $base: NewPerks.Body_Right_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPQuakeG3E2:
+  $base: NewPerks.Body_Right_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPQuakeG4E1:
+  $base: NewPerks.Body_Right_Perk_2_3_inline2
+
+SkillDrivenProgression.SDPQuakeG5E1:
+  $base: NewPerks.Body_Right_Milestone_3_inline18
+
+SkillDrivenProgression.SDPQuakeG6E1:
+  $base: NewPerks.Body_Right_Milestone_3_inline2
+
+SkillDrivenProgression.SDPQuakeG6E2:
+  $base: NewPerks.Body_Right_Milestone_3_inline13
+
+SkillDrivenProgression.SDPQuakeG7E1:
+  $base: NewPerks.Body_Right_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPQuakeG8E1:
+  $base: NewPerks.Body_Right_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPQuakeG10E1:
+  $base: NewPerks.Body_Inbetween_Right_3_inline2
+
+SkillDrivenProgression.SDPQuakeG11E1:
+  $base: NewPerks.Body_Master_Perk_5_inline2
+
+SkillDrivenProgression.SDPAirDashG1E1:
+  $base: NewPerks.Reflexes_Central_Milestone_1_inline1
+
+SkillDrivenProgression.SDPAirDashG2E1:
+  $base: NewPerks.Reflexes_Central_Milestone_2_inline7
+
+SkillDrivenProgression.SDPAirDashG3E1:
+  $base: NewPerks.Reflexes_Central_Milestone_2_inline2
+
+SkillDrivenProgression.SDPAirDashG3E2:
+  $base: NewPerks.Reflexes_Central_Perk_1_1_inline1
+
+SkillDrivenProgression.SDPAirDashG4E1:
+  $base: NewPerks.Reflexes_Central_Perk_1_2_inline1
+
+SkillDrivenProgression.SDPAirDashG4E2:
+  $base: NewPerks.Reflexes_Central_Perk_1_3_inline1
+
+SkillDrivenProgression.SDPAirDashG5E1:
+  $base: NewPerks.Reflexes_Central_Milestone_3_inline13
+
+SkillDrivenProgression.SDPAirDashG6E1:
+  $base: NewPerks.Reflexes_Central_Milestone_3_inline2
+
+SkillDrivenProgression.SDPAirDashG6E2:
+  $base: NewPerks.Reflexes_Central_Milestone_3_inline8
+
+SkillDrivenProgression.SDPAirDashG7E1:
+  $base: NewPerks.Reflexes_Central_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPAirDashG7E2:
+  $base: NewPerks.Reflexes_Central_Perk_2_3_inline2
+
+SkillDrivenProgression.SDPAirDashG8E1:
+  $base: NewPerks.Reflexes_Central_Perk_2_4_inline1
+
+SkillDrivenProgression.SDPAirDashG8E2:
+  $base: NewPerks.Reflexes_Central_Perk_1_4_inline1
+
+SkillDrivenProgression.SDPAirDashG9E1:
+  $base: NewPerks.Reflexes_Central_Perk_3_2_inline1
+
+SkillDrivenProgression.SDPAirDashG9E2:
+  $base: NewPerks.Reflexes_Central_Perk_3_3_inline2
+
+SkillDrivenProgression.SDPAirDashG10E1:
+  $base: NewPerks.Reflexes_Central_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPAirDashG11E1:
+  $base: NewPerks.Reflexes_Master_Perk_3_inline2
+
+SkillDrivenProgression.SDPSharpshooterG1E1:
+  $base: NewPerks.Reflexes_Left_Milestone_2_inline2
+
+SkillDrivenProgression.SDPSharpshooterG2E1:
+  $base: NewPerks.Reflexes_Left_Milestone_2_inline9
+
+SkillDrivenProgression.SDPSharpshooterG3E1:
+  $base: NewPerks.Reflexes_Left_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPSharpshooterG3E2:
+  $base: NewPerks.Reflexes_Left_Perk_2_3_inline2
+
+SkillDrivenProgression.SDPSharpshooterG4E1:
+  $base: NewPerks.Reflexes_Left_Milestone_3_inline2
+
+SkillDrivenProgression.SDPSharpshooterG5E1:
+  $base: NewPerks.Reflexes_Left_Milestone_3_inline21
+
+SkillDrivenProgression.SDPSharpshooterG6E1:
+  $base: NewPerks.Reflexes_Left_Milestone_3_inline10
+
+SkillDrivenProgression.SDPSharpshooterG6E2:
+  $base: NewPerks.Reflexes_Left_Perk_3_3_inline2
+
+SkillDrivenProgression.SDPSharpshooterG7E1:
+  $base: NewPerks.Reflexes_Left_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPSharpshooterG7E2:
+  $base: NewPerks.Reflexes_Left_Perk_3_1_inline1
+
+SkillDrivenProgression.SDPSharpshooterG8E1:
+  $base: NewPerks.Reflexes_Left_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPSharpshooterG8E2:
+  $base: NewPerks.Reflexes_Inbetween_Left_3_inline1
+
+SkillDrivenProgression.SDPSharpshooterG9E1:
+  $base: NewPerks.Reflexes_Left_Perk_3_4_inline2
+
+SkillDrivenProgression.SDPSharpshooterG10E1:
+  $base: NewPerks.Reflexes_Master_Perk_2_inline2
+
+SkillDrivenProgression.SDPSharpshooterG11E1:
+  $base: NewPerks.Reflexes_Master_Perk_1_inline2
+
+SkillDrivenProgression.SDPBladeRunnerG1E1:
+  $base: NewPerks.Reflexes_Right_Milestone_2_inline2
+
+SkillDrivenProgression.SDPBladeRunnerG2E1:
+  $base: NewPerks.Reflexes_Right_Milestone_2_inline19
+
+SkillDrivenProgression.SDPBladeRunnerG3E1:
+  $base: NewPerks.Reflexes_Right_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPBladeRunnerG3E2:
+  $base: NewPerks.Reflexes_Right_Perk_2_2_inline1
+
+SkillDrivenProgression.SDPBladeRunnerG4E1:
+  $base: NewPerks.Reflexes_Right_Perk_2_3_inline1
+
+SkillDrivenProgression.SDPBladeRunnerG5E1:
+  $base: NewPerks.Reflexes_Right_Milestone_3_inline18
+
+SkillDrivenProgression.SDPBladeRunnerG6E1:
+  $base: NewPerks.Reflexes_Right_Milestone_3_inline2
+
+SkillDrivenProgression.SDPBladeRunnerG6E2:
+  $base: NewPerks.Reflexes_Right_Milestone_3_inline12
+
+SkillDrivenProgression.SDPBladeRunnerG7E1:
+  $base: NewPerks.Reflexes_Inbetween_Right_2_inline2
+
+SkillDrivenProgression.SDPBladeRunnerG8E1:
+  $base: NewPerks.Reflexes_Right_Perk_3_3_inline1
+
+SkillDrivenProgression.SDPBladeRunnerG9E1:
+  $base: NewPerks.Reflexes_Right_Perk_3_4_inline1
+
+SkillDrivenProgression.SDPBladeRunnerG10E1:
+  $base: NewPerks.Reflexes_Right_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPBladeRunnerG11E1:
+  $base: NewPerks.Reflexes_Master_Perk_5_inline2
+
+SkillDrivenProgression.SDPChromeG1E1:
+  $base: NewPerks.Tech_Central_Milestone_2_inline2
+
+SkillDrivenProgression.SDPChromeG2E1:
+  $base: NewPerks.Tech_Central_Milestone_2_inline8
+
+SkillDrivenProgression.SDPChromeG3E1:
+  $base: NewPerks.Tech_Central_Perk_2_1_inline1
+
+SkillDrivenProgression.SDPChromeG4E1:
+  $base: NewPerks.Tech_Central_Milestone_3_inline2
+
+SkillDrivenProgression.SDPChromeG6E1:
+  $base: NewPerks.Tech_Central_Milestone_3_inline8
+
+SkillDrivenProgression.SDPChromeG6E2:
+  $base: NewPerks.Tech_Central_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPChromeG9E1:
+  $base: NewPerks.Tech_Central_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPChromeG10E1:
+  $base: NewPerks.Tech_Central_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPChromeG10E2:
+  $base: NewPerks.Tech_Central_Perk_3_4_inline2
+
+SkillDrivenProgression.SDPChromeG11E1:
+  $base: NewPerks.Tech_Master_Perk_3_inline2
+
+SkillDrivenProgression.SDPPyromaniaG1E1:
+  $base: NewPerks.Tech_Left_Milestone_1_inline2
+
+SkillDrivenProgression.SDPPyromaniaG2E1:
+  $base: NewPerks.Tech_Left_Milestone_2_inline2
+
+SkillDrivenProgression.SDPPyromaniaG2E2:
+  $base: NewPerks.Tech_Left_Perk_1_2_inline2
+
+SkillDrivenProgression.SDPPyromaniaG3E1:
+  $base: NewPerks.Tech_Left_Milestone_2_inline9
+
+SkillDrivenProgression.SDPPyromaniaG3E2:
+  $base: NewPerks.Tech_Left_Perk_1_1_inline2
+
+SkillDrivenProgression.SDPPyromaniaG4E1:
+  $base: NewPerks.Tech_Left_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPPyromaniaG4E2:
+  $base: NewPerks.Tech_Left_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPPyromaniaG5E1:
+  $base: NewPerks.Tech_Left_Milestone_3_inline15
+
+SkillDrivenProgression.SDPPyromaniaG6E1:
+  $base: NewPerks.Tech_Left_Milestone_3_inline2
+
+SkillDrivenProgression.SDPPyromaniaG6E2:
+  $base: NewPerks.Tech_Left_Milestone_3_inline9
+
+SkillDrivenProgression.SDPPyromaniaG7E1:
+  $base: NewPerks.Tech_Left_Perk_3_01_inline2
+
+SkillDrivenProgression.SDPPyromaniaG7E2:
+  $base: NewPerks.Tech_Inbetween_Left_3_inline2
+
+SkillDrivenProgression.SDPPyromaniaG8E1:
+  $base: NewPerks.Tech_Left_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPPyromaniaG9E1:
+  $base: NewPerks.Tech_Left_Perk_3_4_inline2
+
+SkillDrivenProgression.SDPPyromaniaG9E2:
+  $base: NewPerks.Tech_Left_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPPyromaniaG10E1:
+  $base: NewPerks.Tech_Left_Perk_3_3_inline2
+
+SkillDrivenProgression.SDPPyromaniaG11E1:
+  $base: NewPerks.Tech_Master_Perk_2_inline2
+
+SkillDrivenProgression.SDPBoltG1E1:
+  $base: NewPerks.Tech_Right_Milestone_3_inline2
+
+SkillDrivenProgression.SDPBoltG2E1:
+  $base: NewPerks.Tech_Right_Milestone_3_inline8
+
+SkillDrivenProgression.SDPBoltG3E1:
+  $base: NewPerks.Tech_Right_Perk_3_1_inline1
+
+SkillDrivenProgression.SDPBoltG5E1:
+  $base: NewPerks.Tech_Right_Milestone_3_inline14
+
+SkillDrivenProgression.SDPBoltG6E1:
+  $base: NewPerks.Tech_Right_Perk_3_2_inline1
+
+SkillDrivenProgression.SDPBoltG7E1:
+  $base: NewPerks.Tech_Right_Perk_3_3_inline1
+
+SkillDrivenProgression.SDPBoltG8E1:
+  $base: NewPerks.Tech_Right_Perk_3_4_inline2
+
+SkillDrivenProgression.SDPBoltG11E1:
+  $base: NewPerks.Tech_Master_Perk_5_inline2
+
+SkillDrivenProgression.SDPOverclockG1E1:
+  $base: NewPerks.Intelligence_Central_Milestone_1_inline2
+
+SkillDrivenProgression.SDPOverclockG2E1:
+  $base: NewPerks.Intelligence_Central_Milestone_2_inline2
+
+SkillDrivenProgression.SDPOverclockG2E2:
+  $base: NewPerks.Intelligence_Central_Perk_1_1_inline2
+
+SkillDrivenProgression.SDPOverclockG3E1:
+  $base: NewPerks.Intelligence_Central_Milestone_2_inline6
+
+SkillDrivenProgression.SDPOverclockG3E2:
+  $base: NewPerks.Intelligence_Central_Perk_1_2_inline2
+
+SkillDrivenProgression.SDPOverclockG4E2:
+  $base: NewPerks.Intelligence_Central_Perk_1_3_inline2
+
+SkillDrivenProgression.SDPOverclockG5E1:
+  $base: NewPerks.Intelligence_Central_Milestone_3_inline10
+
+SkillDrivenProgression.SDPOverclockG6E1:
+  $base: NewPerks.Intelligence_Central_Milestone_3_inline2
+
+SkillDrivenProgression.SDPOverclockG6E2:
+  $base: NewPerks.Intelligence_Central_Milestone_3_inline6
+
+SkillDrivenProgression.SDPOverclockG7E1:
+  $base: NewPerks.Intelligence_Central_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPOverclockG7E2:
+  $base: NewPerks.Intelligence_Central_Perk_2_3_inline2
+
+SkillDrivenProgression.SDPOverclockG8E1:
+  $base: NewPerks.Intelligence_Central_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPOverclockG8E2:
+  $base: NewPerks.Intelligence_Inbetween_Left_3_inline2
+
+SkillDrivenProgression.SDPOverclockG9E1:
+  $base: NewPerks.Intelligence_Central_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPOverclockG9E2:
+  $base: NewPerks.Intelligence_Central_Perk_3_3_inline2
+
+SkillDrivenProgression.SDPOverclockG10E1:
+  $base: NewPerks.Intelligence_Central_Perk_3_2_inline1
+
+SkillDrivenProgression.SDPOverclockG11E1:
+  $base: NewPerks.Intelligence_Master_Perk_3_inline2
+
+SkillDrivenProgression.SDPHackQueueG1E1:
+  $base: NewPerks.Intelligence_Left_Milestone_2_inline6
+
+SkillDrivenProgression.SDPHackQueueG2E1:
+  $base: NewPerks.Intelligence_Left_Milestone_2_inline2
+
+SkillDrivenProgression.SDPHackQueueG2E2:
+  $base: NewPerks.Intelligence_Left_Milestone_1_inline2
+
+SkillDrivenProgression.SDPHackQueueG3E2:
+  $base: NewPerks.Intelligence_Left_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPHackQueueG4E1:
+  $base: NewPerks.Intelligence_Left_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPHackQueueG5E1:
+  $base: NewPerks.Intelligence_Left_Milestone_3_inline10
+
+SkillDrivenProgression.SDPHackQueueG6E1:
+  $base: NewPerks.Intelligence_Left_Milestone_3_inline2
+
+SkillDrivenProgression.SDPHackQueueG6E2:
+  $base: NewPerks.Intelligence_Left_Milestone_3_inline6
+
+SkillDrivenProgression.SDPHackQueueG7E1:
+  $base: NewPerks.Intelligence_Left_Perk_1_1_inline2
+
+SkillDrivenProgression.SDPHackQueueG7E2:
+  $base: NewPerks.Intelligence_Left_Perk_1_2_inline2
+
+SkillDrivenProgression.SDPHackQueueG8E1:
+  $base: NewPerks.Intelligence_Left_Perk_2_3_inline1
+
+SkillDrivenProgression.SDPHackQueueG8E2:
+  $base: NewPerks.Intelligence_Left_Perk_2_1_inline2
+
+SkillDrivenProgression.SDPHackQueueG9E1:
+  $base: NewPerks.Intelligence_Inbetween_Left_2_inline2
+
+SkillDrivenProgression.SDPHackQueueG10E1:
+  $base: NewPerks.Intelligence_Left_Perk_3_4_inline1
+
+SkillDrivenProgression.SDPHackQueueG11E1:
+  $base: NewPerks.Intelligence_Master_Perk_1_inline2
+
+SkillDrivenProgression.SDPSmartLockG1E1:
+  $base: NewPerks.Intelligence_Right_Milestone_2_inline2
+
+SkillDrivenProgression.SDPSmartLockG2E1:
+  $base: NewPerks.Intelligence_Right_Milestone_2_inline15
+
+SkillDrivenProgression.SDPSmartLockG3E1:
+  $base: NewPerks.Intelligence_Right_Perk_2_1_inline1
+
+SkillDrivenProgression.SDPSmartLockG4E1:
+  $base: NewPerks.Intelligence_Right_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPSmartLockG5E1:
+  $base: NewPerks.Intelligence_Right_Milestone_3_inline14
+
+SkillDrivenProgression.SDPSmartLockG6E1:
+  $base: NewPerks.Intelligence_Right_Milestone_3_inline2
+
+SkillDrivenProgression.SDPSmartLockG7E1:
+  $base: NewPerks.Intelligence_Right_Milestone_3_inline19
+
+SkillDrivenProgression.SDPSmartLockG8E1:
+  $base: NewPerks.Intelligence_Inbetween_Right_2_inline2
+
+SkillDrivenProgression.SDPSmartLockG9E1:
+  $base: NewPerks.Intelligence_Right_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPSmartLockG10E1:
+  $base: NewPerks.Intelligence_Master_Perk_4_inline2
+
+SkillDrivenProgression.SDPSmartLockG11E1:
+  $base: NewPerks.Intelligence_Right_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPNinjutsuG1E1:
+  $base: NewPerks.Cool_Central_Milestone_1_inline2
+
+SkillDrivenProgression.SDPNinjutsuG2E1:
+  $base: NewPerks.Cool_Central_Milestone_3_inline2
+
+SkillDrivenProgression.SDPNinjutsuG3E1:
+  $base: NewPerks.Cool_Central_Perk_1_1_inline2
+
+SkillDrivenProgression.SDPNinjutsuG4E1:
+  $base: NewPerks.Cool_Central_Milestone_3_inline8
+
+SkillDrivenProgression.SDPNinjutsuG6E1:
+  $base: NewPerks.Cool_Central_Perk_1_2_inline2
+
+SkillDrivenProgression.SDPNinjutsuG7E1:
+  $base: NewPerks.Cool_Central_Perk_1_4_inline1
+
+SkillDrivenProgression.SDPNinjutsuG8E1:
+  $base: NewPerks.Cool_Central_Perk_3_1_inline2
+
+SkillDrivenProgression.SDPNinjutsuG10E1:
+  $base: NewPerks.Cool_Inbetween_Left_3_inline1
+
+SkillDrivenProgression.SDPNinjutsuG11E1:
+  $base: NewPerks.Cool_Central_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPJugglerG1E1:
+  $base: NewPerks.Cool_Right_Milestone_1_inline2
+
+SkillDrivenProgression.SDPJugglerG2E1:
+  $base: NewPerks.Cool_Right_Milestone_2_inline2
+
+SkillDrivenProgression.SDPJugglerG2E2:
+  $base: NewPerks.Cool_Right_Perk_1_1_inline1
+
+SkillDrivenProgression.SDPJugglerG3E1:
+  $base: NewPerks.Cool_Right_Milestone_2_inline8
+
+SkillDrivenProgression.SDPJugglerG4E1:
+  $base: NewPerks.Cool_Right_Perk_2_2_inline2
+
+SkillDrivenProgression.SDPJugglerG4E2:
+  $base: NewPerks.Cool_Right_Perk_2_3_inline1
+
+SkillDrivenProgression.SDPJugglerG5E1:
+  $base: NewPerks.Cool_Right_Milestone_3_inline14
+
+SkillDrivenProgression.SDPJugglerG6E1:
+  $base: NewPerks.Cool_Right_Milestone_3_inline2
+
+SkillDrivenProgression.SDPJugglerG6E2:
+  $base: NewPerks.Cool_Right_Milestone_3_inline8
+
+SkillDrivenProgression.SDPJugglerG7E1:
+  $base: NewPerks.Cool_Right_Perk_2_4_inline2
+
+SkillDrivenProgression.SDPJugglerG7E2:
+  $base: NewPerks.Cool_Right_Perk_1_2_inline2
+
+SkillDrivenProgression.SDPJugglerG9E1:
+  $base: NewPerks.Cool_Right_Perk_3_2_inline2
+
+SkillDrivenProgression.SDPJugglerG10E1:
+  $base: NewPerks.Cool_Inbetween_Right_3_inline1
+
+SkillDrivenProgression.SDPJugglerG11E1:
+  $base: NewPerks.Cool_Master_Perk_4_inline1
+
+SkillDrivenProgression.SDPVehicleG1E1:
+  $base: NewPerks.Body_Right_Milestone_1_inline2
+
+SkillDrivenProgression.SDPVehicleG1E2:
+  $base: NewPerks.Cool_Left_Milestone_1_inline2
+
+SkillDrivenProgression.SDPVehicleG1E3:
+  $base: NewPerks.Intelligence_Right_Milestone_1_inline1
+
+SkillDrivenProgression.SDPVehicleG1E4:
+  $base: NewPerks.Reflexes_Left_Milestone_1_inline2
+
+SkillDrivenProgression.SDPVehicleG1E5:
+  $base: NewPerks.Tech_Right_Milestone_1_inline2

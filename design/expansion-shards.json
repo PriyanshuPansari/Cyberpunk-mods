@@ -1,0 +1,14 @@
+{
+  "note": "Standalone single-grade Expansion shards (families 16-23). Each unlocks Cyberware-EX's extra slots for one body system (CyberwareEx.Customization module in CyberwareExSlots.reds); the Hands shard also stands in for Ambidextrous (vanilla extra Hands slot). Trained by combat time with that system's cyberware equipped.",
+  "threshold": 150,
+  "shards": [
+    {"family": 16, "name": "OS Expansion",               "area": "SystemReplacementCW",     "slots": 2, "use": "Sandevistan, Berserk or Overclock active"},
+    {"family": 17, "name": "Frontal Cortex Expansion",   "area": "FrontalCortexCW",         "slots": 2, "use": "uploading quickhacks"},
+    {"family": 18, "name": "Cardiovascular Expansion",   "area": "CardiovascularSystemCW",  "slots": 1, "use": "healing (Health items, Blood Pump)"},
+    {"family": 19, "name": "Nervous System Expansion",   "area": "NervousSystemCW",         "slots": 1, "use": "Kerenzikov active"},
+    {"family": 20, "name": "Integumentary Expansion",    "area": "IntegumentarySystemCW",   "slots": 2, "use": "Optical Camo active"},
+    {"family": 21, "name": "Arms Expansion",             "area": "ArmsCW",                  "slots": 1, "use": "hitting with cyberarms"},
+    {"family": 22, "name": "Hands Expansion",            "area": "HandsCW",                 "slots": 1, "use": "landing gun hits"},
+    {"family": 23, "name": "Legs Expansion",             "area": "LegsCW",                  "slots": 1, "use": "dashing, sliding, vaulting, double-jumping"}
+  ]
+}

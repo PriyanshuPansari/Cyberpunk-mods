@@ -1,0 +1,643 @@
+{
+  "targetActions": [
+    75,
+    80,
+    85,
+    90,
+    95,
+    100,
+    110,
+    120,
+    130,
+    140,
+    150
+  ],
+  "xpPerNewAction": 2,
+  "xpPerPriorAction": 1,
+  "deadeye": {
+    "name": "Deadeye",
+    "skill": "Headhunter",
+    "effects": [
+      "Focus: aim at full Stamina to enter Focus; shooting then costs no Stamina",
+      "Focus precision: more headshot and weakspot damage; Rinse and Reload: faster reload after aimed neutralization",
+      "Deep Breath: time slows during Focus; No Sweat: neutralizations reduce its ending Stamina cost",
+      "Head to Head: Focus refreshes after neutralization; Pull!: stronger airborne grenade shots",
+      "Deadeye: high Stamina improves precision damage and removes bullet spread",
+      "Deadeye precision: more headshot and weakspot damage; Long Shot: no damage falloff during Deadeye",
+      "Quick Draw: swaps restore Stamina; California Reaper: precision neutralizations restore Stamina",
+      "High Noon: precision neutralizations prime a faster slowed-time reload",
+      "Deadeye efficiency: shooting costs less Stamina",
+      "Run 'N' Gun: hip-fire costs no Stamina and Focus permits faster movement",
+      "Nerves of Tungsten-Steel: precision hits during Deadeye always crit and gain damage at range"
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "grade": 1,
+        "text": "Damage a hostile with a ranged hit during Focus"
+      },
+      {
+        "id": 2,
+        "grade": 2,
+        "text": "Land a damaging headshot"
+      },
+      {
+        "id": 3,
+        "grade": 2,
+        "text": "Land a damaging weakspot hit"
+      },
+      {
+        "id": 4,
+        "grade": 2,
+        "text": "Complete a same-weapon reload within 5 seconds of an aimed neutralization"
+      },
+      {
+        "id": 5,
+        "grade": 3,
+        "text": "Neutralize a hostile during Focus"
+      },
+      {
+        "id": 6,
+        "grade": 4,
+        "text": "Trigger Head to Head with a neutralization during Focus"
+      },
+      {
+        "id": 7,
+        "grade": 4,
+        "text": "Shoot an airborne grenade during Focus"
+      },
+      {
+        "id": 8,
+        "grade": 5,
+        "text": "Damage a hostile with a precision weapon during Deadeye"
+      },
+      {
+        "id": 9,
+        "grade": 6,
+        "text": "Land a precision hit from at least 25 m during Deadeye"
+      },
+      {
+        "id": 10,
+        "grade": 7,
+        "text": "Swap between different weapons in combat (5-second cooldown)"
+      },
+      {
+        "id": 11,
+        "grade": 7,
+        "text": "Neutralize a hostile with a precision weapon during Deadeye"
+      },
+      {
+        "id": 12,
+        "grade": 8,
+        "text": "Complete a reload after a precision neutralization during Deadeye"
+      },
+      {
+        "id": 13,
+        "grade": 9,
+        "text": "Damage a hostile with a precision weapon during Deadeye"
+      },
+      {
+        "id": 14,
+        "grade": 10,
+        "text": "Damage a hostile with a hip-fire hit"
+      },
+      {
+        "id": 15,
+        "grade": 11,
+        "text": "Land a critical headshot or weakspot hit during Deadeye"
+      }
+    ]
+  },
+  "families": [
+    {
+      "id": 1,
+      "name": "Adrenaline",
+      "skill": "Solo",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Survive a hit of at least 20 damage in combat"
+        },
+        {
+          "id": 2,
+          "grade": 3,
+          "text": "Survive a combat hit with under half Health remaining"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Survive a combat hit of at least 40 damage"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Survive at least 40 damage with under half Health remaining"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Survive a combat hit of at least 60 damage"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Survive a combat hit with under 30% Health remaining"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Obliteration",
+      "skill": "Solo",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a shotgun or LMG"
+        },
+        {
+          "id": 2,
+          "grade": 5,
+          "text": "Neutralize one within 8 m with a shotgun or LMG"
+        },
+        {
+          "id": 3,
+          "grade": 2,
+          "text": "Land a shotgun or LMG headshot or weakspot hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Land a shotgun or LMG critical hit"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Damage a hostile within 5 m with a shotgun or LMG"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile within 5 m with a shotgun or LMG"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Quake",
+      "skill": "Solo",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a blunt weapon"
+        },
+        {
+          "id": 2,
+          "grade": 2,
+          "text": "Force a knockdown with a blunt hit"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Neutralize a hostile with a blunt weapon"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Land a critical blunt hit"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Land a critical blunt neutralization"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a blunt hit within 5 m"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Air Dash",
+      "skill": "Shinobi",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Dash during combat"
+        },
+        {
+          "id": 2,
+          "grade": 5,
+          "text": "Air dash during combat"
+        },
+        {
+          "id": 3,
+          "grade": 2,
+          "text": "Land a precision hit shortly after a ground dash"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Land a precision hit shortly after an air dash"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Neutralize a hostile shortly after an air dash"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Land a critical hit shortly after an air dash"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sharpshooter",
+      "skill": "Shinobi",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with an assault rifle or SMG"
+        },
+        {
+          "id": 2,
+          "grade": 2,
+          "text": "Add a headshot or weakspot hit with that weapon"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Land a critical assault rifle or SMG hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Damage a hostile from at least 25 m with an assault rifle or SMG"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Neutralize with an assault rifle or SMG headshot or weakspot hit"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Land a critical precision assault rifle or SMG hit"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Blade Runner",
+      "skill": "Shinobi",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a blade"
+        },
+        {
+          "id": 2,
+          "grade": 5,
+          "text": "Neutralize a hostile with a blade"
+        },
+        {
+          "id": 3,
+          "grade": 2,
+          "text": "Land a critical blade hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Damage a hostile with a stealth blade hit"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Neutralize a hostile with a critical blade hit"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a blade within 5 m"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Chrome",
+      "skill": "Engineer",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a cyberarm"
+        },
+        {
+          "id": 2,
+          "grade": 3,
+          "text": "Neutralize a hostile with a cyberarm"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Land a critical cyberarm hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Damage a hostile with the Projectile Launch System"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Deal at least 100 damage to a hostile with a cyberarm"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a critical cyberarm hit"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Pyromania",
+      "skill": "Engineer",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with an explosion"
+        },
+        {
+          "id": 2,
+          "grade": 3,
+          "text": "Neutralize a hostile with an explosion"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Deal at least 100 explosion damage to a hostile"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Damage a hostile with an explosion from at least 15 m away"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Deal at least 200 explosion damage to a hostile"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with an explosion dealing at least 100 damage"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Bolt",
+      "skill": "Engineer",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a fully charged Tech shot"
+        },
+        {
+          "id": 2,
+          "grade": 9,
+          "text": "Add a headshot or weakspot hit with that shot"
+        },
+        {
+          "id": 3,
+          "grade": 3,
+          "text": "Land a critical fully charged Tech shot"
+        },
+        {
+          "id": 4,
+          "grade": 5,
+          "text": "Neutralize a hostile with a fully charged Tech shot"
+        },
+        {
+          "id": 5,
+          "grade": 7,
+          "text": "Damage a hostile from at least 25 m with a fully charged Tech shot"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Land a critical precision fully charged Tech shot"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Overclock",
+      "skill": "Netrunner",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a quickhack"
+        },
+        {
+          "id": 2,
+          "grade": 3,
+          "text": "Deal at least 50 damage to a hostile with a quickhack"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Neutralize a hostile with a quickhack"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Deal at least 100 damage to a hostile with a quickhack"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Deal at least 150 damage to a hostile with a quickhack"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a quickhack dealing at least 100 damage"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Hack Queue",
+      "skill": "Netrunner",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Queue a second quickhack on a hostile"
+        },
+        {
+          "id": 2,
+          "grade": 3,
+          "text": "Queue a third quickhack on a hostile"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Neutralize a hostile with a queued quickhack"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Queue a fourth quickhack on a hostile"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Deal at least 100 damage with a queued quickhack"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a quickhack while at least three hacks are queued"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Smart Lock",
+      "skill": "Netrunner",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a Smart weapon"
+        },
+        {
+          "id": 2,
+          "grade": 2,
+          "text": "Add a headshot or weakspot hit with that weapon"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Land a critical Smart-weapon hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Damage a hostile from at least 25 m with a Smart weapon"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Neutralize a hostile with a Smart weapon"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a Smart-weapon headshot or weakspot hit"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Ninjutsu",
+      "skill": "Headhunter",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Neutralize a hostile with a stealth hit"
+        },
+        {
+          "id": 2,
+          "grade": 3,
+          "text": "Damage a hostile with a stealth hit"
+        },
+        {
+          "id": 3,
+          "grade": 5,
+          "text": "Land a stealth headshot or weakspot hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Neutralize a hostile with a ranged stealth hit"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Neutralize a hostile with a stealth hit from at least 25 m"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a critical stealth hit"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Juggler",
+      "skill": "Headhunter",
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a thrown knife or axe"
+        },
+        {
+          "id": 2,
+          "grade": 5,
+          "text": "Neutralize a hostile with that throw"
+        },
+        {
+          "id": 3,
+          "grade": 2,
+          "text": "Land a thrown knife or axe headshot or weakspot hit"
+        },
+        {
+          "id": 4,
+          "grade": 7,
+          "text": "Damage a hostile with a stealth knife or axe throw"
+        },
+        {
+          "id": 5,
+          "grade": 9,
+          "text": "Land a critical knife or axe throw"
+        },
+        {
+          "id": 6,
+          "grade": 11,
+          "text": "Neutralize a hostile with a precision knife or axe throw"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Vehicle",
+      "skill": null,
+      "sources": [
+        {
+          "id": 1,
+          "grade": 1,
+          "text": "Damage a hostile with a vehicle weapon"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Standalone grade effects where the proposed order has no vanilla package.
+SkillDrivenProgression.SDPChromeLuckyDay:
+  $type: GameplayLogicPackage
+  stats:
+    - $type: ConstantStatModifier
+      modifierType: Additive
+      statType: BaseStats.CraftingMaterialDropChance
+      value: 0.25
+
+SkillDrivenProgression.SDPSmartLockAccuracy:
+  $type: GameplayLogicPackage
+  stats:
+    - $type: ConstantStatModifier
+      modifierType: Additive
+      statType: BaseStats.SmartGunStartingAccuracy
+      value: 0.05
+
+SkillDrivenProgression.SDPSmartLockSpeed:
+  $type: GameplayLogicPackage
+  stats:
+    - $type: ConstantStatModifier
+      modifierType: Additive
+      statType: BaseStats.SmartGunTimeToMaxAccuracy
+      value: -0.05
+
+# Chrome Tier 4 (grade 7): replaces Ambidextrous, which moved to the Hands Expansion shard.
+SkillDrivenProgression.SDPChromeCalibration:
+  $type: GameplayLogicPackage
+  stats:
+    - $type: ConstantStatModifier
+      modifierType: Additive
+      statType: BaseStats.Humanity
+      value: 4

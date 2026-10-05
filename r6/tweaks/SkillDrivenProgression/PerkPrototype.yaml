@@ -1,0 +1,52 @@
+# Temporary Deadeye prototype effect. A private clone lets the prototype
+# remove its own package without touching a Deadeye perk bought on an old save.
+SkillDrivenProgression.DeadeyePrototypeTier1:
+  $base: NewPerks.Cool_Left_Milestone_3_inline3
+
+# Deadeye's second vanilla level, owned separately so removing an unfinished
+# Tier 1+ shard restores only the permanently recorded Tier 1 package.
+SkillDrivenProgression.DeadeyePrototypeTier1Plus:
+  $base: NewPerks.Cool_Left_Milestone_3_inline10
+
+# The new Focus chain keeps the two Tier 1+ deltas separately owned by the mod.
+SkillDrivenProgression.DeadeyeFocusPrecision:
+  $base: NewPerks.Cool_Left_Milestone_2_inline3
+
+SkillDrivenProgression.DeadeyeRinseAndReload:
+  $base: NewPerks.Cool_Left_Perk_2_2_inline2
+
+SkillDrivenProgression.DeadeyeNoSweat:
+  $base: NewPerks.Cool_Left_Perk_2_4_inline2
+
+SkillDrivenProgression.DeadeyeHeadToHead:
+  $base: NewPerks.Cool_Left_Perk_2_1_inline1
+
+SkillDrivenProgression.DeadeyePull:
+  $base: NewPerks.Cool_Left_Perk_2_3_inline1
+
+SkillDrivenProgression.DeadeyeMode:
+  $base: NewPerks.Cool_Left_Milestone_3_inline19
+
+SkillDrivenProgression.DeadeyePrecision:
+  $base: NewPerks.Cool_Left_Milestone_3_inline3
+
+SkillDrivenProgression.DeadeyeLongShot:
+  $base: NewPerks.Cool_Left_Perk_3_3_inline1
+
+SkillDrivenProgression.DeadeyeQuickDraw:
+  $base: NewPerks.Cool_Left_Perk_3_1_inline2
+
+SkillDrivenProgression.DeadeyeCaliforniaReaper:
+  $base: NewPerks.Cool_Left_Perk_3_4_inline2
+
+SkillDrivenProgression.DeadeyeHighNoon:
+  $base: NewPerks.Cool_Left_Perk_3_2_inline2
+
+SkillDrivenProgression.DeadeyeEfficiency:
+  $base: NewPerks.Cool_Left_Milestone_3_inline10
+
+SkillDrivenProgression.DeadeyeRunNGun:
+  $base: NewPerks.Cool_Master_Perk_2_inline2
+
+SkillDrivenProgression.DeadeyeNervesOfTungstenSteel:
+  $base: NewPerks.Cool_Master_Perk_1_inline2

@@ -1,0 +1,368 @@
+{
+  "thresholds": [
+    60,
+    110,
+    150,
+    210,
+    300,
+    430,
+    610,
+    870,
+    1260,
+    1830,
+    2730
+  ],
+  "vehicleThreshold": 150,
+  "note": "Training v2 channels (ShardChannels.reds). Each entry: [grade it applies from, text]. XP scales with enemy level/rarity and your level, like skill XP.",
+  "channels": {
+    "Deadeye": [
+      [
+        1,
+        "damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus)"
+      ],
+      [
+        2,
+        "headshots and weakspot hits x1.5"
+      ],
+      [
+        4,
+        "shooting airborne grenades"
+      ],
+      [
+        5,
+        "x1.5 during Deadeye"
+      ],
+      [
+        6,
+        "x1.25 from 25 m"
+      ],
+      [
+        7,
+        "weapon swaps in combat"
+      ]
+    ],
+    "Adrenaline": [
+      [
+        1,
+        "time in combat below full Health"
+      ],
+      [
+        1,
+        "Health lost to hits you survive"
+      ],
+      [
+        3,
+        "x1.5 while moving, x2 under half Health"
+      ],
+      [
+        5,
+        "Health items and Blood Pump in combat"
+      ],
+      [
+        5,
+        "Adrenaline absorbing damage"
+      ],
+      [
+        7,
+        "x each enemy within 20 m (up to 4)"
+      ],
+      [
+        9,
+        "absorbed Adrenaline x2"
+      ],
+      [
+        11,
+        "kills during Adrenaline Rush"
+      ]
+    ],
+    "Obliteration": [
+      [
+        1,
+        "shotgun, LMG and HMG damage"
+      ],
+      [
+        3,
+        "x1.5 within 8 m"
+      ],
+      [
+        4,
+        "x1.25 below half Stamina"
+      ],
+      [
+        5,
+        "up to x2 on wounded enemies"
+      ],
+      [
+        5,
+        "Obliterate kills"
+      ]
+    ],
+    "Quake": [
+      [
+        1,
+        "blunt weapon and fist damage"
+      ],
+      [
+        1,
+        "damage blocked with a blunt weapon"
+      ],
+      [
+        2,
+        "knockdowns"
+      ],
+      [
+        7,
+        "Strong Attacks x1.25"
+      ]
+    ],
+    "Air Dash": [
+      [
+        1,
+        "dashes, dodges, slides, vaults and climbs in combat"
+      ],
+      [
+        5,
+        "air dashes"
+      ],
+      [
+        7,
+        "hitting an enemy right after a dash"
+      ],
+      [
+        10,
+        "kills right after a dash"
+      ]
+    ],
+    "Sharpshooter": [
+      [
+        1,
+        "assault rifle and SMG damage"
+      ],
+      [
+        5,
+        "up to x1.5 for sustained fire on one target"
+      ],
+      [
+        7,
+        "x1.25 from 25 m"
+      ]
+    ],
+    "Blade Runner": [
+      [
+        1,
+        "blade damage"
+      ],
+      [
+        2,
+        "deflecting bullets"
+      ],
+      [
+        5,
+        "Blade finishers"
+      ],
+      [
+        7,
+        "Strong Attacks x1.25"
+      ],
+      [
+        11,
+        "x1.25 on Bleeding enemies"
+      ]
+    ],
+    "Chrome": [
+      [
+        1,
+        "Gorilla Arms, Mantis Blades and Projectile Launch System damage"
+      ],
+      [
+        1,
+        "combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active"
+      ],
+      [
+        7,
+        "Projectile Launch System x1.5"
+      ]
+    ],
+    "Pyromania": [
+      [
+        1,
+        "explosion damage"
+      ],
+      [
+        1,
+        "Health items used in combat"
+      ],
+      [
+        7,
+        "x1.25 from 15 m"
+      ]
+    ],
+    "Bolt": [
+      [
+        1,
+        "Tech weapon damage (charged shots x1.5)"
+      ],
+      [
+        5,
+        "timed Bolt shots x1.5"
+      ]
+    ],
+    "Overclock": [
+      [
+        1,
+        "quickhack damage"
+      ],
+      [
+        1,
+        "RAM spent on quickhacks"
+      ],
+      [
+        5,
+        "x2 during Overclock"
+      ]
+    ],
+    "Hack Queue": [
+      [
+        1,
+        "RAM of quickhacks queued behind another (3rd x1.5, 4th x2)"
+      ],
+      [
+        3,
+        "device, camera and Access Point hacks"
+      ],
+      [
+        9,
+        "Monowire damage"
+      ]
+    ],
+    "Smart Lock": [
+      [
+        1,
+        "Smart weapon damage"
+      ],
+      [
+        7,
+        "x1.25 from 25 m"
+      ]
+    ],
+    "Ninjutsu": [
+      [
+        1,
+        "time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it"
+      ],
+      [
+        1,
+        "stealth damage"
+      ],
+      [
+        5,
+        "crouch-sprinting x1.5"
+      ],
+      [
+        11,
+        "stealth kills"
+      ]
+    ],
+    "Juggler": [
+      [
+        1,
+        "thrown knife and axe damage"
+      ],
+      [
+        1,
+        "knife/axe melee and ranged stealth hits (half rate)"
+      ],
+      [
+        3,
+        "precise throws x1.5, Poisoned targets x1.25"
+      ]
+    ],
+    "Vehicle": [
+      [
+        1,
+        "vehicle weapon damage"
+      ]
+    ],
+    "OS Expansion": [
+      [
+        1,
+        "combat time with OS cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while Sandevistan, Berserk or Overclock active"
+      ]
+    ],
+    "Frontal Cortex Expansion": [
+      [
+        1,
+        "combat time with Frontal Cortex cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while uploading quickhacks"
+      ]
+    ],
+    "Cardiovascular Expansion": [
+      [
+        1,
+        "combat time with Cardiovascular cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while healing (Health items, Blood Pump)"
+      ]
+    ],
+    "Nervous System Expansion": [
+      [
+        1,
+        "combat time with Nervous System cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while Kerenzikov active"
+      ]
+    ],
+    "Integumentary Expansion": [
+      [
+        1,
+        "combat time with Integumentary cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while Optical Camo active"
+      ]
+    ],
+    "Arms Expansion": [
+      [
+        1,
+        "combat time with Arms cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while hitting with cyberarms"
+      ]
+    ],
+    "Hands Expansion": [
+      [
+        1,
+        "combat time with Hands cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while landing gun hits"
+      ]
+    ],
+    "Legs Expansion": [
+      [
+        1,
+        "combat time with Legs cyberware equipped (full rate with 2+ items)"
+      ],
+      [
+        1,
+        "x2 while dashing, sliding, vaulting, double-jumping"
+      ]
+    ]
+  },
+  "expansionThreshold": 150
+}
