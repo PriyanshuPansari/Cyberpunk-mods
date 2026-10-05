@@ -1,0 +1,49 @@
+# PowerLevel is what player Health, loot MaxQuality and ArmorEffectivenessMultiplier
+# read (and what enemies scale to). Vanilla derives it from Level through an
+# identity curve (player_levelToPowerLevel: 1->1 ... 60->60).
+# Replace that with 0.2 * (sum of the five skills): all skills 1 -> 1,
+# all skills 60 -> 60, and every single skill level adds 0.2 PowerLevel
+# (= +1 Health via player_powerLevelToHealth, 95 + 5*PL), no level steps.
+Character.Player_Primary_Stats_Base:
+  statModifiers:
+    - !remove Character.Player_Primary_Stats_Base_inline1
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.StrengthSkill
+      statType: BaseStats.PowerLevel
+      value: 0.2
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.ReflexesSkill
+      statType: BaseStats.PowerLevel
+      value: 0.2
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.TechnicalAbilitySkill
+      statType: BaseStats.PowerLevel
+      value: 0.2
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.IntelligenceSkill
+      statType: BaseStats.PowerLevel
+      value: 0.2
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.CoolSkill
+      statType: BaseStats.PowerLevel
+      value: 0.2

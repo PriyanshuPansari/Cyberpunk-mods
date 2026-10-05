@@ -1,0 +1,41 @@
+# Vanilla grants 3 Cyberware Capacity per character level through inline11.
+# Read the five skill levels directly instead: 1 capacity per skill level
+# (5 with all skills at 1, 300 with all at 60; vanilla is 3 and 180).
+# Native Settings "Capacity per skill level" adjusts this on top (default 1.0).
+Character.PlayerCyberwareSystem_inline11.refStat: BaseStats.StrengthSkill
+Character.PlayerCyberwareSystem_inline11.value: 1.0
+
+Character.PlayerCyberwareSystem:
+  statModifiers:
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.ReflexesSkill
+      statType: BaseStats.Humanity
+      value: 1.0
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.TechnicalAbilitySkill
+      statType: BaseStats.Humanity
+      value: 1.0
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.IntelligenceSkill
+      statType: BaseStats.Humanity
+      value: 1.0
+    - !append
+      $type: CombinedStatModifier
+      modifierType: Additive
+      opSymbol: '*'
+      refObject: Self
+      refStat: BaseStats.CoolSkill
+      statType: BaseStats.Humanity
+      value: 1.0

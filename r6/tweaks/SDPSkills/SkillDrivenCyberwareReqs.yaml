@@ -1,0 +1,523 @@
+# Cyberware attribute thresholds (equip requirements / gated bonuses) rewritten
+# to check the linked SKILL stat instead. Threshold = the lowest skill level
+# whose derived attribute (3 + 17*(skill-1)/59) meets the vanilla value, so
+# pass/fail is unchanged; tooltips now read e.g. 'Solo 33' instead of 'Body 12'
+# (the game names skill stats by their proficiency).
+# Generated from an in-game dump of all StatPrereq records on attributes.
+
+Items.AntiVirus_inline4:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 26
+  # was Intelligence >= 10
+Items.BerserkC1MK1_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 12
+  # was Strength >= 6
+Items.BerserkC1MK2_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 22
+  # was Strength >= 9
+Items.BerserkC1MK3_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.BerserkC2MK1_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 12
+  # was Strength >= 6
+Items.BerserkC2MK2_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 22
+  # was Strength >= 9
+Items.BerserkC2MK3_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.BerserkC2MK4_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 47
+  # was Strength >= 16
+Items.BerserkC3MK4_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 47
+  # was Strength >= 16
+Items.BerserkC3MK5_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 54
+  # was Strength >= 18
+Items.BerserkC4MK5_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 54
+  # was Strength >= 18
+Items.BioConductorsEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 43
+  # was Strength >= 15
+Items.BioConductorsLegendary_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 54
+  # was Strength >= 18
+Items.BioConductorsRare_inline3:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.BloodPumpEpic_inline8:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 36
+  # was Strength >= 13
+Items.BloodPumpLegendary_inline8:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 47
+  # was Strength >= 16
+Items.BloodPumpRare_inline8:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 26
+  # was Strength >= 10
+Items.BloodPumpUncommon_inline8:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 19
+  # was Strength >= 8
+Items.BrainCapacityBoosterEpic_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 40
+  # was Intelligence >= 14
+Items.BrainCapacityBoosterLegendary_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 54
+  # was Intelligence >= 18
+Items.BrainCapacityBoosterRare_inline3:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 26
+  # was Intelligence >= 10
+Items.CyberRotorsEpic_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 43
+  # was Reflexes >= 15
+Items.CyberRotorsLegendary_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.CyberRotorsRare_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.CyberRotorsUncommon_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 19
+  # was Reflexes >= 8
+Items.DenseMarrowEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 36
+  # was Strength >= 13
+Items.DischargeConnectorEpic_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 33
+  # was TechnicalAbility >= 12
+Items.DischargeConnectorLegendary_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 43
+  # was TechnicalAbility >= 15
+Items.DischargeConnectorRare_inline2:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 26
+  # was TechnicalAbility >= 10
+Items.ElectroshockMechanismEpic_inline0:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 33
+  # was Cool >= 12
+Items.ElectroshockMechanismLegendary_inline0:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 43
+  # was Cool >= 15
+Items.ElectroshockMechanismUncommon_inline0:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 19
+  # was Cool >= 8
+Items.EndoskeletonEpic_inline3:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 43
+  # was Strength >= 15
+Items.EndoskeletonLegendary_inline3:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 60
+  # was Strength >= 20
+Items.EndoskeletonRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.EndoskeletonUncommon_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 19
+  # was Strength >= 8
+Items.EnhancedBloodVesselsCommon_inline5:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 12
+  # was Strength >= 6
+Items.EnhancedBloodVesselsEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.EnhancedBloodVesselsLegendary_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 40
+  # was Strength >= 14
+Items.EnhancedBloodVesselsRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 26
+  # was Strength >= 10
+Items.EnhancedBloodVesselsUncommon_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 19
+  # was Strength >= 8
+Items.EnhancedTissueEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 43
+  # was Strength >= 15
+Items.EnhancedTissueLegendary_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 54
+  # was Strength >= 18
+Items.EnhancedTissueRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.EnhancedTissueUncommon_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 19
+  # was Strength >= 8
+Items.FastAccessMemoryCommon_inline3:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 19
+  # was Intelligence >= 8
+Items.FastAccessMemoryRare_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 33
+  # was Intelligence >= 12
+Items.FastAccessMemoryUncommon_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 26
+  # was Intelligence >= 10
+Items.FireproofSkin_inline4:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.GroundingPlating_inline5:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 33
+  # was TechnicalAbility >= 12
+Items.HealOnKillCommon_inline2:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 19
+  # was Reflexes >= 8
+Items.HealOnKillEpic_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 40
+  # was Reflexes >= 14
+Items.HealOnKillLegendary_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.HealOnKillUncommon_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 26
+  # was Reflexes >= 10
+Items.HealthMonitorEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 43
+  # was Strength >= 15
+Items.HealthMonitorLegendary_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 54
+  # was Strength >= 18
+Items.HealthMonitorRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.HealthMonitorUncommon_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 26
+  # was Strength >= 10
+Items.HeatUsingBooster_inline10:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 40
+  # was Cool >= 14
+Items.ImprovedPerceptionCommon_inline3:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 12
+  # was Intelligence >= 6
+Items.ImprovedPerceptionEpic_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 33
+  # was Intelligence >= 12
+Items.ImprovedPerceptionLegendary_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 47
+  # was Intelligence >= 16
+Items.ImprovedPerceptionUncommon_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 19
+  # was Intelligence >= 8
+Items.ImprovedReactionEpic_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.ImprovedReactionRare_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 40
+  # was Reflexes >= 14
+Items.ImprovedReactionUncommon_inline4:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 26
+  # was Reflexes >= 10
+Items.IronLungsCommon_inline3:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 19
+  # was Strength >= 8
+Items.IronLungsEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 40
+  # was Strength >= 14
+Items.IronLungsLegendary_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 47
+  # was Strength >= 16
+Items.IronLungsRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.IronLungsUncommon_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 26
+  # was Strength >= 10
+Items.JointLockEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.KerenzikovEpic_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 43
+  # was Reflexes >= 15
+Items.KerenzikovLegendary_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.KerenzikovRare_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.LimbicSystemEnhancementCommon_inline3:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 12
+  # was Intelligence >= 6
+Items.LimbicSystemEnhancementLegendary_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 43
+  # was Intelligence >= 15
+Items.LimbicSystemEnhancementRare_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 22
+  # was Intelligence >= 9
+Items.MemoryBoostCommon_inline4:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 15
+  # was Intelligence >= 7
+Items.MemoryBoostEpic_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 43
+  # was Intelligence >= 15
+Items.MemoryBoostRare_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 33
+  # was Intelligence >= 12
+Items.MemoryBoostUncommon_inline0:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 22
+  # was Intelligence >= 9
+Items.MemoryReplenishmentEpic_inline4:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 33
+  # was Intelligence >= 12
+Items.MemoryReplenishmentLegendary_inline4:
+  statType: BaseStats.IntelligenceSkill
+  valueToCheck: 47
+  # was Intelligence >= 16
+Items.MetalCoveredSkin_inline4:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 33
+  # was Strength >= 12
+Items.MicroGeneratorEpic_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 33
+  # was TechnicalAbility >= 12
+Items.MicroGeneratorLegendary_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 47
+  # was TechnicalAbility >= 16
+Items.MicroGeneratorRare_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 26
+  # was TechnicalAbility >= 10
+Items.MicroGeneratorUncommon_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 19
+  # was TechnicalAbility >= 8
+Items.MicroVibrationsGeneratorEpic_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 47
+  # was Reflexes >= 16
+Items.MicroVibrationsGeneratorRare_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.NeoFiberEpic_inline6:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 43
+  # was Reflexes >= 15
+Items.NeoFiberLegendary_inline6:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.NeoFiberRare_inline6:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.NervousSystemDischarge_inline3:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 40
+  # was Reflexes >= 14
+Items.PainReductor_inline3:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 47
+  # was Cool >= 16
+Items.ReflexRecorderLegendary_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.ReflexRecorderRare_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.ReflexRecorderUncommon_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 19
+  # was Reflexes >= 8
+Items.ResistancesBoosterEpic_inline0:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 33
+  # was Cool >= 12
+Items.ResistancesBoosterLegendary_inline0:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 43
+  # was Cool >= 15
+Items.ResistancesBoosterUncommon_inline0:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 19
+  # was Cool >= 8
+Items.ReverseMetabolicEnhancer_inline8:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 40
+  # was Cool >= 14
+Items.ReversePowerInductor_inline16:
+  statType: BaseStats.CoolSkill
+  valueToCheck: 33
+  # was Cool >= 12
+Items.RoboticCoreCommon_inline3:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 19
+  # was TechnicalAbility >= 8
+Items.RoboticCoreEpic_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 40
+  # was TechnicalAbility >= 14
+Items.RoboticCoreLegendary_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 47
+  # was TechnicalAbility >= 16
+Items.RoboticCoreRare_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 33
+  # was TechnicalAbility >= 12
+Items.RoboticCoreUncommon_inline0:
+  statType: BaseStats.TechnicalAbilitySkill
+  valueToCheck: 26
+  # was TechnicalAbility >= 10
+Items.SandevistanC1MK1_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 12
+  # was Reflexes >= 6
+Items.SandevistanC1MK2_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 22
+  # was Reflexes >= 9
+Items.SandevistanC1MK3_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.SandevistanC2MK1_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 12
+  # was Reflexes >= 6
+Items.SandevistanC2MK2_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 22
+  # was Reflexes >= 9
+Items.SandevistanC2MK3_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 33
+  # was Reflexes >= 12
+Items.SandevistanC2MK4_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 43
+  # was Reflexes >= 15
+Items.SandevistanC3MK4_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 43
+  # was Reflexes >= 15
+Items.SandevistanC3MK5_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 54
+  # was Reflexes >= 18
+Items.SandevistanC4MK5_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 60
+  # was Reflexes >= 20
+Items.SecondHeart_inline4:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 47
+  # was Strength >= 16
+Items.StaminaRegenBoosterEpic_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 36
+  # was Strength >= 13
+Items.StaminaRegenBoosterLegendary_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 54
+  # was Strength >= 18
+Items.StaminaRegenBoosterRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 26
+  # was Strength >= 10
+Items.StaminaRegenBoosterUncommon_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 19
+  # was Strength >= 8
+Items.SynapticAcceleratorEpic_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 47
+  # was Reflexes >= 16
+Items.SynapticAcceleratorLegendary_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 60
+  # was Reflexes >= 20
+Items.SynapticAcceleratorRare_inline0:
+  statType: BaseStats.ReflexesSkill
+  valueToCheck: 40
+  # was Reflexes >= 14
+Items.TitaniumInfusedBonesRare_inline0:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 36
+  # was Strength >= 13
+Items.ToxinCleanser_inline3:
+  statType: BaseStats.StrengthSkill
+  valueToCheck: 26
+  # was Strength >= 10
