@@ -1,0 +1,8 @@
+# Local build and editor byproducts.
+*.log
+__pycache__/
+*.pyc
+.vscode/
+.stage/
+*.redscripts
+settings.json
