@@ -1,0 +1,3793 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.17.4",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2310,
+    "ExportedDateTime": "2026-09-27T19:40:34.8121644Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "skilldrivenprogression\\localization\\en-us\\processor.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Neural Processor",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_neural_processor_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Starter processor with three training-shard bays and a dedicated Relic bay. Training progress belongs to the user; recorded effects remain active after removal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_neural_processor_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Retired Deadeye Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Legacy item. Load your save to convert it to the current Deadeye chain.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Retired prototype. Its character-owned progress converts on save load.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Retired Deadeye Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Legacy item. Load your save to convert it to the current Deadeye chain.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Retired prototype. Its character-owned progress converts on save load.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 1: Focus",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Focus: aim at full Stamina to enter Focus; shooting then costs no Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 1+: Focus Precision",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Focus precision: more headshot and weakspot damage; Rinse and Reload: faster reload after aimed neutralization.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 2: Deep Breath",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Deep Breath: time slows during Focus; No Sweat: neutralizations reduce its ending Stamina cost.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Yeheyuan Cigarette",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cigarette_yeheyuan_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Restores Nerve when smoked. Cannot be used in combat.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cigarette_yeheyuan_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Morley Cigarette",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cigarette_morley_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Restores Nerve when smoked. Cannot be used in combat.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cigarette_morley_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Composure",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_composure_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "A cigarette steadies you. +10% skill XP, and 15% less weapon recoil and spread.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_composure_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Relic",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_relic_module_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "The Relic is housed in the neural processor's dedicated bay. Its story and Relic abilities continue to work as usual.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_relic_module_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 2+: Head to Head",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Head to Head: Focus refreshes after neutralization; Pull!: stronger airborne grenade shots.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 3: Deadeye",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Deadeye: high Stamina improves precision damage and removes bullet spread.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 3+: Long Shot",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Deadeye precision: more headshot and weakspot damage; Long Shot: no damage falloff during Deadeye.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 4: Quick Draw",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Quick Draw: swaps restore Stamina; California Reaper: precision neutralizations restore Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 4+: High Noon",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: High Noon: precision neutralizations prime a faster slowed-time reload.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 5: Deadeye Efficiency",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Deadeye efficiency: shooting costs less Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 5+: Run 'N' Gun",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Run 'N' Gun: hip-fire costs no Stamina and Focus permits faster movement.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deadeye Shard Tier 5++: Nerves of Tungsten-Steel",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Nerves of Tungsten-Steel: precision hits during Deadeye always crit and gain damage at range.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus). XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye; x1.25 from 25 m; weapon swaps in combat. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye; x1.25 from 25 m; weapon swaps in combat. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye; x1.25 from 25 m; weapon swaps in combat. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye; x1.25 from 25 m; weapon swaps in combat. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: damage with pistols, revolvers, sniper and precision rifles (x1.25 in Focus); headshots and weakspot hits x1.5; shooting airborne grenades; x1.5 during Deadeye; x1.25 from 25 m; weapon swaps in combat. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_deadeye_focus_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Painkiller: slow Health regeneration in combat.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Adrenaline Rush 1: more maximum Health.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Speed Junkie + Comeback Kid: stronger regeneration while moving or wounded.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Adrenaline Rush 2: boost all Health regeneration sources.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Adrenaline Rush 3: Blood Pump and Health Items can grant Adrenaline.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Dorph-head: mitigation after Blood Pump or a Health Item.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Army of One: regeneration improves near enemies.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage; x each enemy within 20 m (up to 4). XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Calm Mind + Bloodlust: delay Adrenaline decay and gain Adrenaline from nearby dismemberments.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage; x each enemy within 20 m (up to 4). XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Juggernaut: move faster and deal more damage during Adrenaline Rush.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage; x each enemy within 20 m (up to 4); absorbed Adrenaline x2. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Unstoppable Force: ignore movement penalties and non-damaging status effects during Adrenaline Rush.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage; x each enemy within 20 m (up to 4); absorbed Adrenaline x2. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Adrenaline Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Pain to Gain: neutralizations during Adrenaline Rush recharge Health Items.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time in combat below full Health; Health lost to hits you survive; x1.5 while moving, x2 under half Health; Health items and Blood Pump in combat; Adrenaline absorbing damage; x each enemy within 20 m (up to 4); absorbed Adrenaline x2; kills during Adrenaline Rush. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_adrenaline_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Die! Die! Die! 1: Stamina regeneration.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Die! Die! Die! 2: handling improves as Stamina falls.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Bullet Ballet + Like a Feather: mobile firing and weapon movement.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Spontaneous Obliteration 1: Crit Chance rises as Stamina falls.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Spontaneous Obliteration 3: unlock Obliterate on weakened enemies.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Spontaneous Obliteration 2 + Don't Stop Me Now: close-range damage and defense at low Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Rush of Blood: faster reload after dismemberment.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Skullcracker: stronger Quick Melee at low Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Dread: ranged attacks reduce enemy Armor; dismemberment spreads it.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Close-quarters Carnage: more ranged Obliterate chance up close.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Obliteration Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Rip and Tear + Onslaught: shotgun/Quick Melee damage loop or LMG ammo refill on neutralization.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: shotgun, LMG and HMG damage; x1.5 within 8 m; x1.25 below half Stamina; up to x2 on wounded enemies; Obliterate kills. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_obliteration_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Wrecking Ball 1: lower blunt-attack Stamina cost.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Wrecking Ball 2: sprint-block charge that can knock enemies down.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Fly Swatter + Kinetic Absorption: ranged blocking defense and Stamina/damage from blocks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Clapback: stronger knockdown and stun counterattacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Quake 3: ground or midair slam.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Quake 1 + Quake 2: lower blunt Stamina cost and faster blunt attacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Breakthrough: strong attacks lower enemy Armor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Aftershock: regain Stamina per enemy hit by Quake.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Epicenter: midair Quake scales with fall speed and distance.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ripple Effect: gain Health per enemy hit by Quake.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Quake Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Finisher: Savage Sling: finish or throw a weakened enemy.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blunt weapon and fist damage; damage blocked with a blunt weapon; knockdowns; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_quake_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Slippery: faster movement makes you harder to hit.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Dash 2: unlock Dash.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Dash 1 + Power Slide: cheaper Dash/dodge and longer slides.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Muscle Memory + Parkour!: reload while moving and vault or climb faster.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Air Dash 3: unlock midair Dash.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Air Dash 1 + Air Dash 2: cheaper and faster Dashes.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Can't Touch This + Mean Streak: mitigation during Dash and longer Dashes toward enemies.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes; hitting an enemy right after a dash. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Steady Grip + Multitasker: fire during Dash and other movement actions.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes; hitting an enemy right after a dash. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Aerial Acrobat + Aerodynamic: midair control and mitigation.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes; hitting an enemy right after a dash. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Mad Dash: Stamina after a neutralization while Dashing.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes; hitting an enemy right after a dash; kills right after a dash. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Air Dash Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Tailwind: Air Dashes cost no Stamina and restore it.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: dashes, dodges, slides, vaults and climbs in combat; air dashes; hitting an enemy right after a dash; kills right after a dash. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_airdash_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ready, Rested, Reloaded 1: cheaper AR/SMG shooting.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ready, Rested, Reloaded 2: faster reload at high Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Spice of Life + Mind Over Matter: faster swaps, less spread, less aimed recoil.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Sharpshooter 1: faster aim.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Sharpshooter 3: successful shots build Sharpshooter stacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Sharpshooter 2 + Practice Makes Perfect: handling and Crit bonuses as stacks build.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Tunnel Vision + Gundancer: effective range, mobile aiming, and vault shooting.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Spray and Pray + Air Kerenzikov: cheaper hip-fire and a midair Kerenzikov option.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Shoot to Chill: Armor penetration per Sharpshooter stack.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Submachine Fun: SMG swaps auto-reload and briefly improve fire rate.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sharpshooter Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Salt in the Wound: consecutive shots on the same target trigger bonus damage.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: assault rifle and SMG damage; up to x1.5 for sustained fire on one target; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_sharpshooter_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Lead and Steel 1: cheaper blade attacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Lead and Steel 2: block projectiles with a Blade.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Bullet Deflect + Seeing Double: aimed deflections and stronger counterattacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Bullet Time: enhanced deflections while time is slowed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Finisher: Bladerunner 3: unlock Blade Finisher.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Finisher: Bladerunner 1 + 2: cheaper and faster Blade attacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Flash and Thunderclap: leap toward enemies on Strong Attacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Opportunist: more enemies become susceptible to Finishers.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Going the Distance: longer Finisher reach.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Flash of Steel: speed after a Finisher.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers; Strong Attacks x1.25. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Blade Runner Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Slaughterhouse: attacks and deflections apply Bleeding to set up Finishers.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: blade damage; deflecting bullets; Blade finishers; Strong Attacks x1.25; x1.25 on Bleeding enemies. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bladerunner_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: All Things Cyber 1: stronger cyberware stat modifiers.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: All Things Cyber 2: lower Capacity cost for Integumentary and Skeleton cyberware.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Driver Update + Lucky Day: extra cyberware modifier and more looted components.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: License to Chrome 1: further cyberware stat modifiers.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: License to Chrome 3: additional Skeleton slot and Skeleton stat boost.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: License to Chrome 2 + Extended Warranty: Armor and longer cyberware effects.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Custom: Chrome Calibration: +4 Cyberware Capacity. (Ambidextrous, the extra Hands slot, moved to the Hands Expansion shard.)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active; Projectile Launch System x1.5. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Built Different: unlock and support Cellular Adapter.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active; Projectile Launch System x1.5. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Renaissance Punk + Chipware Connoisseur: skill-derived Capacity and cyberware upgrade choices.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active; Projectile Launch System x1.5. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Chrome Constitution + Cyborg: rewards for filled cyberware slots.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active; Projectile Launch System x1.5. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Chrome Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Edgerunner: exceed Capacity at a Health cost.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Gorilla Arms, Mantis Blades and Projectile Launch System damage; combat time with Sandevistan, Berserk, Optical Camo or Kerenzikov active; Projectile Launch System x1.5. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_chrome_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Glutton for War: extra Health Item charge and recharge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Health Freak 1 + First Aid: faster item and grenade recharge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Health Freak 2 + Transfusion: recharge on neutralization and stronger final Health Item charge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Demolitions Surplus + Coming in Hot: more grenade supply and recharge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Pyromania 3: explosion hits build Pyromania movement/damage stacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Pyromania 1 + 2: recharge and explosion-radius bonuses.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Friendlier Fire + Doomlauncher: resist your own explosions; grenade perks also help Projectile Launch System.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat; x1.25 from 15 m. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Borrowed Time + Field Medic: emergency item recovery and faster combat use.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat; x1.25 from 15 m. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Heat Shield + Burn This City: stack-based mitigation and grenade replenishment.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat; x1.25 from 15 m. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Flash Sale: greater Flash, Smoke, and Recon grenade supply.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat; x1.25 from 15 m. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pyromania Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ticking Time Bomb: delayed EMP on Operating System or Overclock activation.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: explosion damage; Health items used in combat; x1.25 from 15 m. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_pyromania_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Bolt 1: faster Tech-weapon charging.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5). XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Bolt 2: more charged-shot damage.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5). XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: In Charge: holding full charge no longer auto-fires.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5). XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Custom: damaging fully charged Tech shots restore 2 Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5). XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Bolt 3: unlock timed Bolt shots.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Internal Clock: wider timing window for a Bolt.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Shock Value: Bolt shots ignore Armor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Lightning Storm: repeated Bolts accelerate charging.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Custom: Tech weapons gain 5% headshot damage while this grade is active.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Custom: a fully charged Tech-shot neutralization restores 5 Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bolt Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Chain Lightning: Bolt deals Electrical damage and arcs to nearby enemies.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Tech weapon damage (charged shots x1.5); timed Bolt shots x1.5. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_bolt_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Optimization: RAM recovery.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Embedded Exploit 1 + Encryption: RAM recovery and lower traceability.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Embedded Exploit 2 + Proximate Propagation: damage on prepared targets and cheaper close-range hacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: ICEpick + Subordination: prepared Combat hacks cost less; Control hacks last longer.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Overclock 3: spend Health to quickhack without enough RAM.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Overclock 1 + 2: RAM recovery and quickhack damage.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Speculation + System Overwhelm: RAM refund on Combat-hack neutralizations and damage from layered effects.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Shadowrunner + Blood Daemon: Takedowns reduce trace; queued hacks on an Overclock victim restore Health.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Race Against Mind + Power Surge: low-Health damage and Health on Overclock activation.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Sublimation: RAM recovery also regenerates Health during Overclock.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overclock Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Spillover: hacks can spread during Overclock.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: quickhack damage; RAM spent on quickhacks; x2 during Overclock. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_overclock_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Hack Queue 2: unlock ordered quickhack queues.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2). XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Hack Queue 1 + Eye in the Sky: Max RAM and camera/Access Point utility.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2). XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Data Recycler + Feedback Loop: refund unused queued hacks and recover RAM while queuing.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Queue Prioritization: faster upload at the start of a populated queue.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Queue Acceleration 3: larger, faster late queue.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Queue Acceleration 1 + 2: Max RAM and cheaper device/vehicle hacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Warning: Explosion Hazard + ForceKill Cypher: device explosion and Access Point bonuses.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Copy-Paste + Counter-a-hack: counter hostile netrunners and spread a counterhack.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Siphon: Monowire attacks restore RAM.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks; Monowire damage. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Finisher: Live Wire: Monowire Finisher improves with queued hacks.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks; Monowire damage. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hack Queue Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Queue Mastery: larger queue and a powerful final-slot reward.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: RAM of quickhacks queued behind another (3rd x1.5, 4th x2); device, camera and Access Point hacks; Monowire damage. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_hackqueue_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Acquisition Specialist 1: larger Smart-weapon targeting area.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Acquisition Specialist 2: keep locks on reload and lock faster.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: No Escape: shooting a target can renew a fading lock.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Precision Subroutines: accuracy scales with Max RAM; custom fallback: small flat accuracy bonus without a cyberdeck.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Target Lock Transfer 2: keep head/weakspot lock between aiming and hip-fire.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Target Lock Transfer 1: further enlarge the target area.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Target Lock Transfer 3: keep locks when swapping Smart weapons.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Recirculation: RAM after Smart-weapon neutralization; custom: Smart-weapon neutralizations also restore 5 Stamina.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Terminal Velocity: Smart-weapon neutralizations improve projectile speed and range.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Smart Synergy: instant lock and bonus damage during Overclock; custom: a small passive lock-speed bonus.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Smart Lock Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Targeting Prism: lock multiple targets while aiming.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: Smart weapon damage; x1.25 from 25 m. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_smartlock_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Feline Footwork: faster, safer crouched movement.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage. XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ninjutsu 1: crouch movement speed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage. XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Unexposed: mitigation while aiming from cover.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ninjutsu 2: mitigation while crouched.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Ninjutsu 3: unlock crouch-sprinting.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Small Target: mitigation while crouched and still.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Blind Spot: crouched mitigation delays detection.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Serpentine: mitigation while crouch-sprinting.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Shinobi Sprint: cheaper crouch-sprinting in combat.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Vanishing Act: Optical Camo activates while crouch-sprinting or sliding.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ninjutsu Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Creeping Death: stealth neutralizations restore Health/Stamina and grant speed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: time crouched before combat within 20 m of a hostile NPC, a camera/turret, or a non-friendly NPC in a restricted/dangerous zone; each spot pays for 5 s, moving over 3 m resets it; stealth damage; crouch-sprinting x1.5; stealth kills. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_ninjutsu_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 1",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier1_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Killer Instinct: stronger knives, axes, and silenced guns outside combat.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier1_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate). XP scales with enemy level and rarity and with your level. Record at 60 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier1_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 1+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier1plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Scorpion Sting 1 + Gag Order: faster throwable recovery and delayed group detection.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier1plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate). XP scales with enemy level and rarity and with your level. Record at 110 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier1plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier2_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Scorpion Sting 2 + Corrosion: precision throws apply Poison, including to machines.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier2_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier2_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 2+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier2plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Neurotoxin + Accelerated Toxin Absorption: control Poisoned enemies and cash out Poison with a hit.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier2plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 210 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier2plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 3",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier3_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Juggler 3: qualifying thrown neutralizations reset throwable cooldowns.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier3_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 300 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier3_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 3+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier3plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Juggler 1 + 2: faster recovery and more precision damage.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier3plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 430 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier3plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 4",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier4_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Parasite + Quick Getaway: thrown precision hits heal; stealth neutralizations grant speed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier4_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 610 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier4_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 4+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier4plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Pay It Forward + Sleight of Hand: reward retrieved throws and Juggler activation.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier4plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 870 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier4plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 5",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Finisher: Act of Mercy: Throwable Weapon Finisher.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 1260 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 5+",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5plus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Pounce: longer Finisher reach after a thrown hit.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5plus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 1830 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5plus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Juggler Shard Tier 5++",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5plusplus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Style Over Substance: guaranteed thrown Crits during skilled movement.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5plusplus_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: thrown knife and axe damage; knife/axe melee and ranged stealth hits (half rate); precise throws x1.5, Poisoned targets x1.25. XP scales with enemy level and rarity and with your level. Record at 2730 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_juggler_tier5plusplus_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Vehicle Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_vehiclechip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: Road Warrior, Fury Road, Stuntjock, Carhacker, and Gearhead. Record this chip to keep its effects without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_vehiclechip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: vehicle weapon damage. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_vehiclechip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "OS Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_osexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks 2 extra slots for OS cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_osexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with OS cyberware equipped (full rate with 2+ items); x2 while Sandevistan, Berserk or Overclock active. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_osexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Frontal Cortex Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_frontalcortexexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks 2 extra slots for Frontal Cortex cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_frontalcortexexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Frontal Cortex cyberware equipped (full rate with 2+ items); x2 while uploading quickhacks. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_frontalcortexexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Cardiovascular Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cardiovascularexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks one extra slot for Cardiovascular cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cardiovascularexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Cardiovascular cyberware equipped (full rate with 2+ items); x2 while healing (Health items, Blood Pump). XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_cardiovascularexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Nervous System Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_nervoussystemexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks one extra slot for Nervous System cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_nervoussystemexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Nervous System cyberware equipped (full rate with 2+ items); x2 while Kerenzikov active. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_nervoussystemexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Integumentary Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_integumentaryexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks 2 extra slots for Integumentary cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_integumentaryexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Integumentary cyberware equipped (full rate with 2+ items); x2 while Optical Camo active. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_integumentaryexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Arms Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_armsexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks one extra slot for Arms cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_armsexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Arms cyberware equipped (full rate with 2+ items); x2 while hitting with cyberarms. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_armsexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hands Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_handsexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks one extra slot for Hands cyberware (Cyberware-EX). Also counts as Ambidextrous (the extra Hands slot). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_handsexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Hands cyberware equipped (full rate with 2+ items); x2 while landing gun hits. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_handsexpansionchip_training"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Legs Expansion Shard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_legsexpansionchip_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "New effects: unlocks one extra slot for Legs cyberware (Cyberware-EX). Works while slotted; record it to keep the slots without the processor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_legsexpansionchip_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trains from: combat time with Legs cyberware equipped (full rate with 2+ items); x2 while dashing, sliding, vaulting, double-jumping. XP scales with enemy level and rarity and with your level. Record at 150 XP.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "sdp_legsexpansionchip_training"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

@@ -1,0 +1,130 @@
+# Generated base-shard stock; higher grades are upgrade-only.
+Vendors.$(vendor):
+  $instances:
+    - { vendor: hey_rey_netrunner_01 }
+    - { vendor: wat_kab_netrunner_01 }
+    - { vendor: wat_lch_netrunner_01 }
+    - { vendor: wbr_jpn_netrunner_01 }
+    - { vendor: wbr_jpn_netrunner_02 }
+    - { vendor: cz_stadium_netrunner_01 }
+  itemStock:
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.AdrenalineTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.ObliterationTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.QuakeTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.AirDashTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.SharpshooterTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.BladeRunnerTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.ChromeTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.PyromaniaTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.BoltTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.OverclockTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.HackQueueTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.SmartLockTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.NinjutsuTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.JugglerTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.DeadeyeFocusTier1Shard
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.VehicleChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.OSExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.FrontalCortexExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.CardiovascularExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.NervousSystemExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.IntegumentaryExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.ArmsExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.HandsExpansionChip
+      quantity:
+        - Vendors.Always_Present
+    - !append
+      $type: VendorItem
+      item: SkillDrivenProgression.LegsExpansionChip
+      quantity:
+        - Vendors.Always_Present

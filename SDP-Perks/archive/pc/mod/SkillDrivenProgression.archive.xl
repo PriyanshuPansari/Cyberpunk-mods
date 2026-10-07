@@ -1,0 +1,5 @@
+localization:
+  onscreens:
+    en-us:
+      - skilldrivenprogression\localization\en-us\attunements.json
+      - skilldrivenprogression\localization\en-us\processor.json

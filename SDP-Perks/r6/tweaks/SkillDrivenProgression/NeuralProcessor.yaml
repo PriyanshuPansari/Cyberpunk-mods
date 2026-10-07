@@ -1,0 +1,247 @@
+# Dedicated processor socket, three training bays, and one reserved Relic bay.
+SkillDrivenProgression.ProcessorEquipSlot:
+  $type: EquipSlot
+  visibleWhenLocked: false
+
+SkillDrivenProgression.ShardSlot$(index):
+  $instances:
+    - { index: 1 }
+    - { index: 2 }
+    - { index: 3 }
+  $type: gamedataAttachmentSlot_Record
+  entitySlotName: SDPShardSlot$(index)
+  localizedName: ShardSlot
+  customOffset: { x: 0, y: 0, z: 0 }
+  tagsForActiveItemCycling: []
+
+SkillDrivenProgression.ShardElement$(index):
+  $instances:
+    - { index: 1 }
+    - { index: 2 }
+    - { index: 3 }
+  $type: ItemBlueprintElement
+  slot: SkillDrivenProgression.ShardSlot$(index)
+
+SkillDrivenProgression.RelicSlot:
+  $type: gamedataAttachmentSlot_Record
+  entitySlotName: SDPRelicSlot
+  localizedName: Relic
+  customOffset: { x: 0, y: 0, z: 0 }
+  tagsForActiveItemCycling: []
+
+SkillDrivenProgression.RelicElement:
+  $type: ItemBlueprintElement
+  slot: SkillDrivenProgression.RelicSlot
+
+SkillDrivenProgression.ProcessorRoot:
+  $type: ItemBlueprintElement
+  slot: AttachmentSlots.GenericItemRoot
+  childElements:
+    - SkillDrivenProgression.ShardElement1
+    - SkillDrivenProgression.ShardElement2
+    - SkillDrivenProgression.ShardElement3
+    - SkillDrivenProgression.RelicElement
+
+SkillDrivenProgression.ProcessorBlueprint:
+  $type: ItemBlueprint
+  rootElement: SkillDrivenProgression.ProcessorRoot
+
+SkillDrivenProgression.NeuralProcessor:
+  $base: Items.AdvancedBiomonitorCommon
+  quality: Quality.LegendaryPlusPlus
+  nextUpgradeItem: None
+  equipArea: EquipmentArea.EyesCW
+  cyberwareType: CyberwareSockets
+  blueprint: SkillDrivenProgression.ProcessorBlueprint
+  variants: [Variants.Humanity0Cost]
+  OnEquip: []
+  tags: [Cyberware, HideInBackpackUI, SkillDrivenProgression.Processor]
+  displayName: LocKey#sdp_neural_processor_name
+  localizedDescription: LocKey#sdp_neural_processor_description
+  icon:
+    atlasResourcePath: base\gameplay\gui\common\icons\items\item_icons7.inkatlas
+    atlasPartName: cwf_armscyberwareshared2
+
+SkillDrivenProgression.DeadeyeTier1Shard:
+  $base: Items.KiroshiOpticsFragment5
+  itemType: ItemType.Prt_Program
+  shardType: SDPDeadeye
+  quality: Quality.Common
+  # Shard upgrades are owned by the processor action, not the game's native
+  # cyberware upgrade chain. Recording must never trigger a free upgrade.
+  nextUpgradeItem: None
+  icon:
+    atlasResourcePath: base\gameplay\gui\quests\assets\q005_heist_plan.inkatlas
+    atlasPartName: chip
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_tier1_training
+  OnEquip: []
+  placementSlots:
+    - SkillDrivenProgression.ShardSlot1
+    - SkillDrivenProgression.ShardSlot2
+    - SkillDrivenProgression.ShardSlot3
+  tags: [itemPart, Fragment, SkillDrivenProgression.Shard]
+  displayName: LocKey#sdp_deadeye_tier1_name
+  localizedDescription: LocKey#sdp_deadeye_tier1_description
+
+SkillDrivenProgression.DeadeyeTier1PlusShard:
+  $base: SkillDrivenProgression.DeadeyeTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  icon:
+    atlasResourcePath: base\gameplay\gui\quests\assets\q005_heist_plan.inkatlas
+    atlasPartName: chip
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_tier1plus_training
+  displayName: LocKey#sdp_deadeye_tier1plus_name
+  localizedDescription: LocKey#sdp_deadeye_tier1plus_description
+
+# First shard of the new grade order. The old Deadeye items remain separate
+# until all grades are migrated from existing saves.
+SkillDrivenProgression.DeadeyeFocusTier1Shard:
+  $base: SkillDrivenProgression.DeadeyeTier1Shard
+  shardType: SDPDeadeyeFocus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier1_training
+  displayName: LocKey#sdp_deadeye_focus_tier1_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier1_description
+
+SkillDrivenProgression.DeadeyeFocusTier1PlusShard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1Shard
+  quality: Quality.CommonPlus
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier1plus_training
+  displayName: LocKey#sdp_deadeye_focus_tier1plus_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier1plus_description
+
+SkillDrivenProgression.DeadeyeFocusTier2Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier1PlusShard
+  quality: Quality.Uncommon
+  nextUpgradeItem: None
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier2_training
+  displayName: LocKey#sdp_deadeye_focus_tier2_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier2_description
+
+SkillDrivenProgression.DeadeyeFocusTier2PlusShard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier2Shard
+  quality: Quality.UncommonPlus
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier2plus_training
+  displayName: LocKey#sdp_deadeye_focus_tier2plus_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier2plus_description
+
+SkillDrivenProgression.DeadeyeFocusTier3Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier2PlusShard
+  quality: Quality.Rare
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier3_training
+  displayName: LocKey#sdp_deadeye_focus_tier3_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier3_description
+
+SkillDrivenProgression.DeadeyeFocusTier3PlusShard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier3Shard
+  quality: Quality.RarePlus
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier3plus_training
+  displayName: LocKey#sdp_deadeye_focus_tier3plus_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier3plus_description
+
+SkillDrivenProgression.DeadeyeFocusTier4Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier3PlusShard
+  quality: Quality.Epic
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier4_training
+  displayName: LocKey#sdp_deadeye_focus_tier4_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier4_description
+
+SkillDrivenProgression.DeadeyeFocusTier4PlusShard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier4Shard
+  quality: Quality.EpicPlus
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier4plus_training
+  displayName: LocKey#sdp_deadeye_focus_tier4plus_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier4plus_description
+
+SkillDrivenProgression.DeadeyeFocusTier5Shard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier4PlusShard
+  quality: Quality.Legendary
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier5_training
+  displayName: LocKey#sdp_deadeye_focus_tier5_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier5_description
+
+SkillDrivenProgression.DeadeyeFocusTier5PlusShard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier5Shard
+  quality: Quality.LegendaryPlus
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier5plus_training
+  displayName: LocKey#sdp_deadeye_focus_tier5plus_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier5plus_description
+
+SkillDrivenProgression.DeadeyeFocusTier5PlusPlusShard:
+  $base: SkillDrivenProgression.DeadeyeFocusTier5PlusShard
+  quality: Quality.LegendaryPlusPlus
+  OnAttach:
+    - $type: GameplayLogicPackage
+      UIData:
+        $type: GameplayLogicPackageUIData
+        localizedDescription: LocKey#sdp_deadeye_focus_tier5plusplus_training
+  displayName: LocKey#sdp_deadeye_focus_tier5plusplus_name
+  localizedDescription: LocKey#sdp_deadeye_focus_tier5plusplus_description
+
+# A physical representation of the story Relic. Its quest mechanics remain
+# owned by the game; this part only occupies the processor's dedicated bay.
+SkillDrivenProgression.RelicModule:
+  $base: Items.KiroshiOpticsFragment5
+  itemType: ItemType.Prt_Program
+  shardType: SDPRelic
+  quality: Quality.Common
+  nextUpgradeItem: None
+  icon:
+    atlasResourcePath: base\gameplay\gui\quests\assets\q005_heist_plan.inkatlas
+    atlasPartName: chip
+  OnAttach: []
+  OnEquip: []
+  placementSlots: [SkillDrivenProgression.RelicSlot]
+  tags: [itemPart, Fragment, SkipActivityLog, SkillDrivenProgression.Relic]
+  displayName: LocKey#sdp_relic_module_name
+  localizedDescription: LocKey#sdp_relic_module_description

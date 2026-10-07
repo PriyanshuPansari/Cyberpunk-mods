@@ -1,0 +1,1082 @@
+{
+ "Body_Central_Milestone_1": {
+  "name": "Painkiller",
+  "descriptions": {
+   "Level1": "Unlocks slow <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Health Regen in combat</>."
+  }
+ },
+ "Body_Central_Milestone_3": {
+  "name": "Adrenaline Rush",
+  "descriptions": {
+   "Level3": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> mode.\\n\\nIn addition to their base effects, <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Blood Pump</> cyberware and Health Items now also give <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline</> equal to {float_0}% Max Health (up to a max of {float_1}% Max Health).\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline</> is indicated by a yellow bar and acts like extra Health by absorbing damage. It also decays over time.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> will remain active as long as you have <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline</> available.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health Regen bonus</> to all Health Regen effects from all sources.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Max Health</>"
+  }
+ },
+ "Body_Central_Perk_1_1": {
+  "name": "Speed Junkie",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health Regen Rate</> while sprinting."
+  }
+ },
+ "Body_Central_Perk_1_2": {
+  "name": "Comeback Kid",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health Regen Rate</> for each percent of missing Health."
+  }
+ },
+ "Body_Central_Perk_1_3": {
+  "name": "Army of One",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health Regen Rate</> for each nearby enemy."
+  }
+ },
+ "Body_Central_Perk_1_4": {
+  "name": "Dorph-head",
+  "descriptions": {
+   "": "When using <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Blood Pump</> cyberware or a Health Item:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> for {float_1} sec.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Mitigation</> - grants a chance to reduce incoming damage by current Mitigation Strength (default: 50%)."
+  }
+ },
+ "Body_Central_Perk_3_1": {
+  "name": "Calm Mind",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} sec. delay</> before <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline</> begins to decay."
+  }
+ },
+ "Body_Central_Perk_3_2": {
+  "name": "Juggernaut",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% movement speed</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% damage</>"
+  }
+ },
+ "Body_Central_Perk_3_4": {
+  "name": "Unstoppable Force",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Gain immunity</> to movement penalties and non-damaging status effects such as Knockdown, Blinding, etc."
+  }
+ },
+ "Body_Inbetween_Left_3": {
+  "name": "Bloodlust",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Adrenaline</> on dismemberment of a nearby enemy."
+  }
+ },
+ "Body_Inbetween_Right_3": {
+  "name": "Ripple Effect",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health</> for each enemy hit by <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Quake</>."
+  }
+ },
+ "Body_Left_Milestone_2": {
+  "name": "Die! Die! Die!",
+  "descriptions": {
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Improved weapon handling</> as Stamina decreases.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% Stamina Regen Rate</>"
+  }
+ },
+ "Body_Left_Milestone_3": {
+  "name": "Spontaneous Obliteration",
+  "descriptions": {
+   "Level3": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Obliterate</> – the ability to sometimes instantly kill and dismember enemies at low Health.\\n\\nThe chance increases as enemy Health decreases (max. {float_0}% Obliterate chance).",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</> against nearby enemies.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Increased Crit Chance</> as Stamina decreases (max. +{float_0}%)."
+  }
+ },
+ "Body_Left_Perk_2_1": {
+  "name": "Bullet Ballet",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% bullet spread</> when moving."
+  }
+ },
+ "Body_Left_Perk_2_3": {
+  "name": "Don't Stop Me Now",
+  "descriptions": {
+   "": "When below {float_0}% Stamina:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% Mitigation Chance</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_2}% Mitigation Strength</>"
+  }
+ },
+ "Body_Left_Perk_2_4": {
+  "name": "Like a Feather",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">No movement speed penalty</> with Shotguns, Light Machine Guns and Heavy Machine Guns."
+  }
+ },
+ "Body_Left_Perk_3_1": {
+  "name": "Rush of Blood",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% reload speed</> for {float_1} sec. after dismembering an enemy."
+  }
+ },
+ "Body_Left_Perk_3_2": {
+  "name": "Skullcracker",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Increases damage</> of Quick Melee Attacks as Stamina decreases (max. +{float_0}% at 0 Stamina)."
+  }
+ },
+ "Body_Left_Perk_3_3": {
+  "name": "Dread",
+  "descriptions": {}
+ },
+ "Body_Left_Perk_3_4": {
+  "name": "Close-quarters Carnage",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Increased chance to Obliterate</> enemies with ranged attacks at close range (max. {float_0}%)."
+  }
+ },
+ "Body_Master_Perk_1": {
+  "name": "Rip and Tear",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</> for the next Quick Melee Attack after shooting an enemy with a Shotgun.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% damage</> for the next Shotgun shot after hitting an enemy with a Quick Melee Attack."
+  }
+ },
+ "Body_Master_Perk_2": {
+  "name": "Onslaught",
+  "descriptions": {}
+ },
+ "Body_Master_Perk_3": {
+  "name": "Pain to Gain",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Adrenaline Rush</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health Item recharge</> after neutralizing an enemy."
+  }
+ },
+ "Body_Master_Perk_5": {
+  "name": "Finisher: Savage Sling",
+  "descriptions": {
+   "": "Unlocks a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Blunt Weapon Finisher</>.\\n\\nPress <Input context=\"InteractionActions\" actionName=\"Choice1\" color=\"MainColors.Blue\" hold=\"Hide\"></> when an enemy's Health is low. Enemies affected by Stun are more susceptible.\\n\\nRestores {float_0}% Health.\\n\\nHold <Input context=\"InteractionActions\" actionName=\"Choice1\" color=\"MainColors.Blue\" hold=\"Hide\"></> to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">throw the enemy</> instead, killing them and damaging other enemies where they land."
+  }
+ },
+ "Body_Right_Milestone_2": {
+  "name": "Wrecking Ball",
+  "descriptions": {
+   "Level2": "Allows you to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">barrel into enemies</> while sprinting and blocking with Blunt Weapons, causing damage and a chance to knock them down.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for attacks with Blunt Weapons."
+  }
+ },
+ "Body_Right_Milestone_3": {
+  "name": "Quake",
+  "descriptions": {
+   "Level3": "Press <Input context=\"Combat\" actionName=\"QuickMelee\" color=\"MainColors.Blue\" hold=\"Hide\"></> to violently slam the ground, damaging and staggering nearby enemies with a chance of Knockdown.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Quake</> can also be performed from midair (a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Superhero Landing</>).\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cooldown:</> {float_0} sec.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% attack speed</> with Blunt Weapons.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for attacks with Blunt Weapons."
+  }
+ },
+ "Body_Right_Perk_2_1": {
+  "name": "Fly Swatter",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% incoming ranged damage</> when blocking with Blunt Weapons."
+  }
+ },
+ "Body_Right_Perk_2_2": {
+  "name": "Kinetic Absorption",
+  "descriptions": {
+   "": "Blocking an attack gives:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Stamina</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% damage</> with Blunt Weapons for {float_2} sec."
+  }
+ },
+ "Body_Right_Perk_2_3": {
+  "name": "Clapback",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Knockdown chance</> with Defensive Attacks.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cooldown:</> {int_0} sec.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% Stun chance</> with Counterattacks."
+  }
+ },
+ "Body_Right_Perk_2_4": {
+  "name": "Breakthrough",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% enemy Armor</> for {float_1} sec. after hitting them with a Strong Attack."
+  }
+ },
+ "Body_Right_Perk_3_1": {
+  "name": "Epicenter",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Quake</> is performed from midair (a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Superhero Landing</>), its area of effect and damage scale with your fall speed and fall distance."
+  }
+ },
+ "Body_Right_Perk_3_2": {
+  "name": "Aftershock",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Stamina</> for each enemy hit with <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Quake</>."
+  }
+ },
+ "Cool_Central_Milestone_1": {
+  "name": "Feline Footwork",
+  "descriptions": {
+   "Level1": "When crouched:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% movement speed</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Mitigation</> - grants a chance to reduce incoming damage by current Mitigation Strength (default: 50%)."
+  }
+ },
+ "Cool_Central_Milestone_3": {
+  "name": "Ninjutsu",
+  "descriptions": {
+   "Level3": "Unlocks the ability to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">sprint while crouching</>.\\n\\nPress <Input context=\"Locomotion\" actionName=\"ToggleSprint\" color=\"MainColors.Blue\" hold=\"Hide\"></> while crouching.\\n\\nCrouch-sprinting allows you to move more quickly while staying silent, but it consumes Stamina.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> when crouched.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% crouch movement speed</>"
+  }
+ },
+ "Cool_Central_Perk_1_1": {
+  "name": "Unexposed",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> when aiming from cover."
+  }
+ },
+ "Cool_Central_Perk_1_2": {
+  "name": "Small Target",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> when crouched and not moving."
+  }
+ },
+ "Cool_Central_Perk_1_4": {
+  "name": "Blind Spot",
+  "descriptions": {
+   "": "When crouched, the higher your <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Mitigation Chance</>, the longer it takes for enemies to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">detect</> you."
+  }
+ },
+ "Cool_Central_Perk_3_1": {
+  "name": "Serpentine",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> when crouch-sprinting."
+  }
+ },
+ "Cool_Central_Perk_3_2": {
+  "name": "Creeping Death",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Optical Camo</> is active or you are undetected, neutralizing an enemy grants:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% Stamina</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_2}% movement speed</> for {float_3} sec."
+  }
+ },
+ "Cool_Central_Perk_3_4": {
+  "name": "Shinobi Sprint",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for crouch-sprinting during combat."
+  }
+ },
+ "Cool_Inbetween_Left_2": {
+  "name": "Deep Breath",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Slows time</> by {float_0}% for you and enemies when <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Focus</> is active."
+  }
+ },
+ "Cool_Inbetween_Left_3": {
+  "name": "Vanishing Act",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Optical Camo</> activates automatically and consumes its charge gradually while crouch-sprinting or sliding"
+  }
+ },
+ "Cool_Inbetween_Right_3": {
+  "name": "Pounce",
+  "descriptions": {
+   "": "Allows you to perform <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Finishers from a greater distance</> if you've hit the enemy with a throwable weapon.\\n\\nEach successful throw also makes them more susceptible to Finishers.\\n\\nTo perform a Finisher, press <Input context=\"InteractionActions\" actionName=\"Choice1\" color=\"MainColors.Blue\" hold=\"Hide\"></> when an enemy's Health is low."
+  }
+ },
+ "Cool_Left_Milestone_1": {
+  "name": "Road Warrior",
+  "descriptions": {
+   "": "Allows you to use <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Sandevistan</> to slow time while driving.\\n\\nAllows <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Kerenzikov</> to be activated when aiming and handbraking simultaneously.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% weapon damage</> when your vehicle is drifting or airborne."
+  }
+ },
+ "Cool_Left_Milestone_2": {
+  "name": "Focus",
+  "descriptions": {
+   "Level2": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Focus</> mode. This mode automatically activates when you aim while at full Stamina.\\n\\nWhen active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">No Stamina cost for shooting</>, allowing for more accurate shots.\\n\\nWhen it ends:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_1} Stamina</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Duration:</> {float_0} sec.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% headshot and weakspot damage</>"
+  }
+ },
+ "Cool_Left_Milestone_3": {
+  "name": "Deadeye",
+  "descriptions": {
+   "Level3": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Deadeye</> mode, which is active above {float_0}% Stamina. When active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% headshot damage</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% weakspot damage</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">No bullet spread</>",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for shooting.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% headshot and weakspot damage</>"
+  }
+ },
+ "Cool_Left_Perk_2_1": {
+  "name": "Head to Head",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Focus</> is active, neutralizing an enemy with a ranged attack resets its duration."
+  }
+ },
+ "Cool_Left_Perk_2_2": {
+  "name": "Rinse and Reload",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% reload speed</> for your next reload after neutralizing an enemy while aiming.\\n\\nStacks {float_1} times. The stack resets to 0 whenever you reload or start aiming again."
+  }
+ },
+ "Cool_Left_Perk_2_3": {
+  "name": "Pull!",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Focus</> is active, shooting grenades out of the air is easier and the blast is more powerful."
+  }
+ },
+ "Cool_Left_Perk_2_4": {
+  "name": "No Sweat",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> from <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Focus</> mode for each enemy neutralized while it was active."
+  }
+ },
+ "Cool_Left_Perk_3_1": {
+  "name": "Quick Draw",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% weapon swap speed</> when swapping to Pistols, Revolvers, Sniper Rifles and Precision Rifles.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Stamina</> when swapping during combat."
+  }
+ },
+ "Cool_Left_Perk_3_2": {
+  "name": "High Noon",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Deadeye</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% reload speed</> for your next reload after neutralizing an enemy via headshot or weakspot.\\nEffect available for {float_1} sec.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Slows time by {float_2}%</> during reload."
+  }
+ },
+ "Cool_Left_Perk_3_3": {
+  "name": "Long Shot",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Deadeye</> is active, your shots always deal full damage regardless of distance."
+  }
+ },
+ "Cool_Left_Perk_3_4": {
+  "name": "California Reaper",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Stamina</> after neutralizing an enemy with a ranged attack via headshot or weakspot."
+  }
+ },
+ "Cool_Master_Perk_1": {
+  "name": "Nerves of Tungsten-Steel",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Deadeye</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Guaranteed Crit Hits</> for headshots and weakspots.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Increased damage</> as distance increases (max. +{float_0}%)."
+  }
+ },
+ "Cool_Master_Perk_2": {
+  "name": "Run 'N' Gun",
+  "descriptions": {
+   "": "Hip-firing does not consume Stamina.\\n\\nWhen <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Focus</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% movement speed</>"
+  }
+ },
+ "Cool_Master_Perk_4": {
+  "name": "Style Over Substance",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Guaranteed Crit Hits</> with thrown attacks when crouch-sprinting, sliding, dodging or <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dashing</>; also from motorcycles when airborne, drifting or dismounting via jump.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">No movement speed penalty</> when aiming a throwable weapon."
+  }
+ },
+ "Cool_Right_Milestone_1": {
+  "name": "Killer Instinct",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</> with knives, axes and silenced guns outside of combat. They also provide a preview of estimated damage."
+  }
+ },
+ "Cool_Right_Milestone_2": {
+  "name": "Scorpion Sting",
+  "descriptions": {
+   "Level2": "Crit Hits, headshots and hits to weakspots with throwable weapons apply Poison for {float_0} sec.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% recovery time</> for throwable weapons."
+  }
+ },
+ "Cool_Right_Milestone_3": {
+  "name": "Juggler",
+  "descriptions": {
+   "Level3": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Instant Cooldown reset</> for all throwable weapons after neutralizing an enemy with a throwable weapon via headshot, Crit Hit, or Poison.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% headshot and weakspot damage</> with throwable weapons.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% recovery time</> for throwable weapons."
+  }
+ },
+ "Cool_Right_Perk_1_1": {
+  "name": "Gag Order",
+  "descriptions": {
+   "": "Landing an attack on an enemy right after they detect you will <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">delay detection</> from other nearby enemies."
+  }
+ },
+ "Cool_Right_Perk_1_2": {
+  "name": "Quick Getaway",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% movement speed</> after neutralizing an enemy while undetected.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Duration:</> {float_1} sec. or until you are detected.\\n\\nStacks {float_2} times. New stacks reset duration. All stacks are removed when duration ends."
+  }
+ },
+ "Cool_Right_Perk_2_1": {
+  "name": "Corrosion",
+  "descriptions": {
+   "": "Allows you to apply Poison to mechs, robots, drones and turrets."
+  }
+ },
+ "Cool_Right_Perk_2_2": {
+  "name": "Neurotoxin",
+  "descriptions": {
+   "": "Applying Poison to an enemy via <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Scorpion Sting</> now also applies Blinding and disables sprinting for {float_0} sec."
+  }
+ },
+ "Cool_Right_Perk_2_3": {
+  "name": "Accelerated Toxin Absorption",
+  "descriptions": {
+   "": "Strong Attacks and thrown weapons used against Poisoned enemies <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">instantly deal substantial Poison damage</> then remove all Poison effects."
+  }
+ },
+ "Cool_Right_Perk_2_4": {
+  "name": "Parasite",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Health</> on Crit Hits and headshots with thrown weapons."
+  }
+ },
+ "Cool_Right_Perk_3_1": {
+  "name": "Pay It Forward",
+  "descriptions": {
+   "": "After retrieving a thrown knife or axe from an enemy, your first melee attack with a throwable weapon gains <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</>."
+  }
+ },
+ "Cool_Right_Perk_3_2": {
+  "name": "Finisher: Act of Mercy",
+  "descriptions": {
+   "": "Unlocks a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Throwable Weapon Finisher</>.\\n\\nPress <Input context=\"InteractionActions\" actionName=\"Choice1\" color=\"MainColors.Blue\" hold=\"Hide\"></> when an enemy's Health is low.\\n\\nAutomatically activates <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Juggler</>.\\n\\nRestores {float_0}% Health."
+  }
+ },
+ "Cool_Right_Perk_3_4": {
+  "name": "Sleight of Hand",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Crit Damage</> for {float_1} sec. whenever <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Juggler</> is activated.\\n\\nStacks {float_2} times. New stacks reset duration. All stacks are removed when duration ends."
+  }
+ },
+ "Intelligence_Central_Milestone_1": {
+  "name": "Optimization",
+  "descriptions": {
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% RAM recovery rate</>"
+  }
+ },
+ "Intelligence_Central_Milestone_2": {
+  "name": "Embedded Exploit",
+  "descriptions": {
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% quickhack damage</> against enemies affected by Covert or Control quickhacks. (Note: Does not increase damage for Ultimate quickhacks.)",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% RAM recovery rate</>"
+  }
+ },
+ "Intelligence_Central_Milestone_3": {
+  "name": "Overclock",
+  "descriptions": {
+   "Level3": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> mode.\\n\\nIf you have a cyberdeck installed, press <Input context=\"Abilities\" actionName=\"IconicCyberware\" color=\"MainColors.Blue\" hold=\"Hide\"></> to activate. In this mode, you can use quickhacks even with insufficient RAM, but each RAM unit over your max costs {float_0} Health instead.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Duration:</> {float_1} sec.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cooldown:</> {float_2} sec.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% quickhack damage</>",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% RAM recovery rate</>"
+  }
+ },
+ "Intelligence_Central_Perk_1_1": {
+  "name": "Encryption",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% traceability</> for all quickhacks."
+  }
+ },
+ "Intelligence_Central_Perk_1_2": {
+  "name": "Proximate Propagation",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Reduced RAM cost</> the closer you are to the target (max. -{float_0}%)"
+  }
+ },
+ "Intelligence_Central_Perk_1_3": {
+  "name": "Subordination",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% duration</> for Control quickhacks used on full-Health enemies."
+  }
+ },
+ "Intelligence_Central_Perk_2_1": {
+  "name": "Speculation",
+  "descriptions": {
+   "": "Neutralizing an enemy with a Combat quickhack <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">recovers RAM</> equal to {float_0}% of the total cost of all quickhacks affecting the target."
+  }
+ },
+ "Intelligence_Central_Perk_2_2": {
+  "name": "ICEpick",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0} RAM cost</> for Combat quickhacks used on enemies affected by or targeted by Control quickhacks, Covert quickhacks or the Distract Enemies quickhack."
+  }
+ },
+ "Intelligence_Central_Perk_2_3": {
+  "name": "System Overwhelm",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% quickhack damage</> for each unique quickhack and DOT effect affecting the target."
+  }
+ },
+ "Intelligence_Central_Perk_2_4": {
+  "name": "Shadowrunner",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% trace progress</> after performing a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Takedown</>."
+  }
+ },
+ "Intelligence_Central_Perk_3_1": {
+  "name": "Race Against Mind",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Increased quickhack damage</> as Health decreases (max. +{float_0}%).\\nHealth is measured when you begin upload."
+  }
+ },
+ "Intelligence_Central_Perk_3_2": {
+  "name": "Sublimation",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> is active, all RAM recovery effects also regenerate Health."
+  }
+ },
+ "Intelligence_Central_Perk_3_3": {
+  "name": "Power Surge",
+  "descriptions": {
+   "": "Activating <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> instantly restores Health equal to {float_0} times your Max RAM."
+  }
+ },
+ "Intelligence_Inbetween_Left_2": {
+  "name": "Siphon",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Monowire</> attacks recover {float_0} RAM.\\n\\nIncreases to {float_1} if the enemy is affected by or targeted by a quickhack."
+  }
+ },
+ "Intelligence_Inbetween_Left_3": {
+  "name": "Blood Daemon",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Health</> for each quickhack queued on an enemy at the time you neutralize them."
+  }
+ },
+ "Intelligence_Inbetween_Right_2": {
+  "name": "Recirculation",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{int_0} RAM</> after neutralizing an enemy with a Smart weapon.\\n\\nIf the enemy is affected by quickhacks, restores additional RAM equal to {int_1}% of their total RAM cost."
+  }
+ },
+ "Intelligence_Left_Milestone_1": {
+  "name": "Eye in the Sky",
+  "descriptions": {
+   "Level1": "Automatically highlights nearby Access Points and cameras.\\n\\nWhen uploaded through cameras, Control quickhacks, Covert quickhacks and the Distract Enemies quickhack have:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0} RAM cost</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% duration</>"
+  }
+ },
+ "Intelligence_Left_Milestone_2": {
+  "name": "Hack Queue",
+  "descriptions": {
+   "Level2": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">quickhack queues</>, allowing {float_0} quickhacks on a single enemy.\\n\\nQueued quickhacks automatically upload in the order they are added.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% upload speed</> for the second quickhack in a queue.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Max RAM</>"
+  }
+ },
+ "Intelligence_Left_Milestone_3": {
+  "name": "Queue Acceleration",
+  "descriptions": {
+   "Level3": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} quickhack queue size</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% upload speed</> for quickhacks third or later in the queue.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0} RAM cost</> to quickhack devices and vehicles.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Max RAM</>"
+  }
+ },
+ "Intelligence_Left_Perk_1_1": {
+  "name": "Warning: Explosion Hazard",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% explosion damage</> from hacked devices.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% additional explosion damage</> to enemies affected by quickhacks (including Distract Enemies)."
+  }
+ },
+ "Intelligence_Left_Perk_1_2": {
+  "name": "ForceKill Cypher",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Reduces sequence length</> required to hack Access Points by {float_0}.\\n\\nTotal sequence length cannot be reduced below {float_1} characters."
+  }
+ },
+ "Intelligence_Left_Perk_2_1": {
+  "name": "Counter-a-hack",
+  "descriptions": {
+   "": "When you're the target of an enemy netrunner, you can quickhack them back <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">through walls and obstacles</>.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0} RAM cost</> for such quickhacks."
+  }
+ },
+ "Intelligence_Left_Perk_2_2": {
+  "name": "Data Recycler",
+  "descriptions": {
+   "": "After neutralizing an enemy, recover {float_0}% of the RAM cost from all quickhacks remaining in their queue."
+  }
+ },
+ "Intelligence_Left_Perk_2_3": {
+  "name": "Copy-Paste",
+  "descriptions": {
+   "": "When you're the target of an enemy netrunner, using a quickhack against them will also <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">spread the quickhack's effect</> to their allies."
+  }
+ },
+ "Intelligence_Left_Perk_2_4": {
+  "name": "Feedback Loop",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% RAM recovery rate</> for each quickhack currently in a queue."
+  }
+ },
+ "Intelligence_Left_Perk_3_2": {
+  "name": "Queue Prioritization",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% upload speed</> for the first quickhack when you have at least 2 quickhacks queued on an enemy."
+  }
+ },
+ "Intelligence_Left_Perk_3_4": {
+  "name": "Finisher: Live Wire",
+  "descriptions": {
+   "": "Unlocks a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Monowire Finisher</>.\\n\\nPress <Input context=\"InteractionActions\" actionName=\"Choice1\" color=\"MainColors.Blue\" hold=\"Hide\"></> when an enemy's Health is low.\\n\\nThe more quickhacks you have queued on an enemy, the more susceptible they are.\\n\\nRestores {float_0}% Health and {float_1} RAM."
+  }
+ },
+ "Intelligence_Master_Perk_1": {
+  "name": "Queue Mastery",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} quickhack queue size</>\\n\\nThe last quickhack to fill a queue has <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_1}% RAM cost</> and locks the queue until all quickhacks have uploaded.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_2}% damage</> against enemies with a locked queue."
+  }
+ },
+ "Intelligence_Master_Perk_3": {
+  "name": "Spillover",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> is active:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% chance</> for quickhacks to spread to an additional target."
+  }
+ },
+ "Intelligence_Master_Perk_4": {
+  "name": "Smart Synergy",
+  "descriptions": {
+   "": "When <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> is active, Smart weapons gain:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Instant target lock</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</> if the enemy is affected by a quickhack."
+  }
+ },
+ "Intelligence_Right_Milestone_2": {
+  "name": "Acquisition Specialist",
+  "descriptions": {
+   "Level2": "Reloading Smart weapons no longer interrupts target lock.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% lock-on speed</> when hip-firing.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% lock-on speed</> when aiming.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_0}% larger targeting reticle</> for Smart weapons."
+  }
+ },
+ "Intelligence_Right_Milestone_3": {
+  "name": "Target Lock Transfer",
+  "descriptions": {
+   "Level3": "Switching from one Smart weapon to another no longer interrupts target lock.",
+   "Level2": "Switching from aiming to hip-fire <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">does not disengage target-lock</> on headshots and weakspots.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_0}% larger targeting reticle</> for Smart weapons."
+  }
+ },
+ "Intelligence_Right_Perk_2_1": {
+  "name": "No Escape",
+  "descriptions": {
+   "": "When using Smart weapons, if the target lock on an enemy is about to end, shooting them resets it."
+  }
+ },
+ "Intelligence_Right_Perk_2_2": {
+  "name": "Precision Subroutines",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% accuracy</> with Smart weapons for each unit in your cyberdeck's Max RAM."
+  }
+ },
+ "Intelligence_Right_Perk_3_1": {
+  "name": "Targeting Prism",
+  "descriptions": {
+   "": "Enables <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">multiple target locks</> when aiming, and increases the number of simultaneous targets for all Smart weapons by {float_0}."
+  }
+ },
+ "Intelligence_Right_Perk_3_2": {
+  "name": "Terminal Velocity",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Increased projectile velocity</> and <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">lock-on range</> for {float_0} sec. after neutralizing an enemy with a Smart weapon.\\n\\nStacks {float_1} times. New stacks reset duration. All stacks are removed when duration ends."
+  }
+ },
+ "Reflexes_Central_Milestone_1": {
+  "name": "Slippery",
+  "descriptions": {
+   "": "The faster you move, the more difficult for enemies to shoot you.\\n\\nEffect increases when <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dashing</>, dodging, sliding, sprinting and vaulting."
+  }
+ },
+ "Reflexes_Central_Milestone_2": {
+  "name": "Dash",
+  "descriptions": {
+   "Level2": "Unlocks the ability to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dash</>.\\n\\nPress <Input context=\"Locomotion\" actionName=\"Dodge\" color=\"MainColors.Blue\" hold=\"Hide\"></> to perform a Dash.\\n\\nDashing replaces dodging, allowing you to cover more ground and automatically vault over low obstacles.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for dodging and <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dashing</>."
+  }
+ },
+ "Reflexes_Central_Milestone_3": {
+  "name": "Air Dash",
+  "descriptions": {
+   "Level3": "Unlocks the ability to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dash in midair</>.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Dash speed</>",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Dash Stamina cost</>"
+  }
+ },
+ "Reflexes_Central_Perk_1_1": {
+  "name": "Power Slide",
+  "descriptions": {
+   "": "Increased slide distance."
+  }
+ },
+ "Reflexes_Central_Perk_1_2": {
+  "name": "Muscle Memory",
+  "descriptions": {
+   "": "Allows you to reload weapons while sprinting, sliding and vaulting."
+  }
+ },
+ "Reflexes_Central_Perk_1_3": {
+  "name": "Parkour!",
+  "descriptions": {
+   "": "Increased vaulting and climbing speed."
+  }
+ },
+ "Reflexes_Central_Perk_1_4": {
+  "name": null,
+  "descriptions": {}
+ },
+ "Reflexes_Central_Perk_2_1": {
+  "name": "Mean Streak",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Stamina</> after neutralizing an enemy while <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dashing</>."
+  }
+ },
+ "Reflexes_Central_Perk_2_2": {
+  "name": "Can't Touch This",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> when performing a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dash</>.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Mitigation</> - grants a chance to reduce incoming damage by current Mitigation Strength (default: 50%)."
+  }
+ },
+ "Reflexes_Central_Perk_2_3": {
+  "name": "Mad Dash",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Dash range</> toward enemies."
+  }
+ },
+ "Reflexes_Central_Perk_2_4": {
+  "name": "Steady Grip",
+  "descriptions": {
+   "": "Allows you to shoot while <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Dashing</>."
+  }
+ },
+ "Reflexes_Central_Perk_3_2": {
+  "name": "Aerial Acrobat",
+  "descriptions": {
+   "": "Improves midair maneuverability."
+  }
+ },
+ "Reflexes_Central_Perk_3_3": {
+  "name": "Aerodynamic",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Strength</> in midair."
+  }
+ },
+ "Reflexes_Inbetween_Left_3": {
+  "name": "Air Kerenzikov",
+  "descriptions": {
+   "": "Activating <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Kerenzikov</> in midair keeps you suspended in the air and extends its duration."
+  }
+ },
+ "Reflexes_Inbetween_Right_2": {
+  "name": "Flash and Thunderclap",
+  "descriptions": {
+   "": "When performing Strong Attacks, you now <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">automatically leap</> to enemies within range.\\n\\nThese <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Leap Attacks</> can be also performed from midair, and deal additional damage that scales with the distance of the leap (max. +{float_0}%)."
+  }
+ },
+ "Reflexes_Left_Milestone_2": {
+  "name": "Ready, Rested, Reloaded",
+  "descriptions": {
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% reload speed</> when above {float_1}% Stamina.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for shooting with Assault Rifles and SMGs."
+  }
+ },
+ "Reflexes_Left_Milestone_3": {
+  "name": "Sharpshooter",
+  "descriptions": {
+   "Level3": "Each successful shot grants a stack of <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Sharpshooter</>.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_0}% bonus to Stamina Regen Rate and Stamina cost</> for {float_1} sec. per stack.\\n\\nStacks {float_2} times. New stacks reset duration. All stacks are removed when duration ends.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Improved weapon handling.</>",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% aim speed</>"
+  }
+ },
+ "Reflexes_Left_Perk_2_2": {
+  "name": "Spice of Life",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% weapon swap speed</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_1}% bullet spread</> briefly after swapping weapons."
+  }
+ },
+ "Reflexes_Left_Perk_2_3": {
+  "name": "Mind Over Matter",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% recoil</> when aiming."
+  }
+ },
+ "Reflexes_Left_Perk_2_4": {
+  "name": "Tunnel Vision",
+  "descriptions": {
+   "": "+{float_0}% effective range and accuracy"
+  }
+ },
+ "Reflexes_Left_Perk_3_1": {
+  "name": "Gundancer",
+  "descriptions": {
+   "": "Aiming no longer slows movement.\\n\\nAllows you to shoot while vaulting."
+  }
+ },
+ "Reflexes_Left_Perk_3_2": {
+  "name": "Spray and Pray",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for hip-firing."
+  }
+ },
+ "Reflexes_Left_Perk_3_3": {
+  "name": "Practice Makes Perfect",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Crit Chance</> and <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Crit Damage</> per stack of <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Sharpshooter</>."
+  }
+ },
+ "Reflexes_Left_Perk_3_4": {
+  "name": "Shoot to Chill",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Armor penetration</> for automatic weapons per stack of <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Sharpshooter</>."
+  }
+ },
+ "Reflexes_Master_Perk_1": {
+  "name": "Salt in the Wound",
+  "descriptions": {
+   "": "Shooting the same target a {float_0}th consecutive time deals bonus damage equal to {float_1}% of the total damage from the preceding shots."
+  }
+ },
+ "Reflexes_Master_Perk_2": {
+  "name": "Submachine Fun",
+  "descriptions": {
+   "": "Swapping Submachine Guns is faster and automatically reloads them.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% fire rate</> after swapping to an SMG. Normal reloading ends the effect."
+  }
+ },
+ "Reflexes_Master_Perk_3": {
+  "name": "Tailwind",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Stamina</> from performing <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Air Dashes</> and double jumps.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Air Dashes</> do not cost Stamina."
+  }
+ },
+ "Reflexes_Master_Perk_5": {
+  "name": "Slaughterhouse",
+  "descriptions": {
+   "": "All attacks, counterattacks and deflected bullets apply Bleeding, which increases dismemberment chance.\\n\\nBleeding cannot kill enemies, but does make them more susceptible to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Finishers</>.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Stamina</> from dismemberments."
+  }
+ },
+ "Reflexes_Right_Milestone_2": {
+  "name": "Lead and Steel",
+  "descriptions": {
+   "Level2": "Unlocks the ability to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">block incoming projectiles</> with Blades. This consumes Stamina.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for attacks with Blades."
+  }
+ },
+ "Reflexes_Right_Milestone_3": {
+  "name": "Finisher: Bladerunner",
+  "descriptions": {
+   "Level3": "Unlocks a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Blade Finisher</>.\\n\\nPress <Input context=\"InteractionActions\" actionName=\"Choice1\" color=\"MainColors.Blue\" hold=\"Hide\"></> when an enemy's Health is low.\\n\\nRestores {float_0}% Health.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% attack speed</> with Blades.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Stamina cost</> for attacks with Blades."
+  }
+ },
+ "Reflexes_Right_Perk_2_1": {
+  "name": "Bullet Deflect",
+  "descriptions": {
+   "": "When your Stamina is above {float_0}%, blocking projectiles will <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Deflect</> them to wherever your reticle is aimed.\\n\\nWell-timed blocking just before being hit increases the damage you deal with deflected bullets."
+  }
+ },
+ "Reflexes_Right_Perk_2_2": {
+  "name": "Seeing Double",
+  "descriptions": {
+   "": "Increased damage and Stun chance with Counterattacks."
+  }
+ },
+ "Reflexes_Right_Perk_2_3": {
+  "name": "Bullet Time",
+  "descriptions": {
+   "": "Whenever time is slowed, <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bullet Deflect</> does not consume Stamina and deflections automatically hit enemies for Crit Damage."
+  }
+ },
+ "Reflexes_Right_Perk_3_1": {
+  "name": "Flash of Steel",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% movement speed</> and <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">attack speed</> for {float_1} sec. after performing a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Finisher</>."
+  }
+ },
+ "Reflexes_Right_Perk_3_3": {
+  "name": "Opportunist",
+  "descriptions": {
+   "": "Enemies affected by Stagger, Stun, Blinding and Bleeding are more susceptible to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Finishers</>."
+  }
+ },
+ "Reflexes_Right_Perk_3_4": {
+  "name": "Going the Distance",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Finisher range</>"
+  }
+ },
+ "Tech_Central_Milestone_2": {
+  "name": "All Things Cyber",
+  "descriptions": {
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% Cyberware Capacity cost</> for cyberware in the Integumentary System and Skeleton.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}%</> to all cyberware stat modifiers."
+  }
+ },
+ "Tech_Central_Milestone_3": {
+  "name": "License to Chrome",
+  "descriptions": {
+   "Level3": "Unlocks a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">new cyberware slot</> for the Skeleton.\\n\\nAll Skeleton cyberware have boosted stats.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} Armor</>",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}%</> to all cyberware stat modifiers."
+  }
+ },
+ "Tech_Central_Perk_2_1": {
+  "name": "Driver Update",
+  "descriptions": {
+   "": "All cyberware gain an additional stat modifier."
+  }
+ },
+ "Tech_Central_Perk_2_2": {
+  "name": "Renaissance Punk",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1} Cyberware Capacity</> for each Attribute at {float_0} or higher."
+  }
+ },
+ "Tech_Central_Perk_2_3": {
+  "name": "Lucky Day",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% crafting components</> from looting."
+  }
+ },
+ "Tech_Central_Perk_2_4": {
+  "name": "Chrome Constitution",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% incoming damage</> if all Integumentary System and Skeleton cyberware slots are filled."
+  }
+ },
+ "Tech_Central_Perk_3_1": {
+  "name": "Extended Warranty",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% duration</> for all cyberware effects."
+  }
+ },
+ "Tech_Central_Perk_3_2": {
+  "name": "Ambidextrous",
+  "descriptions": {
+   "": "Unlocks a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">new cyberware slot</> for your Hands."
+  }
+ },
+ "Tech_Central_Perk_3_3": {
+  "name": "Built Different",
+  "descriptions": {
+   "": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Cellular Adapter</> cyberware for the Integumentary System. It can be purchased and installed at ripperdoc clinics. This Perk is required to use it properly."
+  }
+ },
+ "Tech_Central_Perk_3_4": {
+  "name": "Cyborg",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_0}% reduced Cooldown</> for all cyberware if all available cyberware slots are filled."
+  }
+ },
+ "Tech_Inbetween_Left_3": {
+  "name": "Doomlauncher",
+  "descriptions": {
+   "": "Perks that improve grenades now also improve the <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Projectile Launch System</>."
+  }
+ },
+ "Tech_Inbetween_Right_2": {
+  "name": "Chipware Connoisseur",
+  "descriptions": {
+   "": "When upgrading cyberware, you can choose from two <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">stat modifier</> options.\\n\\nA third option is available at Tier {int_0} and higher."
+  }
+ },
+ "Tech_Left_Milestone_1": {
+  "name": "Health Freak",
+  "descriptions": {
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+1 Health Item charge</>.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% recharge speed</> for Health Items outside of combat."
+  }
+ },
+ "Tech_Left_Milestone_2": {
+  "name": "Glutton for War",
+  "descriptions": {
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% recharge speed</> for Health Items and grenades.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_0}% instant recharge</> of Health Items and grenades after neutralizing an enemy."
+  }
+ },
+ "Tech_Left_Milestone_3": {
+  "name": "Pyromania",
+  "descriptions": {
+   "Level3": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% movement speed</> and <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% explosion damage</> for {float_2} sec. after hitting an enemy in combat with an explosion from a grenade, explosive device or <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Projectile Launch System.</>\\n\\nIf you take damage from the explosion, the effect adds 2 stacks instead of 1.\\n\\nEffect stacks {float_3} times.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% explosion radius</> for grenades and the Projectile Launch System.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% recharge speed</> for Health Items and grenades."
+  }
+ },
+ "Tech_Left_Perk_1_1": {
+  "name": "Transfusion",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Health</> from the final charge of your Health Item."
+  }
+ },
+ "Tech_Left_Perk_1_2": {
+  "name": "First Aid",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% recharge speed</> for Health Items when you've only used 1 charge."
+  }
+ },
+ "Tech_Left_Perk_2_1": {
+  "name": "Demolitions Surplus",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0} max grenade charge</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_1}% recharge speed</> for grenades outside of combat."
+  }
+ },
+ "Tech_Left_Perk_2_2": {
+  "name": "Borrowed Time",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_1}% instant recharge</> of a Health Item after neutralizing an enemy if you're below {float_0}% Health and have no charges remaining."
+  }
+ },
+ "Tech_Left_Perk_2_3": {
+  "name": "Field Medic",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">{float_0}% faster use</> of Health Items in combat."
+  }
+ },
+ "Tech_Left_Perk_2_4": {
+  "name": "Coming in Hot",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% recharge speed</> for grenades when you have none available."
+  }
+ },
+ "Tech_Left_Perk_3_01": {
+  "name": "Friendlier Fire",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% resistance</> to damage and effects from explosions you cause."
+  }
+ },
+ "Tech_Left_Perk_3_2": {
+  "name": "Burn This City",
+  "descriptions": {
+   "": "When you accumulate {float_0} stacks of <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Pyromania</>, they will be consumed to <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">instantly replenish a grenade charge</>, but all bonuses from those stacks will remain active for {float_1} sec."
+  }
+ },
+ "Tech_Left_Perk_3_3": {
+  "name": "Flash Sale",
+  "descriptions": {
+   "": "For Flash, Smoke and Recon grenades:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Double grenade charges</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Double recharge rate</>"
+  }
+ },
+ "Tech_Left_Perk_3_4": {
+  "name": "Heat Shield",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% Mitigation Chance</> per stack of <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Pyromania</>."
+  }
+ },
+ "Tech_Master_Perk_2": {
+  "name": "Ticking Time Bomb",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Charges a powerful EMP</> that hits nearby enemies <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">after {float_1} sec.</> whenever you activate Operating System cyberware (<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Berserk</>, <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Sandevistan</>) or <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Overclock</> mode.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Applies Stun</> and <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">deals damage</> proportionate to the quantity and Tier of cyberware implants you have installed.\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_0}% incoming damage</> while charging the EMP."
+  }
+ },
+ "Tech_Master_Perk_3": {
+  "name": "Edgerunner",
+  "descriptions": {
+   "": "Allows you to exceed your Cyberware Capacity by up to {float_0} points at the cost of -{float_1}% Max Health per point.\\n\\nWhen you neutralize an enemy during combat, there is a {float_2}% chance for each point you're over capacity that you will enter a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Fury</> state. In this state, you gain:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_3}% damage</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_4}% Crit Chance</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_5}% Crit Damage</>\\n\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Duration:</> {float_6} sec.\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_7} sec. duration</> for each neutralization while <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Fury</> is active."
+  }
+ },
+ "Tech_Master_Perk_5": {
+  "name": "Chain Lightning",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</> now deals Electrical damage and releases an electric arc that can electrocute up to {float_0} nearby enemies."
+  }
+ },
+ "Tech_Right_Milestone_3": {
+  "name": "Bolt",
+  "descriptions": {
+   "Level3": "Unlocks <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</> shots. To fire a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</>, release the trigger for a charged shot right before it fully charges:\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Counts as a fully charged shot</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</>\\n<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">-{float_1}% penalty</> for penetrating cover\\n\\nFull-auto Tech weapons fire <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolts</> in a short burst. To continue firing <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolts in full-auto</>, press and hold the trigger again after firing the initial burst.",
+   "Level2": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% damage</> for charged shots with Tech weapons.",
+   "Level1": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% charge speed</> for Tech weapons."
+  }
+ },
+ "Tech_Right_Perk_3_1": {
+  "name": "In Charge",
+  "descriptions": {
+   "": "Tech weapons no longer fire automatically when reaching full charge."
+  }
+ },
+ "Tech_Right_Perk_3_2": {
+  "name": "Internal Clock",
+  "descriptions": {
+   "": "Increased time window to fire a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</>."
+  }
+ },
+ "Tech_Right_Perk_3_3": {
+  "name": "Shock Value",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</> shots ignore enemy Armor."
+  }
+ },
+ "Tech_Right_Perk_3_4": {
+  "name": "Lightning Storm",
+  "descriptions": {
+   "": "<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">+{float_0}% charge speed</> after firing a <Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</>.\\n\\nStacks {float_1} times.\\n\\nSwapping weapons or firing a non-<Rich color=\"TooltipText.cyberwareDescriptionHighlightColor\" style=\"Semi-Bold\">Bolt</> shot resets the stack."
+  }
+ }
+}

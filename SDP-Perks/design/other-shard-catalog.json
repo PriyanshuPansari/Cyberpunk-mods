@@ -1,0 +1,2125 @@
+{
+  "Adrenaline": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Painkiller: slow Health regeneration in combat.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Milestone_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Adrenaline Rush 1: more maximum Health.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Speed Junkie + Comeback Kid: stronger regeneration while moving or wounded.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_1_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Body_Central_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_1_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Adrenaline Rush 2: boost all Health regeneration sources.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Body_Central_Milestone_3_inline6"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Adrenaline Rush 3: Blood Pump and Health Items can grant Adrenaline.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Body_Central_Milestone_3_inline10"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Dorph-head: mitigation after Blood Pump or a Health Item.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Perk_1_4",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_1_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Army of One: regeneration improves near enemies.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Perk_1_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_1_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Calm Mind + Bloodlust: delay Adrenaline decay and gain Adrenaline from nearby dismemberments.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_3_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Body_Inbetween_Left_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Inbetween_Left_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Juggernaut: move faster and deal more damage during Adrenaline Rush.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Unstoppable Force: ignore movement penalties and non-damaging status effects during Adrenaline Rush.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Central_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Body_Central_Perk_3_4_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Pain to Gain: neutralizations during Adrenaline Rush recharge Health Items.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Master_Perk_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Master_Perk_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Obliteration": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Die! Die! Die! 1: Stamina regeneration.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Milestone_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Die! Die! Die! 2: handling improves as Stamina falls.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Body_Left_Milestone_2_inline8"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Bullet Ballet + Like a Feather: mobile firing and weapon movement.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_2_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Body_Left_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_2_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Spontaneous Obliteration 1: Crit Chance rises as Stamina falls.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Spontaneous Obliteration 3: unlock Obliterate on weakened enemies.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Body_Left_Milestone_3_inline16"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Spontaneous Obliteration 2 + Don't Stop Me Now: close-range damage and defense at low Stamina.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Body_Left_Milestone_3_inline8"
+          },
+          {
+            "perk": "NewPerks.Body_Left_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_2_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Rush of Blood: faster reload after dismemberment.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_3_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Skullcracker: stronger Quick Melee at low Stamina.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Dread: ranged attacks reduce enemy Armor; dismemberment spreads it.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_3_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Close-quarters Carnage: more ranged Obliterate chance up close.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Left_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Body_Left_Perk_3_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Rip and Tear + Onslaught: shotgun/Quick Melee damage loop or LMG ammo refill on neutralization.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Master_Perk_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Master_Perk_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Body_Master_Perk_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Master_Perk_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Quake": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Wrecking Ball 1: lower blunt-attack Stamina cost.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Milestone_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Wrecking Ball 2: sprint-block charge that can knock enemies down.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Body_Right_Milestone_2_inline12"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Fly Swatter + Kinetic Absorption: ranged blocking defense and Stamina/damage from blocks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Perk_2_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Body_Right_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Perk_2_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Clapback: stronger knockdown and stun counterattacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Perk_2_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Quake 3: ground or midair slam.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Body_Right_Milestone_3_inline18"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Quake 1 + Quake 2: lower blunt Stamina cost and faster blunt attacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Body_Right_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Body_Right_Milestone_3_inline13"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Breakthrough: strong attacks lower enemy Armor.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Perk_2_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Aftershock: regain Stamina per enemy hit by Quake.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Body_Right_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Epicenter: midair Quake scales with fall speed and distance.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Right_Perk_3_1",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Ripple Effect: gain Health per enemy hit by Quake.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Inbetween_Right_3",
+            "rank": 1,
+            "package": "NewPerks.Body_Inbetween_Right_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Finisher: Savage Sling: finish or throw a weakened enemy.",
+        "effects": [
+          {
+            "perk": "NewPerks.Body_Master_Perk_5",
+            "rank": 1,
+            "package": "NewPerks.Body_Master_Perk_5_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Air Dash": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Slippery: faster movement makes you harder to hit.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Milestone_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Dash 2: unlock Dash.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Reflexes_Central_Milestone_2_inline7"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Dash 1 + Power Slide: cheaper Dash/dodge and longer slides.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Milestone_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_1_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Muscle Memory + Parkour!: reload while moving and vault or climb faster.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_1_2_inline1"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_1_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_1_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Air Dash 3: unlock midair Dash.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Reflexes_Central_Milestone_3_inline13"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Air Dash 1 + Air Dash 2: cheaper and faster Dashes.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Central_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Reflexes_Central_Milestone_3_inline8"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Can't Touch This + Mean Streak: mitigation during Dash and longer Dashes toward enemies.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_2_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_2_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Steady Grip + Multitasker: fire during Dash and other movement actions.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_2_4_inline1"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_1_4",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_1_4_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Aerial Acrobat + Aerodynamic: midair control and mitigation.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_3_2_inline1"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_3_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Mad Dash: Stamina after a neutralization while Dashing.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Central_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Central_Perk_2_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Tailwind: Air Dashes cost no Stamina and restore it.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Master_Perk_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Master_Perk_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Sharpshooter": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Ready, Rested, Reloaded 1: cheaper AR/SMG shooting.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Milestone_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Ready, Rested, Reloaded 2: faster reload at high Stamina.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Reflexes_Left_Milestone_2_inline9"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Spice of Life + Mind Over Matter: faster swaps, less spread, less aimed recoil.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_2_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_2_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Sharpshooter 1: faster aim.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Sharpshooter 3: successful shots build Sharpshooter stacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Reflexes_Left_Milestone_3_inline21"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Sharpshooter 2 + Practice Makes Perfect: handling and Crit bonuses as stacks build.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Reflexes_Left_Milestone_3_inline10"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_3_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Tunnel Vision + Gundancer: effective range, mobile aiming, and vault shooting.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_2_4_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_3_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Spray and Pray + Air Kerenzikov: cheaper hip-fire and a midair Kerenzikov option.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_3_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Inbetween_Left_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Inbetween_Left_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Shoot to Chill: Armor penetration per Sharpshooter stack.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Left_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Left_Perk_3_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Submachine Fun: SMG swaps auto-reload and briefly improve fire rate.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Master_Perk_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Master_Perk_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Salt in the Wound: consecutive shots on the same target trigger bonus damage.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Master_Perk_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Master_Perk_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Blade Runner": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Lead and Steel 1: cheaper blade attacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Milestone_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Lead and Steel 2: block projectiles with a Blade.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Reflexes_Right_Milestone_2_inline19"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Bullet Deflect + Seeing Double: aimed deflections and stronger counterattacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Perk_2_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Right_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Perk_2_2_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Bullet Time: enhanced deflections while time is slowed.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Perk_2_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Finisher: Bladerunner 3: unlock Blade Finisher.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Reflexes_Right_Milestone_3_inline18"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Finisher: Bladerunner 1 + 2: cheaper and faster Blade attacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Reflexes_Right_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Reflexes_Right_Milestone_3_inline12"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Flash and Thunderclap: leap toward enemies on Strong Attacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Inbetween_Right_2",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Inbetween_Right_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Opportunist: more enemies become susceptible to Finishers.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Perk_3_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Going the Distance: longer Finisher reach.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Perk_3_4_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Flash of Steel: speed after a Finisher.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Right_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Right_Perk_3_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Slaughterhouse: attacks and deflections apply Bleeding to set up Finishers.",
+        "effects": [
+          {
+            "perk": "NewPerks.Reflexes_Master_Perk_5",
+            "rank": 1,
+            "package": "NewPerks.Reflexes_Master_Perk_5_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Chrome": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "All Things Cyber 1: stronger cyberware stat modifiers.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Milestone_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "All Things Cyber 2: lower Capacity cost for Integumentary and Skeleton cyberware.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Tech_Central_Milestone_2_inline8"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Driver Update + Lucky Day: extra cyberware modifier and more looted components.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Perk_2_1_inline1"
+          },
+          {
+            "perk": "NewPerks.Tech_Central_Perk_2_3",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "License to Chrome 1: further cyberware stat modifiers.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "License to Chrome 3: additional Skeleton slot and Skeleton stat boost.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Milestone_3",
+            "rank": 3,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "License to Chrome 2 + Extended Warranty: Armor and longer cyberware effects.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Tech_Central_Milestone_3_inline8"
+          },
+          {
+            "perk": "NewPerks.Tech_Central_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Perk_3_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "**Custom:** Chrome Calibration: +4 Cyberware Capacity. (Ambidextrous, the extra Hands slot, moved to the Hands Expansion shard.)",
+        "effects": [],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Built Different: unlock and support Cellular Adapter.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Perk_3_3",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Renaissance Punk + Chipware Connoisseur: skill-derived Capacity and cyberware upgrade choices.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Perk_2_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Inbetween_Right_2",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Chrome Constitution + Cyborg: rewards for filled cyberware slots.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Central_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Perk_2_4_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Central_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Tech_Central_Perk_3_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Edgerunner: exceed Capacity at a Health cost.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Master_Perk_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Master_Perk_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Pyromania": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Glutton for War: extra Health Item charge and recharge.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Milestone_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Health Freak 1 + First Aid: faster item and grenade recharge.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Milestone_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Left_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_1_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Health Freak 2 + Transfusion: recharge on neutralization and stronger final Health Item charge.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Tech_Left_Milestone_2_inline9"
+          },
+          {
+            "perk": "NewPerks.Tech_Left_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_1_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Demolitions Surplus + Coming in Hot: more grenade supply and recharge.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_2_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Left_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_2_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Pyromania 3: explosion hits build Pyromania movement/damage stacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Tech_Left_Milestone_3_inline15"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Pyromania 1 + 2: recharge and explosion-radius bonuses.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Left_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Tech_Left_Milestone_3_inline9"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Friendlier Fire + Doomlauncher: resist your own explosions; grenade perks also help Projectile Launch System.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Perk_3_01",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_3_01_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Inbetween_Left_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Inbetween_Left_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Borrowed Time + Field Medic: emergency item recovery and faster combat use.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_2_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Left_Perk_2_3",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Heat Shield + Burn This City: stack-based mitigation and grenade replenishment.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_3_4_inline2"
+          },
+          {
+            "perk": "NewPerks.Tech_Left_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Flash Sale: greater Flash, Smoke, and Recon grenade supply.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Left_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Left_Perk_3_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Ticking Time Bomb: delayed EMP on Operating System or Overclock activation.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Master_Perk_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Master_Perk_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Bolt": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Bolt 1: faster Tech-weapon charging.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Right_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Bolt 2: more charged-shot damage.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Tech_Right_Milestone_3_inline8"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "In Charge: holding full charge no longer auto-fires.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Tech_Right_Perk_3_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "**Custom:** damaging fully charged Tech shots restore 2 Stamina.",
+        "effects": [],
+        "custom": true,
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Bolt 3: unlock timed Bolt shots.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Tech_Right_Milestone_3_inline14"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Internal Clock: wider timing window for a Bolt.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Tech_Right_Perk_3_2_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Shock Value: Bolt shots ignore Armor.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Tech_Right_Perk_3_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Lightning Storm: repeated Bolts accelerate charging.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Right_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Tech_Right_Perk_3_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "**Custom:** Tech weapons gain 5% headshot damage while this grade is active.",
+        "effects": [],
+        "custom": true,
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "**Custom:** a fully charged Tech-shot neutralization restores 5 Stamina.",
+        "effects": [],
+        "custom": true,
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Chain Lightning: Bolt deals Electrical damage and arcs to nearby enemies.",
+        "effects": [
+          {
+            "perk": "NewPerks.Tech_Master_Perk_5",
+            "rank": 1,
+            "package": "NewPerks.Tech_Master_Perk_5_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Overclock": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Optimization: RAM recovery.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Milestone_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Embedded Exploit 1 + Encryption: RAM recovery and lower traceability.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Milestone_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_1_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Embedded Exploit 2 + Proximate Propagation: damage on prepared targets and cheaper close-range hacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Intelligence_Central_Milestone_2_inline6"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_1_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "ICEpick + Subordination: prepared Combat hacks cost less; Control hacks last longer.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_2_2",
+            "rank": 1,
+            "package": "?"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_1_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_1_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Overclock 3: spend Health to quickhack without enough RAM.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Intelligence_Central_Milestone_3_inline10"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Overclock 1 + 2: RAM recovery and quickhack damage.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Central_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Intelligence_Central_Milestone_3_inline6"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Speculation + System Overwhelm: RAM refund on Combat-hack neutralizations and damage from layered effects.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_2_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_2_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Shadowrunner + Blood Daemon: Takedowns reduce trace; queued hacks on an Overclock victim restore Health.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_2_4_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Inbetween_Left_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Inbetween_Left_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Race Against Mind + Power Surge: low-Health damage and Health on Overclock activation.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_3_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_3_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_3_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Sublimation: RAM recovery also regenerates Health during Overclock.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Central_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Central_Perk_3_2_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Spillover: hacks can spread during Overclock.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Master_Perk_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Master_Perk_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Hack Queue": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Hack Queue 2: unlock ordered quickhack queues.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Intelligence_Left_Milestone_2_inline6"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Hack Queue 1 + Eye in the Sky: Max RAM and camera/Access Point utility.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Milestone_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Left_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Milestone_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Data Recycler + Feedback Loop: refund unused queued hacks and recover RAM while queuing.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_2_2",
+            "rank": 1,
+            "package": "?"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_2_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Queue Prioritization: faster upload at the start of a populated queue.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Queue Acceleration 3: larger, faster late queue.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Intelligence_Left_Milestone_3_inline10"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Queue Acceleration 1 + 2: Max RAM and cheaper device/vehicle hacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Left_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Intelligence_Left_Milestone_3_inline6"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Warning: Explosion Hazard + ForceKill Cypher: device explosion and Access Point bonuses.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_1_1_inline2"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_1_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Copy-Paste + Counter-a-hack: counter hostile netrunners and spread a counterhack.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_2_3_inline1"
+          },
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_2_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Siphon: Monowire attacks restore RAM.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Inbetween_Left_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Inbetween_Left_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Finisher: Live Wire: Monowire Finisher improves with queued hacks.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Left_Perk_3_4",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Left_Perk_3_4_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Queue Mastery: larger queue and a powerful final-slot reward.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Master_Perk_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Master_Perk_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Smart Lock": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Acquisition Specialist 1: larger Smart-weapon targeting area.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Right_Milestone_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Acquisition Specialist 2: keep locks on reload and lock faster.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Intelligence_Right_Milestone_2_inline15"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "No Escape: shooting a target can renew a fading lock.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Perk_2_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Right_Perk_2_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Precision Subroutines: accuracy scales with Max RAM; **custom fallback:** small flat accuracy bonus without a cyberdeck.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Right_Perk_2_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Target Lock Transfer 2: keep head/weakspot lock between aiming and hip-fire.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Intelligence_Right_Milestone_3_inline14"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Target Lock Transfer 1: further enlarge the target area.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Right_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Target Lock Transfer 3: keep locks when swapping Smart weapons.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Intelligence_Right_Milestone_3_inline19"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Recirculation: RAM after Smart-weapon neutralization; **custom:** Smart-weapon neutralizations also restore 5 Stamina.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Inbetween_Right_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Inbetween_Right_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Terminal Velocity: Smart-weapon neutralizations improve projectile speed and range.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Right_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Smart Synergy: instant lock and bonus damage during Overclock; **custom:** a small passive lock-speed bonus.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Master_Perk_4",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Master_Perk_4_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Targeting Prism: lock multiple targets while aiming.",
+        "effects": [
+          {
+            "perk": "NewPerks.Intelligence_Right_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Intelligence_Right_Perk_3_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Ninjutsu": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Feline Footwork: faster, safer crouched movement.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Milestone_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Ninjutsu 1: crouch movement speed.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Milestone_3_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Unexposed: mitigation while aiming from cover.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Perk_1_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Ninjutsu 2: mitigation while crouched.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Cool_Central_Milestone_3_inline8"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Ninjutsu 3: unlock crouch-sprinting.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Milestone_3",
+            "rank": 3,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Small Target: mitigation while crouched and still.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Perk_1_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Blind Spot: crouched mitigation delays detection.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Perk_1_4",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Perk_1_4_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Serpentine: mitigation while crouch-sprinting.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Perk_3_1",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Perk_3_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Shinobi Sprint: cheaper crouch-sprinting in combat.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Perk_3_4",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Vanishing Act: Optical Camo activates while crouch-sprinting or sliding.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Inbetween_Left_3",
+            "rank": 1,
+            "package": "NewPerks.Cool_Inbetween_Left_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Creeping Death: stealth neutralizations restore Health/Stamina and grant speed.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Central_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Cool_Central_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  },
+  "Juggler": {
+    "grades": [
+      {
+        "grade": "Tier 1",
+        "description": "Killer Instinct: stronger knives, axes, and silenced guns outside combat.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Milestone_1",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Milestone_1_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 1+",
+        "description": "Scorpion Sting 1 + Gag Order: faster throwable recovery and delayed group detection.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Milestone_2",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Milestone_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Cool_Right_Perk_1_1",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Perk_1_1_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2",
+        "description": "Scorpion Sting 2 + Corrosion: precision throws apply Poison, including to machines.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Milestone_2",
+            "rank": 2,
+            "package": "NewPerks.Cool_Right_Milestone_2_inline8"
+          },
+          {
+            "perk": "NewPerks.Cool_Right_Perk_2_1",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 2+",
+        "description": "Neurotoxin + Accelerated Toxin Absorption: control Poisoned enemies and cash out Poison with a hit.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Perk_2_2",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Perk_2_2_inline2"
+          },
+          {
+            "perk": "NewPerks.Cool_Right_Perk_2_3",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Perk_2_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3",
+        "description": "Juggler 3: qualifying thrown neutralizations reset throwable cooldowns.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Milestone_3",
+            "rank": 3,
+            "package": "NewPerks.Cool_Right_Milestone_3_inline14"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 3+",
+        "description": "Juggler 1 + 2: faster recovery and more precision damage.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Milestone_3",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Milestone_3_inline2"
+          },
+          {
+            "perk": "NewPerks.Cool_Right_Milestone_3",
+            "rank": 2,
+            "package": "NewPerks.Cool_Right_Milestone_3_inline8"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4",
+        "description": "Parasite + Quick Getaway: thrown precision hits heal; stealth neutralizations grant speed.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Perk_2_4",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Perk_2_4_inline2"
+          },
+          {
+            "perk": "NewPerks.Cool_Right_Perk_1_2",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Perk_1_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 4+",
+        "description": "Pay It Forward + Sleight of Hand: reward retrieved throws and Juggler activation.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Perk_3_1",
+            "rank": 1,
+            "package": "?"
+          },
+          {
+            "perk": "NewPerks.Cool_Right_Perk_3_4",
+            "rank": 1,
+            "package": "?"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5",
+        "description": "Finisher: Act of Mercy: Throwable Weapon Finisher.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Right_Perk_3_2",
+            "rank": 1,
+            "package": "NewPerks.Cool_Right_Perk_3_2_inline2"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5+",
+        "description": "Pounce: longer Finisher reach after a thrown hit.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Inbetween_Right_3",
+            "rank": 1,
+            "package": "NewPerks.Cool_Inbetween_Right_3_inline1"
+          }
+        ],
+        "unparsed": ""
+      },
+      {
+        "grade": "Tier 5++",
+        "description": "Style Over Substance: guaranteed thrown Crits during skilled movement.",
+        "effects": [
+          {
+            "perk": "NewPerks.Cool_Master_Perk_4",
+            "rank": 1,
+            "package": "NewPerks.Cool_Master_Perk_4_inline1"
+          }
+        ],
+        "unparsed": ""
+      }
+    ]
+  }
+}
