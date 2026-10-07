@@ -238,6 +238,231 @@ SkillDrivenProgression.PrototypePhysical8:
   maxStacks: SkillDrivenProgression.PrimitiveStacks
   savable: false
 
+# Build 12: open-ended variants for native reference rules. The runtime trims the
+# remaining duration to the exact native value after applying, and removes the
+# status at expiry itself.
+SkillDrivenProgression.PrimitiveDurationStatLong:
+  $type: gamedataConstantStatModifier_Record
+  value: 600
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+SkillDrivenProgression.PrimitiveDurationLong:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers: [SkillDrivenProgression.PrimitiveDurationStatLong]
+
+SkillDrivenProgression.PrototypeBlindLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Blind, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeBurnLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPHeat, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeShockLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPElectric, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeStunLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Stunned
+  gameplayTags: [SDPStun, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeSlowLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPSlow, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeChemicalLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPChemical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypePhysicalLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPPhysical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+# Build 12 primitives. Each carries the gameplay tags the game's scripts react to:
+# LocomotionMalfunction (AI cannot-move condition), JamWeapon/WeaponJam plus our
+# own SDPJam (AIWeapon.Fire is blocked while it is active), Deaf/CommsNoiseJam
+# (hearing off, no calls for help, no tracked accuracy) and CyberwareMalfunction
+# (no NPC counter-hacking, cyberware-malfunction damage bonuses).
+SkillDrivenProgression.PrototypeImmobilize2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [LocomotionMalfunction, SDPImmobile, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeImmobilize:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [LocomotionMalfunction, SDPImmobile, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeImmobilize8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [LocomotionMalfunction, SDPImmobile, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeImmobilizeLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [LocomotionMalfunction, SDPImmobile, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeJam2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [JamWeapon, WeaponJam, SDPJam, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeJam:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [JamWeapon, WeaponJam, SDPJam, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeJam8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [JamWeapon, WeaponJam, SDPJam, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeJamLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [JamWeapon, WeaponJam, SDPJam, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeDeafen2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Deaf, CommsNoiseJam, SDPDeaf, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeDeafen:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Deaf, CommsNoiseJam, SDPDeaf, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeDeafen8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Deaf, CommsNoiseJam, SDPDeaf, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeDeafenLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Deaf, CommsNoiseJam, SDPDeaf, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeCyberware2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [CyberwareMalfunction, SDPCyberware, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeCyberware:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [CyberwareMalfunction, SDPCyberware, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeCyberware8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [CyberwareMalfunction, SDPCyberware, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeCyberwareLong:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDurationLong
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [CyberwareMalfunction, SDPCyberware, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
 SkillDrivenProgression.PrimitiveStackStat:
   $type: gamedataConstantStatModifier_Record
   statType: BaseStats.MaxStacks

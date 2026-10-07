@@ -1,7 +1,8 @@
 -- Pure component catalog/validation; no game APIs, inventory writes or callbacks.
 local M = {}
 M.triggers = {"Off", "Opponent starts reloading", "Your ranged hit", "Your ranged headshot", "On upload", "After 3 seconds"}
-M.payloads = {"Blindness", "Thermal pulses", "Electrical pulses", "Stun", "Native reference status", "Movement restriction", "Chemical pulses", "Physical pulses"}
+M.payloads = {"Blindness", "Thermal pulses", "Electrical pulses", "Stun", "Native reference status", "Movement restriction", "Chemical pulses", "Physical pulses",
+  "Immobilize", "Weapon jam", "Deafen + comms jam", "Cyberware malfunction"}
 M.conditions = {"Always", "Target already blinded", "Target already burning"}
 M.budget = 12
 M.presets = {
@@ -18,6 +19,10 @@ M.presets = {
   {name = "Caustic blackout", first = {4, 1, 0, 8, 25, 1}, second = {4, 7, 0, 8, 10, 1}},
   {name = "Headshot furnace", first = {4, 6, 0, 8, 25, 1}, second = {3, 2, 0, 4, 50, 0.5}},
   {name = "Reload Shock", first = {1, 3, 0}, second = {3, 1, 0}},
+  {name = "Lockdown core", first = {4, 9, 0}, second = {0, 0, 0}},
+  {name = "Glitch core", first = {4, 10, 0}, second = {0, 0, 0}},
+  {name = "Sonic core", first = {4, 11, 0}, second = {0, 0, 0}},
+  {name = "Malfunction core", first = {4, 12, 0}, second = {0, 0, 0}},
 }
 
 local function integer(value, low, high)
@@ -31,8 +36,9 @@ function M.ruleCost(rule)
   if (d ~= 2 and d ~= 4 and d ~= 8) or (a ~= 10 and a ~= 25 and a ~= 50)
       or (t ~= 0.5 and t ~= 1 and t ~= 2) then return nil end
   if trigger == 0 and payload == 0 and condition == 0 then return 0 end
-  if not integer(trigger, 1, 5) or not integer(payload, 1, 8) or not integer(condition, 0, 2) then return nil end
-  return ({2, 3, 1, 1, 1})[trigger] + ({2, 3, 3, 2, 3, 3, 3, 3})[payload] + (condition == 0 and 0 or 1)
+  if not integer(trigger, 1, 5) or not integer(payload, 1, #M.payloads) or not integer(condition, 0, 2) then return nil end
+  -- Mirrors SDPPrototypeRuntime.Cost in PrototypeCrafting.reds.
+  return ({2, 3, 1, 1, 1})[trigger] + ({2, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 2})[payload] + (condition == 0 and 0 or 1)
 end
 
 function M.validate(recipe, weapon)

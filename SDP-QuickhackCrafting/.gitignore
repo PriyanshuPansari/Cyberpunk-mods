@@ -7,4 +7,6 @@ __pycache__/
 *.redscripts
 settings.json
 bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/prototype-recipe.json
+bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/quickhack-designs.json
 bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/quickhack-lab-report.txt
+bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/native-quickhacks-dump.txt

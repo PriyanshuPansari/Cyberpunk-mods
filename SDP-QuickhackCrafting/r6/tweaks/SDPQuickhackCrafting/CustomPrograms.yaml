@@ -1,0 +1,168 @@
+# Program chips A-D for designed quickhacks. Each action and chip starts as a
+# clone of Reboot Optics; CustomProgramRecords.reds (a TweakXL scriptable tweak)
+# finishes them at load: own cooldown, RAM cost, upload time and completion signal.
+# The design compiled into a slot sets the _Ram/_Upload/_CooldownTime values at
+# runtime. Until the scriptable tweak runs, completionEffects stays empty so a
+# half-built action cannot apply Optics' effects.
+SkillDrivenProgression.CustomHackSignalStat:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 1
+SkillDrivenProgression.CustomHackSignalDuration:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers: [SkillDrivenProgression.CustomHackSignalStat]
+
+# Slot A
+SkillDrivenProgression.CustomHack1:
+  $base: QuickHack.BlindHack
+  actionName: SDPCustomHack1
+  completionEffects: []
+SkillDrivenProgression.CustomProgram1:
+  $base: Items.BlindProgram
+  # Own install group: chips sharing Optics' shardType replace each other in the deck.
+  shardType: SDPCustomProgram1
+SkillDrivenProgression.CustomHackSignal1:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.CustomHackSignalDuration
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPCustomHack]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+SkillDrivenProgression.CustomHack1_Ram:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 2
+SkillDrivenProgression.CustomHack1_Upload:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 0.5
+SkillDrivenProgression.CustomHack1_CooldownTime:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 10
+SkillDrivenProgression.CustomProgramLabel1:
+  $type: String
+  $value: ""
+SkillDrivenProgression.CustomProgramSummary1:
+  $type: String
+  $value: ""
+
+# Slot B
+SkillDrivenProgression.CustomHack2:
+  $base: QuickHack.BlindHack
+  actionName: SDPCustomHack2
+  completionEffects: []
+SkillDrivenProgression.CustomProgram2:
+  $base: Items.BlindProgram
+  shardType: SDPCustomProgram2
+SkillDrivenProgression.CustomHackSignal2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.CustomHackSignalDuration
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPCustomHack]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+SkillDrivenProgression.CustomHack2_Ram:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 2
+SkillDrivenProgression.CustomHack2_Upload:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 0.5
+SkillDrivenProgression.CustomHack2_CooldownTime:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 10
+SkillDrivenProgression.CustomProgramLabel2:
+  $type: String
+  $value: ""
+SkillDrivenProgression.CustomProgramSummary2:
+  $type: String
+  $value: ""
+
+# Slot C
+SkillDrivenProgression.CustomHack3:
+  $base: QuickHack.BlindHack
+  actionName: SDPCustomHack3
+  completionEffects: []
+SkillDrivenProgression.CustomProgram3:
+  $base: Items.BlindProgram
+  shardType: SDPCustomProgram3
+SkillDrivenProgression.CustomHackSignal3:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.CustomHackSignalDuration
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPCustomHack]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+SkillDrivenProgression.CustomHack3_Ram:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 2
+SkillDrivenProgression.CustomHack3_Upload:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 0.5
+SkillDrivenProgression.CustomHack3_CooldownTime:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 10
+SkillDrivenProgression.CustomProgramLabel3:
+  $type: String
+  $value: ""
+SkillDrivenProgression.CustomProgramSummary3:
+  $type: String
+  $value: ""
+
+# Slot D
+SkillDrivenProgression.CustomHack4:
+  $base: QuickHack.BlindHack
+  actionName: SDPCustomHack4
+  completionEffects: []
+SkillDrivenProgression.CustomProgram4:
+  $base: Items.BlindProgram
+  shardType: SDPCustomProgram4
+SkillDrivenProgression.CustomHackSignal4:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.CustomHackSignalDuration
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPCustomHack]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+SkillDrivenProgression.CustomHack4_Ram:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 2
+SkillDrivenProgression.CustomHack4_Upload:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 0.5
+SkillDrivenProgression.CustomHack4_CooldownTime:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxDuration
+  modifierType: Additive
+  value: 10
+SkillDrivenProgression.CustomProgramLabel4:
+  $type: String
+  $value: ""
+SkillDrivenProgression.CustomProgramSummary4:
+  $type: String
+  $value: ""
