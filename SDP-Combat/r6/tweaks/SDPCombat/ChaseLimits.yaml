@@ -1,0 +1,8 @@
+# SDPCombat: how many squad members may close in on V at once ("catch up").
+# Vanilla: 2 at once (3 on Hard and above) and, on Normal, a 30 s cooldown between chases.
+# Combat Revolution removed the limit (-1) and the cooldown (0.01 s), so whole squads rush.
+# Middle ground: up to 4 chasers at once, 8 s cooldown. ENC does not touch these records.
+Tickets.CatchUp.maxNumberOfTickets: 4
+Tickets.CatchUpEasy.maxNumberOfTickets: 3
+Tickets.CatchUpHard.maxNumberOfTickets: 4
+Tickets.CatchUp_inline0.duration: 8.0
