@@ -89,7 +89,7 @@ public class SDPPrimitiveInstance extends IScriptable {
         if IsDefined(entry.target) { StatusEffectHelper.RemoveStatusEffect(entry.target, entry.record); };
         ArrayErase(runtime.effects, i);
       } else {
-            if SDPPrimitiveInstance.Damaging(entry.rule.payload) && now >= entry.nextPulse {
+        if SDPPrimitiveInstance.Damaging(entry.rule.payload) && now >= entry.nextPulse {
           SDPPrimitiveInstance.Pulse(runtime, player, entry);
           // Skip missed ticks instead of releasing a burst after a long pause.
           entry.nextPulse = now + entry.rule.interval;
@@ -129,7 +129,7 @@ public class SDPPrimitiveInstance extends IScriptable {
           + (StatusEffectSystem.ObjectHasStatusEffect(target, entry.record) ? "registered" : "status absent")
           + ", " + IntToString(Cast<Int32>(MaxF(0.00, entry.expires - SDPPrototypeRuntime.Now(player)))) + "s";
         if entry.rule.payload == 1 && IsDefined(target.GetSensesComponent()) {
-          result += ", optics preset=" + (target.GetSensesComponent().SDP_RecordedPreset() == t"Senses.Blind" ? "active" : "NOT active");
+          result += ", recorded optics preset=" + TDBID.ToStringDEBUG(target.GetSensesComponent().SDP_RecordedPreset());
         };
       };
       i += 1;

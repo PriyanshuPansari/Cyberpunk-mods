@@ -8,6 +8,23 @@ public class SDPOpticsTrace extends IScriptable {
   public let lines: array<String>;
   public let dropped: Int32;
   public let lastAudit: String;
+  public let referenceIndex: Int32;
+
+  // One reference per drain, with an explicit label: these records are not applied.
+  public final func AuditReference(player: ref<PlayerPuppet>) -> Void {
+    let id: TweakDBID;
+    switch this.referenceIndex {
+      case 0: id = t"SkillDrivenProgression.PrototypeBlind"; break;
+      case 1: id = t"BaseStatusEffect.ShortBlind"; break;
+      case 2: id = t"BaseStatusEffect.QuickHackBlind"; break;
+      case 3: id = t"BaseStatusEffect.WeaponMalfunction"; break;
+      default: return;
+    };
+    this.referenceIndex += 1;
+    this.Add(player, "REFERENCE_RECORD_BEGIN id=" + TDBID.ToStringDEBUG(id));
+    this.AuditRecord(player, TweakDBInterface.GetStatusEffectRecord(id));
+    this.Add(player, "REFERENCE_RECORD_END");
+  }
 
   public final static func Modifier(record: ref<StatModifier_Record>) -> String {
     if !IsDefined(record) { return "missing"; };
@@ -43,7 +60,7 @@ public class SDPOpticsTrace extends IScriptable {
     let i: Int32 = 0;
     let tagText: String = "";
     while i < ArraySize(tags) { tagText += NameToString(tags[i]) + ","; i += 1; };
-    this.Add(player, "STATUS_RECORD id=" + id + " tags=" + tagText);
+    this.Add(player, "STATUS_RECORD id=" + id + " type=" + TDBID.ToStringDEBUG(record.StatusEffectType().GetID()) + " tags=" + tagText);
     this.AuditGroup(player, id + ".duration", record.Duration(), 0);
     let ai: ref<StatusEffectAIData_Record> = record.AIData();
     if IsDefined(ai) {
@@ -159,7 +176,8 @@ public class SDPOpticsTrace extends IScriptable {
       + " blind=" + (ScriptedPuppet.IsBlinded(this.npc) ? "yes" : "no")
       + " visible=" + visible + " continuousLOS=" + FloatToString(los)
       + " visibleBelief=" + FloatToString(belief) + " accuracyStat=" + FloatToString(accuracy)
-      + " distance=" + FloatToString(Vector4.Distance(this.npc.GetWorldPosition(), player.GetWorldPosition()));
+      + " distance=" + FloatToString(Vector4.Distance(this.npc.GetWorldPosition(), player.GetWorldPosition()))
+      + SDPCombatBlindTrace.Describe(this.npc);
   }
 }
 
@@ -184,6 +202,7 @@ public final func SDP_OpticsTraceDrain() -> String {
   if !IsDefined(this.m_sdpOpticsTrace) { return "ABORT no active trace (session changed)\n"; };
   let trace: ref<SDPOpticsTrace> = this.m_sdpOpticsTrace;
   let active: Bool = trace.Active(this);
+  if active { trace.AuditReference(this); };
   if active && SDPPrototypeRuntime.Now(this) >= trace.nextSample {
     trace.Add(this, "SAMPLE " + trace.Snapshot(this));
     trace.Audit(this);
@@ -221,7 +240,7 @@ public final func SDP_TracePresetState(event: String, requested: TweakDBID) -> V
   if !IsDefined(player) || !player.SDP_IsOpticsTraceTarget(npc) { return; };
   let shapes: array<ref<ISenseShape>> = this.GetSenseShapes();
   player.SDP_OpticsTraceSenses(npc, event + " requested=" + TDBID.ToStringDEBUG(requested)
-    + " current=" + TDBID.ToStringDEBUG(this.GetCurrentPreset())
+    + " getter=" + TDBID.ToStringDEBUG(this.GetCurrentPreset())
     + " main=" + TDBID.ToStringDEBUG(this.m_mainPreset)
     + " secondary=" + TDBID.ToStringDEBUG(this.m_secondaryPreset)
     + " shapes=" + IntToString(ArraySize(shapes))
@@ -310,4 +329,30 @@ public final func SDP_RecordedPreset() -> TweakDBID {
   if TDBID.IsValid(this.m_secondaryPreset) { return this.m_secondaryPreset; };
   if TDBID.IsValid(this.m_mainPreset) { return this.m_mainPreset; };
   return this.GetCurrentPreset();
+}
+
+// This is the native Fire function's bookkeeping after its shoot call, not a
+// projectile collision confirmation. It excludes Fire's early-return paths.
+@wrapMethod(AIWeapon)
+private final static func OnShotFired(weapon: wref<WeaponObject>, requestedTriggerMode: gamedataTriggerMode, const timeStamp: Float) -> Void {
+  wrappedMethod(weapon, requestedTriggerMode, timeStamp);
+  if !IsDefined(weapon) { return; };
+  let npc: ref<NPCPuppet> = weapon.GetOwner() as NPCPuppet;
+  if !IsDefined(npc) { return; };
+  let player: ref<PlayerPuppet> = GetPlayer(npc.GetGame());
+  if IsDefined(player) && player.SDP_IsOpticsTraceTarget(npc) {
+    player.SDP_OpticsTraceSenses(npc, "SHOT_BOOKKEEPING weapon=" + TDBID.ToStringDEBUG(ItemID.GetTDBID(weapon.GetItemID())));
+  };
+}
+
+@wrapMethod(NPCPuppet)
+protected final func SendStatusEffectSignal(priority: Float, const tags: script_ref<[CName]>, const flags: script_ref<[EAIGateSignalFlags]>, statusEffectID: TweakDBID, repeatSignalDelay: Float, remainingStatusEffectDuration: Float) -> Void {
+  let player: ref<PlayerPuppet> = GetPlayer(this.GetGame());
+  if IsDefined(player) && player.SDP_IsOpticsTraceTarget(this) {
+    // Signal submission is not confirmation that the AI chose the behavior.
+    player.SDP_OpticsTraceSenses(this, "AI_SIGNAL_REQUEST status=" + TDBID.ToStringDEBUG(statusEffectID)
+      + " priority=" + FloatToString(priority) + " repeatDelay=" + FloatToString(repeatSignalDelay)
+      + " remaining=" + FloatToString(remainingStatusEffectDuration));
+  };
+  wrappedMethod(priority, tags, flags, statusEffectID, repeatSignalDelay, remainingStatusEffectDuration);
 }

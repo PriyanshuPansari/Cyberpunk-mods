@@ -1,4 +1,58 @@
-# Optics runtime recording (Build 6)
+# Optics runtime recording (Build 9 / trace v4)
+
+## Current behavior and correction
+
+With the new optional `SDPCombat.BlindAim` feature installed, snapshots also show
+`combatAim=frozen point=... pointSource=last_sighted_shot/initial_facing`.
+During an 8-second Optics test, move sideways in the open: the coordinates should
+stay fixed until blindness ends. This patch freezes firing aim; other AI systems
+can still turn/move the NPC. SDP-Combat removes its previous sixfold Blind spread
+penalty for this implementation. Without that feature, the trace reports
+`combatAim=module_unavailable` and retains standalone operation.
+
+Build 8's event recording proved `Senses.Blind` was being applied: the secondary
+preset slot changed and actual sense shapes dropped from 12 to 1. The ordinary
+`GetCurrentPreset()` getter remained `Senses.Default`. Earlier conclusions below
+that this getter proved the override failed were incorrect.
+
+Build 9 removes the custom `OpticsSenses` preset/retry loop, restores the native
+Blind-tag lifecycle and reports the recorded secondary/main preset slots with
+actual shape count. A slot value is not proof of all native internal state.
+
+The trace additionally reports:
+
+- Nested `ApplyStatGroupEffector` groups and modifiers (recursion limited to 4).
+- Status tags/type, AI behavior, priority and resend-delay modifiers.
+- `jamWeaponTag` and `weaponJamTag` separately in snapshots.
+- `AI_SIGNAL_REQUEST`: requested status behavior, not confirmed AI execution.
+- `SHOT_BOOKKEEPING`: the native firing path reached its final accounting hook;
+  this excludes early returns, but is not a projectile collision confirmation.
+- `REFERENCE_RECORD_BEGIN/END`: read-only inspection of private Optics,
+  ShortBlind, QuickHackBlind and WeaponMalfunction, one per drain. These are
+  record definitions, not proof of applied effects. Use `ACTIVE_STATUS` for that.
+
+The complete findings and controlled test plan are in
+[Blindness, weapon interruption and accuracy](../design/BLINDNESS_WEAPON_ACCURACY.md).
+Older SDP-Combat builds add spread for the Blind tag. The new blind-aim feature
+uses a remembered position instead. SDP-Combat still bypasses vanilla Accuracy
+hit timing for the ordinary shots it handles.
+
+After switching from the all-in-one mod to the split mods in Vortex, deploy
+**SDP-QuickhackCrafting** and restart the game. Do not enable both layouts.
+The updated log is at
+`bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/optics-runtime.log`.
+The old `SkillDrivenProgression` folder may retain historical logs.
+
+Use the same **Quickhack lab: record aimed enemy for 30 seconds** binding.
+Record an unobstructed baseline, then one effect and expiry. Treat cover as a
+separate test. The previous pillar/car runs do not isolate sensory occlusion.
+
+Validation: LuaJIT tests pass; the quickhack scripts compile standalone and with
+SDP-Combat. The broader installed-mod snapshot fails on missing dependencies in
+ChromePlating/ThreadLocker and excludes CombatArena's known standalone compiler
+incompatibility. Full in-game compilation and v4 measurements remain pending.
+
+## Historical notes (superseded where corrected above)
 
 ## Build 8 / trace v3: preset call lifecycle
 
@@ -20,7 +74,7 @@ record before uploading Optics, and let the effect expire. This is additional
 instrumentation, not a verified sensory fix. LuaJIT checks and compilation pass
 with the same CombatArena exclusion noted below.
 
-## Build 7 sensory fix
+## Build 7 attempted sensory fix (removed in Build 9)
 
 The October 6 trace confirmed our private Blind tag applied for four seconds,
 while the measured preset remained Senses.Default. Accuracy was unchanged during
