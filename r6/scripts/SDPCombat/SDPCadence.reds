@@ -9,6 +9,8 @@
 // The engine still enforces the weapon's own cycle time and burst-mode timing.
 module SDPCombat
 
+import SDPCombat.BlindAim.*
+
 @wrapMethod(AISubActionShootWithWeapon_Record_Implementation)
 public final static func QueueNextShot(weapon: wref<WeaponObject>, requestedTriggerMode: gamedataTriggerMode, const duration: Float) -> Void {
   let npc: ref<NPCPuppet>;
@@ -38,13 +40,19 @@ public final static func QueueNextShot(weapon: wref<WeaponObject>, requestedTrig
   let holdLog = false;
   let player = GameInstance.GetPlayerSystem(npc.GetGame()).GetLocalPlayerMainGameObject();
   if IsDefined(player) {
-    let dist = MaxF(1.0, Vector4.Distance(npc.GetWorldPosition(), player.GetWorldPosition()));
+    let blind = StatusEffectSystem.ObjectHasStatusEffectWithTag(npc, n"Blind");
+    let aimPoint = blind ? SDPBlindFire.Freeze(npc) : player.GetWorldPosition();
+    let dist = MaxF(1.0, Vector4.Distance(npc.GetWorldPosition(), aimPoint));
     // share of V visible at this shooter's last shot (6-point test); fall back to the game's two-point check
     let exposure = 1.0;
-    if now - npc.m_sdpcExposureTime < 1.0 {
-      exposure = npc.m_sdpcExposure;
+    if blind {
+      exposure = 0.0;
     } else {
-      if IsDefined(npc.GetSourceShootComponent()) && !npc.GetSourceShootComponent().CanSeeSecondaryPointOfTarget(player) { exposure = 0.45; };
+      if now - npc.m_sdpcExposureTime < 1.0 {
+        exposure = npc.m_sdpcExposure;
+      } else {
+        if IsDefined(npc.GetSourceShootComponent()) && !npc.GetSourceShootComponent().CanSeeSecondaryPointOfTarget(player) { exposure = 0.45; };
+      };
     };
     let alpha = 1000.0 * 0.25 * MaxF(0.12, exposure) / dist;
     let suppress = exposure < 0.5 && profile.tier >= 2;

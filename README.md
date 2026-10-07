@@ -9,6 +9,7 @@ The Combat Evolved code is from DigitalVixen's mod (nexus 29125) and is for a pe
 needs the author's permission.
 
 - [Realism pass design and results](design/SDP_COMBAT_REALISM_PASS.md)
+- [Blind fire](design/BLIND_FIRE.md): blinded shooters aim at a remembered position without following the player's live movement.
 - [Overhaul comparison](design/COMBAT_OVERHAUL_COMPARISON.md), [CR vs ENC](design/CR_VS_ENC_TECHNICAL.md), [ENC baseline](design/ENC_BASELINE.md)
 - [Backend plan](design/WORLD_PROGRESSION_BACKEND.md)
 - `tools/SDPVanillaDump`: Phase 0 CET dump of vanilla combat records.

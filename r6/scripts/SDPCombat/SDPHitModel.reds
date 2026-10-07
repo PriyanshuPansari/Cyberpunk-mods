@@ -3,14 +3,17 @@
 // then fires a real projectile at aimPoint + offset; the projectile's own collision decides the hit.
 // For enrolled shooters we return a sampled aim error instead of vanilla's hit-timer offset:
 //   - lag:    the shooter aims where V was reaction x (1 - tracking) seconds ago (directional, not random)
-//   - spread: Gaussian weapon (from the weapon's own spread stats) + skill + own-movement error, scaled by smoke / blindness
+//   - spread: Gaussian weapon (from the weapon's own spread stats) + skill + own-movement error, scaled by smoke
 //   - recoil: accumulated muzzle displacement along the weapon's own recoil direction, plus bloom
 //   - sway:   the weapon's own sway path, scaled by the shooter's steadiness
 //   - aim:    6 lines of sight from the muzzle to V (head, shoulders, chest, pelvis, knees): aim at the visible
 //             centre of mass, else the head, a shoulder or the knees; nothing visible = fire into the cover
-// Everyone else (companions, NPC-vs-NPC, non-enrolled factions, bosses, smart/tech-pierce shots) stays vanilla.
+// Blind enrolled shooters use SDPBlindFire's remembered point, including smart/tech shots.
+// Otherwise companions, NPC-vs-NPC, non-enrolled factions, bosses and smart/tech shots stay vanilla.
 // Estimate() re-samples the same shot 32 times for the expected on-body rate (telemetry).
 module SDPCombat
+
+import SDPCombat.BlindAim.*
 
 public abstract class SDPHitModel {
 
@@ -261,7 +264,6 @@ public final func HandleBeingShot(weaponOwner: wref<GameObject>, weapon: wref<We
   let bloom: Float;
   SDPWeaponStats.RecoilAt(shooter, rate, now, recoilX, recoilY, bloom);
   let sigma = SqrtF(sw * sw + profile.sigmaShooter * profile.sigmaShooter + move * move + bloom * bloom) * MaxF(1.0, visionBlock);
-  if StatusEffectSystem.ObjectHasStatusEffectWithTag(shooter, n"Blind") { sigma *= 6.0; };
   // Combat Evolved states (pinned, suppressing, panicking, repositioning, in cover, crippled arm): see SDPCEBridge
   let ceState = SDPCEBridge.State(shooter);
   let ceCrippled = SDPCEBridge.ArmCrippled(shooter);
@@ -331,6 +333,27 @@ public final static func Fire(weaponOwner: wref<GameObject>, weapon: wref<Weapon
     if IsDefined(npc) {
       let system = SDPCombatSystem.Get(npc.GetGame());
       if SDPHitModel.Handles(system, npc) {
+        if StatusEffectSystem.ObjectHasStatusEffectWithTag(npc, n"Blind") && IsDefined(weapon) {
+          let point = SDPBlindFire.Freeze(npc);
+          let blindOffset = SDPBlindFire.Offset(npc, weapon, point);
+          // A null entity target and static world point prevent native Fire
+          // from constructing a live/history provider, selecting exposed body
+          // parts, predicting velocity, or guiding smart rounds toward V.
+          // Discard the caller's offset/provider, which may encode live aim.
+          npc.m_sdpcLastZoneTime = -1000000.0;
+          npc.m_sdpcExposureTime = -1000000.0;
+          system.RecordBlindShot();
+          if system.LogShots() {
+            FTLog(s"[SDPCombat] BLIND_FIRE npc=\(EntityID.ToDebugStringDecimal(npc.GetEntityID())) point=\(point) offset=\(blindOffset) liveTarget=no tracking=no prediction=0");
+          };
+          npc.m_sdpcFrozenFireCall = true;
+          wrappedMethod(weaponOwner, weapon, timeStamp, tbhCoefficient, requestedTriggerMode, point, null, rangedAttack,
+                        maxSpreadOverride, 0.0, blindOffset, false, 0.0, null, muzzleOffset, weaponCustomEvent);
+          npc.m_sdpcFrozenFireCall = false;
+          return;
+        };
+        SDPBlindFire.Release(npc);
+        SDPBlindFire.Observe(npc, target);
         if delay > 0.0 {
           delay = 0.0;
           system.RecordAimingDelayRemoved();
