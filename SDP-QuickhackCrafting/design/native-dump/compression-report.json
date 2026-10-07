@@ -1,0 +1,17 @@
+{
+"source":"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cyberpunk 2077\\bin\\x64\\plugins\\cyber_engine_tweaks\\mods\\SDPQuickhackCrafting\\native-quickhacks-dump.txt",
+"sha256":"59110e1a066aa45e5126ad50121af599aa9dbc016f6e3528bedc3423e7024a21",
+"header":["SDP native quickhack dump | build 13 | full (Codeware: every field of every record)","Player level 49 | Intelligence 20 | max RAM 41 | 77 programs"],
+"sourceBytes":3519009,
+"sourceLines":65192,
+"programs":77,
+"families":18,
+"recordOccurrences":11529,
+"uniqueRecords":1771,
+"conflictingRecordVariants":[],
+"recordsWithoutExpandedFields":["QuickHack.BlackwallHackBounce5","QuickHack.BlackwallHackBounce4_inline6","QuickHack.BlackwallHackBounce4_inline10","BaseStatusEffect.BaseBlackWallHackEffect","QuickHack.BlackwallHackBounce4_inline13","BaseStatusEffect.BossBlackWallHack","QuickHack.BlackwallHackBounce4_inline19","QuickHack.ContagionLvl4HackBounce5","QuickHack.ContagionLvl4HackBounce4_inline2","QuickHack.ContagionLvl4HackBounce4_inline5","Attacks.OverloadQuickHackAttackLevel4PlusPlus","AdamSmasher.Phase2_inline1","AdamSmasher.Phase2_inline2","AdamSmasher.Phase2_inline3","AdamSmasher.Phase2_inline4","AdamSmasher.Phase2_inline5"],
+"depthLimitedOccurrences":162,
+"unparsedLines":0,
+"roundTripVerified":true,
+"outputsBytes":{"families\\bait.json":39584,"families\\blackwall-gateway.json":38119,"families\\contagion.json":56234,"families\\cripple-movement.json":42565,"families\\cyberpsychosis.json":40991,"families\\cyberware-malfunction.json":94759,"families\\detonate-grenade.json":36605,"families\\memory-wipe.json":38055,"families\\overheat.json":63142,"families\\ping.json":24987,"families\\reboot-optics.json":57400,"families\\request-backup.json":31507,"families\\short-circuit.json":129277,"families\\sonic-shock.json":44307,"families\\suicide.json":33177,"families\\synapse-burnout.json":46632,"families\\system-collapse.json":36756,"families\\weapon-glitch.json":55113,"native-quickhacks-compact.json":756659,"native-quickhacks-design-summary.md":54737,"README.md":1965}
+}
