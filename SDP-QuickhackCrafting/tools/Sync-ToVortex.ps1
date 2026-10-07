@@ -10,7 +10,7 @@ $folders = @(
 foreach ($folder in $folders) {
   $from = Join-Path $root $folder
   if (Test-Path $from) {
-    robocopy $from (Join-Path $stage $folder) /E /XF settings.json prototype-recipe.json quickhack-lab-report.txt *.log db.sqlite3 *.vortex_backup /NJH /NJS /NDL | Out-Null
+    robocopy $from (Join-Path $stage $folder) /E /XF settings.json prototype-recipe.json quickhack-designs.json quickhack-lab-report.txt *.log db.sqlite3 *.vortex_backup /NJH /NJS /NDL | Out-Null
   }
 }
 Write-Host "Synced to $stage."

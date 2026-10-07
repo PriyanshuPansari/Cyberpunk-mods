@@ -85,7 +85,8 @@ public class SDPPrimitiveInstance extends IScriptable {
     let i: Int32 = ArraySize(runtime.effects) - 1;
     while i >= 0 {
       let entry: ref<SDPPrimitiveInstance> = runtime.effects[i];
-      if !SDPPrototypeRuntime.Eligible(player, entry.target) || now >= entry.expires {
+      // Program chips may target bosses, so effects end on death rather than eligibility.
+      if !SDPPrototypeRuntime.Alive(entry.target) || now >= entry.expires {
         if IsDefined(entry.target) { StatusEffectHelper.RemoveStatusEffect(entry.target, entry.record); };
         ArrayErase(runtime.effects, i);
       } else {

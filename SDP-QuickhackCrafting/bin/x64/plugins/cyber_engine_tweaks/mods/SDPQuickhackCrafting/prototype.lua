@@ -5,7 +5,7 @@ local recipe = recipes.copy(recipes.presets[1])
 local message = "Enable the workbench, choose components, then upload or build."
 local status = "Disabled."
 local elapsed = 0
-local build = 9
+local build = 10
 local tickElapsed = 0
 local labIndex, labAudit = 0, "Inspect an equipped native quickhack to see its components."
 local targetAudit = "No target snapshot captured."
@@ -18,23 +18,28 @@ local expectedStatus = {
   ["SkillDrivenProgression.PrototypeStun"] = true,
 }
 
+-- Runs a backend action with a version check and shows its result on the HUD.
+-- Returns the message so the designer can show it too.
 local function call(action)
   local player = Game.GetPlayer()
-  if not player then message = "Load a save first."; return end
+  if not player then message = "Load a save first."; return message end
   local versionOK, version = pcall(function() return player:SDP_PrototypeVersion() end)
   local ok, result
   if not versionOK or version ~= build then
-    ok, result = true, "Build mismatch: restart after updating the game's prototype scripts (workbench build 9)."
+    ok, result = true, "Build mismatch: restart after updating the game's quickhack scripts (designer build " .. build .. ")."
     visible = true
   else
     ok, result = pcall(action, player)
   end
-  message = ok and tostring(result) or ("Prototype unavailable: " .. tostring(result))
+  message = ok and tostring(result) or ("Backend unavailable: " .. tostring(result))
   print("SDP Workbench: " .. message)
   -- Feedback must be visible even when the workbench and CET overlay are closed.
   local notified = pcall(function() player:SDP_PrototypeNotify(message) end)
   if not notified then visible = true end
+  return message
 end
+M.call = call
+M.build = build
 
 local function enable()
   call(function(player)
@@ -175,7 +180,7 @@ end
 local function writeReport()
   local file = io.open("quickhack-lab-report.txt", "a")
   if not file then message = "Could not write lab report."; return end
-  file:write(os.date("%Y-%m-%d %H:%M:%S"), " | build 9\n", labAudit, "\n", targetAudit, "\n\n")
+  file:write(os.date("%Y-%m-%d %H:%M:%S"), " | build ", build, "\n", labAudit, "\n", targetAudit, "\n\n")
   file:close()
   message = "Snapshot appended to quickhack-lab-report.txt."
 end
@@ -216,9 +221,21 @@ local function learnNative(slot)
   end)
 end
 
+-- The designer window hosts the lab; it reads and toggles this visibility.
+function M.isVisible() return visible end
+function M.setVisible(value) visible = value end
+function M.overlay() return overlayOpen end
+
+-- Load a designer design into the sandbox recipe for free test uploads.
+function M.setRecipe(value)
+  recipe = recipes.copy(value)
+  recipe.name = value.name
+  message = "Sandbox recipe set to " .. tostring(value.name) .. ". Enable the sandbox, then upload with the hotkey."
+end
+
 function M.init()
-  print("SDP Workbench: Lua build 9 loaded")
-  registerHotkey("SDPPrototypeWorkbench", "Prototype: toggle crafting workbench", function() visible = not visible end)
+  print("SDP Workbench: Lua build " .. build .. " loaded")
+  registerHotkey("SDPPrototypeWorkbench", "Quickhack designer: toggle window", function() visible = not visible end)
   registerHotkey("SDPPrototypeUpload", "Prototype: upload selected recipe to aimed enemy", upload)
   registerHotkey("SDPPrototypeSpread", "Prototype: propagate aimed enemy's program", propagate)
   registerHotkey("SDPPrototypeRearm", "Prototype: rearm aimed enemy's program for testing", rearm)
@@ -283,70 +300,66 @@ local function ruleEditor(label, rule, secondary)
   if ImGui.Button(recipes.conditions[rule[3] + 1] .. "##condition" .. label) then rule[3] = (rule[3] + 1) % 3 end
 end
 
-function M.draw()
-  if not visible then return end
-  ImGui.SetNextWindowSize(620, 570, ImGuiCond.FirstUseEver)
-  local flags = overlayOpen and 0 or (ImGuiWindowFlags.NoMouseInputs + ImGuiWindowFlags.NoNavInputs + ImGuiWindowFlags.NoNavFocus)
-  if ImGui.Begin("SDP component workbench (prototype)", flags) then
-    ImGui.Text("Workbench build 9 - Quickhack lab")
-    ImGui.TextWrapped("Open CET to edit. Close CET, open the game scanner, highlight an enemy and press upload. Each press shows its result on screen.")
-    ImGui.TextWrapped(status)
-    if ImGui.Button("Enable / reset session") then enable() end
-    ImGui.SameLine()
-    if ImGui.Button("Disable and clear") then call(function(player) return player:SDP_PrototypeEnable(false) end) end
-    ImGui.Separator()
-    for i, preset in ipairs(recipes.presets) do
-      if (i - 1) % 3 ~= 0 then ImGui.SameLine() end
-      if ImGui.Button(preset.name) then recipe = recipes.copy(preset) end
-    end
-    recipe.name = ImGui.InputText("Recipe name", recipe.name, 65)
-    ruleEditor("Primary rule", recipe.first, false)
-    ruleEditor("Secondary rule", recipe.second, true)
-    local _, reason = recipes.validate(recipe, false)
-    ImGui.TextWrapped(reason)
-    ImGui.TextWrapped(recipes.describe(recipe.first))
-    ImGui.TextWrapped(recipes.describe(recipe.second))
-    if recipe.first[2] == 5 then ImGui.TextWrapped("Primary native leaf: " .. (recipe.nativeFirst or "not selected")) end
-    if recipe.second[2] == 5 then ImGui.TextWrapped("Secondary native leaf: " .. (recipe.nativeSecond or "not selected")) end
-    ImGui.TextWrapped("Conditions are sampled before each event: a hit that causes blindness cannot also use that new blindness for the second rule.")
-    ImGui.Separator()
-    if ImGui.Button("Upload to aimed enemy") then upload() end
-    ImGui.SameLine()
-    if ImGui.Button("Propagate installed program") then propagate() end
-    if ImGui.Button("Rearm selected program (test)") then rearm() end
-    ImGui.TextWrapped("Rearm restores 30 seconds and 3 charges on an active program. If it expired, upload again. Reloads/hits detected and target status above show each stage of the test.")
-    if ImGui.Button("Assemble on held gun") then bindWeapon() end
-    ImGui.SameLine()
-    if ImGui.Button("Save recipe") then saveRecipe() end
-    ImGui.SameLine()
-    if ImGui.Button("Load recipe") then loadRecipe() end
-    ImGui.TextWrapped("Programs: 30 seconds, 3 charges per rule, 2-second cooldown. Propagate once to up to 3 enemies within 8m; copies cannot spread. Weapon rules have cooldowns but unlimited charges.")
-    ImGui.TextWrapped("Custom durations: 2/4/8 seconds. Damage: 10/25/50 base per pulse, every 0.5/1/2 seconds; defenses can change final damage. Same payload refreshes, never stacks. Native references retain native timing. Upload and delayed rules fire once per installation/rearm. Free testing: no material/RAM costs or native queue integration yet.")
-    ImGui.Separator()
-    ImGui.TextWrapped(message)
-    ImGui.Separator()
-    ImGui.Text("Native quickhack lab")
-    if ImGui.Button("Spread existing quickhack") then spreadNative() end
-    ImGui.SameLine()
-    if ImGui.Button("Inspect target effects") then inspectTarget() end
-    if ImGui.Button("Record aimed enemy (30s)") then startTrace() end
-    if traceRecording then ImGui.TextWrapped("Recording selected enemy. Upload Optics after a baseline, then move. Ends after 30 simulation seconds.") end
-    if ImGui.Button("Inspect equipped hack") then inspectNative(0) end
-    ImGui.SameLine()
-    if ImGui.Button("Previous hack") then inspectNative(-1) end
-    ImGui.SameLine()
-    if ImGui.Button("Next hack") then inspectNative(1) end
-    ImGui.TextWrapped(labAudit)
-    if ImGui.Button("Learn first status -> primary") then learnNative(1) end
-    ImGui.SameLine()
-    if ImGui.Button("Learn first status -> secondary") then learnNative(2) end
-    if ImGui.Button("Rebuild selected native core") then rebuildNative() end
-    ImGui.SameLine()
-    if ImGui.Button("Save comparison snapshot") then writeReport() end
-    ImGui.TextWrapped(targetAudit)
-    ImGui.TextWrapped("Native spread copies the latest supported active status, not a new upload. Rebuild uses the inspected native status leaves. Core presets use generic effects and are not tier-exact replicas.")
+function M.status() return status end
+
+-- Lab tab contents: free sandbox uploads and native quickhack comparison tools.
+function M.drawLab()
+  ImGui.TextWrapped("Sandbox: free, session-only test uploads. Close CET, open the game scanner, highlight an enemy and press the upload hotkey. Each press shows its result on screen.")
+  ImGui.TextWrapped(status)
+  if ImGui.Button("Enable / reset session") then enable() end
+  ImGui.SameLine()
+  if ImGui.Button("Disable and clear") then call(function(player) return player:SDP_PrototypeEnable(false) end) end
+  ImGui.Separator()
+  for i, preset in ipairs(recipes.presets) do
+    if (i - 1) % 3 ~= 0 then ImGui.SameLine() end
+    if ImGui.Button(preset.name) then recipe = recipes.copy(preset) end
   end
-  ImGui.End()
+  recipe.name = ImGui.InputText("Recipe name", recipe.name, 65)
+  ruleEditor("Primary rule", recipe.first, false)
+  ruleEditor("Secondary rule", recipe.second, true)
+  local _, reason = recipes.validate(recipe, false)
+  ImGui.TextWrapped(reason)
+  ImGui.TextWrapped(recipes.describe(recipe.first))
+  ImGui.TextWrapped(recipes.describe(recipe.second))
+  if recipe.first[2] == 5 then ImGui.TextWrapped("Primary native leaf: " .. (recipe.nativeFirst or "not selected")) end
+  if recipe.second[2] == 5 then ImGui.TextWrapped("Secondary native leaf: " .. (recipe.nativeSecond or "not selected")) end
+  ImGui.TextWrapped("Conditions are sampled before each event: a hit that causes blindness cannot also use that new blindness for the second rule.")
+  ImGui.Separator()
+  if ImGui.Button("Upload to aimed enemy") then upload() end
+  ImGui.SameLine()
+  if ImGui.Button("Propagate installed program") then propagate() end
+  if ImGui.Button("Rearm selected program (test)") then rearm() end
+  ImGui.TextWrapped("Rearm restores 30 seconds and 3 charges on an active program. If it expired, upload again. Reloads/hits detected and target status above show each stage of the test.")
+  if ImGui.Button("Assemble on held gun") then bindWeapon() end
+  ImGui.SameLine()
+  if ImGui.Button("Save recipe") then saveRecipe() end
+  ImGui.SameLine()
+  if ImGui.Button("Load recipe") then loadRecipe() end
+  ImGui.TextWrapped("Programs: 30 seconds, 3 charges per rule, 2-second cooldown. Propagate once to up to 3 enemies within 8m; copies cannot spread. Weapon rules have cooldowns but unlimited charges.")
+  ImGui.TextWrapped("Custom durations: 2/4/8 seconds. Damage: 10/25/50 base per pulse, every 0.5/1/2 seconds; defenses can change final damage. Same payload refreshes, never stacks. Native references retain native timing. Upload and delayed rules fire once per installation/rearm. Free testing: no material/RAM costs or native queue integration yet.")
+  ImGui.Separator()
+  ImGui.TextWrapped(message)
+  ImGui.Separator()
+  ImGui.Text("Native quickhack lab")
+  if ImGui.Button("Spread existing quickhack") then spreadNative() end
+  ImGui.SameLine()
+  if ImGui.Button("Inspect target effects") then inspectTarget() end
+  if ImGui.Button("Record aimed enemy (30s)") then startTrace() end
+  if traceRecording then ImGui.TextWrapped("Recording selected enemy. Upload Optics after a baseline, then move. Ends after 30 simulation seconds.") end
+  if ImGui.Button("Inspect equipped hack") then inspectNative(0) end
+  ImGui.SameLine()
+  if ImGui.Button("Previous hack") then inspectNative(-1) end
+  ImGui.SameLine()
+  if ImGui.Button("Next hack") then inspectNative(1) end
+  ImGui.TextWrapped(labAudit)
+  if ImGui.Button("Learn first status -> primary") then learnNative(1) end
+  ImGui.SameLine()
+  if ImGui.Button("Learn first status -> secondary") then learnNative(2) end
+  if ImGui.Button("Rebuild selected native core") then rebuildNative() end
+  ImGui.SameLine()
+  if ImGui.Button("Save comparison snapshot") then writeReport() end
+  ImGui.TextWrapped(targetAudit)
+  ImGui.TextWrapped("Native spread copies the latest supported active status, not a new upload. Rebuild uses the inspected native status leaves. Core presets use generic effects and are not tier-exact replicas.")
 end
 
 return M

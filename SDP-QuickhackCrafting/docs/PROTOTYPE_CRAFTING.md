@@ -1,5 +1,11 @@
 # Component crafting: first playable prototype
 
+> **Build 10:** this sandbox now lives on the **Lab** tab of the Quickhack
+> Designer window, and the binding is named **Quickhack designer: toggle window**
+> (same binding ID, so existing hotkeys keep working). Designed quickhacks as
+> real cyberdeck programs are covered in [QUICKHACK_DESIGNER.md](QUICKHACK_DESIGNER.md).
+> The steps below still apply to the Lab sandbox.
+
 Implemented 2026-10-05. Opt-in combat experiment, not the final crafting economy.
 The source compiles against the installed vanilla game bundle and TweakXL scripts.
 LuaJIT tests validate component selection and the workbench bridge. In-game
