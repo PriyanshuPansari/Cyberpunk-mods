@@ -110,7 +110,7 @@ local enabled = false
 local rejectAssemble = false
 local playerAvailable = true
 local recordsAvailable = true
-local backendVersion = 10
+local backendVersion = 11
 local nativeAccepted, rebuildable = true, true
 local parametersAccepted = true
 local spreadSequence = 0
@@ -137,19 +137,52 @@ function player:SDP_PrototypePropagate() calls.spread = calls.spread + 1; return
 function player:SDP_PrototypeBindWeapon() calls.bind = calls.bind + 1; return "Bound" end
 function player:SDP_PrototypeStatus() return enabled and "Enabled" or "Disabled" end
 function player:SDP_PrototypeVersion() return backendVersion end
-local slotSignatures = {"", "", "", ""}
+-- Mock of the save's design library (DesignLibrary.reds): 16 values per design.
+local slotSignatures, slotNames = {"", "", "", ""}, {}
+local lib, libRevision = {}, 7
+local function toValues(d)
+  local a, b = d.first, d.second
+  return {1, designs.indexOf(designs.lifetimes, d.lifetime), d.spread, a[1], a[2], a[3], a[4], a[5], a[6],
+    b[1], b[2], b[3], b[4], b[5], b[6], 0}
+end
+local function fromValues(name, v)
+  return {name = name, lifetime = designs.lifetimes[v[2]], spread = v[3],
+    first = {v[4], v[5], v[6], v[7], v[8], v[9]}, second = {v[10], v[11], v[12], v[13], v[14], v[15]}}
+end
+local function store(index, name, values)
+  libRevision = libRevision + 1
+  if index < 0 or index >= #lib then lib[#lib + 1] = {name = name, v = values}; return #lib - 1 end
+  lib[index + 1] = {name = name, v = values}
+  return index
+end
+for _, d in ipairs(designs.starters()) do store(-1, d.name, toValues(d)) end
+function player:SDPQH_LibraryRevision() return libRevision end
+function player:SDPQH_DesignCount() return #lib end
+function player:SDPQH_DesignName(i) return lib[i + 1].name end
+function player:SDPQH_DesignField(i, k) return lib[i + 1].v[k + 1] end
+function player:SDPQH_SaveDesign(i, name, t1,p1,c1,d1,a1,i1, t2,p2,c2,d2,a2,i2, life, spread)
+  calls.saves = (calls.saves or 0) + 1
+  return store(i, name, toValues({first={t1,p1,c1,d1,a1,i1}, second={t2,p2,c2,d2,a2,i2}, lifetime=life, spread=spread}))
+end
+function player:SDPQH_NewDesign() local d = designs.new("New design " .. (#lib + 1)); return store(-1, d.name, toValues(d)) end
+function player:SDPQH_DuplicateDesign(i) return store(-1, lib[i + 1].name .. " copy", {unpack(lib[i + 1].v)}) end
+function player:SDPQH_DeleteDesign(i) libRevision = libRevision + 1; table.remove(lib, i + 1); return true end
+function player:SDPQH_AddStarters() return 0 end
+function player:SDPQH_OpenDesignerMenu() calls.openMenu = (calls.openMenu or 0) + 1; return "Opening" end
 function player:SDPQH_EnsureApplied() calls.applied = (calls.applied or 0) + 1 end
 function player:SDPQH_Components() return "12 uncommon, 1 rare quickhack components" end
 function player:SDPQH_SlotStatus(slot) return slotSignatures[slot] == "" and "Blank" or "Compiled" end
 function player:SDPQH_SlotSignature(slot) return slotSignatures[slot] end
-function player:SDPQH_SetSlotLabel(slot, name) calls.labels[slot] = name; return true end
-function player:SDPQH_CompileSlot(slot, t1,p1,c1,d1,a1,i1, t2,p2,c2,d2,a2,i2, life, spread, name, free)
-  calls.compile[#calls.compile + 1] = {slot=slot, args={t1,p1,c1,d1,a1,i1,t2,p2,c2,d2,a2,i2}, life=life, spread=spread, name=name, free=free}
-  slotSignatures[slot] = designs.signature({first={t1,p1,c1,d1,a1,i1}, second={t2,p2,c2,d2,a2,i2}, lifetime=life, spread=spread})
+function player:SDPQH_SlotName(slot) return slotNames[slot] or ("Blank program " .. slot) end
+function player:SDPQH_CompileDesign(slot, index, free)
+  local entry = lib[index + 1]
+  calls.compile[#calls.compile + 1] = {slot = slot, index = index, free = free}
+  slotSignatures[slot] = designs.signature(fromValues(entry.name, entry.v))
+  slotNames[slot] = entry.name
   return "Compiled into program " .. slot
 end
 function player:SDPQH_FabricateChip(slot, free) calls.fabricate = calls.fabricate + 1; calls.fabricateFree = free; return "Chip " .. slot end
-function player:SDPQH_ClearSlot(slot) calls.clear = calls.clear + 1; slotSignatures[slot] = ""; return "Cleared" end
+function player:SDPQH_ClearSlot(slot) calls.clear = calls.clear + 1; slotSignatures[slot] = ""; slotNames[slot] = nil; return "Cleared" end
 function player:SDPQH_RecordCheck() return "Program records A: ok" end
 function player:SDP_PrototypeRearm() calls.rearm = calls.rearm + 1; return "Rearmed" end
 function player:SDP_PrototypeTick() end
@@ -237,7 +270,7 @@ backendVersion = 2
 hotkeys.SDPPrototypeUpload()
 assert(calls.assemble == 0 and calls.upload == 0, "Outdated backend accepted an action")
 assert(notifications[#notifications]:find("Build mismatch"), "Version mismatch lacked feedback")
-backendVersion = 10
+backendVersion = 11
 hotkeys.SDPPrototypeUpload()
 assert(calls.upload == 0, "Failed assembly uploaded a stale build")
 assert(notifications[#notifications] == "Rejected", "Rejection was not shown on screen")
@@ -356,19 +389,15 @@ local traceText = traceFile:read("*a"); traceFile:close()
 assert(traceText:find("SAMPLE blind=no visible=yes", 1, true) and traceText:find("END dropped=0", 1, true))
 print("PASS: lab opt-in, missing records/player, rejected assembly, weapon gating, editing and recipe files")
 
--- Designer: a first run seeds the starter designs, imports the lab's old
--- single blueprint (prototype-recipe.json, saved above) and writes the library.
-os.remove("quickhack-designs.json")
-designer.init(workbench)
-local libraryFile = assert(io.open("quickhack-designs.json", "r"))
-libraryFile:close()
-assert(saved.version == 1 and #saved.designs >= 10, "Starter library not saved")
--- The legacy blueprint existed, so it was imported at the top of the library.
-assert(saved.designs[1].name:find("(imported)", 1, true), "Legacy blueprint not imported")
-pick(selects, "Optics core##design" .. (function()
-  for i, d in ipairs(saved.designs) do if d.name == "Optics core" then return i end end
-end)(), true)
+-- Designer: the CET window mirrors the save's library (mocked above).
+local function libIndex(name)
+  for i, entry in ipairs(lib) do if entry.name == name then return i end end
+end
+designer.update(1)
+pick(selects, "Optics core##design" .. libIndex("Optics core"), true)
+local before = #lib
 click("New")
+assert(#lib == before + 1, "New did not reach the backend")
 inputs["Name"] = "Glass Jaw"
 draw()
 pick(combos, "Trigger##Primary rule", 2)      -- headshot
@@ -380,50 +409,81 @@ pick(combos, "Trigger##Secondary rule", 0)     -- opponent reload
 pick(combos, "Effect##Secondary rule", 3)      -- stun
 pick(combos, "Lifetime", 2)                    -- 60s
 pick(combos, "Spread on upload", 1)            -- 1 enemy
-workbench.update(0.5); designer.update(2)      -- debounced autosave
-local glass
-for _, d in ipairs(saved.designs) do if d.name == "Glass Jaw" then glass = d end end
-assert(glass, "Edited design was not autosaved")
-assert(glass.first[1] == 3 and glass.first[2] == 2 and glass.first[5] == 50 and glass.first[6] == 2, "Primary rule edits")
-assert(glass.second[1] == 1 and glass.second[2] == 4 and glass.lifetime == 60 and glass.spread == 1, "Secondary/program edits")
+designer.update(0.6)                           -- debounced push to the save
+local glass = lib[libIndex("Glass Jaw")]
+assert(glass, "Edited design did not reach the save")
+local g = fromValues(glass.name, glass.v)
+assert(g.first[1] == 3 and g.first[2] == 2 and g.first[5] == 50 and g.first[6] == 2, "Primary rule edits")
+assert(g.second[1] == 1 and g.second[2] == 4 and g.lifetime == 60 and g.spread == 1, "Secondary/program edits")
+designer.update(1)                             -- re-reads the library after the revision change
 click("B##compile")
 local compiled = calls.compile[#calls.compile]
-assert(compiled.slot == 2 and compiled.name == "Glass Jaw" and compiled.free == false and compiled.life == 60 and compiled.spread == 1)
-assert(compiled.args[1] == 3 and compiled.args[7] == 1 and compiled.args[8] == 4, "Compile arguments")
+assert(compiled.slot == 2 and compiled.index == libIndex("Glass Jaw") - 1 and compiled.free == false, "Compile by design index")
 designer.update(1)
-assert(calls.labels[2] == "Glass Jaw", "Slot label not synced from signature")
-calls.labels[2] = nil
-designer.update(1)
-assert(calls.labels[2] == nil, "Label resent without a change")
+local seen = false
+for _, text in ipairs(capturedText) do if text == "Program B: Glass Jaw" then seen = true end end
+capturedText = {}
+draw()
+for _, text in ipairs(capturedText) do if text == "Program B: Glass Jaw" then seen = true end end
+assert(seen, "Slot name not shown from the save")
 pick(checks, "Free mode (testing: no component costs)", true)
 click("Fabricate chip (free)##B")
 assert(calls.fabricate == 1 and calls.fabricateFree == true)
 click("Edit design##B")
 click("Clear slot##B")
 assert(calls.clear == 1)
-designer.update(1)
-assert(calls.labels[2] == "", "Cleared slot kept its label")
 click("Check program records")
--- Over-budget designs cannot be compiled.
+-- Over-budget designs are kept as drafts but cannot be compiled.
 pick(combos, "Trigger##Primary rule", 1)       -- ranged hit
 pick(combos, "Condition##Primary rule", 1)
 pick(combos, "Trigger##Secondary rule", 1)
 pick(combos, "Effect##Secondary rule", 2)
 pick(combos, "Condition##Secondary rule", 2)
-local before = #calls.compile
+local compiles = #calls.compile
 click("A##compile")
-assert(#calls.compile == before, "Invalid design was compiled")
+assert(#calls.compile == compiles, "Invalid design was compiled")
+designer.update(1)
+assert(lib[libIndex("Glass Jaw")].v[4] == 2, "Over-budget draft was not saved")
+-- An edit made elsewhere (the native menu) shows up after the next refresh.
+lib[1].name = "Renamed in game"; libRevision = libRevision + 1
+designer.update(1)
+capturedText = {}
+pick(selects, "Renamed in game##design1", true)
 click("Test in Lab sandbox")
+before = #lib
 click("Duplicate")
+assert(#lib == before + 1)
 click("Delete")
+assert(#lib == before)
 click("Add starter designs")
--- Version mismatch refuses compiling and labels.
+-- Export, then import into the same library.
+click("Export to file")
+assert(saved.version == 1 and #saved.designs == #lib, "Export wrote the library")
+before = #lib
+click("Import " .. before .. " from file")
+assert(#lib == 2 * before, "Import did not add the file's designs")
+-- The Build 9 single blueprint can be imported once the file is rescanned.
+os.remove("quickhack-designs.json")
+local legacy = assert(io.open("prototype-recipe.json", "w"))
+legacy:write(json.encode({version = 2, recipe = {name = "Old blueprint", first = {1,1,0,4,25,1}, second = {3,2,1,4,25,1}}}))
+legacy:close()
+playerAvailable = false
+designer.update(1)
+playerAvailable = true
+designer.update(1)
+before = #lib
+click("Import 1 from file")
+assert(#lib == before + 1 and lib[#lib].name == "Old blueprint", "Legacy blueprint import")
+click("Open in-game designer menu")
+hotkeys.SDPDesignerMenu()
+assert(calls.openMenu == 2, "Native menu not requested")
+-- Version mismatch refuses compiling and does not touch the library.
 backendVersion = 2
+compiles = #calls.compile
 pick(combos, "Condition##Primary rule", 0)
-pick(combos, "Condition##Secondary rule", 0)
 click("C##compile")
-assert(#calls.compile == before, "Compiled against an outdated backend")
-backendVersion = 10
+assert(#calls.compile == compiles, "Compiled against an outdated backend")
+backendVersion = 11
 designer.shutdown()
 
 playerAvailable = false
@@ -434,7 +494,7 @@ designer.update(1)
 assert(calls.upload == 2 and calls.spread == 1)
 workbench.setOverlay(false)
 draw()
-print("PASS: designer library, editing, autosave, compile, labels, chips and slot actions")
+print("PASS: designer mirrors the save library: editing, push, compile, slots, chips, export/import")
 '''
 
 with tempfile.TemporaryDirectory(prefix="sdp-workbench-", dir=ROOT / ".stage") as temp:
@@ -463,6 +523,23 @@ for name, key in (("Ram", "ram"), ("UploadTenths", "uploadTenths"), ("Cooldown",
         expected = eval(expr, {}, {"points": points})
         assert designs_lua.derive(points)[key] == expected, (name, points)
 print("PASS: Lua and redscript cost formulas agree for 0-40 points")
+
+# New saves are seeded from SDPQHSpec.Starters(); it must match the Lua starters.
+library_reds = (ROOT / "r6/scripts/SDPQuickhackCrafting/DesignLibrary.reds").read_text(encoding="utf-8")
+body = library_reds[library_reds.index("func Starters()"):]
+body = body[:body.index("return list;")]
+reds_starters = []
+for match in re.finditer(r'SDPQHSpec\.Make\("([^"]+)", ([^)]*)\)', body):
+    values = [float(x) for x in match.group(2).split(",")]
+    reds_starters.append((match.group(1), values))
+lua_starters = designs_lua.starters()
+assert len(reds_starters) == len(lua_starters), (len(reds_starters), len(lua_starters))
+for i, (name, values) in enumerate(reds_starters, start=1):
+    d = lua_starters[i]
+    expected = [d.first[k] for k in range(1, 7)] + [d.second[k] for k in range(1, 7)]
+    expected += [designs_lua.indexOf(designs_lua.lifetimes, d.lifetime), d.spread]
+    assert d.name == name and [float(x) for x in expected] == values, (name, values, expected)
+print("PASS: redscript starter designs match the Lua starters")
 
 # Ensure adding the workbench did not replace the existing CET event owners.
 source = (MOD / "init.lua").read_text(encoding="utf-8")

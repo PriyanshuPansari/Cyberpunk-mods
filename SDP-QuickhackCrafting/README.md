@@ -1,9 +1,11 @@
 # SDP Quickhack Crafting
 
 Part of SkillDrivenProgression (see SDP-Core). A **Quickhack Designer** for building two-rule quickhacks from the
-mod's primitives. Designs compile into program chips that you install in your cyberdeck and use from the game's
-scanner quickhack wheel, with their own RAM cost, upload time and cooldown. A Lab tab keeps the free sandbox,
-weapon bindings and native quickhack comparison tools. Standalone: needs redscript, TweakXL and CET, not SDP-Core.
+mod's primitives, as a native **Crafting > Quickhack Designer** tab (needs Codeware) and a CET window. Designs are
+stored in your save and compile into program chips that you install in your cyberdeck and use from the game's
+scanner quickhack wheel, with their own RAM cost, upload time and cooldown. The CET window's Lab tab keeps the free
+sandbox, weapon bindings and native quickhack comparison tools. Standalone: needs redscript, TweakXL and CET, not
+SDP-Core; Codeware is optional and adds the native menu.
 
 > **Do not deploy the new parts alongside the old all-in-one `SkillDrivenProgression` Vortex mod.** Both define the
 > same functions, so redscript would fail to compile. Disable the old mod first (see SDP-Core's README, "Switching over").
@@ -16,5 +18,5 @@ weapon bindings and native quickhack comparison tools. Standalone: needs redscri
 
 The CET window lives in `bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/`: `designer.lua` (window),
 `quickhack_designs.lua` (design and cost model), `prototype.lua` (Lab tab) and `prototype_recipes.lua` (rule catalog).
-The program chips are `r6/tweaks/SDPQuickhackCrafting/CustomPrograms.yaml` with `CustomPrograms.reds` and
-`CustomProgramRecords.reds`. `tools/TestPrototypeCrafting.py` runs the Lua under LuaJIT.
+The native menu is `DesignerUI.reds`, the save's design library `DesignLibrary.reds`, and the program chips
+`r6/tweaks/SDPQuickhackCrafting/CustomPrograms.yaml` with `CustomPrograms.reds` and `CustomProgramRecords.reds`. `tools/TestPrototypeCrafting.py` runs the Lua under LuaJIT.

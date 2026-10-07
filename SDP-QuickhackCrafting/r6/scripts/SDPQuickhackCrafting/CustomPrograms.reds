@@ -1,16 +1,16 @@
 // Designed quickhacks as real cyberdeck programs. Four program chips (slots A-D)
-// carry their own actions in the scanner quickhack wheel. A slot holds the
-// compiled design; uploading the chip's quickhack installs that design on the
-// target through SDPPrototypeRuntime. The design model mirrors
-// quickhack_designs.lua; change both together.
+// carry their own actions in the scanner quickhack wheel. A slot holds a
+// compiled design (SDPQHSpec, DesignLibrary.reds); uploading the chip's
+// quickhack installs that design on the target through SDPPrototypeRuntime.
+// The design model mirrors quickhack_designs.lua; change both together.
 module SkillDrivenProgression
 
 public abstract class SDPQHDesign {
   public static func SlotCount() -> Int32 { return 4; }
+  public static func MaxDesigns() -> Int32 { return 48; }
+  public static func MaxName() -> Int32 { return 48; }
 
-  // Per slot: [0] compiled, [1] lifetime index 1-3, [2] spread,
-  // [3-8] first rule {trigger, payload, condition, duration, amount, interval},
-  // [9-14] second rule, [15] reserved.
+  // Values per design or slot; layout in DesignLibrary.reds.
   public static func Stride() -> Int32 { return 16; }
 
   public static func Letter(slot: Int32) -> String {
@@ -223,21 +223,23 @@ public abstract class SDPQHDesign {
 private persistent let m_sdpqhSlots: array<Float>;
 
 @addMethod(PlayerDevelopmentData)
-public final func SDPQH_SlotValue(slot: Int32, index: Int32) -> Float {
-  let at: Int32 = (slot - 1) * SDPQHDesign.Stride() + index;
-  if slot < 1 || slot > SDPQHDesign.SlotCount() || at >= ArraySize(this.m_sdpqhSlots) { return 0.00; };
-  return this.m_sdpqhSlots[at];
+public final func SDPQH_SlotSpec(slot: Int32) -> ref<SDPQHSpec> {
+  if slot < 1 || slot > SDPQHDesign.SlotCount() { return null; };
+  return SDPQHSpec.Read(this.m_sdpqhSlots, (slot - 1) * SDPQHDesign.Stride(), this.SDPQH_SlotLabel(slot));
 }
 
+// A null spec clears the slot.
 @addMethod(PlayerDevelopmentData)
-public final func SDPQH_SetSlot(slot: Int32, const values: script_ref<[Float]>) -> Void {
+public final func SDPQH_SetSlotSpec(slot: Int32, spec: ref<SDPQHSpec>) -> Void {
+  if slot < 1 || slot > SDPQHDesign.SlotCount() { return; };
   let size: Int32 = SDPQHDesign.SlotCount() * SDPQHDesign.Stride();
   while ArraySize(this.m_sdpqhSlots) < size { ArrayPush(this.m_sdpqhSlots, 0.00); };
   let i: Int32 = 0;
   while i < SDPQHDesign.Stride() {
-    this.m_sdpqhSlots[(slot - 1) * SDPQHDesign.Stride() + i] = i < ArraySize(Deref(values)) ? Deref(values)[i] : 0.00;
+    this.m_sdpqhSlots[(slot - 1) * SDPQHDesign.Stride() + i] = IsDefined(spec) ? spec.F(i) : 0.00;
     i += 1;
   };
+  this.SDPQH_SetSlotLabel(slot, IsDefined(spec) ? spec.name : "");
 }
 
 // Records hold global TweakDB values; reapply this save's slots once per player object.
@@ -245,70 +247,48 @@ public final func SDPQH_SetSlot(slot: Int32, const values: script_ref<[Float]>) 
 private let m_sdpqhApplied: Bool;
 
 @addMethod(PlayerPuppet)
-private final func SDPQH_V(slot: Int32, index: Int32) -> Float {
+public final func SDPQH_Slot(slot: Int32) -> ref<SDPQHSpec> {
   let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
-  return IsDefined(data) ? data.SDPQH_SlotValue(slot, index) : 0.00;
-}
-
-@addMethod(PlayerPuppet)
-private final func SDPQH_I(slot: Int32, index: Int32) -> Int32 {
-  return Cast<Int32>(this.SDPQH_V(slot, index));
+  return IsDefined(data) ? data.SDPQH_SlotSpec(slot) : null;
 }
 
 @addMethod(PlayerPuppet)
 public final func SDPQH_IsCompiled(slot: Int32) -> Bool {
-  return slot >= 1 && slot <= SDPQHDesign.SlotCount() && this.SDPQH_V(slot, 0) > 0.50;
-}
-
-@addMethod(PlayerPuppet)
-public final func SDPQH_SlotPoints(slot: Int32) -> Int32 {
-  if !this.SDPQH_IsCompiled(slot) { return 0; };
-  let points: Int32 = SDPPrototypeRuntime.Cost(this.SDPQH_I(slot, 3), this.SDPQH_I(slot, 4), this.SDPQH_I(slot, 5))
-    + SDPPrototypeRuntime.Cost(this.SDPQH_I(slot, 9), this.SDPQH_I(slot, 10), this.SDPQH_I(slot, 11));
-  points += SDPQHDesign.ParamPoints(this.SDPQH_I(slot, 3), this.SDPQH_I(slot, 4), this.SDPQH_V(slot, 6), this.SDPQH_V(slot, 7), this.SDPQH_V(slot, 8));
-  points += SDPQHDesign.ParamPoints(this.SDPQH_I(slot, 9), this.SDPQH_I(slot, 10), this.SDPQH_V(slot, 12), this.SDPQH_V(slot, 13), this.SDPQH_V(slot, 14));
-  return points + 2 * this.SDPQH_I(slot, 2) + this.SDPQH_I(slot, 1) - 1;
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  return IsDefined(spec) && spec.Present();
 }
 
 @addMethod(PlayerPuppet)
 public final func SDPQH_SlotSignature(slot: Int32) -> String {
-  if !this.SDPQH_IsCompiled(slot) { return ""; };
-  return SDPQHDesign.RuleSignature(this.SDPQH_I(slot, 3), this.SDPQH_I(slot, 4), this.SDPQH_I(slot, 5), this.SDPQH_V(slot, 6), this.SDPQH_V(slot, 7), this.SDPQH_V(slot, 8))
-    + "|" + SDPQHDesign.RuleSignature(this.SDPQH_I(slot, 9), this.SDPQH_I(slot, 10), this.SDPQH_I(slot, 11), this.SDPQH_V(slot, 12), this.SDPQH_V(slot, 13), this.SDPQH_V(slot, 14))
-    + "|" + IntToString(this.SDPQH_I(slot, 1)) + "|" + IntToString(this.SDPQH_I(slot, 2));
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  return IsDefined(spec) && spec.Present() ? spec.Signature() : "";
 }
 
 @addMethod(PlayerPuppet)
 public final func SDPQH_SlotName(slot: Int32) -> String {
-  if !this.SDPQH_IsCompiled(slot) { return "Blank program " + SDPQHDesign.Letter(slot); };
-  let label: String = TweakDBInterface.GetString(SDPQHDesign.LabelFlat(slot), "");
-  return StrLen(label) > 0 ? label : "Custom program " + SDPQHDesign.Letter(slot);
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() { return "Blank program " + SDPQHDesign.Letter(slot); };
+  return StrLen(spec.name) > 0 ? spec.name : "Custom program " + SDPQHDesign.Letter(slot);
 }
 
 @addMethod(PlayerPuppet)
 public final func SDPQH_SlotDescription(slot: Int32) -> String {
-  if !this.SDPQH_IsCompiled(slot) {
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() {
     return "Blank program chip. Compile a design into slot " + SDPQHDesign.Letter(slot)
-      + " in the Quickhack Designer (CET overlay) to load it.";
+      + " from Crafting > Quickhack Designer to load it.";
   };
-  let text: String = SDPQHDesign.RuleSentence(this.SDPQH_I(slot, 3), this.SDPQH_I(slot, 4), this.SDPQH_I(slot, 5), this.SDPQH_V(slot, 6), this.SDPQH_V(slot, 7), this.SDPQH_V(slot, 8));
-  if this.SDPQH_I(slot, 9) != 0 {
-    text += "\n" + SDPQHDesign.RuleSentence(this.SDPQH_I(slot, 9), this.SDPQH_I(slot, 10), this.SDPQH_I(slot, 11), this.SDPQH_V(slot, 12), this.SDPQH_V(slot, 13), this.SDPQH_V(slot, 14));
-  };
-  text += "\nProgram runs " + IntToString(SDPQHDesign.LifetimeSeconds(this.SDPQH_I(slot, 1))) + "s with 3 charges per rule.";
-  let spread: Int32 = this.SDPQH_I(slot, 2);
-  if spread > 0 {
-    text += " On upload it spreads to " + IntToString(spread) + " nearby " + (spread == 1 ? "enemy" : "enemies") + " within 8m.";
-  };
-  return text;
+  return spec.Description();
 }
 
 // Name and summary also live in global TweakDB flats so static UI paths
 // (item names and tooltips without an owner) can read them.
 @addMethod(PlayerPuppet)
 private final func SDPQH_ApplySlot(slot: Int32) -> Void {
-  let points: Int32 = this.SDPQH_SlotPoints(slot);
-  let ram: Float = this.SDPQH_IsCompiled(slot) ? Cast<Float>(SDPQHDesign.Ram(points)) : 2.00;
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  let compiled: Bool = IsDefined(spec) && spec.Present();
+  let points: Int32 = compiled ? spec.Points() : 0;
+  let ram: Float = compiled ? Cast<Float>(SDPQHDesign.Ram(points)) : 2.00;
   let upload: Float = Cast<Float>(SDPQHDesign.UploadTenths(points)) / 10.00;
   let cooldown: Float = Cast<Float>(SDPQHDesign.Cooldown(points));
   TweakDBManager.SetFlat(SDPQHDesign.Record("CustomHack", slot, "_Ram.value"), ToVariant(ram));
@@ -318,7 +298,7 @@ private final func SDPQH_ApplySlot(slot: Int32) -> Void {
   TweakDBManager.SetFlat(SDPQHDesign.Record("CustomHack", slot, "_CooldownTime.value"), ToVariant(cooldown));
   TweakDBManager.UpdateRecord(SDPQHDesign.Record("CustomHack", slot, "_CooldownTime"));
   TweakDBManager.SetFlat(SDPQHDesign.SummaryFlat(slot), ToVariant(this.SDPQH_SlotDescription(slot)));
-  if !this.SDPQH_IsCompiled(slot) { TweakDBManager.SetFlat(SDPQHDesign.LabelFlat(slot), ToVariant("")); };
+  TweakDBManager.SetFlat(SDPQHDesign.LabelFlat(slot), ToVariant(compiled ? this.SDPQH_SlotName(slot) : ""));
 }
 
 @addMethod(PlayerPuppet)
@@ -338,8 +318,8 @@ private final func SDPQH_Material(rare: Bool) -> ItemID {
 }
 
 @addMethod(PlayerPuppet)
-private final func SDPQH_Has(rare: Bool, amount: Int32) -> Bool {
-  return amount <= 0 || GameInstance.GetTransactionSystem(this.GetGame()).GetItemQuantity(this, this.SDPQH_Material(rare)) >= amount;
+public final func SDPQH_MaterialCount(rare: Bool) -> Int32 {
+  return GameInstance.GetTransactionSystem(this.GetGame()).GetItemQuantity(this, this.SDPQH_Material(rare));
 }
 
 @addMethod(PlayerPuppet)
@@ -348,23 +328,16 @@ private final func SDPQH_Spend(rare: Bool, amount: Int32) -> Void {
 }
 
 @addMethod(PlayerPuppet)
-public final func SDPQH_CompileSlot(slot: Int32, t1: Int32, p1: Int32, c1: Int32, d1: Float, a1: Float, i1: Float,
-    t2: Int32, p2: Int32, c2: Int32, d2: Float, a2: Float, i2: Float, lifetime: Int32, spread: Int32, name: String, free: Bool) -> String {
+public final func SDPQH_CompileSpec(slot: Int32, spec: ref<SDPQHSpec>, free: Bool) -> String {
   if slot < 1 || slot > SDPQHDesign.SlotCount() { return "Unknown program slot."; };
   let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
-  if !IsDefined(data) { return "Character data unavailable; load a save first."; };
-  if !SDPQHDesign.RuleValid(t1, p1, c1, d1, a1, i1, true) || !SDPQHDesign.RuleValid(t2, p2, c2, d2, a2, i2, false) {
-    return "Design rejected: invalid component or parameter.";
-  };
-  if t1 == t2 && p1 == p2 && c1 == c2 { return "Design rejected: duplicate rules."; };
-  if SDPPrototypeRuntime.Cost(t1, p1, c1) + SDPPrototypeRuntime.Cost(t2, p2, c2) > 12 { return "Design rejected: complexity above 12."; };
-  let life: Int32 = SDPQHDesign.LifetimeIndex(lifetime);
-  if life == 0 || spread < 0 || spread > 3 { return "Design rejected: invalid lifetime or spread."; };
-  let points: Int32 = SDPPrototypeRuntime.Cost(t1, p1, c1) + SDPPrototypeRuntime.Cost(t2, p2, c2)
-    + SDPQHDesign.ParamPoints(t1, p1, d1, a1, i1) + SDPQHDesign.ParamPoints(t2, p2, d2, a2, i2) + 2 * spread + life - 1;
+  if !IsDefined(data) || !IsDefined(spec) { return "Character data unavailable; load a save first."; };
+  let problem: String = spec.Problem();
+  if StrLen(problem) > 0 { return "Design rejected: " + problem; };
+  let points: Int32 = spec.Points();
   let uncommon: Int32 = SDPQHDesign.Uncommon(points);
   let rare: Int32 = SDPQHDesign.Rare(points);
-  if !free && (!this.SDPQH_Has(false, uncommon) || !this.SDPQH_Has(true, rare)) {
+  if !free && (this.SDPQH_MaterialCount(false) < uncommon || this.SDPQH_MaterialCount(true) < rare) {
     return "Compiling needs " + IntToString(uncommon) + " uncommon" + (rare > 0 ? " and " + IntToString(rare) + " rare" : "")
       + " quickhack components.";
   };
@@ -372,39 +345,29 @@ public final func SDPQH_CompileSlot(slot: Int32, t1: Int32, p1: Int32, c1: Int32
     this.SDPQH_Spend(false, uncommon);
     this.SDPQH_Spend(true, rare);
   };
-  let values: array<Float>;
-  ArrayPush(values, 1.00);
-  ArrayPush(values, Cast<Float>(life));
-  ArrayPush(values, Cast<Float>(spread));
-  ArrayPush(values, Cast<Float>(t1)); ArrayPush(values, Cast<Float>(p1)); ArrayPush(values, Cast<Float>(c1));
-  ArrayPush(values, d1); ArrayPush(values, a1); ArrayPush(values, i1);
-  ArrayPush(values, Cast<Float>(t2)); ArrayPush(values, Cast<Float>(p2)); ArrayPush(values, Cast<Float>(c2));
-  ArrayPush(values, d2); ArrayPush(values, a2); ArrayPush(values, i2);
-  ArrayPush(values, 0.00);
-  data.SDPQH_SetSlot(slot, values);
-  TweakDBManager.SetFlat(SDPQHDesign.LabelFlat(slot), ToVariant(StrLen(name) > 0 ? name : ""));
+  let stored: ref<SDPQHSpec> = spec.Copy();
+  stored.Set(0, 1.00);
+  data.SDPQH_SetSlotSpec(slot, stored);
   this.SDPQH_ApplySlot(slot);
-  return "Compiled into program " + SDPQHDesign.Letter(slot) + ": " + IntToString(SDPQHDesign.Ram(points)) + " RAM, "
+  return "Compiled " + spec.name + " into program " + SDPQHDesign.Letter(slot) + ": " + IntToString(SDPQHDesign.Ram(points)) + " RAM, "
     + SDPQHDesign.UploadText(points) + " upload, " + IntToString(SDPQHDesign.Cooldown(points)) + "s cooldown"
     + (free ? " (free mode)." : ".");
+}
+
+@addMethod(PlayerPuppet)
+public final func SDPQH_CompileDesign(slot: Int32, index: Int32, free: Bool) -> String {
+  let spec: ref<SDPQHSpec> = this.SDPQH_Design(index);
+  if !IsDefined(spec) { return "Pick a design first."; };
+  return this.SDPQH_CompileSpec(slot, spec, free);
 }
 
 @addMethod(PlayerPuppet)
 public final func SDPQH_ClearSlot(slot: Int32) -> String {
   let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
   if !IsDefined(data) || slot < 1 || slot > SDPQHDesign.SlotCount() { return "Unknown program slot."; };
-  let values: array<Float>;
-  data.SDPQH_SetSlot(slot, values);
+  data.SDPQH_SetSlotSpec(slot, null);
   this.SDPQH_ApplySlot(slot);
   return "Program " + SDPQHDesign.Letter(slot) + " cleared. Its chip stays installed but does nothing until recompiled.";
-}
-
-// Cosmetic name pushed by CET when it recognizes the slot's design.
-@addMethod(PlayerPuppet)
-public final func SDPQH_SetSlotLabel(slot: Int32, name: String) -> Bool {
-  if slot < 1 || slot > SDPQHDesign.SlotCount() { return false; };
-  TweakDBManager.SetFlat(SDPQHDesign.LabelFlat(slot), ToVariant(this.SDPQH_IsCompiled(slot) ? name : ""));
-  return true;
 }
 
 @addMethod(PlayerPuppet)
@@ -413,7 +376,7 @@ public final func SDPQH_FabricateChip(slot: Int32, free: Bool) -> String {
   if !IsDefined(TweakDBInterface.GetItemRecord(SDPQHDesign.ItemRecord(slot))) {
     return "Program chip record missing. Deploy CustomPrograms.yaml with the scripts.";
   };
-  if !free && !this.SDPQH_Has(false, SDPQHDesign.ChipCost()) {
+  if !free && this.SDPQH_MaterialCount(false) < SDPQHDesign.ChipCost() {
     return "A program chip needs " + IntToString(SDPQHDesign.ChipCost()) + " uncommon quickhack components.";
   };
   if !GameInstance.GetTransactionSystem(this.GetGame()).GiveItem(this, ItemID.FromTDBID(SDPQHDesign.ItemRecord(slot)), 1) {
@@ -435,52 +398,46 @@ public final func SDPQH_ChipInstalled(slot: Int32) -> Bool {
 }
 
 @addMethod(PlayerPuppet)
+public final func SDPQH_ChipCount(slot: Int32) -> Int32 {
+  return GameInstance.GetTransactionSystem(this.GetGame()).GetItemQuantity(this, ItemID.FromTDBID(SDPQHDesign.ItemRecord(slot)));
+}
+
+@addMethod(PlayerPuppet)
 public final func SDPQH_SlotStatus(slot: Int32) -> String {
   if slot < 1 || slot > SDPQHDesign.SlotCount() { return "Unknown slot."; };
   this.SDPQH_EnsureApplied();
-  let owned: Int32 = GameInstance.GetTransactionSystem(this.GetGame()).GetItemQuantity(this, ItemID.FromTDBID(SDPQHDesign.ItemRecord(slot)));
   let chip: String = (this.SDPQH_ChipInstalled(slot) ? "installed in deck" : "not installed")
-    + ", " + IntToString(owned) + " spare in inventory";
-  if !this.SDPQH_IsCompiled(slot) { return "Blank | chip " + chip; };
-  let points: Int32 = this.SDPQH_SlotPoints(slot);
+    + ", " + IntToString(this.SDPQH_ChipCount(slot)) + " spare in inventory";
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() { return "Blank | chip " + chip; };
+  let points: Int32 = spec.Points();
   return "Compiled | " + IntToString(SDPQHDesign.Ram(points)) + " RAM | " + SDPQHDesign.UploadText(points) + " upload | "
     + IntToString(SDPQHDesign.Cooldown(points)) + "s cooldown | chip " + chip;
 }
 
 @addMethod(PlayerPuppet)
 public final func SDPQH_Components() -> String {
-  let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(this.GetGame());
-  return IntToString(ts.GetItemQuantity(this, this.SDPQH_Material(false))) + " uncommon, "
-    + IntToString(ts.GetItemQuantity(this, this.SDPQH_Material(true))) + " rare quickhack components";
-}
-
-@addMethod(PlayerPuppet)
-private final func SDPQH_SlotRule(slot: Int32, first: Bool) -> ref<SDPPrototypeRule> {
-  let o: Int32 = first ? 3 : 9;
-  let rule: ref<SDPPrototypeRule> = SDPPrototypeRuntime.Rule(this.SDPQH_I(slot, o), this.SDPQH_I(slot, o + 1), this.SDPQH_I(slot, o + 2));
-  rule.duration = this.SDPQH_V(slot, o + 3);
-  rule.amount = this.SDPQH_V(slot, o + 4);
-  rule.interval = this.SDPQH_V(slot, o + 5);
-  return rule;
+  return IntToString(this.SDPQH_MaterialCount(false)) + " uncommon, " + IntToString(this.SDPQH_MaterialCount(true)) + " rare quickhack components";
 }
 
 // Called when a program chip's upload completes on a target.
 @addMethod(PlayerPuppet)
 public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   if !SDPPrototypeRuntime.Alive(target) { return; };
-  if !this.SDPQH_IsCompiled(slot) {
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() {
     this.SDP_PrototypeNotify("Program " + SDPQHDesign.Letter(slot) + " is blank. Compile a design into it first.");
     return;
   };
   if !IsDefined(this.m_sdpPrototype) { this.m_sdpPrototype = new SDPPrototypeRuntime(); };
   let runtime: ref<SDPPrototypeRuntime> = this.m_sdpPrototype;
-  let first: ref<SDPPrototypeRule> = this.SDPQH_SlotRule(slot, true);
-  let second: ref<SDPPrototypeRule> = this.SDPQH_SlotRule(slot, false);
-  let expires: Float = SDPPrototypeRuntime.Now(this) + Cast<Float>(SDPQHDesign.LifetimeSeconds(this.SDPQH_I(slot, 1)));
+  let first: ref<SDPPrototypeRule> = spec.Rule(true);
+  let second: ref<SDPPrototypeRule> = spec.Rule(false);
+  let expires: Float = SDPPrototypeRuntime.Now(this) + Cast<Float>(spec.LifetimeSeconds());
   let installed: array<ref<NPCPuppet>>;
   if !IsDefined(runtime.InstallProgram(this, target, first, second, expires)) { return; };
   ArrayPush(installed, target);
-  let spread: Int32 = this.SDPQH_I(slot, 2);
+  let spread: Int32 = spec.Spread();
   if spread > 0 {
     let query: TargetSearchQuery;
     query.testedSet = TargetingSet.Complete;
@@ -510,8 +467,7 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
     runtime.Dispatch(this, installed[n], 4, null);
     n += 1;
   };
-  this.SDP_PrototypeNotify(this.SDPQH_SlotName(slot) + " running for "
-    + IntToString(SDPQHDesign.LifetimeSeconds(this.SDPQH_I(slot, 1))) + "s"
+  this.SDP_PrototypeNotify(this.SDPQH_SlotName(slot) + " running for " + IntToString(spec.LifetimeSeconds()) + "s"
     + (ArraySize(installed) > 1 ? "; spread to " + IntToString(ArraySize(installed) - 1) + " more" : "") + ".");
 }
 
@@ -519,16 +475,17 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
 public final func SDPQH_DecorateCommand(slot: Int32, command: ref<QuickhackData>) -> Void {
   command.m_title = this.SDPQH_SlotName(slot);
   command.m_description = this.SDPQH_SlotDescription(slot);
-  if !this.SDPQH_IsCompiled(slot) {
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() {
     command.m_isLocked = true;
     command.m_actionState = EActionInactivityReson.Locked;
-    command.m_inactiveReason = "Blank program: compile a design in the Quickhack Designer.";
+    command.m_inactiveReason = "Blank program: compile a design in Crafting > Quickhack Designer.";
     if IsDefined(command.m_action) {
       (command.m_action as PuppetAction).SetInactiveWithReason(false, command.m_inactiveReason);
     };
     return;
   };
-  command.m_duration = Cast<Float>(SDPQHDesign.LifetimeSeconds(this.SDPQH_I(slot, 1)));
+  command.m_duration = Cast<Float>(spec.LifetimeSeconds());
 }
 
 // Program chips reach the target through its object actions, matched by action
@@ -599,7 +556,7 @@ public func SDPQH_ChipDescription(description: String, id: TweakDBID) -> String 
   let slot: Int32 = SDPQHDesign.SlotForItem(id);
   if slot == 0 { return description; };
   let summary: String = TweakDBInterface.GetString(SDPQHDesign.SummaryFlat(slot), "");
-  return StrLen(summary) > 0 ? summary : "Designed quickhack chip. Compile a design into slot " + SDPQHDesign.Letter(slot) + " in the Quickhack Designer.";
+  return StrLen(summary) > 0 ? summary : "Designed quickhack chip. Compile a design into slot " + SDPQHDesign.Letter(slot) + " in Crafting > Quickhack Designer.";
 }
 
 @wrapMethod(UIInventoryItem)

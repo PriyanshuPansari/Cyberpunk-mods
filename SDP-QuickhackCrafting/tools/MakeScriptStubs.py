@@ -6,14 +6,18 @@ cloud session). With the game installed, compile against the real bundle instead
 1. Clone the decompiled scripts for the target patch:
    git clone --depth 1 https://codeberg.org/adamsmasher/cyberpunk.git
 2. python tools/MakeScriptStubs.py <cyberpunk-clone> .stage/stubs
-3. Build redscript 1.0 from https://github.com/jac3km4/redscript. In
-   crates/compiler/frontend/src/stages/resolution.rs, let annotations target
-   source-defined symbols by making the `is_user_defined()` checks that report
-   UserSymbolAnnotation skip when the RS_ALLOW_USER_ANN environment variable is set.
+3. Build redscript 1.0 from https://github.com/jac3km4/redscript, patched so
+   that when the RS_ALLOW_USER_ANN environment variable is set it skips:
+   - the `is_user_defined()` checks that report UserSymbolAnnotation
+     (stages/resolution.rs), so annotations can target the stubs;
+   - LessVisibleOverride (stages/resolution.rs) and
+     NonFullyDefinedNativeStructConstruction (lower.rs), which the stubs
+     trigger falsely.
 4. Make a base bundle that defines only the native class IScriptable (for example
    with redscript_io: ScriptBundle::default() plus Class::new("IScriptable", Public, native)).
 5. Copy this mod's scripts, drop their `module SkillDrivenProgression` line, and run:
-   RS_ALLOW_USER_ANN=1 redscript-cli lint -s .stage/stubs -s <TweakXL scripts> -s <mod copy> -b <base bundle>
+   RS_ALLOW_USER_ANN=1 redscript-cli lint -s .stage/stubs -s <TweakXL scripts> [-s <Codeware scripts>] -s <mod copy> -b <base bundle>
+   Only diagnostics in the mod copy count; run with and without Codeware.
 
 Function bodies become `{ }`, so decompiler-only syntax inside them does not
 matter. A clean lint proves names, signatures and types; it does not prove gameplay.
@@ -115,6 +119,12 @@ BUILTINS = """public native struct NodeRef {}
 public native struct CRUID {}
 public native struct LocalizationString {}
 public native struct redResourceReferenceScriptToken {}
+@addMethod(IScriptable)
+public final native func GetClassName() -> CName;
+@addMethod(IScriptable)
+public final native func IsA(className: CName) -> Bool;
+@addMethod(IScriptable)
+public final native func IsExactlyA(className: CName) -> Bool;
 """
 
 

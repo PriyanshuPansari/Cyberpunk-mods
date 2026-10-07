@@ -307,7 +307,7 @@ public class SDPPrototypeRuntime extends IScriptable {
 private let m_sdpPrototype: ref<SDPPrototypeRuntime>;
 
 @addMethod(PlayerPuppet)
-public final func SDP_PrototypeVersion() -> Int32 { return 10; }
+public final func SDP_PrototypeVersion() -> Int32 { return 11; }
 
 @addMethod(PlayerPuppet)
 public final func SDP_PrototypeEnable(enabled: Bool) -> String {
@@ -441,7 +441,7 @@ public final func SDP_PrototypeBindWeapon() -> String {
 
 @addMethod(PlayerPuppet)
 public final func SDP_PrototypeStatus() -> String {
-  if !IsDefined(this.m_sdpPrototype) { return "Build 10 | Sandbox off | No programs running."; };
+  if !IsDefined(this.m_sdpPrototype) { return "Build 11 | Sandbox off | No programs running."; };
   this.m_sdpPrototype.Prune(this);
   let target: ref<NPCPuppet> = SDPPrototypeRuntime.ResolveTarget(this);
   let detail: String = "No NPC selected";
@@ -454,7 +454,7 @@ public final func SDP_PrototypeStatus() -> String {
       + ", burn=" + (StatusEffectSystem.ObjectHasStatusEffectWithTag(target, n"SDPHeat") ? "active" : "off");
     detail += SDPPrimitiveInstance.Describe(this.m_sdpPrototype, this, target);
   };
-  return "Build 10 | Pulses queued: " + IntToString(this.m_sdpPrototype.pulses) + " | Sandbox " + (this.m_sdpPrototype.enabled ? "on" : "off")
+  return "Build 11 | Pulses queued: " + IntToString(this.m_sdpPrototype.pulses) + " | Sandbox " + (this.m_sdpPrototype.enabled ? "on" : "off")
     + " | Programs: " + IntToString(ArraySize(this.m_sdpPrototype.hosts))
     + " | Reloads detected: " + IntToString(this.m_sdpPrototype.reloadEvents)
     + " | Hits detected: " + IntToString(this.m_sdpPrototype.hitEvents)

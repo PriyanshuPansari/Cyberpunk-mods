@@ -1,6 +1,7 @@
--- Quickhack Designer window: design library and editor, program chip slots, and
--- the lab (prototype.lua). Designs live in quickhack-designs.json (shared by all
--- saves); compiled slots live in the save through the redscript backend.
+-- CET Quickhack Designer window: edits the design library stored in the save
+-- (the same library as Crafting > Quickhack Designer), program chip slots, and
+-- the lab (prototype.lua). quickhack-designs.json is only an export/import file
+-- for moving designs between saves.
 local designs = require("quickhack_designs")
 local M = {}
 
@@ -10,12 +11,14 @@ local legacyFile = "prototype-recipe.json"
 local proto
 local library = {}
 local selected = 1
-local message = "Pick a design on the left, edit it, then compile it into a program slot."
+local revision = nil
+local message = "Load a save. Designs are stored in your save and shared with Crafting > Quickhack Designer."
 local dirty, dirtyAge = false, 0
 local freeMode = false
-local slotStatus, slotSignature, lastLabelSignature = {}, {}, {}
+local slotStatus, slotSignature, slotName = {}, {}, {}
 local components, recordCheck = "", "Run the check after loading a save."
 local refresh = 0
+local fileDesigns = nil
 
 local triggerNames = {"Opponent starts reloading", "Your ranged hit", "Your ranged headshot", "On upload", "After 3 seconds"}
 local payloadNames = {"Blindness", "Thermal pulses", "Electrical pulses", "Stun", "Movement restriction", "Chemical pulses", "Physical pulses"}
@@ -34,53 +37,74 @@ local function readFile(name)
   return contents
 end
 
-local function save()
-  local file = io.open(libraryFile, "w")
-  if not file then message = "Could not write " .. libraryFile .. "."; return false end
-  file:write(json.encode(designs.encode(library)))
-  file:close()
-  dirty = false
-  return true
-end
-
-local function markDirty()
-  dirty, dirtyAge = true, 0
-  lastLabelSignature = {}
-end
-
--- First run seeds the starter designs and imports the old single blueprint.
-local function load()
-  local contents = readFile(libraryFile)
-  if contents then
-    local ok, value = pcall(json.decode, contents)
-    local list, skipped = nil, nil
-    if ok then list, skipped = designs.decode(value) end
-    if list then
-      library = list
-      if skipped and skipped > 0 then message = "Skipped " .. skipped .. " unreadable designs in " .. libraryFile .. "." end
-    else
-      library = designs.starters()
-      message = libraryFile .. " is unreadable; started from the starter designs. The old file is kept until you save."
-      return
+-- Designs in the export file (or the Build 9 single blueprint), for import.
+local function scanFile()
+  fileDesigns = nil
+  for _, name in ipairs({libraryFile, legacyFile}) do
+    local contents = readFile(name)
+    if contents then
+      local ok, value = pcall(json.decode, contents)
+      local list = ok and designs.decode(value)
+      if list and #list > 0 then fileDesigns = {name = name, list = list}; return end
     end
-  else
-    library = designs.starters()
-    local legacy = readFile(legacyFile)
-    if legacy then
-      local ok, value = pcall(json.decode, legacy)
-      local imported = ok and designs.decode(value)
-      if imported and imported[1] then
-        imported[1].name = designs.uniqueName(library, imported[1].name .. " (imported)")
-        table.insert(library, 1, imported[1])
-      end
-    end
-    save()
   end
-  if #library == 0 then library = {designs.new("New design")} end
-  selected = 1
 end
+
+local function backend()
+  local player = Game.GetPlayer()
+  if not player then return nil end
+  local ok, version = pcall(function() return player:SDP_PrototypeVersion() end)
+  if not ok or version ~= proto.build then return nil end
+  return player
+end
+
+-- Rebuild the Lua mirror of the save's library (layout in DesignLibrary.reds).
+local function pull(player)
+  local list = {}
+  for i = 0, player:SDPQH_DesignCount() - 1 do
+    local f = function(k) return player:SDPQH_DesignField(i, k) end
+    list[#list + 1] = {
+      index = i,
+      name = player:SDPQH_DesignName(i),
+      lifetime = designs.lifetimes[f(1)] or 30,
+      spread = f(2),
+      first = {f(3), f(4), f(5), f(6), f(7), f(8)},
+      second = {f(9), f(10), f(11), f(12), f(13), f(14)},
+    }
+  end
+  library = list
+  selected = math.max(1, math.min(selected, #library))
+  revision = player:SDPQH_LibraryRevision()
+end
+
+local function push(player, design)
+  local a, b = design.first, design.second
+  return player:SDPQH_SaveDesign(design.index, design.name, a[1], a[2], a[3], a[4], a[5], a[6],
+    b[1], b[2], b[3], b[4], b[5], b[6], design.lifetime, design.spread)
+end
+
+-- Send a pending edit now (before compiling or changing the library).
+local function flush()
+  if not dirty then return end
+  local player = backend()
+  local design = library[selected]
+  if player and design and designs.wellFormed(design) then push(player, design) end
+  dirty = false
+end
+
+local function markDirty() dirty, dirtyAge = true, 0 end
 
 local function current() return library[selected] end
+
+-- Runs a library action, then re-reads the library and selects the result.
+local function libraryAction(action)
+  flush()
+  local player = backend()
+  if not player then message = "Load a save (and matching scripts) to edit designs."; return end
+  local index = action(player)
+  pull(player)
+  if type(index) == "number" and index >= 0 then selected = index + 1 end
+end
 
 local function combo(label, index, names)
   local value, changed = ImGui.Combo(label, index - 1, names, #names)
@@ -119,54 +143,70 @@ local function compile(slot)
   local design = current()
   local ok, reason = designs.validate(design)
   if not ok then message = reason; return end
-  if dirty then save() end
-  local a, b = design.first, design.second
-  message = proto.call(function(player)
-    return player:SDPQH_CompileSlot(slot, a[1], a[2], a[3], a[4], a[5], a[6], b[1], b[2], b[3], b[4], b[5], b[6],
-      design.lifetime, design.spread, design.name, freeMode)
+  flush()
+  message = proto.call(function(player) return player:SDPQH_CompileDesign(slot, design.index, freeMode) end)
+end
+
+local function exportFile()
+  flush()
+  local file = io.open(libraryFile, "w")
+  if not file then message = "Could not write " .. libraryFile .. "."; return end
+  file:write(json.encode(designs.encode(library)))
+  file:close()
+  message = "Exported " .. #library .. " designs to " .. libraryFile .. ". Import them in another save."
+  scanFile()
+end
+
+local function importFile()
+  if not fileDesigns then message = "No designs found in " .. libraryFile .. "."; return end
+  local added = 0
+  libraryAction(function(player)
+    local last = -1
+    for _, design in ipairs(fileDesigns.list) do
+      design.index = -1
+      local index = push(player, design)
+      if index >= 0 then added, last = added + 1, index end
+    end
+    return last
   end)
-  lastLabelSignature[slot] = nil
+  message = "Imported " .. added .. " designs from " .. fileDesigns.name .. "."
 end
 
 local function drawLibrary()
   for i, design in ipairs(library) do
     local label = design.name
     if not designs.validate(design) then label = label .. " (invalid)" end
-    if ImGui.Selectable(label .. "##design" .. i, i == selected) then selected = i end
+    if ImGui.Selectable(label .. "##design" .. i, i == selected) then flush(); selected = i end
   end
   ImGui.Separator()
-  if ImGui.Button("New") and #library < designs.maxDesigns then
-    library[#library + 1] = designs.new(designs.uniqueName(library, "New design"))
-    selected = #library
-    markDirty()
+  if ImGui.Button("New") then libraryAction(function(player) return player:SDPQH_NewDesign() end) end
+  ImGui.SameLine()
+  if ImGui.Button("Duplicate") and current() then
+    local index = current().index
+    libraryAction(function(player) return player:SDPQH_DuplicateDesign(index) end)
   end
   ImGui.SameLine()
-  if ImGui.Button("Duplicate") and current() and #library < designs.maxDesigns then
-    local copy = designs.copy(current())
-    copy.name = designs.uniqueName(library, current().name .. " copy")
-    table.insert(library, selected + 1, copy)
-    selected = selected + 1
-    markDirty()
-  end
-  ImGui.SameLine()
-  if ImGui.Button("Delete") and #library > 1 then
-    table.remove(library, selected)
-    selected = math.min(selected, #library)
-    markDirty()
+  if ImGui.Button("Delete") and current() then
+    local index = current().index
+    libraryAction(function(player) player:SDPQH_DeleteDesign(index); return index - 1 end)
   end
   if ImGui.Button("Add starter designs") then
-    for _, design in ipairs(designs.starters()) do
-      if #library < designs.maxDesigns and not designs.findBySignature(library, designs.signature(design)) then
-        library[#library + 1] = design
-        markDirty()
-      end
-    end
+    libraryAction(function(player)
+      message = "Added " .. player:SDPQH_AddStarters() .. " starter designs."
+      return -1
+    end)
+  end
+  ImGui.Separator()
+  if ImGui.Button("Export to file") then exportFile() end
+  if fileDesigns then
+    ImGui.SameLine()
+    if ImGui.Button("Import " .. #fileDesigns.list .. " from file") then importFile() end
   end
 end
 
 local function drawEditor()
   local design = current()
-  if not design then ImGui.Text("No design selected."); return end
+  if not design then ImGui.TextWrapped("Load a save to edit its designs."); return end
   local name, changed = ImGui.InputText("Name", design.name, designs.maxName + 1)
   if changed and name ~= design.name then design.name = name; markDirty() end
   ruleEditor("Primary rule", design.first, true)
@@ -192,7 +232,6 @@ local function drawEditor()
     ImGui.TextColored(1, 0.45, 0.35, 1, reason)
   end
   ImGui.Separator()
-  if dirty then ImGui.Text("Unsaved changes (saved automatically).") end
   ImGui.Text("Compile into program slot:")
   for slot = 1, designs.slotCount do
     if slot > 1 then ImGui.SameLine() end
@@ -212,9 +251,7 @@ local function drawSlots()
   for slot = 1, designs.slotCount do
     ImGui.Separator()
     local letter = designs.slotLetters[slot]
-    local design = slotSignature[slot] and slotSignature[slot] ~= "" and designs.findBySignature(library, slotSignature[slot])
-    local title = slotSignature[slot] == "" and "Blank" or (design and design.name or "Compiled design (not in your library)")
-    ImGui.Text("Program " .. letter .. ": " .. title)
+    ImGui.Text("Program " .. letter .. ": " .. (slotName[slot] or "-"))
     ImGui.TextWrapped(slotStatus[slot] or "Load a save to read this slot.")
     if ImGui.Button("Fabricate chip (" .. (freeMode and "free" or designs.chipCost .. " uncommon") .. ")##" .. letter) then
       message = proto.call(function(player) return player:SDPQH_FabricateChip(slot, freeMode) end)
@@ -222,12 +259,12 @@ local function drawSlots()
     ImGui.SameLine()
     if ImGui.Button("Clear slot##" .. letter) then
       message = proto.call(function(player) return player:SDPQH_ClearSlot(slot) end)
-      lastLabelSignature[slot] = nil
     end
+    local design = slotSignature[slot] and slotSignature[slot] ~= "" and designs.findBySignature(library, slotSignature[slot])
     if design then
       ImGui.SameLine()
       if ImGui.Button("Edit design##" .. letter) then
-        for i, entry in ipairs(library) do if entry == design then selected = i end end
+        for i, entry in ipairs(library) do if entry == design then flush(); selected = i end end
       end
     end
   end
@@ -240,34 +277,36 @@ end
 
 function M.init(prototype)
   proto = prototype
-  load()
+  scanFile()
+  registerHotkey("SDPDesignerMenu", "Quickhack designer: open in-game menu", function()
+    message = proto.call(function(player) return player:SDPQH_OpenDesignerMenu() end)
+  end)
 end
 
--- Slot readouts once a second. Signatures let the save's compiled numbers find
--- their design name in this machine's library.
+-- Keeps the mirror in step with the save: pushes this window's edits after a
+-- short pause and re-reads the library when anything else changed it.
 function M.update(delta)
   if dirty then
     dirtyAge = dirtyAge + delta
-    if dirtyAge >= 1.5 then save() end
+    if dirtyAge >= 0.5 then flush() end
   end
   refresh = refresh + delta
   if refresh < 1 then return end
   refresh = 0
-  local player = Game.GetPlayer()
-  if not player then slotStatus, slotSignature, lastLabelSignature, components = {}, {}, {}, ""; return end
+  local player = backend()
+  if not player then
+    library, revision, slotStatus, slotSignature, slotName, components = {}, nil, {}, {}, {}, ""
+    return
+  end
   local ok = pcall(function()
-    if player:SDP_PrototypeVersion() ~= proto.build then error("version") end
     player:SDPQH_EnsureApplied()
+    if revision == nil then scanFile() end
+    if not dirty and player:SDPQH_LibraryRevision() ~= revision then pull(player) end
     components = player:SDPQH_Components()
     for slot = 1, designs.slotCount do
       slotStatus[slot] = player:SDPQH_SlotStatus(slot)
-      local signature = player:SDPQH_SlotSignature(slot)
-      slotSignature[slot] = signature
-      if lastLabelSignature[slot] ~= signature then
-        local design = signature ~= "" and designs.findBySignature(library, signature)
-        player:SDPQH_SetSlotLabel(slot, design and design.name or "")
-        lastLabelSignature[slot] = signature
-      end
+      slotSignature[slot] = player:SDPQH_SlotSignature(slot)
+      slotName[slot] = player:SDPQH_SlotName(slot)
     end
   end)
   if not ok then slotStatus, components = {}, "" end
@@ -280,6 +319,9 @@ function M.draw()
   if ImGui.Begin("SDP Quickhack Designer", flags) then
     ImGui.Text("Quickhack Designer - build " .. proto.build)
     ImGui.TextWrapped(message)
+    if ImGui.Button("Open in-game designer menu") then
+      message = proto.call(function(player) return player:SDPQH_OpenDesignerMenu() end)
+    end
     if ImGui.BeginTabBar("SDPDesignerTabs") then
       if ImGui.BeginTabItem("Designer") then
         ImGui.BeginChild("SDPDesignLibrary", 220, 0, true)
@@ -306,7 +348,7 @@ function M.draw()
 end
 
 function M.shutdown()
-  if dirty then save() end
+  pcall(flush)
 end
 
 return M

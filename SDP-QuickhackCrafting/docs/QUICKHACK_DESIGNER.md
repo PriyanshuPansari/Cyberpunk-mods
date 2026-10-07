@@ -1,58 +1,98 @@
-# Quickhack Designer (Build 10)
+# Quickhack Designer (Build 11)
 
-Design quickhacks from the mod's primitives in a CET window, compile them into
-program chips, install the chips in your cyberdeck, and use them from the
-game's own scanner quickhack wheel. They have a RAM cost, upload time and
-cooldown, just like native quickhacks.
+Design quickhacks from the mod's primitives, compile them into program chips,
+install the chips in your cyberdeck, and use them from the game's own scanner
+quickhack wheel. They have a RAM cost, upload time and cooldown, just like
+native quickhacks.
 
-Build 10 replaces the Build 9 workbench window. The sandbox and native lab
-tools are still available on the window's **Lab** tab.
+There are two editors for the same designs:
+
+- **Native menu:** a **Quickhack Designer** tab in the game's Crafting menu,
+  next to Crafting and Upgrading. It needs Codeware.
+- **CET window:** the overlay window from Build 10. It also holds the free
+  sandbox and native lab tools on its **Lab** tab.
+
+Since Build 11, designs are stored in your save, like crafting recipes. Both
+editors edit that same library. A new save starts with the starter designs.
 
 ## Install
 
 Deploy the whole `SDP-QuickhackCrafting` folder, then restart the game.
 
-- `r6/scripts/SDPQuickhackCrafting/*.reds`, including the new `CustomPrograms.reds`
-  and `CustomProgramRecords.reds`.
-- `r6/tweaks/SDPQuickhackCrafting/*.yaml`, including the new `CustomPrograms.yaml`.
-- `bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/*.lua`, including the
-  new `designer.lua` and `quickhack_designs.lua`.
+- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `DesignLibrary.reds` and
+  `DesignerUI.reds` (new in Build 11), and `CustomPrograms.reds` and
+  `CustomProgramRecords.reds`.
+- `r6/tweaks/SDPQuickhackCrafting/*.yaml`, including `CustomPrograms.yaml`.
+- `bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/*.lua`.
 
 You need redscript, CET and TweakXL. The chip actions are finished at load by
 a TweakXL **scriptable tweak** (`SDPQHProgramTweak`), so TweakXL must be a
-version that runs `ScriptableTweak` classes. `tools/Sync-ToVortex.ps1` copies
-these folders. It does not overwrite your design library.
+version that runs `ScriptableTweak` classes.
 
-The CET binding **Quickhack designer: toggle window** keeps the old binding ID,
-so an existing workbench hotkey still works. Open the CET overlay to use the mouse.
+The native menu also needs **Codeware**. Without Codeware the scripts still
+compile: the Crafting tab does not appear, and the CET window does everything.
+`tools/Sync-ToVortex.ps1` copies the folders. It does not overwrite
+`quickhack-designs.json`.
 
-## Workflow
+CET bindings:
 
-1. **Designer tab.** The library on the left starts with the starter designs
-   (the lab presets that use only designed primitives). Your old saved
-   blueprint (`prototype-recipe.json`), if any, is imported once as "(imported)".
-   Pick a design or click **New**, then edit it on the right:
-   - **Primary rule**: trigger, effect, condition, duration, and for damage
-     effects the damage and pulse interval.
-   - **Secondary rule** (optional): the same controls.
-   - **Program**: lifetime (15/30/60 s) and spread on upload (0-3 nearby enemies).
+- **Quickhack designer: toggle window** opens the CET window. It keeps the old
+  binding ID, so an existing workbench hotkey still works.
+- **Quickhack designer: open in-game menu** opens the native designer as a
+  popup, anywhere in the game. It needs Codeware.
 
-   The readout shows complexity, RAM, upload time, cooldown, compile cost and a
-   plain-language description. Edits save automatically to
-   `quickhack-designs.json` in the CET mod folder. This file is shared by all
-   your saves.
-2. **Compile into a program slot.** Click **A**, **B**, **C** or **D** under
-   the readout. Compiling costs quickhack components (see below) and stores
-   the design in the current save. You can recompile a slot at any time; the
-   chip runs whatever is compiled into it.
-3. **Program slots tab.** Click **Fabricate chip** for the slot. It costs 10
-   uncommon quickhack components, and the chip lands in your inventory.
-   The tab shows each slot's design, RAM, upload time, cooldown, and whether
-   the chip is installed.
-4. **Install the chip** in your cyberdeck from the inventory's cyberdeck screen,
-   like any quickhack. Inventory and tooltips show it as
+## Native menu (Crafting > Quickhack Designer)
+
+Open the Crafting menu and pick the **Quickhack Designer** tab with the mouse
+or the tab keys. The screen has three columns:
+
+- **Designs:** your library, 10 per page. **New**, **Copy**, **Delete** and
+  **Add starter designs** (re-adds any starter you deleted).
+- **Design:** the name field, then rows for the primary rule, the secondary
+  rule and the program. Each row has **<** and **>** to step through its
+  choices: trigger, effect, condition, duration, damage and pulse (damage
+  effects only), second rule on/off, lifetime and spread.
+- **Readout and program slots:** complexity bar, RAM, upload, cooldown,
+  compile cost, your component counts, and the design's description (or why
+  it can't be compiled). Each slot A-D shows its compiled design and chip
+  status, with **Compile**, **Make chip** and **Clear**. There is also a
+  **Free mode** toggle for testing.
+
+Every change is saved immediately. The popup from the CET binding shows the
+same panel scaled down, with **Close** (or Esc).
+
+Controls are mouse-driven; gamepad navigation reaches the tab but not the
+buttons inside it. While the name field has focus, the Crafting menu's tab
+keys are ignored, so typing Q or E does not switch tabs. Other hub hotkeys
+may still react to keys typed into the name. If that gets in the way, rename
+designs in the CET window.
+
+## CET window
+
+1. **Designer tab:** the same library as the native menu, with dropdowns
+   instead of steppers. Edits are sent to the save half a second after you
+   stop changing them. Changes made in the native menu appear within a second.
+   - **Export to file** writes the library to `quickhack-designs.json` in the
+     CET mod folder.
+   - **Import N from file** adds that file's designs to the current save. Use
+     it to carry designs to another save, or to import a Build 10 library or
+     a Build 9 `prototype-recipe.json`.
+2. **Compile into a program slot:** click **A**, **B**, **C** or **D** under
+   the readout.
+3. **Program slots tab:** **Fabricate chip**, **Clear slot**, slot status,
+   free mode and **Check program records**.
+
+## Playing with chips
+
+1. **Compile** a design into a slot. This costs quickhack components (see
+   below) and stores the design and its name in the slot. You can recompile a
+   slot at any time; the chip runs whatever is compiled into it.
+2. **Make a chip** for the slot (10 uncommon quickhack components). It lands
+   in your inventory.
+3. **Install the chip** in your cyberdeck from the inventory's cyberdeck
+   screen, like any quickhack. Inventory and tooltips show it as
    "Program A: *design name*" with the design's description.
-5. **Use it.** Scan an enemy. The chip appears in the quickhack wheel under
+4. **Use it.** Scan an enemy. The chip appears in the quickhack wheel under
    the design's name and description, with the design's RAM cost, upload time,
    cooldown and lifetime. When the upload completes, the design installs on
    the target and its rules fire on their triggers. If it spreads, it also
@@ -62,8 +102,8 @@ so an existing workbench hotkey still works. Open the CET overlay to use the mou
 A blank slot's chip shows as locked in the wheel with "Blank program". Clearing
 a slot leaves the chip installed but inactive until you recompile it.
 
-**Test in Lab sandbox** copies the selected design into the Lab's free test
-recipe. Use it to try a design without components or a chip.
+**Test in Lab sandbox** (CET) copies the selected design into the Lab's free
+test recipe. Use it to try a design without components or a chip.
 
 ## Design reference
 
@@ -111,22 +151,24 @@ The game still applies its own modifiers on top: level-difference RAM scaling,
 RAM-cost and upload-time perks and cyberdeck bonuses, and cooldown reductions.
 These numbers are a first balance pass, not tuned yet.
 
-**Free mode** (Program slots tab) skips component costs for testing. It
-remembers nothing and is off each time CET starts.
+**Free mode** skips component costs for testing. It is a toggle in each editor
+and is off each time the menu or CET starts.
 
 ## What is stored where
 
 | Data | Location | Scope |
 | --- | --- | --- |
-| Design library | `quickhack-designs.json` in the CET mod folder | All saves on this machine |
-| Compiled slots (numbers only) | Persistent field on the player's development data | Each save |
+| Design library (up to 48) | Persistent fields on the player's development data | Each save |
+| Compiled slots and their names | Persistent fields on the player's development data | Each save |
 | Chips | Your inventory or cyberdeck | Each save |
-| Slot display names | TweakDB string flats, refreshed each second by CET | Session |
+| Export file | `quickhack-designs.json` in the CET mod folder | Written and read only on request |
+| Chip display names | TweakDB string flats, refreshed from the save | Session |
 
-A save does not store design names. CET finds the slot's design in your
-library by its signature (`4.1.0.2.2.2|0|2|0` style) and shows its name. If
-the design is no longer in your library, the chip is called "Custom program X";
-its rules and costs are unaffected.
+Redscript cannot save strings, so names are stored as character codes. Saved
+names use letters, digits, spaces and `.,:;!?'-_+*/()&#%@<>=`; any other
+character is saved as `?`. Names are up to 48 characters. A Build 10 save
+keeps its compiled slots, but those slots have no names, so their chips read
+"Custom program X" until you recompile them.
 
 ## How the native integration works
 
@@ -143,6 +185,12 @@ its rules and costs are unaffected.
 
   It also drops Optics' "target already blinded" refusals, gives each action a
   private interaction record, and makes each chip carry its own action.
+- `DesignLibrary.reds`: the save's design library (`SDPQHSpec`, one value
+  layout shared with the slots), its names, starter seeding, and the library
+  API that both editors call.
+- `DesignerUI.reds` (Codeware only): the native panel, the third Crafting tab
+  (`CraftingMainGameController.RegisterTabButtons` / `SelectTab`), and the
+  in-game popup.
 - `CustomPrograms.reds`:
   - offers the four actions to every NPC that already exposes puppet quickhacks
     (`ScriptedPuppetPS.GetAllChoices`),
@@ -172,42 +220,73 @@ action. Run it once after deploying. Every slot should read `ok`.
 - Programs live only for the session, like lab programs. Saving and loading
   drops running programs, but not compiled slots or chips.
 - **Disable and clear** on the Lab tab also clears running chip programs.
+- The native menu is laid out for the 4K menu canvas, and its position in
+  the Crafting screen was chosen without seeing the screen. It may overlap
+  Crafting-screen decorations until it is adjusted in game: change the root
+  margin in `SDPQHDesignerPanel.OnCreate`.
 - Effects are the mod's primitives. They are not tier-exact copies of native
   quickhacks, and AI reactions and damage still need in-game measurement.
 
 ## In-game acceptance checks (not yet run)
 
-1. Deploy, restart, open the designer. **Check program records** reads `ok`
-   for A-D. The Lua and backend builds both read 10.
-2. Compile Optics core into A in free mode, fabricate chip A and install it.
-   The wheel shows "Optics core" with 4 RAM (before game modifiers), its
+1. Deploy, restart, open the CET window. **Check program records** reads `ok`
+   for A-D, and the window reads build 11.
+2. Native menu: open Crafting. A third **Quickhack Designer** tab appears.
+   Switching to it hides the crafting/upgrading lists and shows the three
+   columns; switching back restores them. Q/E (or the bumpers) cycle all
+   three tabs. Note any overlap with Crafting-screen decorations.
+3. In the native menu, select Optics core, then step through every row with
+   **<** and **>**. Damage and pulse rows appear only for damage effects; the
+   secondary rows only when the second rule is on. Complexity, RAM, upload,
+   cooldown and the description update; an over-budget design shows why it
+   can't be compiled.
+4. Rename a design in the name field. Typing Q or E does not switch tabs.
+   The list shows the new name. In the CET window the same name and edits
+   appear within a second, and CET edits appear in the native menu on its
+   next refresh.
+5. Compile Optics core into A in free mode, **Make chip** for A and install
+   it. The wheel shows "Optics core" with 4 RAM (before game modifiers), its
    description and a 30 s duration. Upload it on an ordinary enemy: they are
    blinded for 4 s and the HUD reports the program running.
-3. Check the cooldown. After an upload, chip A shows its own cooldown, and
+6. Check the cooldown. After an upload, chip A shows its own cooldown, and
    Reboot Optics, if installed, is unaffected. The reverse holds too.
-4. Blind a target with Reboot Optics, then upload chip A on it. It is not refused.
-5. Recompile A with a heavier design. The wheel, RAM cost and upload time
+7. Blind a target with Reboot Optics, then upload chip A on it. It is not refused.
+8. Recompile A with a heavier design. The wheel, RAM cost and upload time
    change without reinstalling the chip.
-6. Spread: a design with spread 2 near a group installs on up to two more
+9. Spread: a design with spread 2 near a group installs on up to two more
    enemies, never on civilians.
-7. Turn free mode off and compile with too few components. The game refuses
-   and your components are unchanged. With enough, the right amounts are removed.
-8. Save, load and restart the game. Slot names come back from the library,
-   costs are reapplied before the first scan, and chips stay installed.
-   Deleting the design from the library renames the chip "Custom program A".
-9. Clear slot A. The chip shows as a locked "Blank program A" in the wheel.
-10. Lab sandbox regression: the Build 9 lab checks in [PROTOTYPE_CRAFTING.md](PROTOTYPE_CRAFTING.md)
+10. Turn free mode off and compile with too few components. The game refuses
+    and your components are unchanged. With enough, the right amounts are removed.
+11. Save, load and restart the game. The library, design names, slot names
+    and chips all come back, and costs are reapplied before the first scan. A
+    different save shows its own library in both editors.
+12. **Export to file** in one save, then **Import** in another. The designs
+    appear in the second save's library.
+13. Bind **Quickhack designer: open in-game menu**. The popup shows the
+    panel scaled to fit, and the cursor works. **Close** and Esc close it, and
+    time returns to normal.
+14. Without Codeware: the scripts compile, the Crafting menu has its normal
+    two tabs, and the CET window still edits, compiles and makes chips.
+15. Clear slot A. The chip shows as a locked "Blank program A" in the wheel.
+16. Lab sandbox regression: the Build 9 lab checks in [PROTOTYPE_CRAFTING.md](PROTOTYPE_CRAFTING.md)
     still pass on the Lab tab.
 
 ## Developer checks
 
 - `python tools/TestPrototypeCrafting.py` runs the real Lua (design model,
-  designer window, lab) under LuaJIT with a mocked ImGui and backend. It also
-  evaluates the redscript cost formulas and checks that they match the Lua ones.
-- Build 10's redscript was linted with redscript 1.0 against declaration stubs
-  (`tools/MakeScriptStubs.py`) generated from the decompiled 2.31 scripts, plus
-  TweakXL's scripts. The result was 0 errors and 0 warnings in the mod's files.
-  Injected mistakes were caught: a wrong hook signature, an unknown member and a
-  type mismatch. A clean lint proves names, signatures and types; it does not
-  prove gameplay. With the game installed, also compile against the real
-  `final.redscripts` and redscript 0.5.31 as before.
+  CET window mirroring a mocked save library, lab) under LuaJIT with a mocked
+  ImGui and backend. It also checks that the redscript cost formulas and
+  starter designs match the Lua ones.
+- The redscript was linted with redscript 1.0 against declaration stubs
+  (`tools/MakeScriptStubs.py`) generated from the decompiled 2.31 scripts,
+  plus TweakXL's and Codeware's scripts. Both variants were linted: with
+  Codeware (native menu compiled) and without it. Each had 0 errors and
+  0 warnings in the mod's files.
+  - Injected mistakes were caught: a wrong hook signature, an unknown member,
+    a type mismatch, and an unknown method in the Codeware-only menu code.
+  - The lint also caught a real problem: redscript cannot save strings. That
+    is why names are stored as character codes.
+
+  A clean lint proves names, signatures and types; it does not prove
+  gameplay or layout. With the game installed, also compile against the real
+  `final.redscripts` and your redscript version as before.
