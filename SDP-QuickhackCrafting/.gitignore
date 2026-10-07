@@ -1,0 +1,10 @@
+# Local build and editor byproducts.
+*.log
+__pycache__/
+*.pyc
+.vscode/
+.stage/
+*.redscripts
+settings.json
+bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/prototype-recipe.json
+bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/quickhack-lab-report.txt

@@ -1,0 +1,249 @@
+# Build 5: independently authored primitives. No native quickhack action/status inheritance.
+SkillDrivenProgression.PrimitiveAttack:
+  $type: gamedataAttack_GameEffect_Record
+  className: Attack_GameEffect
+  attackType: AttackType.Hack
+  damageType: DamageTypes.Thermal
+  hitFlags: [QuickHack, DamageOverTime]
+  statModifiers: []
+  statusEffects: []
+  playerIncomingDamageMultiplier: 1
+
+SkillDrivenProgression.PrimitiveSlowStat:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxSpeed
+  modifierType: Multiplier
+  value: 0.2
+SkillDrivenProgression.PrimitiveSlowPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  stats: [SkillDrivenProgression.PrimitiveSlowStat]
+  effectors: []
+
+SkillDrivenProgression.PrimitiveDurationStat2:
+  $type: gamedataConstantStatModifier_Record
+  value: 2
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+SkillDrivenProgression.PrimitiveDuration2:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers: [SkillDrivenProgression.PrimitiveDurationStat2]
+
+SkillDrivenProgression.PrimitiveDurationStat4:
+  $type: gamedataConstantStatModifier_Record
+  value: 4
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+SkillDrivenProgression.PrimitiveDuration4:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers: [SkillDrivenProgression.PrimitiveDurationStat4]
+
+SkillDrivenProgression.PrimitiveDurationStat8:
+  $type: gamedataConstantStatModifier_Record
+  value: 8
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+SkillDrivenProgression.PrimitiveDuration8:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers: [SkillDrivenProgression.PrimitiveDurationStat8]
+
+SkillDrivenProgression.PrototypeBlind2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Blind, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeBlind:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Blind, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeBlind8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [Blind, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeBurn2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPHeat, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeBurn:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPHeat, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeBurn8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPHeat, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeShock2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPElectric, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeShock:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPElectric, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeShock8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPElectric, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeStun2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Stunned
+  gameplayTags: [SDPStun, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeStun:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Stunned
+  gameplayTags: [SDPStun, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeStun8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Stunned
+  gameplayTags: [SDPStun, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeSlow2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPSlow, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeSlow:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPSlow, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeSlow8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPSlow, SDPPrimitive]
+  packages: [SkillDrivenProgression.PrimitiveSlowPackage]
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeChemical2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPChemical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeChemical:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPChemical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypeChemical8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPChemical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypePhysical2:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration2
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPPhysical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypePhysical:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration4
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPPhysical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrototypePhysical8:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.PrimitiveDuration8
+  statusEffectType: BaseStatusEffectTypes.Misc
+  gameplayTags: [SDPPhysical, SDPPrimitive]
+  packages: []
+  maxStacks: SkillDrivenProgression.PrimitiveStacks
+  savable: false
+
+SkillDrivenProgression.PrimitiveStackStat:
+  $type: gamedataConstantStatModifier_Record
+  statType: BaseStats.MaxStacks
+  modifierType: Additive
+  value: 1
+SkillDrivenProgression.PrimitiveStacks:
+  $type: gamedataStatModifierGroup_Record
+  statModsLimit: -1
+  statModifiers: [SkillDrivenProgression.PrimitiveStackStat]
