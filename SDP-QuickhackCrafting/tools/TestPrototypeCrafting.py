@@ -36,7 +36,7 @@ bad({1,1,0}, {1,1,0})
 bad({2,2,1}, {2,2,2}) -- complexity 14
 bad({1,1,0}, {0,1,0}) -- disabled rules must be canonical
 bad({6,1,0}, {0,0,0})
-bad({1,9,0}, {0,0,0})
+bad({1,13,0}, {0,0,0})
 bad({4,5,0}, {0,0,0}) -- native payload requires a learned status ID
 bad({1,1,-1}, {0,0,0})
 bad({1.5,1,0}, {0,0,0})
@@ -54,6 +54,9 @@ assert(not recipes.validate(nil))
 assert(not recipes.validate({}))
 assert(recipes.validate({first={2,2,0}, second={3,2,1}}, true)) -- complexity 11
 assert(recipes.validate({first={2,2,0}, second={2,1,1}}, true)) -- exactly 12
+-- Build 12 payloads: immobilize/jam cost 3, deafen/cyberware 2 (SDPPrototypeRuntime.Cost).
+assert(recipes.ruleCost({4,9,0}) == 4 and recipes.ruleCost({4,10,0}) == 4)
+assert(recipes.ruleCost({4,11,0}) == 3 and recipes.ruleCost({4,12,1}) == 4)
 print("PASS: presets, independent editing, budget boundary and malformed recipes")
 
 local designs = require("quickhack_designs")
@@ -80,6 +83,11 @@ st = designs.stats(heavy)
 assert(st.complexity == 9 and st.points == 29, "Heavy points " .. st.points)
 assert(st.ram == 16 and st.cooldown == 62 and st.uncommon == 29 and st.rare == 8, "Heavy derived stats")
 assert(designs.signature(heavy) == "4.2.0.3.3.3|3.3.2.3.3.3|3|3")
+for _, payload in ipairs({9, 10, 11, 12}) do
+  local d = designs.new("New payload " .. payload); d.first[2] = payload
+  assert(designs.validate(d), "Build 12 payload rejected: " .. payload)
+  assert(designs.describe(d):find(designs.payloadText[payload], 1, true))
+end
 local native = designs.copy(optics); native.first[2] = 5
 assert(not designs.validate(native), "Native reference payload compiled")
 assert(not designs.validate({name="", first={4,1,0,4,25,1}, second={0,0,0,4,25,1}, lifetime=30, spread=0}))
@@ -110,7 +118,7 @@ local enabled = false
 local rejectAssemble = false
 local playerAvailable = true
 local recordsAvailable = true
-local backendVersion = 11
+local backendVersion = 12
 local nativeAccepted, rebuildable = true, true
 local parametersAccepted = true
 local spreadSequence = 0
@@ -184,6 +192,24 @@ end
 function player:SDPQH_FabricateChip(slot, free) calls.fabricate = calls.fabricate + 1; calls.fabricateFree = free; return "Chip " .. slot end
 function player:SDPQH_ClearSlot(slot) calls.clear = calls.clear + 1; slotSignatures[slot] = ""; slotNames[slot] = nil; return "Cleared" end
 function player:SDPQH_RecordCheck() return "Program records A: ok" end
+-- Native reference catalog (NativeReferences.reds) and comparison meter.
+local refTitles = {"Overheat T1", "Overheat T3", "Ping T1"}
+local refCoverage = {"recreated", "recreated", "native only"}
+function player:SDPQH_RefRefresh() calls.refRefresh = (calls.refRefresh or 0) + 1; return #refTitles end
+function player:SDPQH_RefCount() return #refTitles end
+function player:SDPQH_RefTitle(i) return refTitles[i + 1] end
+function player:SDPQH_RefCoverage(i) return refCoverage[i + 1] end
+function player:SDPQH_RefSummary(i) return "Summary of " .. refTitles[i + 1] end
+function player:SDPQH_CompileReference(slot, i) calls.refCompile = {slot, i}; return "Program now recreates " .. refTitles[i + 1] end
+function player:SDPQH_RefToLibrary(i)
+  calls.refApprox = i
+  local d = designs.new(refTitles[i + 1] .. " approx"); d.first[2] = 2
+  return store(-1, d.name, toValues(d))
+end
+function player:SDPQH_RefGiveNative(i) calls.refGive = i; return refTitles[i + 1] .. " added" end
+local meter = "Nothing measured yet."
+function player:SDPQH_MeterReport() return meter end
+function player:SDPQH_MeterClear() calls.meterClear = (calls.meterClear or 0) + 1; return "Comparison meter cleared." end
 function player:SDP_PrototypeRearm() calls.rearm = calls.rearm + 1; return "Rearmed" end
 function player:SDP_PrototypeTick() end
 local traceDrains = 0
@@ -270,7 +296,7 @@ backendVersion = 2
 hotkeys.SDPPrototypeUpload()
 assert(calls.assemble == 0 and calls.upload == 0, "Outdated backend accepted an action")
 assert(notifications[#notifications]:find("Build mismatch"), "Version mismatch lacked feedback")
-backendVersion = 11
+backendVersion = 12
 hotkeys.SDPPrototypeUpload()
 assert(calls.upload == 0, "Failed assembly uploaded a stale build")
 assert(notifications[#notifications] == "Rejected", "Rejection was not shown on screen")
@@ -474,6 +500,34 @@ designer.update(1)
 before = #lib
 click("Import 1 from file")
 assert(#lib == before + 1 and lib[#lib].name == "Old blueprint", "Legacy blueprint import")
+-- Native quickhacks tab: browse, compile a recreation, approximate, get the native.
+meter = "[native] OverheatLevel3 on Grunt: 120 damage in 6 hits"
+designer.update(1)
+capturedText = {}
+draw()
+local shownSummary, shownMeter = false, false
+for _, text in ipairs(capturedText) do
+  if text == "Summary of Overheat T1" then shownSummary = true end
+  if text == meter then shownMeter = true end
+end
+assert(shownSummary and shownMeter, "Reference summary or meter not shown")
+pick(selects, "Overheat T3##ref2", true)
+click("B##reference")
+assert(calls.refCompile[1] == 2 and calls.refCompile[2] == 1, "Reference compile by catalog index")
+before = #lib
+click("Add craftable version to designs")
+assert(calls.refApprox == 1 and #lib == before + 1, "Approximation did not reach the library")
+pick(checks, "Free mode (testing: no component costs)", false)
+click("Get native program (free mode)")
+assert(calls.refGive == nil, "Native program given outside free mode")
+pick(checks, "Free mode (testing: no component costs)", true)
+click("Get native program (free mode)")
+assert(calls.refGive == 1)
+pick(selects, "Ping T1 (native only)##ref3", true)
+click("Re-read with current stats")
+assert(calls.refRefresh == 1)
+click("Clear meter")
+assert(calls.meterClear == 1)
 click("Open in-game designer menu")
 hotkeys.SDPDesignerMenu()
 assert(calls.openMenu == 2, "Native menu not requested")
@@ -483,7 +537,7 @@ compiles = #calls.compile
 pick(combos, "Condition##Primary rule", 0)
 click("C##compile")
 assert(#calls.compile == compiles, "Compiled against an outdated backend")
-backendVersion = 11
+backendVersion = 12
 designer.shutdown()
 
 playerAvailable = false
@@ -540,6 +594,24 @@ for i, (name, values) in enumerate(reds_starters, start=1):
     expected += [designs_lua.indexOf(designs_lua.lifetimes, d.lifetime), d.spread]
     assert d.name == name and [float(x) for x in expected] == values, (name, values, expected)
 print("PASS: redscript starter designs match the Lua starters")
+
+# Payload costs and texts exist in both languages too.
+runtime_reds = (ROOT / "r6/scripts/SDPQuickhackCrafting/PrototypeCrafting.reds").read_text(encoding="utf-8")
+light_line = re.search(r"let light: Bool = (.+?);", runtime_reds).group(1)
+light = {int(x) for x in re.findall(r"payload == (\d+)", light_line)}
+recipes_lua = lua.eval('require("prototype_recipes")')
+for payload in range(1, 13):
+    expected = 1 + (2 if payload in light else 3)  # on-upload trigger costs 1
+    assert recipes_lua.ruleCost(lua.table(4, payload, 0)) == expected, (payload, expected)
+assert recipes_lua.ruleCost(lua.table(4, 13, 0)) is None
+text_body = reds[reds.index("func PayloadText(p: Int32)"):]
+text_body = text_body[:text_body.index("return \"nothing\";")]
+reds_texts = {int(k): v for k, v in re.findall(r'case (\d+): return "([^"]+)";', text_body)}
+lua_texts = designs_lua.payloadText
+for payload in designs_lua.programPayloads.values():
+    assert reds_texts[payload] == lua_texts[payload], (payload, reds_texts.get(payload), lua_texts[payload])
+assert sorted(reds_texts) == sorted(designs_lua.programPayloads.values())
+print("PASS: payload costs and texts agree between Lua and redscript (payloads 1-12)")
 
 # Ensure adding the workbench did not replace the existing CET event owners.
 source = (MOD / "init.lua").read_text(encoding="utf-8")

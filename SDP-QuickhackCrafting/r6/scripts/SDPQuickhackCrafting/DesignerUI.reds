@@ -23,6 +23,11 @@ public enum SDPQHUIKind {
   Clear = 11,
   Free = 12,
   Close = 13,
+  Mode = 14,
+  Approximate = 15,
+  GiveNative = 16,
+  MeterClear = 17,
+  RefRefresh = 18,
 }
 
 // Value lists for the selector rows, cheap -> expensive like quickhack_designs.lua.
@@ -34,7 +39,10 @@ public abstract class SDPQHChoices {
     if selector == 14 { ArrayPush(list, 0.00); ArrayPush(list, 1.00); ArrayPush(list, 2.00); ArrayPush(list, 3.00); return list; };
     switch field {
       case 0: ArrayPush(list, 1.00); ArrayPush(list, 2.00); ArrayPush(list, 3.00); ArrayPush(list, 4.00); ArrayPush(list, 5.00); break;
-      case 1: ArrayPush(list, 1.00); ArrayPush(list, 2.00); ArrayPush(list, 3.00); ArrayPush(list, 4.00); ArrayPush(list, 6.00); ArrayPush(list, 7.00); ArrayPush(list, 8.00); break;
+      case 1:
+        ArrayPush(list, 1.00); ArrayPush(list, 2.00); ArrayPush(list, 3.00); ArrayPush(list, 4.00); ArrayPush(list, 6.00); ArrayPush(list, 7.00);
+        ArrayPush(list, 8.00); ArrayPush(list, 9.00); ArrayPush(list, 10.00); ArrayPush(list, 11.00); ArrayPush(list, 12.00);
+        break;
       case 2: ArrayPush(list, 0.00); ArrayPush(list, 1.00); ArrayPush(list, 2.00); break;
       case 3: ArrayPush(list, 2.00); ArrayPush(list, 4.00); ArrayPush(list, 8.00); break;
       case 4: ArrayPush(list, 10.00); ArrayPush(list, 25.00); ArrayPush(list, 50.00); break;
@@ -99,6 +107,10 @@ public abstract class SDPQHChoices {
           case 6: return "Movement restriction";
           case 7: return "Chemical pulses";
           case 8: return "Physical pulses";
+          case 9: return "Immobilize";
+          case 10: return "Weapon jam";
+          case 11: return "Deafen and comms jam";
+          case 12: return "Cyberware malfunction";
         };
         return "-";
       case 2:
@@ -168,6 +180,17 @@ public class SDPQHDesignerPanel extends inkCustomController {
   protected let m_freeButton: ref<SDPQHButton>;
   protected let m_messageText: wref<inkText>;
   protected let m_closeButton: ref<SDPQHButton>;
+  // 0: the save's designs, 1: native quickhack references (NativeReferences.reds).
+  protected let m_mode: Int32;
+  protected let m_refSelected: Int32;
+  protected let m_refPage: Int32;
+  protected let m_modeButtons: array<ref<SDPQHButton>>;
+  protected let m_designTools: wref<inkCanvas>;
+  protected let m_refTools: wref<inkCanvas>;
+  protected let m_editor: wref<inkCanvas>;
+  protected let m_refView: wref<inkCanvas>;
+  protected let m_refText: wref<inkText>;
+  protected let m_meterText: wref<inkText>;
 
   public static func PageSize() -> Int32 { return 10; }
   public static func Width() -> Float { return 3400.00; }
@@ -194,6 +217,7 @@ public class SDPQHDesignerPanel extends inkCustomController {
     this.SetRootWidget(root);
     this.BuildLibrary(root);
     this.BuildEditor(root);
+    this.BuildReferenceView(root);
     this.BuildReadout(root);
   }
 
@@ -234,6 +258,23 @@ public class SDPQHDesignerPanel extends inkCustomController {
     return rect;
   }
 
+  protected func Canvas(parent: ref<inkCompoundWidget>, x: Float, y: Float, width: Float, height: Float) -> ref<inkCanvas> {
+    let canvas: ref<inkCanvas> = new inkCanvas();
+    canvas.SetAnchor(inkEAnchor.TopLeft);
+    canvas.SetMargin(x, y, 0.00, 0.00);
+    canvas.SetSize(width, height);
+    canvas.Reparent(parent);
+    return canvas;
+  }
+
+  protected func Block(parent: ref<inkCompoundWidget>, x: Float, y: Float, width: Float, height: Float, size: Int32, color: HDRColor) -> ref<inkText> {
+    let text: ref<inkText> = this.Text(parent, "", x, y, size, color);
+    text.SetFitToContent(false);
+    text.SetSize(width, height);
+    text.SetWrappingAtPosition(width);
+    return text;
+  }
+
   // Buttons report clicks to this panel; the widget name carries kind and argument.
   protected func Button(parent: ref<inkCompoundWidget>, text: String, x: Float, y: Float, width: Float, height: Float,
       kind: SDPQHUIKind, arg: Int32) -> ref<SDPQHButton> {
@@ -263,7 +304,8 @@ public class SDPQHDesignerPanel extends inkCustomController {
   // ---- Layout --------------------------------------------------------------
 
   protected func BuildLibrary(root: ref<inkCanvas>) -> Void {
-    this.Header(root, "Designs", 0.00, 0.00);
+    ArrayPush(this.m_modeButtons, this.Button(root, "Designs", 0.00, 0.00, 390.00, 60.00, SDPQHUIKind.Mode, 0));
+    ArrayPush(this.m_modeButtons, this.Button(root, "Native quickhacks", 410.00, 0.00, 390.00, 60.00, SDPQHUIKind.Mode, 1));
     let i: Int32 = 0;
     while i < SDPQHDesignerPanel.PageSize() {
       ArrayPush(this.m_list, this.Button(root, "", 0.00, 70.00 + Cast<Float>(i) * 84.00, 800.00, 72.00, SDPQHUIKind.Select, i));
@@ -272,14 +314,23 @@ public class SDPQHDesignerPanel extends inkCustomController {
     this.Button(root, "<", 0.00, 925.00, 100.00, 64.00, SDPQHUIKind.PagePrev, 0);
     this.m_pageText = this.Text(root, "", 130.00, 935.00, 32, ThemeColors.ElectricBlue());
     this.Button(root, ">", 700.00, 925.00, 100.00, 64.00, SDPQHUIKind.PageNext, 0);
-    this.Button(root, "New", 0.00, 1010.00, 250.00, 72.00, SDPQHUIKind.New, 0);
-    this.Button(root, "Copy", 270.00, 1010.00, 250.00, 72.00, SDPQHUIKind.Duplicate, 0);
-    this.Button(root, "Delete", 540.00, 1010.00, 260.00, 72.00, SDPQHUIKind.Delete, 0);
-    this.Button(root, "Add starter designs", 0.00, 1100.00, 800.00, 72.00, SDPQHUIKind.Starters, 0);
+    let tools: ref<inkCanvas> = this.Canvas(root, 0.00, 1010.00, 800.00, 170.00);
+    this.Button(tools, "New", 0.00, 0.00, 250.00, 72.00, SDPQHUIKind.New, 0);
+    this.Button(tools, "Copy", 270.00, 0.00, 250.00, 72.00, SDPQHUIKind.Duplicate, 0);
+    this.Button(tools, "Delete", 540.00, 0.00, 260.00, 72.00, SDPQHUIKind.Delete, 0);
+    this.Button(tools, "Add starter designs", 0.00, 90.00, 800.00, 72.00, SDPQHUIKind.Starters, 0);
+    this.m_designTools = tools;
+    let refTools: ref<inkCanvas> = this.Canvas(root, 0.00, 1010.00, 800.00, 170.00);
+    this.Button(refTools, "Re-read with current stats", 0.00, 0.00, 800.00, 72.00, SDPQHUIKind.RefRefresh, 0);
+    this.Text(refTools, "Every native quickhack program at every tier,\nread from the game's records.", 0.00, 90.00, 26, ThemeColors.Bittersweet());
+    refTools.SetVisible(false);
+    this.m_refTools = refTools;
   }
 
-  protected func BuildEditor(root: ref<inkCanvas>) -> Void {
-    let x: Float = 880.00;
+  protected func BuildEditor(parent: ref<inkCanvas>) -> Void {
+    let root: ref<inkCanvas> = this.Canvas(parent, 880.00, 0.00, 1300.00, 1560.00);
+    this.m_editor = root;
+    let x: Float = 0.00;
     this.Header(root, "Design", x, 0.00);
     this.m_name = HubTextInput.Create();
     this.m_name.SetMaxLength(SDPQHDesign.MaxName());
@@ -304,6 +355,19 @@ public class SDPQHDesignerPanel extends inkCustomController {
     this.Header(root, "Program", x, 1350.00);
     this.AddRow(root, 13, x, 1410.00);
     this.AddRow(root, 14, x, 1488.00);
+  }
+
+  protected func BuildReferenceView(parent: ref<inkCanvas>) -> Void {
+    let root: ref<inkCanvas> = this.Canvas(parent, 880.00, 0.00, 1300.00, 1560.00);
+    this.Header(root, "Native quickhack", 0.00, 0.00);
+    this.m_refText = this.Block(root, 0.00, 70.00, 1300.00, 640.00, 30, ThemeColors.PureWhite());
+    this.Button(root, "Add craftable version to designs", 0.00, 730.00, 640.00, 68.00, SDPQHUIKind.Approximate, 0);
+    this.Button(root, "Get native program (free mode)", 660.00, 730.00, 640.00, 68.00, SDPQHUIKind.GiveNative, 0);
+    this.Header(root, "Comparison meter", 0.00, 830.00);
+    this.m_meterText = this.Block(root, 0.00, 890.00, 1300.00, 560.00, 26, ThemeColors.ElectricBlue());
+    this.Button(root, "Clear meter", 0.00, 1470.00, 400.00, 68.00, SDPQHUIKind.MeterClear, 0);
+    root.SetVisible(false);
+    this.m_refView = root;
   }
 
   protected func BuildReadout(root: ref<inkCanvas>) -> Void {
@@ -363,24 +427,57 @@ public class SDPQHDesignerPanel extends inkCustomController {
   }
 
   public func Refresh() -> Void {
+    if !IsDefined(this.m_player) { return; };
+    let references: Bool = this.m_mode == 1;
+    this.m_editor.SetVisible(!references);
+    this.m_refView.SetVisible(references);
+    this.m_designTools.SetVisible(!references);
+    this.m_refTools.SetVisible(references);
+    this.m_modeButtons[0].SetText(references ? "Designs" : "> Designs");
+    this.m_modeButtons[1].SetText(references ? "> Native quickhacks" : "Native quickhacks");
+    if references { this.RefreshReferences(); } else { this.RefreshDesigns(); };
+    let slot: Int32 = 1;
+    while slot <= SDPQHDesign.SlotCount() {
+      this.m_slotNames[slot - 1].SetText("Program " + SDPQHDesign.Letter(slot) + ": " + this.m_player.SDPQH_SlotName(slot));
+      this.m_slotStatus[slot - 1].SetText(this.m_player.SDPQH_SlotStatus(slot));
+      slot += 1;
+    };
+    this.m_freeButton.SetText(this.m_free ? "Free mode: on" : "Free mode: off");
+    this.m_messageText.SetText(this.m_message);
+  }
+
+  protected func ShowList(count: Int32, page: Int32, selected: Int32, titles: array<String>) -> Int32 {
+    let pages: Int32 = Max(1, (count + SDPQHDesignerPanel.PageSize() - 1) / SDPQHDesignerPanel.PageSize());
+    page = Max(0, Min(page, pages - 1));
+    let i: Int32 = 0;
+    while i < ArraySize(this.m_list) {
+      let index: Int32 = page * SDPQHDesignerPanel.PageSize() + i;
+      let visible: Bool = index < count && i < ArraySize(titles);
+      this.m_list[i].GetRootWidget().SetVisible(visible);
+      if visible { this.m_list[i].SetText((index == selected ? "> " : "") + titles[i]); };
+      i += 1;
+    };
+    this.m_pageText.SetText("Page " + IntToString(page + 1) + " / " + IntToString(pages));
+    return page;
+  }
+
+  protected func RefreshDesigns() -> Void {
     let data: ref<PlayerDevelopmentData> = this.Library();
     let spec: ref<SDPQHSpec> = this.Current();
     let count: Int32 = IsDefined(data) ? data.SDPQH_DesignCount() : 0;
     let pages: Int32 = Max(1, (count + SDPQHDesignerPanel.PageSize() - 1) / SDPQHDesignerPanel.PageSize());
     this.m_page = Max(0, Min(this.m_page, pages - 1));
+    let titles: array<String>;
     let i: Int32 = 0;
-    while i < ArraySize(this.m_list) {
-      let index: Int32 = this.m_page * SDPQHDesignerPanel.PageSize() + i;
-      let visible: Bool = index < count;
-      this.m_list[i].GetRootWidget().SetVisible(visible);
-      if visible {
-        this.m_list[i].SetText((index == this.m_selected ? "> " : "") + data.SDPQH_Design(index).name);
-      };
+    while i < SDPQHDesignerPanel.PageSize() && this.m_page * SDPQHDesignerPanel.PageSize() + i < count {
+      ArrayPush(titles, data.SDPQH_Design(this.m_page * SDPQHDesignerPanel.PageSize() + i).name);
       i += 1;
     };
-    this.m_pageText.SetText("Page " + IntToString(this.m_page + 1) + " / " + IntToString(pages));
+    this.m_page = this.ShowList(count, this.m_page, this.m_selected, titles);
     if !IsDefined(spec) {
-      this.m_messageText.SetText("Load a save to design quickhacks.");
+      this.m_statsText.SetText("");
+      this.m_costText.SetText("");
+      this.m_summaryText.SetText("Load a save to design quickhacks.");
       return;
     };
     if !this.m_name.IsFocused() { this.m_name.SetText(spec.name); };
@@ -418,14 +515,43 @@ public class SDPQHDesignerPanel extends inkCustomController {
       this.m_summaryText.SetText(problem);
     };
     this.m_haveText.SetText("You have " + this.m_player.SDPQH_Components());
-    let slot: Int32 = 1;
-    while slot <= SDPQHDesign.SlotCount() {
-      this.m_slotNames[slot - 1].SetText("Program " + SDPQHDesign.Letter(slot) + ": " + this.m_player.SDPQH_SlotName(slot));
-      this.m_slotStatus[slot - 1].SetText(this.m_player.SDPQH_SlotStatus(slot));
-      slot += 1;
+  }
+
+  protected func RefreshReferences() -> Void {
+    let catalog: ref<SDPQHRefCatalog> = this.m_player.SDPQH_RefCatalog();
+    let count: Int32 = ArraySize(catalog.entries);
+    this.m_refSelected = Max(0, Min(this.m_refSelected, count - 1));
+    let pages: Int32 = Max(1, (count + SDPQHDesignerPanel.PageSize() - 1) / SDPQHDesignerPanel.PageSize());
+    this.m_refPage = Max(0, Min(this.m_refPage, pages - 1));
+    let titles: array<String>;
+    let i: Int32 = 0;
+    while i < SDPQHDesignerPanel.PageSize() && this.m_refPage * SDPQHDesignerPanel.PageSize() + i < count {
+      let entry: ref<SDPQHNativeRef> = catalog.entries[this.m_refPage * SDPQHDesignerPanel.PageSize() + i];
+      ArrayPush(titles, entry.Title() + (entry.Complete() ? "" : (entry.Supported() ? " (partial)" : " (native only)")));
+      i += 1;
     };
-    this.m_freeButton.SetText(this.m_free ? "Free mode: on" : "Free mode: off");
-    this.m_messageText.SetText(this.m_message);
+    this.m_refPage = this.ShowList(count, this.m_refPage, this.m_refSelected, titles);
+    this.m_meterText.SetText(this.m_player.SDPQH_MeterReport());
+    this.m_complexityFill.SetWidth(0.00);
+    this.m_haveText.SetText("You have " + this.m_player.SDPQH_Components());
+    if count == 0 {
+      this.m_refText.SetText("No native quickhack programs were found. The catalog needs TweakXL.");
+      this.m_complexityText.SetText("");
+      this.m_statsText.SetText("");
+      this.m_costText.SetText("");
+      this.m_summaryText.SetText("");
+      return;
+    };
+    let reference: ref<SDPQHNativeRef> = catalog.entries[this.m_refSelected];
+    this.m_refText.SetText(reference.Summary());
+    this.m_complexityText.SetText("Native reference: " + reference.Coverage());
+    this.m_statsText.SetText(IntToString(reference.ram) + " RAM   |   Upload " + SDPQHDesign.Num(reference.upload)
+      + "s   |   Cooldown " + SDPQHDesign.Num(reference.cooldown) + "s");
+    this.m_costText.SetText("Compiling a reference is free; chips cost " + IntToString(SDPQHDesign.ChipCost()) + " uncommon components"
+      + (this.m_free ? " (free mode)" : ""));
+    this.m_summaryText.SetTintColor(reference.Supported() ? ThemeColors.PureWhite() : ThemeColors.Bittersweet());
+    this.m_summaryText.SetText(reference.Supported() ? reference.Spec().Description()
+      : "None of this quickhack's effects has a primitive yet, so it stays native only.");
   }
 
   // ---- Input ---------------------------------------------------------------
@@ -453,7 +579,7 @@ public class SDPQHDesignerPanel extends inkCustomController {
 
   // True while the name field has keyboard focus.
   public func IsTyping() -> Bool {
-    return IsDefined(this.m_name) && this.m_name.IsFocused();
+    return this.m_mode == 0 && IsDefined(this.m_name) && this.m_name.IsFocused();
   }
 
   public func Handle(kind: Int32, arg: Int32) -> Void {
@@ -461,16 +587,44 @@ public class SDPQHDesignerPanel extends inkCustomController {
     if !IsDefined(data) || !IsDefined(this.m_player) { return; };
     let spec: ref<SDPQHSpec> = this.Current();
     let index: Int32;
+    let references: Bool = this.m_mode == 1;
     switch IntEnum<SDPQHUIKind>(kind) {
       case SDPQHUIKind.Select:
-        this.m_selected = this.m_page * SDPQHDesignerPanel.PageSize() + arg;
-        this.m_name.SetText(this.m_player.SDPQH_DesignName(this.m_selected));
+        if references {
+          this.m_refSelected = this.m_refPage * SDPQHDesignerPanel.PageSize() + arg;
+        } else {
+          this.m_selected = this.m_page * SDPQHDesignerPanel.PageSize() + arg;
+          this.m_name.SetText(this.m_player.SDPQH_DesignName(this.m_selected));
+        };
         break;
       case SDPQHUIKind.PagePrev:
-        this.m_page -= 1;
+        if references { this.m_refPage -= 1; } else { this.m_page -= 1; };
         break;
       case SDPQHUIKind.PageNext:
-        this.m_page += 1;
+        if references { this.m_refPage += 1; } else { this.m_page += 1; };
+        break;
+      case SDPQHUIKind.Mode:
+        this.m_mode = arg;
+        if arg == 1 {
+          this.m_player.SDPQH_RefRefresh();
+          this.m_message = "Compile a native quickhack into a slot, upload it next to the native program, then read the meter.";
+        } else {
+          this.m_message = "Pick a design, edit it, then compile it into a program slot.";
+        };
+        break;
+      case SDPQHUIKind.Approximate:
+        index = this.m_player.SDPQH_RefToLibrary(this.m_refSelected);
+        this.m_message = index >= 0 ? "Added the nearest craftable design to Designs." : "Nothing to approximate, or the library is full.";
+        break;
+      case SDPQHUIKind.GiveNative:
+        this.m_message = this.m_free ? this.m_player.SDPQH_RefGiveNative(this.m_refSelected)
+          : "Turn on free mode to get native programs for testing.";
+        break;
+      case SDPQHUIKind.MeterClear:
+        this.m_message = this.m_player.SDPQH_MeterClear();
+        break;
+      case SDPQHUIKind.RefRefresh:
+        this.m_message = "Re-read " + IntToString(this.m_player.SDPQH_RefRefresh()) + " native quickhacks with your current stats.";
         break;
       case SDPQHUIKind.New:
         index = this.m_player.SDPQH_NewDesign();
@@ -496,7 +650,8 @@ public class SDPQHDesignerPanel extends inkCustomController {
         this.StepSelector(spec, arg, 1);
         break;
       case SDPQHUIKind.Compile:
-        this.m_message = this.m_player.SDPQH_CompileDesign(arg, this.m_selected, this.m_free);
+        this.m_message = references ? this.m_player.SDPQH_CompileReference(arg, this.m_refSelected)
+          : this.m_player.SDPQH_CompileDesign(arg, this.m_selected, this.m_free);
         break;
       case SDPQHUIKind.Fabricate:
         this.m_message = this.m_player.SDPQH_FabricateChip(arg, this.m_free);

@@ -2,8 +2,10 @@
 // library and the compiled program slots (SDPQHDesign.Stride()):
 // [0] present, [1] lifetime index 1-3, [2] spread,
 // [3-8] first rule {trigger, payload, condition, duration, amount, interval},
-// [9-14] second rule, [15] reserved.
-// Mirrors quickhack_designs.lua (validation, points, signature, starters).
+// [9-14] second rule, [15] kind: 0 designed, 1 native reference.
+// A native reference (NativeReferences.reds) recreates a native quickhack with
+// exact values and native costs; only program slots hold references.
+// Designed specs mirror quickhack_designs.lua (validation, points, signature, starters).
 module SkillDrivenProgression
 
 public class SDPQHSpec extends IScriptable {
@@ -55,6 +57,14 @@ public class SDPQHSpec extends IScriptable {
   public final func LifetimeIndex() -> Int32 { return this.I(1); }
   public final func LifetimeSeconds() -> Int32 { return SDPQHDesign.LifetimeSeconds(this.I(1)); }
   public final func Spread() -> Int32 { return this.I(2); }
+  public final func Reference() -> Bool { return this.F(15) > 0.50; }
+
+  // Longest effect of the active rules: the wheel's duration for a reference.
+  public final func MaxDuration() -> Float {
+    let longest: Float = this.I(3) != 0 ? this.F(6) : 0.00;
+    if this.I(9) != 0 { longest = MaxF(longest, this.F(12)); };
+    return longest;
+  }
 
   // Offset of a rule's first value: 3 for the primary rule, 9 for the secondary.
   public final static func RuleBase(first: Bool) -> Int32 { return first ? 3 : 9; }
@@ -78,11 +88,26 @@ public class SDPQHSpec extends IScriptable {
   // Empty when the design can be compiled. Messages match quickhack_designs.lua.
   public final func Problem() -> String {
     if StrLen(this.name) == 0 { return "Name the design."; };
+    if this.Reference() { return this.ReferenceProblem(); };
     if !this.RuleValid(true) || !this.RuleValid(false) { return "Choose valid components and a primary rule."; };
     if this.I(3) == this.I(9) && this.I(4) == this.I(10) && this.I(5) == this.I(11) { return "Duplicate rules are not supported."; };
     if this.Complexity() > 12 { return "Complexity exceeds 12. Use a headshot trigger or remove a rule."; };
     if this.I(1) < 1 || this.I(1) > 3 { return "Choose a program lifetime of 15, 30 or 60 seconds."; };
     if this.Spread() < 0 || this.Spread() > 3 { return "Spread must be 0 to 3 targets."; };
+    return "";
+  }
+
+  // References take exact values, so only the ranges are checked.
+  public final func ReferenceProblem() -> String {
+    let first: Int32 = SDPQHSpec.RuleBase(true);
+    let second: Int32 = SDPQHSpec.RuleBase(false);
+    if !SDPQHDesign.ReferenceRuleValid(this.I(first), this.I(first + 1), this.I(first + 2), this.F(first + 3), this.F(first + 4), this.F(first + 5), true)
+      || !SDPQHDesign.ReferenceRuleValid(this.I(second), this.I(second + 1), this.I(second + 2), this.F(second + 3), this.F(second + 4), this.F(second + 5), false) {
+      return "The native quickhack has no effect our primitives can recreate.";
+    };
+    if this.I(3) == this.I(9) && this.I(4) == this.I(10) && this.I(5) == this.I(11) { return "Duplicate rules are not supported."; };
+    if this.I(1) < 1 || this.I(1) > 3 { return "Choose a program lifetime of 15, 30 or 60 seconds."; };
+    if this.Spread() < 0 || this.Spread() > SDPQHDesign.MaxReferenceSpread() { return "Spread is out of range."; };
     return "";
   }
 
@@ -97,7 +122,9 @@ public class SDPQHSpec extends IScriptable {
     if this.I(9) != 0 {
       text += "\n" + SDPQHDesign.RuleSentence(this.I(9), this.I(10), this.I(11), this.F(12), this.F(13), this.F(14));
     };
-    text += "\nProgram runs " + IntToString(this.LifetimeSeconds()) + "s with 3 charges per rule.";
+    if !this.Reference() {
+      text += "\nProgram runs " + IntToString(this.LifetimeSeconds()) + "s with 3 charges per rule.";
+    };
     let spread: Int32 = this.Spread();
     if spread > 0 {
       text += " On upload it spreads to " + IntToString(spread) + " nearby " + (spread == 1 ? "enemy" : "enemies") + " within 8m.";
@@ -131,6 +158,10 @@ public class SDPQHSpec extends IScriptable {
     ArrayPush(list, SDPQHSpec.Make("Caustic blackout", 4, 1, 0, 8.00, 25.00, 1.00, 4, 7, 0, 8.00, 10.00, 1.00, 2, 0));
     ArrayPush(list, SDPQHSpec.Make("Headshot furnace", 4, 6, 0, 8.00, 25.00, 1.00, 3, 2, 0, 4.00, 50.00, 0.50, 2, 0));
     ArrayPush(list, SDPQHSpec.Make("Reload Shock", 1, 3, 0, 4.00, 25.00, 1.00, 3, 1, 0, 4.00, 25.00, 1.00, 2, 0));
+    ArrayPush(list, SDPQHSpec.Make("Lockdown core", 4, 9, 0, 4.00, 25.00, 1.00, 0, 0, 0, 4.00, 25.00, 1.00, 2, 0));
+    ArrayPush(list, SDPQHSpec.Make("Glitch core", 4, 10, 0, 4.00, 25.00, 1.00, 0, 0, 0, 4.00, 25.00, 1.00, 2, 0));
+    ArrayPush(list, SDPQHSpec.Make("Sonic core", 4, 11, 0, 4.00, 25.00, 1.00, 0, 0, 0, 4.00, 25.00, 1.00, 2, 0));
+    ArrayPush(list, SDPQHSpec.Make("Malfunction core", 4, 12, 0, 4.00, 25.00, 1.00, 0, 0, 0, 4.00, 25.00, 1.00, 2, 0));
     return list;
   }
 }

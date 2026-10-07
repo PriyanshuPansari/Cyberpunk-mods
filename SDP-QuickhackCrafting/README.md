@@ -3,8 +3,10 @@
 Part of SkillDrivenProgression (see SDP-Core). A **Quickhack Designer** for building two-rule quickhacks from the
 mod's primitives, as a native **Crafting > Quickhack Designer** tab (needs Codeware) and a CET window. Designs are
 stored in your save and compile into program chips that you install in your cyberdeck and use from the game's
-scanner quickhack wheel, with their own RAM cost, upload time and cooldown. The CET window's Lab tab keeps the free
-sandbox, weapon bindings and native quickhack comparison tools. Standalone: needs redscript, TweakXL and CET, not
+scanner quickhack wheel, with their own RAM cost, upload time and cooldown. **Native quickhacks** rebuilds every native
+quickhack, at every tier, from the same primitives with the native numbers; a comparison meter measures the native
+program against its recreation. The CET window's Lab tab keeps the free sandbox, weapon bindings and native quickhack
+comparison tools. Standalone: needs redscript, TweakXL and CET, not
 SDP-Core; Codeware is optional and adds the native menu.
 
 > **Do not deploy the new parts alongside the old all-in-one `SkillDrivenProgression` Vortex mod.** Both define the
@@ -18,5 +20,6 @@ SDP-Core; Codeware is optional and adds the native menu.
 
 The CET window lives in `bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/`: `designer.lua` (window),
 `quickhack_designs.lua` (design and cost model), `prototype.lua` (Lab tab) and `prototype_recipes.lua` (rule catalog).
-The native menu is `DesignerUI.reds`, the save's design library `DesignLibrary.reds`, and the program chips
+The native menu is `DesignerUI.reds`, the save's design library `DesignLibrary.reds`, the native references
+`NativeReferences.reds` with `ComparisonMeter.reds`, and the program chips
 `r6/tweaks/SDPQuickhackCrafting/CustomPrograms.yaml` with `CustomPrograms.reds` and `CustomProgramRecords.reds`. `tools/TestPrototypeCrafting.py` runs the Lua under LuaJIT.

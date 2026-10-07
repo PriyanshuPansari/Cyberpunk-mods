@@ -1,9 +1,37 @@
-# Quickhack Designer (Build 11)
+# Quickhack Designer (Build 12)
 
 Design quickhacks from the mod's primitives, compile them into program chips,
 install the chips in your cyberdeck, and use them from the game's own scanner
 quickhack wheel. They have a RAM cost, upload time and cooldown, just like
 native quickhacks.
+
+Build 12 adds **native quickhack references**. Every native quickhack, at every
+tier, is rebuilt from the same primitives with the native numbers. A
+**comparison meter** then measures what the native program and its recreation
+actually do, to check that the system works (see
+[Native quickhack references](#native-quickhack-references)).
+
+## What changed in Build 12
+
+- **Fixed: only one chip could be installed at a time.** The chips were clones
+  of Reboot Optics and shared its install group (`shardType`). The cyberdeck
+  keeps one program per group, so installing chip B removed chip A. Each chip
+  now has its own group (`SDPCustomProgram1-4`), and all four can be installed
+  together, next to Reboot Optics.
+- **Fixed: chips showed the same description.** The shared group also made
+  the cyberdeck's program list merge the chips into one entry and compare
+  them with each other. Descriptions now start with the slot letter and the
+  design name ("Program B: Glass Jaw. ..."), in the wheel, inventory and
+  tooltips. Chip tooltips show the design's lifetime instead of the 1 s
+  upload signal.
+- **New effects:** immobilize, weapon jam, deafen + comms jam and cyberware
+  malfunction (see [Design reference](#design-reference)). They are needed to
+  recreate Cripple Movement, Weapon Glitch, Sonic Shock and Cyberware
+  Malfunction, and are also available to your own designs.
+- **Native quickhack references and the comparison meter**, in both editors.
+- **Chips run without CET.** Damage pulses, expiry and delayed rules used to
+  advance only on CET's frame update. A game-side timer now drives them while
+  anything is running.
 
 There are two editors for the same designs:
 
@@ -19,10 +47,12 @@ editors edit that same library. A new save starts with the starter designs.
 
 Deploy the whole `SDP-QuickhackCrafting` folder, then restart the game.
 
-- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `DesignLibrary.reds` and
-  `DesignerUI.reds` (new in Build 11), and `CustomPrograms.reds` and
+- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `NativeReferences.reds`
+  and `ComparisonMeter.reds` (new in Build 12), `DesignLibrary.reds` and
+  `DesignerUI.reds` (Build 11), and `CustomPrograms.reds` and
   `CustomProgramRecords.reds`.
-- `r6/tweaks/SDPQuickhackCrafting/*.yaml`, including `CustomPrograms.yaml`.
+- `r6/tweaks/SDPQuickhackCrafting/*.yaml`, including `CustomPrograms.yaml`
+  and the new primitive records in `PrototypeCrafting.yaml`.
 - `bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/*.lua`.
 
 You need redscript, CET and TweakXL. The chip actions are finished at load by
@@ -44,7 +74,9 @@ CET bindings:
 ## Native menu (Crafting > Quickhack Designer)
 
 Open the Crafting menu and pick the **Quickhack Designer** tab with the mouse
-or the tab keys. The screen has three columns:
+or the tab keys. Two buttons at the top left switch between **Designs** (your
+library) and **Native quickhacks** (the references, below). In Designs mode
+the screen has three columns:
 
 - **Designs:** your library, 10 per page. **New**, **Copy**, **Delete** and
   **Add starter designs** (re-adds any starter you deleted).
@@ -57,6 +89,18 @@ or the tab keys. The screen has three columns:
   it can't be compiled). Each slot A-D shows its compiled design and chip
   status, with **Compile**, **Make chip** and **Clear**. There is also a
   **Free mode** toggle for testing.
+
+In **Native quickhacks** mode:
+
+- The left column lists every native quickhack and tier, 10 per page, marked
+  "(partial)" or "(native only)" where the recreation is incomplete.
+  **Re-read with current stats** measures them again.
+- The middle column shows the selected quickhack's native numbers and its
+  recreation, with **Add craftable version to designs** and **Get native
+  program (free mode)**. Below them is the **comparison meter**, with
+  **Clear meter**.
+- The slots' **Compile** buttons compile the selected recreation. This is
+  free; chips still cost components unless free mode is on.
 
 Every change is saved immediately. The popup from the CET binding shows the
 same panel scaled down, with **Close** (or Esc).
@@ -81,6 +125,9 @@ designs in the CET window.
    the readout.
 3. **Program slots tab:** **Fabricate chip**, **Clear slot**, slot status,
    free mode and **Check program records**.
+4. **Native quickhacks tab:** the same references and meter as the native
+   menu. Pick a quickhack, then compile it into **A**-**D**, add its craftable
+   version to the library, or get the native program in free mode.
 
 ## Playing with chips
 
@@ -110,7 +157,7 @@ test recipe. Use it to try a design without components or a chip.
 | Part | Choices |
 | --- | --- |
 | Trigger | Opponent starts reloading; your ranged hit; your ranged headshot; on upload; 3 s after upload |
-| Effect | Blindness; stun; movement restriction (speed x0.2); thermal, electrical, chemical or physical damage pulses |
+| Effect | Blindness; stun; movement restriction (speed x0.2); thermal, electrical, chemical or physical damage pulses; immobilize; weapon jam; deafen + comms jam; cyberware malfunction |
 | Condition | Always; only if already blinded; only if already burning |
 | Duration | 2, 4 or 8 s |
 | Damage pulses | 10, 25 or 50 base damage, every 2, 1 or 0.5 s |
@@ -124,8 +171,102 @@ and [QUICKHACK_BUILD5_TEST.md](QUICKHACK_BUILD5_TEST.md)):
 - The same effect refreshes rather than stacks.
 - Hit and headshot rules count only your direct ranged damage.
 
+The Build 12 effects are the mod's own statuses. Each carries the gameplay tags
+that the game's scripts react to:
+
+| Effect | Tags | What the game's scripts do |
+| --- | --- | --- |
+| Immobilize | `LocomotionMalfunction` | The AI's "cannot move" condition holds; also speed x0.2 |
+| Weapon jam | `JamWeapon`, `WeaponJam`, `SDPJam` | The mod blocks the NPC's shots (`AIWeapon.Fire`); no smart-weapon tracking |
+| Deafen + comms jam | `Deaf`, `CommsNoiseJam` | Hearing off, no calls for help, no tracked accuracy against you |
+| Cyberware malfunction | `CyberwareMalfunction` | No counter-hacking you; counts for cyberware-malfunction damage bonuses |
+
+Native statuses also drive AI reactions through their own behaviour data, which
+these statuses do not copy. The comparison meter is how to see the difference.
+
 Native reference statuses (learned from equipped hacks in the Lab) cannot be
-compiled into programs. Programs use the mod's own primitives only.
+compiled into your designs. Designs use the mod's own primitives only.
+
+## Native quickhack references
+
+`NativeReferences.reds` reads every native **puppet** quickhack program from
+TweakDB when you first open the list. That covers every program item with a
+quickhack action against NPCs, at every tier (T1 to T5++), including programs
+added by other mods. Each one becomes a **recreation**: a program whose rules
+fire on upload, built only from the mod's primitives, with the native numbers.
+The numbers are read the way the game's program tooltip computes them, from
+your current stats.
+
+| Native part | Read from | Recreated as |
+| --- | --- | --- |
+| RAM | Base cost (`BaseScriptableAction.GetBaseCostStatic`) | The chip's RAM constant |
+| Upload | Activation time; its additive constant goes into the chip | The chip's upload constant |
+| Cooldown | The program's own cooldown status, without the shared group | The chip's cooldown constant |
+| Status effects | Completion effects on the target, with their applied duration | Blindness, immobilize, weapon jam, deafen, cyberware malfunction or stun, by gameplay tag |
+| Damage over time | `ContinuousAttackEffector`: attack damage and tick interval | Damage pulses of that type, same amount and interval, for the status duration |
+| Burst damage | `TriggerAttackEffector`: attack damage | A single hit of that type (interval 0) |
+| Spread | `SpreadInitEffector`: jumps and range, with your spread stats | Spread to that many enemies within that range |
+
+A recreation uses exact values (any duration, damage or interval), so it can
+only live in a program slot, not in the design library. It keeps a link to its
+native program. Damage and durations are measured again every time the
+recreation is shown or uploaded, so after you level up it uses the same new
+numbers as the native. RAM, upload and cooldown are set when you compile it
+and again when the save loads.
+
+The list marks each entry:
+
+- **recreated:** every effect has a primitive and fits in two rules.
+- **partial:** the list's text says what is missing. Examples: Ping's network
+  reveal, Memory Wipe's AI reset, Whistle's lure, a third effect, or a second
+  effect of the same kind.
+- **native only:** nothing to recreate yet (ultimates such as Suicide or
+  System Reset, Ping, Whistle, Memory Wipe).
+
+**Add craftable version to designs** snaps a recreation to the designer's
+choices (2/4/8 s, 10/25/50 damage, 0.5/1/2 s pulses, spread up to 3, one
+pulse in a 2 s window for a single hit). The result is an ordinary design
+with the designer's own costs. Compare it with the exact recreation to see
+what the crafting economy changes.
+
+### Comparing with the meter
+
+1. Turn on free mode. Make two chips for slots A and B, and install both.
+2. In **Native quickhacks**, pick e.g. *Overheat T3*. Compile it into A and
+   press **Get native program (free mode)**. Install the native program too.
+3. Find two similar enemies. Upload the native Overheat on one and chip A on
+   the other. Don't shoot them while measuring: weapon damage over time
+   (burning ammo, for example) would be counted.
+4. Open the designer again. The meter shows one line per upload, newest
+   first. For example (illustrative numbers):
+
+   `[native] OverheatLevel3 on Tyger Claw: 312 damage in 6 hits over 5s, first at +1s | OverheatLevel3 6s`
+   `[ours] Program A: Overheat T3 on Tyger Claw: 300 damage in 6 hits over 5s, first at +0s | PrototypeBurnLong 6s`
+
+   That is the damage dealt (after armour and resistances), the number of
+   hits, the time from the first hit to the last, and how long each status
+   lasted.
+
+Native entries open when a status tagged `Quickhack` from you lands on an
+NPC. Our entries open when a chip's upload completes. Damage from your hacks
+and damage over time goes to the newest entry of the same kind on that
+target. Our pulses use our own attack record, so a native program and a
+recreation can even share a target. The meter keeps the last 12 entries for
+the session.
+
+Known differences to expect, which the meter will show:
+
+- **Perk bonuses.** Native statuses carry the `Quickhack` tag. Intelligence
+  perks extend those statuses' durations, and some damage bonuses are tied
+  to native attack records (flesh bonus, missing-RAM bonus, malfunction
+  stacks). Recreations get the general quickhack damage stats only.
+- **RAM.** The chip keeps Reboot Optics' cost modifiers. A perk that
+  discounts one category of quickhack can make the wheel cost differ by a
+  point or two; the base RAM matches.
+- **AI reactions** come from the native statuses' behaviour data, which our
+  primitives don't copy (see the tag table above).
+- **First tick.** Our first damage pulse lands on upload; a native damage over
+  time may wait one interval.
 
 ## Cost model
 
@@ -133,8 +274,8 @@ Every number comes from integer **points**. `quickhack_designs.lua` and
 `CustomPrograms.reds` (`SDPQHDesign`) compute them the same way; change both together.
 
 - **Complexity** (budget 12) is the lab's existing price per rule: trigger
-  (reload 2, hit 3, headshot/upload/delay 1) plus effect (blindness or stun 2,
-  others 3) plus 1 for a condition.
+  (reload 2, hit 3, headshot/upload/delay 1) plus effect (blindness, stun,
+  deafen or cyberware malfunction 2; others 3) plus 1 for a condition.
 - **Parameter points** per rule: duration 2/4/8 s costs 0/1/2. Damage effects
   also add damage 10/25/50 at 0/1/2 and interval 2/1/0.5 s at 0/1/2.
 - **Program points**: 2 per spread target, plus lifetime 15/30/60 s at 0/1/2.
@@ -160,6 +301,8 @@ and is off each time the menu or CET starts.
 | --- | --- | --- |
 | Design library (up to 48) | Persistent fields on the player's development data | Each save |
 | Compiled slots and their names | Persistent fields on the player's development data | Each save |
+| Which native program a slot recreates | Persistent field (`TweakDBID` per slot) | Each save |
+| Native reference list, comparison meter | Built in memory on first use | Session |
 | Chips | Your inventory or cyberdeck | Each save |
 | Export file | `quickhack-designs.json` in the CET mod folder | Written and read only on request |
 | Chip display names | TweakDB string flats, refreshed from the save | Session |
@@ -191,6 +334,13 @@ keeps its compiled slots, but those slots have no names, so their chips read
 - `DesignerUI.reds` (Codeware only): the native panel, the third Crafting tab
   (`CraftingMainGameController.RegisterTabButtons` / `SelectTab`), and the
   in-game popup.
+- `NativeReferences.reds`: the native program catalog (`TweakDBInterface.GetRecords`
+  from TweakXL), measurement and recreation (`SDPQHNativeRef`), and the
+  reference API for both editors.
+- `ComparisonMeter.reds`: the meter, fed by `NPCPuppet.OnStatusEffectApplied` /
+  `OnStatusEffectRemoved` and `GameObject.ProcessDamageReceived`.
+- `QuickhackPrimitives.reds`: the primitive statuses, damage pulses, the
+  game-side timer, and the weapon-jam block on `AIWeapon.Fire`.
 - `CustomPrograms.reds`:
   - offers the four actions to every NPC that already exposes puppet quickhacks
     (`ScriptedPuppetPS.GetAllChoices`),
@@ -198,7 +348,9 @@ keeps its compiled slots, but those slots have no names, so their chips read
     (`ScriptedPuppet.TranslateChoicesIntoQuickSlotCommands`),
   - installs the design when the completion signal lands on the target
     (`NPCPuppet.OnStatusEffectApplied`),
-  - renames the chips in inventory and tooltips.
+  - renames the chips and rewrites their descriptions in inventory and
+    tooltips (`UIInventoryItem`, `InventoryItemData`, `InventoryTooltipData`),
+    and gives program tooltips the design's duration (`UIInventoryItemProgramData.Make`).
 - Compiling sets the slot's constants with `TweakDBManager.SetFlat`. A loaded
   save reapplies its slots the first time the wheel, CET or the designer asks.
 
@@ -217,6 +369,7 @@ action. Run it once after deploying. Every slot should read `ok`.
 
   The wheel title and description, inventory names and tooltips use the design.
 - Chips are a single tier. They do not scale with item quality or the Optics tier ladder.
+  (A recreation in a slot follows its native program's tier numbers, not the chip's.)
 - Programs live only for the session, like lab programs. Saving and loading
   drops running programs, but not compiled slots or chips.
 - **Disable and clear** on the Lab tab also clears running chip programs.
@@ -224,13 +377,14 @@ action. Run it once after deploying. Every slot should read `ok`.
   the Crafting screen was chosen without seeing the screen. It may overlap
   Crafting-screen decorations until it is adjusted in game: change the root
   margin in `SDPQHDesignerPanel.OnCreate`.
-- Effects are the mod's primitives. They are not tier-exact copies of native
-  quickhacks, and AI reactions and damage still need in-game measurement.
+- The native reference catalog, its tag-based effect mapping and the meter
+  are written from the decompiled 2.31 scripts. The list and its numbers
+  still need checking in game against the program tooltips (check 19).
 
 ## In-game acceptance checks (not yet run)
 
 1. Deploy, restart, open the CET window. **Check program records** reads `ok`
-   for A-D, and the window reads build 11.
+   for A-D, and the window reads build 12.
 2. Native menu: open Crafting. A third **Quickhack Designer** tab appears.
    Switching to it hides the crafting/upgrading lists and shows the three
    columns; switching back restores them. Q/E (or the bumpers) cycle all
@@ -270,13 +424,40 @@ action. Run it once after deploying. Every slot should read `ok`.
 15. Clear slot A. The chip shows as a locked "Blank program A" in the wheel.
 16. Lab sandbox regression: the Build 9 lab checks in [PROTOTYPE_CRAFTING.md](PROTOTYPE_CRAFTING.md)
     still pass on the Lab tab.
+17. **Build 12 fix:** make chips for A, B, C and D and install all four. All
+    stay installed, together with Reboot Optics. The cyberdeck list shows four
+    separate chips, each with its own name and description. The wheel shows
+    four entries whose descriptions start with "Program A:" to "Program D:".
+18. Close CET (or uninstall it) and upload a chip with a damage design. The
+    pulses still tick and the effect still ends on time.
+19. Open **Native quickhacks**. Every native quickhack you know appears at each
+    of its tiers. For a few entries, compare RAM, upload, cooldown, duration
+    and damage with the native program's tooltip; they should match.
+20. Compile Reboot Optics, Overheat, Short Circuit, Contagion, Cripple
+    Movement, Weapon Glitch, Sonic Shock and Cyberware Malfunction
+    recreations in turn. Check that the wheel shows the native RAM, upload
+    time and duration. On upload:
+    - Overheat and Contagion pulse,
+    - Short Circuit hits once,
+    - Contagion spreads,
+    - a crippled enemy stays put,
+    - a jammed enemy stops shooting,
+    - a deafened enemy ignores noise and can't call for help.
+21. Comparison: follow [Comparing with the meter](#comparing-with-the-meter)
+    for a damage hack and a control hack. Record the native and recreation
+    lines for both.
+22. **Add craftable version to designs** adds "*name* T*n* approx" to Designs.
+    It compiles at the designer's cost.
+23. Save and load with a recreation compiled. The slot still recreates the same
+    native program, and the wheel shows its numbers.
 
 ## Developer checks
 
 - `python tools/TestPrototypeCrafting.py` runs the real Lua (design model,
-  CET window mirroring a mocked save library, lab) under LuaJIT with a mocked
-  ImGui and backend. It also checks that the redscript cost formulas and
-  starter designs match the Lua ones.
+  CET window mirroring a mocked save library, the Native quickhacks tab, lab)
+  under LuaJIT with a mocked ImGui and backend. It also checks that the
+  redscript cost formulas, starter designs, effect costs and effect texts
+  match the Lua ones.
 - The redscript was linted with redscript 1.0 against declaration stubs
   (`tools/MakeScriptStubs.py`) generated from the decompiled 2.31 scripts,
   plus TweakXL's and Codeware's scripts. Both variants were linted: with
@@ -284,6 +465,8 @@ action. Run it once after deploying. Every slot should read `ok`.
   0 warnings in the mod's files.
   - Injected mistakes were caught: a wrong hook signature, an unknown member,
     a type mismatch, and an unknown method in the Codeware-only menu code.
+    Build 12 was re-linted the same way, and a wrong hook signature and a type
+    mismatch were injected again to confirm the lint still reports them.
   - The lint also caught a real problem: redscript cannot save strings. That
     is why names are stored as character codes.
 

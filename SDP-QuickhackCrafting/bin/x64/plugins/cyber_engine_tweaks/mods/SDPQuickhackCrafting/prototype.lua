@@ -5,7 +5,7 @@ local recipe = recipes.copy(recipes.presets[1])
 local message = "Enable the workbench, choose components, then upload or build."
 local status = "Disabled."
 local elapsed = 0
-local build = 11
+local build = 12
 local tickElapsed = 0
 local labIndex, labAudit = 0, "Inspect an equipped native quickhack to see its components."
 local targetAudit = "No target snapshot captured."
@@ -16,6 +16,11 @@ local expectedStatus = {
   ["SkillDrivenProgression.PrototypeBurn"] = true,
   ["SkillDrivenProgression.PrototypeShock"] = true,
   ["SkillDrivenProgression.PrototypeStun"] = true,
+  ["SkillDrivenProgression.PrototypeImmobilize"] = true,
+  ["SkillDrivenProgression.PrototypeJam"] = true,
+  ["SkillDrivenProgression.PrototypeDeafen"] = true,
+  ["SkillDrivenProgression.PrototypeCyberware"] = true,
+  ["SkillDrivenProgression.PrototypeBlindLong"] = true,
 }
 
 -- Runs a backend action with a version check and shows its result on the HUD.
@@ -284,7 +289,7 @@ local function ruleEditor(label, rule, secondary)
   end
   if rule[1] == 0 then return end
   ImGui.SameLine()
-  if ImGui.Button(recipes.payloads[rule[2]] .. "##payload" .. label) then rule[2] = rule[2] % 8 + 1 end
+  if ImGui.Button(recipes.payloads[rule[2]] .. "##payload" .. label) then rule[2] = rule[2] % #recipes.payloads + 1 end
   if rule[2] ~= 5 then
     local duration = rule[4] or 4
     if ImGui.Button("Duration: " .. duration .. "s##" .. label) then rule[4] = ({[2]=4, [4]=8, [8]=2})[duration] end

@@ -20,7 +20,7 @@ M.maxSpread = 3
 -- Triggers and payloads a compiled program may use. The native reference payload
 -- (5) stays a lab-only comparison tool: designed programs use our own primitives.
 M.programTriggers = {1, 2, 3, 4, 5}
-M.programPayloads = {1, 2, 3, 4, 6, 7, 8}
+M.programPayloads = {1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12}
 
 M.triggerText = {
   [1] = "When the target starts reloading",
@@ -37,6 +37,10 @@ M.payloadText = {
   [6] = "movement restriction (speed x0.2)",
   [7] = "chemical damage pulses",
   [8] = "physical damage pulses",
+  [9] = "immobilization",
+  [10] = "weapon jam",
+  [11] = "deafness and comms jam",
+  [12] = "cyberware malfunction",
 }
 M.conditionText = {[0] = "", [1] = " (only if already blinded)", [2] = " (only if already burning)"}
 

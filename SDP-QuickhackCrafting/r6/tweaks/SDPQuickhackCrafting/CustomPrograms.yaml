@@ -21,6 +21,8 @@ SkillDrivenProgression.CustomHack1:
   completionEffects: []
 SkillDrivenProgression.CustomProgram1:
   $base: Items.BlindProgram
+  # Own install group: chips sharing Optics' shardType replace each other in the deck.
+  shardType: SDPCustomProgram1
 SkillDrivenProgression.CustomHackSignal1:
   $type: gamedataStatusEffect_Record
   duration: SkillDrivenProgression.CustomHackSignalDuration
@@ -58,6 +60,7 @@ SkillDrivenProgression.CustomHack2:
   completionEffects: []
 SkillDrivenProgression.CustomProgram2:
   $base: Items.BlindProgram
+  shardType: SDPCustomProgram2
 SkillDrivenProgression.CustomHackSignal2:
   $type: gamedataStatusEffect_Record
   duration: SkillDrivenProgression.CustomHackSignalDuration
@@ -95,6 +98,7 @@ SkillDrivenProgression.CustomHack3:
   completionEffects: []
 SkillDrivenProgression.CustomProgram3:
   $base: Items.BlindProgram
+  shardType: SDPCustomProgram3
 SkillDrivenProgression.CustomHackSignal3:
   $type: gamedataStatusEffect_Record
   duration: SkillDrivenProgression.CustomHackSignalDuration
@@ -132,6 +136,7 @@ SkillDrivenProgression.CustomHack4:
   completionEffects: []
 SkillDrivenProgression.CustomProgram4:
   $base: Items.BlindProgram
+  shardType: SDPCustomProgram4
 SkillDrivenProgression.CustomHackSignal4:
   $type: gamedataStatusEffect_Record
   duration: SkillDrivenProgression.CustomHackSignalDuration

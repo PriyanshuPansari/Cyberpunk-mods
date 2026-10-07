@@ -120,7 +120,17 @@ public abstract class SDPQHDesign {
 
   // The native reference payload (5) stays a Lab comparison tool.
   public static func ProgramPayload(payload: Int32) -> Bool {
-    return payload >= 1 && payload <= 8 && payload != 5;
+    return payload >= 1 && payload <= 12 && payload != 5;
+  }
+
+  public static func MaxReferenceSpread() -> Int32 { return 8; }
+
+  // Native references (NativeReferences.reds) use exact values: any duration up
+  // to 600 s, any damage, and an interval of 0 for a single hit.
+  public static func ReferenceRuleValid(t: Int32, p: Int32, c: Int32, d: Float, a: Float, i: Float, primary: Bool) -> Bool {
+    if t == 0 { return !primary && p == 0 && c == 0; };
+    return t >= 1 && t <= 5 && SDPQHDesign.ProgramPayload(p) && c >= 0 && c <= 2
+      && d >= 0.00 && d <= 600.00 && a >= 0.00 && a <= 100000.00 && i >= 0.00 && i <= 60.00;
   }
 
   public static func RuleValid(t: Int32, p: Int32, c: Int32, d: Float, a: Float, i: Float, primary: Bool) -> Bool {
@@ -150,29 +160,18 @@ public abstract class SDPQHDesign {
     return IntToString(tenths / 10) + "." + IntToString(tenths % 10) + "s";
   }
 
-  public static func DurationText(d: Float) -> String {
-    switch SDPQHDesign.DurationIndex(d) {
-      case 1: return "2s";
-      case 3: return "8s";
-    };
-    return "4s";
+  // Whole numbers without decimals, otherwise one or two places: "4", "0.5", "6.25".
+  public static func Num(value: Float) -> String {
+    let whole: Int32 = RoundF(value);
+    if AbsF(value - Cast<Float>(whole)) < 0.005 { return IntToString(whole); };
+    let tenths: Int32 = RoundF(value * 10.00);
+    if AbsF(value * 10.00 - Cast<Float>(tenths)) < 0.05 { return FloatToStringPrec(value, 1); };
+    return FloatToStringPrec(value, 2);
   }
 
-  public static func AmountText(a: Float) -> String {
-    switch SDPQHDesign.AmountIndex(a) {
-      case 1: return "10";
-      case 3: return "50";
-    };
-    return "25";
-  }
-
-  public static func IntervalText(i: Float) -> String {
-    switch SDPQHDesign.IntervalIndex(i) {
-      case 1: return "2s";
-      case 3: return "0.5s";
-    };
-    return "1s";
-  }
+  public static func DurationText(d: Float) -> String { return SDPQHDesign.Num(d) + "s"; }
+  public static func AmountText(a: Float) -> String { return SDPQHDesign.Num(a); }
+  public static func IntervalText(i: Float) -> String { return SDPQHDesign.Num(i) + "s"; }
 
   public static func TriggerText(t: Int32) -> String {
     switch t {
@@ -194,6 +193,10 @@ public abstract class SDPQHDesign {
       case 6: return "movement restriction (speed x0.2)";
       case 7: return "chemical damage pulses";
       case 8: return "physical damage pulses";
+      case 9: return "immobilization";
+      case 10: return "weapon jam";
+      case 11: return "deafness and comms jam";
+      case 12: return "cyberware malfunction";
     };
     return "nothing";
   }
@@ -204,8 +207,22 @@ public abstract class SDPQHDesign {
     return "";
   }
 
+  public static func DamageTypeText(p: Int32) -> String {
+    switch p {
+      case 2: return "thermal";
+      case 3: return "electrical";
+      case 7: return "chemical";
+      case 8: return "physical";
+    };
+    return "";
+  }
+
   public static func RuleSentence(t: Int32, p: Int32, c: Int32, d: Float, a: Float, i: Float) -> String {
-    let text: String = SDPQHDesign.TriggerText(t) + SDPQHDesign.ConditionText(c) + ": " + SDPQHDesign.PayloadText(p);
+    let lead: String = SDPQHDesign.TriggerText(t) + SDPQHDesign.ConditionText(c) + ": ";
+    if SDPQHDesign.Damaging(p) && i <= 0.00 {
+      return lead + SDPQHDesign.AmountText(a) + " base " + SDPQHDesign.DamageTypeText(p) + " damage in one hit.";
+    };
+    let text: String = lead + SDPQHDesign.PayloadText(p);
     if SDPQHDesign.Damaging(p) {
       text += ", " + SDPQHDesign.AmountText(a) + " base damage every " + SDPQHDesign.IntervalText(i);
     };
@@ -242,6 +259,22 @@ public final func SDPQH_SetSlotSpec(slot: Int32, spec: ref<SDPQHSpec>) -> Void {
   this.SDPQH_SetSlotLabel(slot, IsDefined(spec) ? spec.name : "");
 }
 
+// The native program a slot recreates (invalid for designed programs).
+@addField(PlayerDevelopmentData)
+private persistent let m_sdpqhSlotRefs: array<TweakDBID>;
+
+@addMethod(PlayerDevelopmentData)
+public final func SDPQH_SlotRef(slot: Int32) -> TweakDBID {
+  return slot >= 1 && slot <= ArraySize(this.m_sdpqhSlotRefs) ? this.m_sdpqhSlotRefs[slot - 1] : t"";
+}
+
+@addMethod(PlayerDevelopmentData)
+public final func SDPQH_SetSlotRef(slot: Int32, item: TweakDBID) -> Void {
+  if slot < 1 || slot > SDPQHDesign.SlotCount() { return; };
+  while ArraySize(this.m_sdpqhSlotRefs) < SDPQHDesign.SlotCount() { ArrayPush(this.m_sdpqhSlotRefs, t""); };
+  this.m_sdpqhSlotRefs[slot - 1] = item;
+}
+
 // Records hold global TweakDB values; reapply this save's slots once per player object.
 @addField(PlayerPuppet)
 private let m_sdpqhApplied: Bool;
@@ -250,6 +283,31 @@ private let m_sdpqhApplied: Bool;
 public final func SDPQH_Slot(slot: Int32) -> ref<SDPQHSpec> {
   let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
   return IsDefined(data) ? data.SDPQH_SlotSpec(slot) : null;
+}
+
+// A reference slot is re-measured from its native program whenever it is used,
+// so the recreation follows the player's current stats like the native does.
+@addMethod(PlayerPuppet)
+public final func SDPQH_SlotReference(slot: Int32) -> ref<SDPQHNativeRef> {
+  let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
+  if !IsDefined(data) { return null; };
+  let item: TweakDBID = data.SDPQH_SlotRef(slot);
+  if !TDBID.IsValid(item) { return null; };
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() || !spec.Reference() { return null; };
+  return SDPQHNativeRef.FromItem(this, item);
+}
+
+// The spec a slot runs: live values for a reference, the stored design otherwise.
+@addMethod(PlayerPuppet)
+public final func SDPQH_LiveSlot(slot: Int32) -> ref<SDPQHSpec> {
+  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  if !IsDefined(spec) || !spec.Present() || !spec.Reference() { return spec; };
+  let reference: ref<SDPQHNativeRef> = this.SDPQH_SlotReference(slot);
+  if !IsDefined(reference) || !reference.Supported() { return spec; };
+  let live: ref<SDPQHSpec> = reference.Spec();
+  live.name = spec.name;
+  return live;
 }
 
 @addMethod(PlayerPuppet)
@@ -271,14 +329,19 @@ public final func SDPQH_SlotName(slot: Int32) -> String {
   return StrLen(spec.name) > 0 ? spec.name : "Custom program " + SDPQHDesign.Letter(slot);
 }
 
+// Starts with the slot letter so chips never read alike.
 @addMethod(PlayerPuppet)
 public final func SDPQH_SlotDescription(slot: Int32) -> String {
-  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  let spec: ref<SDPQHSpec> = this.SDPQH_LiveSlot(slot);
+  let lead: String = "Program " + SDPQHDesign.Letter(slot) + ": ";
   if !IsDefined(spec) || !spec.Present() {
-    return "Blank program chip. Compile a design into slot " + SDPQHDesign.Letter(slot)
+    return lead + "blank chip. Compile a design into slot " + SDPQHDesign.Letter(slot)
       + " from Crafting > Quickhack Designer to load it.";
   };
-  return spec.Description();
+  if spec.Reference() {
+    return lead + spec.name + ", rebuilt from our primitives with the native program's values.\n" + spec.Description();
+  };
+  return lead + spec.name + ".\n" + spec.Description();
 }
 
 // Name and summary also live in global TweakDB flats so static UI paths
@@ -291,6 +354,14 @@ private final func SDPQH_ApplySlot(slot: Int32) -> Void {
   let ram: Float = compiled ? Cast<Float>(SDPQHDesign.Ram(points)) : 2.00;
   let upload: Float = Cast<Float>(SDPQHDesign.UploadTenths(points)) / 10.00;
   let cooldown: Float = Cast<Float>(SDPQHDesign.Cooldown(points));
+  // A reference costs what the native program costs: base RAM, base upload
+  // constant and the program's own cooldown. Shared perk modifiers still apply.
+  let reference: ref<SDPQHNativeRef> = compiled && spec.Reference() ? this.SDPQH_SlotReference(slot) : null;
+  if IsDefined(reference) {
+    ram = Cast<Float>(reference.ram);
+    upload = reference.uploadBase;
+    cooldown = reference.cooldown;
+  };
   TweakDBManager.SetFlat(SDPQHDesign.Record("CustomHack", slot, "_Ram.value"), ToVariant(ram));
   TweakDBManager.UpdateRecord(SDPQHDesign.Record("CustomHack", slot, "_Ram"));
   TweakDBManager.SetFlat(SDPQHDesign.Record("CustomHack", slot, "_Upload.value"), ToVariant(upload));
@@ -347,7 +418,9 @@ public final func SDPQH_CompileSpec(slot: Int32, spec: ref<SDPQHSpec>, free: Boo
   };
   let stored: ref<SDPQHSpec> = spec.Copy();
   stored.Set(0, 1.00);
+  stored.Set(15, 0.00);
   data.SDPQH_SetSlotSpec(slot, stored);
+  data.SDPQH_SetSlotRef(slot, t"");
   this.SDPQH_ApplySlot(slot);
   return "Compiled " + spec.name + " into program " + SDPQHDesign.Letter(slot) + ": " + IntToString(SDPQHDesign.Ram(points)) + " RAM, "
     + SDPQHDesign.UploadText(points) + " upload, " + IntToString(SDPQHDesign.Cooldown(points)) + "s cooldown"
@@ -366,8 +439,30 @@ public final func SDPQH_ClearSlot(slot: Int32) -> String {
   let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
   if !IsDefined(data) || slot < 1 || slot > SDPQHDesign.SlotCount() { return "Unknown program slot."; };
   data.SDPQH_SetSlotSpec(slot, null);
+  data.SDPQH_SetSlotRef(slot, t"");
   this.SDPQH_ApplySlot(slot);
   return "Program " + SDPQHDesign.Letter(slot) + " cleared. Its chip stays installed but does nothing until recompiled.";
+}
+
+// Loads a native reference into a slot. References are a comparison tool, so
+// compiling one costs no components; the chip itself still has to be made.
+@addMethod(PlayerPuppet)
+public final func SDPQH_CompileReferenceItem(slot: Int32, item: TweakDBID) -> String {
+  if slot < 1 || slot > SDPQHDesign.SlotCount() { return "Unknown program slot."; };
+  let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
+  if !IsDefined(data) { return "Character data unavailable; load a save first."; };
+  let reference: ref<SDPQHNativeRef> = SDPQHNativeRef.FromItem(this, item);
+  if !IsDefined(reference) { return "That native program could not be read."; };
+  if !reference.Supported() { return reference.Title() + " has no effect our primitives can recreate yet."; };
+  let spec: ref<SDPQHSpec> = reference.Spec();
+  let problem: String = spec.Problem();
+  if StrLen(problem) > 0 { return "Reference rejected: " + problem; };
+  data.SDPQH_SetSlotSpec(slot, spec);
+  data.SDPQH_SetSlotRef(slot, item);
+  this.SDPQH_ApplySlot(slot);
+  return "Program " + SDPQHDesign.Letter(slot) + " now recreates " + reference.Title() + ": " + IntToString(reference.ram) + " RAM, "
+    + SDPQHDesign.Num(reference.upload) + "s upload, " + SDPQHDesign.Num(reference.cooldown) + "s cooldown, as the native program."
+    + " Upload both and compare them in the meter.";
 }
 
 @addMethod(PlayerPuppet)
@@ -410,6 +505,12 @@ public final func SDPQH_SlotStatus(slot: Int32) -> String {
     + ", " + IntToString(this.SDPQH_ChipCount(slot)) + " spare in inventory";
   let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
   if !IsDefined(spec) || !spec.Present() { return "Blank | chip " + chip; };
+  if spec.Reference() {
+    let reference: ref<SDPQHNativeRef> = this.SDPQH_SlotReference(slot);
+    if !IsDefined(reference) { return "Native reference (program record missing) | chip " + chip; };
+    return "Native reference | " + IntToString(reference.ram) + " RAM | " + SDPQHDesign.Num(reference.upload) + "s upload | "
+      + SDPQHDesign.Num(reference.cooldown) + "s cooldown | chip " + chip;
+  };
   let points: Int32 = spec.Points();
   return "Compiled | " + IntToString(SDPQHDesign.Ram(points)) + " RAM | " + SDPQHDesign.UploadText(points) + " upload | "
     + IntToString(SDPQHDesign.Cooldown(points)) + "s cooldown | chip " + chip;
@@ -424,7 +525,7 @@ public final func SDPQH_Components() -> String {
 @addMethod(PlayerPuppet)
 public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   if !SDPPrototypeRuntime.Alive(target) { return; };
-  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  let spec: ref<SDPQHSpec> = this.SDPQH_LiveSlot(slot);
   if !IsDefined(spec) || !spec.Present() {
     this.SDP_PrototypeNotify("Program " + SDPQHDesign.Letter(slot) + " is blank. Compile a design into it first.");
     return;
@@ -438,6 +539,11 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   if !IsDefined(runtime.InstallProgram(this, target, first, second, expires)) { return; };
   ArrayPush(installed, target);
   let spread: Int32 = spec.Spread();
+  let range: Float = 8.00;
+  if spec.Reference() {
+    let reference: ref<SDPQHNativeRef> = this.SDPQH_SlotReference(slot);
+    if IsDefined(reference) && reference.spreadRange > 0.00 { range = reference.spreadRange; };
+  };
   if spread > 0 {
     let query: TargetSearchQuery;
     query.testedSet = TargetingSet.Complete;
@@ -453,7 +559,7 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
       if IsDefined(component) {
         let other: ref<NPCPuppet> = component.GetEntity() as NPCPuppet;
         if SDPPrototypeRuntime.SpreadEligible(this, other) && !ArrayContains(installed, other)
-          && Vector4.Distance(target.GetWorldPosition(), other.GetWorldPosition()) <= 8.00
+          && Vector4.Distance(target.GetWorldPosition(), other.GetWorldPosition()) <= range
           && IsDefined(runtime.InstallProgram(this, other, first, second, expires)) {
           ArrayPush(installed, other);
         };
@@ -464,10 +570,12 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   // Each host spends its own charges; upload rules fire on every recipient.
   let n: Int32 = 0;
   while n < ArraySize(installed) {
+    this.SDPQH_MeterProgram(installed[n], "Program " + SDPQHDesign.Letter(slot) + ": " + spec.name);
     runtime.Dispatch(this, installed[n], 4, null);
     n += 1;
   };
-  this.SDP_PrototypeNotify(this.SDPQH_SlotName(slot) + " running for " + IntToString(spec.LifetimeSeconds()) + "s"
+  let running: String = spec.Reference() ? " recreation running" : " running for " + IntToString(spec.LifetimeSeconds()) + "s";
+  this.SDP_PrototypeNotify(this.SDPQH_SlotName(slot) + running
     + (ArraySize(installed) > 1 ? "; spread to " + IntToString(ArraySize(installed) - 1) + " more" : "") + ".");
 }
 
@@ -475,7 +583,7 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
 public final func SDPQH_DecorateCommand(slot: Int32, command: ref<QuickhackData>) -> Void {
   command.m_title = this.SDPQH_SlotName(slot);
   command.m_description = this.SDPQH_SlotDescription(slot);
-  let spec: ref<SDPQHSpec> = this.SDPQH_Slot(slot);
+  let spec: ref<SDPQHSpec> = this.SDPQH_LiveSlot(slot);
   if !IsDefined(spec) || !spec.Present() {
     command.m_isLocked = true;
     command.m_actionState = EActionInactivityReson.Locked;
@@ -485,7 +593,7 @@ public final func SDPQH_DecorateCommand(slot: Int32, command: ref<QuickhackData>
     };
     return;
   };
-  command.m_duration = Cast<Float>(spec.LifetimeSeconds());
+  command.m_duration = spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds());
 }
 
 // Program chips reach the target through its object actions, matched by action
@@ -572,6 +680,30 @@ public final func GetDescription() -> String {
 @wrapMethod(InventoryItemData)
 public final static func GetName(const self: script_ref<InventoryItemData>) -> String {
   return SDPQH_ChipName(wrappedMethod(self), ItemID.GetTDBID(InventoryItemData.GetID(self)));
+}
+
+@wrapMethod(InventoryItemData)
+public final static func GetDescription(const self: script_ref<InventoryItemData>) -> String {
+  return SDPQH_ChipDescription(wrappedMethod(self), ItemID.GetTDBID(InventoryItemData.GetID(self)));
+}
+
+// Program tooltips read duration and damage from the action's completion
+// effects, which for a chip is only its 1 s upload signal. Show the program's.
+@wrapMethod(UIInventoryItemProgramData)
+public final static func Make(itemRecord: wref<Item_Record>, player: wref<PlayerPuppet>) -> ref<UIInventoryItemProgramData> {
+  let data: ref<UIInventoryItemProgramData> = wrappedMethod(itemRecord, player);
+  let slot: Int32 = IsDefined(itemRecord) ? SDPQHDesign.SlotForItem(itemRecord.GetID()) : 0;
+  if slot == 0 || !IsDefined(data) || !IsDefined(player) { return data; };
+  let spec: ref<SDPQHSpec> = player.SDPQH_LiveSlot(slot);
+  if !IsDefined(spec) || !spec.Present() { return data; };
+  data.Duration = spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds());
+  let reference: ref<SDPQHNativeRef> = spec.Reference() ? player.SDPQH_SlotReference(slot) : null;
+  let native: ref<Item_Record> = IsDefined(reference) ? TweakDBInterface.GetItemRecord(reference.item) : null;
+  if IsDefined(native) {
+    let nativeData: ref<UIInventoryItemProgramData> = UIInventoryItemProgramData.Make(native, player);
+    if IsDefined(nativeData) { data.AttackEffects = nativeData.AttackEffects; };
+  };
+  return data;
 }
 
 @wrapMethod(InventoryTooltipData)

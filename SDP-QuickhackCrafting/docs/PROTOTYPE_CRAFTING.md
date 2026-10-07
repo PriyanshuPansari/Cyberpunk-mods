@@ -5,6 +5,9 @@
 > (same binding ID, so existing hotkeys keep working). Designed quickhacks as
 > real cyberdeck programs are covered in [QUICKHACK_DESIGNER.md](QUICKHACK_DESIGNER.md).
 > The steps below still apply to the Lab sandbox.
+>
+> **Build 12:** the payload button also cycles through immobilize, weapon jam,
+> deafen + comms jam and cyberware malfunction (see QUICKHACK_DESIGNER.md).
 
 Implemented 2026-10-05. Opt-in combat experiment, not the final crafting economy.
 The source compiles against the installed vanilla game bundle and TweakXL scripts.

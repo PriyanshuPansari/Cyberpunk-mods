@@ -7,7 +7,7 @@ Cyberpunk 2077 mods by PriyanshuPansari. They started as one mod, SkillDrivenPro
 | [SDP-Core](SDP-Core) | Shared player loop and helpers used by the other parts | redscript |
 | [SDP-Skills](SDP-Skills) | Skills drive attributes and character level; skill checks, rank UI, milestones, passive and capacity tuning | SDP-Core, TweakXL, CET (Native Settings UI optional) |
 | [SDP-Perks](SDP-Perks) | Perk system: neural processor, trainable perk shards, Deadeye, encounter XP log, shard tree | SDP-Core, TweakXL, ArchiveXL, CET |
-| [SDP-QuickhackCrafting](SDP-QuickhackCrafting) | Quickhack Designer (Crafting menu tab and CET window): build quickhacks from primitives and run them as cyberdeck program chips; primitives lab | TweakXL, CET; Codeware for the native menu |
+| [SDP-QuickhackCrafting](SDP-QuickhackCrafting) | Quickhack Designer (Crafting menu tab and CET window): build quickhacks from primitives and run them as cyberdeck program chips; recreations of every native quickhack tier with a comparison meter; primitives lab | TweakXL, CET; Codeware for the native menu |
 | [SDP-Combat](SDP-Combat) | Combat realism: weapon-driven NPC aim and cadence, blind fire, armour as pieces, cut-down Combat Evolved maneuvers and fear | TweakXL |
 | [SDP-Patches](SDP-Patches) | Small optional mods: Cigarettes, Cyberware-EX slots, ENC takedowns, scanner dilation | per mod |
 

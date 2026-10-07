@@ -3,14 +3,18 @@
 module SkillDrivenProgression
 
 public class SDPPrototypeRule extends IScriptable {
-  // Trigger: 1 opponent reload start, 2 direct ranged hit, 3 direct ranged headshot.
+  // Trigger: 1 opponent reload start, 2 direct ranged hit, 3 direct ranged headshot,
+  // 4 on upload, 5 three seconds after upload.
   public let trigger: Int32;
-  // Payload: 1 blindness, 2 burning. Condition: 0 always, 1 blinded, 2 burning.
+  // Payload: 1 blindness, 2 thermal, 3 electrical, 4 stun, 5 native reference (Lab),
+  // 6 slow, 7 chemical, 8 physical, 9 immobilize, 10 weapon jam, 11 deafen/comms
+  // jam, 12 cyberware malfunction. Condition: 0 always, 1 blinded, 2 burning.
   public let payload: Int32;
   public let condition: Int32;
   public let nativeEffect: TweakDBID;
   public let duration: Float;
   public let amount: Float;
+  // Seconds between damage pulses; 0 = one hit when the rule fires.
   public let interval: Float;
 }
 
@@ -124,8 +128,9 @@ public class SDPPrototypeRuntime extends IScriptable {
 
   public final static func Cost(trigger: Int32, payload: Int32, condition: Int32) -> Int32 {
     if trigger == 0 && payload == 0 && condition == 0 { return 0; };
-    if trigger < 1 || trigger > 5 || payload < 1 || payload > 8 || condition < 0 || condition > 2 { return 100; };
-    return (trigger == 2 ? 3 : (trigger == 1 ? 2 : 1)) + (payload == 1 || payload == 4 ? 2 : 3) + (condition == 0 ? 0 : 1);
+    if trigger < 1 || trigger > 5 || payload < 1 || payload > 12 || condition < 0 || condition > 2 { return 100; };
+    let light: Bool = payload == 1 || payload == 4 || payload == 11 || payload == 12;
+    return (trigger == 2 ? 3 : (trigger == 1 ? 2 : 1)) + (light ? 2 : 3) + (condition == 0 ? 0 : 1);
   }
 
   public final static func Effect(payload: Int32) -> TweakDBID {
@@ -189,6 +194,7 @@ public class SDPPrototypeRuntime extends IScriptable {
       host.delayedAt = SDPPrototypeRuntime.Now(player) + 3.00;
     };
     ArrayPush(this.hosts, host);
+    player.SDP_PrototypeWake();
     return true;
   }
 
@@ -220,6 +226,7 @@ public class SDPPrototypeRuntime extends IScriptable {
     host.delayedAt = now + 3.00;
     host.native = true;
     ArrayPush(this.hosts, host);
+    player.SDP_PrototypeWake();
     return host;
   }
 
@@ -307,7 +314,7 @@ public class SDPPrototypeRuntime extends IScriptable {
 private let m_sdpPrototype: ref<SDPPrototypeRuntime>;
 
 @addMethod(PlayerPuppet)
-public final func SDP_PrototypeVersion() -> Int32 { return 11; }
+public final func SDP_PrototypeVersion() -> Int32 { return 12; }
 
 @addMethod(PlayerPuppet)
 public final func SDP_PrototypeEnable(enabled: Bool) -> String {
@@ -441,7 +448,7 @@ public final func SDP_PrototypeBindWeapon() -> String {
 
 @addMethod(PlayerPuppet)
 public final func SDP_PrototypeStatus() -> String {
-  if !IsDefined(this.m_sdpPrototype) { return "Build 11 | Sandbox off | No programs running."; };
+  if !IsDefined(this.m_sdpPrototype) { return "Build 12 | Sandbox off | No programs running."; };
   this.m_sdpPrototype.Prune(this);
   let target: ref<NPCPuppet> = SDPPrototypeRuntime.ResolveTarget(this);
   let detail: String = "No NPC selected";
@@ -454,7 +461,7 @@ public final func SDP_PrototypeStatus() -> String {
       + ", burn=" + (StatusEffectSystem.ObjectHasStatusEffectWithTag(target, n"SDPHeat") ? "active" : "off");
     detail += SDPPrimitiveInstance.Describe(this.m_sdpPrototype, this, target);
   };
-  return "Build 11 | Pulses queued: " + IntToString(this.m_sdpPrototype.pulses) + " | Sandbox " + (this.m_sdpPrototype.enabled ? "on" : "off")
+  return "Build 12 | Pulses queued: " + IntToString(this.m_sdpPrototype.pulses) + " | Sandbox " + (this.m_sdpPrototype.enabled ? "on" : "off")
     + " | Programs: " + IntToString(ArraySize(this.m_sdpPrototype.hosts))
     + " | Reloads detected: " + IntToString(this.m_sdpPrototype.reloadEvents)
     + " | Hits detected: " + IntToString(this.m_sdpPrototype.hitEvents)
@@ -498,7 +505,10 @@ public final func SDP_PrototypeTick() -> Void {
 @wrapMethod(PlayerPuppet)
 protected cb func OnGameAttached() -> Bool {
   this.m_sdpPrototype = null;
+  this.m_sdpTickerArmed = false;
   this.m_sdpqhApplied = false;
+  this.m_sdpqhRefs = null;
+  this.m_sdpqhMeter = null;
   this.m_sdpQHLab = null;
   this.m_sdpOpticsTrace = null;
   return wrappedMethod();

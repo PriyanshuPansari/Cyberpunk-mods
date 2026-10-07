@@ -1,7 +1,9 @@
 -- CET Quickhack Designer window: edits the design library stored in the save
 -- (the same library as Crafting > Quickhack Designer), program chip slots, and
--- the lab (prototype.lua). quickhack-designs.json is only an export/import file
--- for moving designs between saves.
+-- the lab (prototype.lua), and the native quickhack references with the
+-- comparison meter (NativeReferences.reds, ComparisonMeter.reds).
+-- quickhack-designs.json is only an export/import file for moving designs
+-- between saves.
 local designs = require("quickhack_designs")
 local M = {}
 
@@ -19,9 +21,15 @@ local slotStatus, slotSignature, slotName = {}, {}, {}
 local components, recordCheck = "", "Run the check after loading a save."
 local refresh = 0
 local fileDesigns = nil
+-- Native references: read from the backend on first view and on request.
+local refs = nil
+local refSelected = 1
+local refSummary = ""
+local meterReport = "Nothing measured yet."
 
 local triggerNames = {"Opponent starts reloading", "Your ranged hit", "Your ranged headshot", "On upload", "After 3 seconds"}
-local payloadNames = {"Blindness", "Thermal pulses", "Electrical pulses", "Stun", "Movement restriction", "Chemical pulses", "Physical pulses"}
+local payloadNames = {"Blindness", "Thermal pulses", "Electrical pulses", "Stun", "Movement restriction", "Chemical pulses", "Physical pulses",
+  "Immobilize", "Weapon jam", "Deafen + comms jam", "Cyberware malfunction"}
 local conditionNames = {"Always", "Target already blinded", "Target already burning"}
 local durationNames = {"2 seconds", "4 seconds", "8 seconds"}
 local amountNames = {"10 base damage", "25 base damage", "50 base damage"}
@@ -242,12 +250,91 @@ local function drawEditor()
   end
 end
 
+local function loadRefs(player, remeasure)
+  if remeasure then player:SDPQH_RefRefresh() end
+  local list = {}
+  for i = 0, player:SDPQH_RefCount() - 1 do
+    list[#list + 1] = {title = player:SDPQH_RefTitle(i), coverage = player:SDPQH_RefCoverage(i)}
+  end
+  refs = list
+  refSelected = math.max(1, math.min(refSelected, #refs))
+  refSummary = #refs > 0 and player:SDPQH_RefSummary(refSelected - 1)
+    or "No native quickhack programs were found. The catalog needs TweakXL."
+end
+
+local function freeModeBox()
+  local value, pressed = ImGui.Checkbox("Free mode (testing: no component costs)", freeMode)
+  if pressed then freeMode = value end
+end
+
+local function drawReferences()
+  ImGui.TextWrapped("Every native quickhack program at every tier, read from the game's records and rebuilt from our "
+    .. "primitives with the native numbers. Compile one into a slot, upload it next to the native program on a "
+    .. "similar enemy, then compare the two in the meter below.")
+  local player = backend()
+  if not player then ImGui.Text("Load a save (and matching scripts) to read native quickhacks."); return end
+  if not refs then
+    local ok, err = pcall(loadRefs, player, false)
+    if not ok then refs, message = {}, "Could not read native quickhacks: " .. tostring(err) end
+  end
+  if ImGui.Button("Re-read with current stats") then
+    local ok = pcall(loadRefs, player, true)
+    message = ok and ("Re-read " .. #refs .. " native quickhacks.") or "Could not read native quickhacks."
+  end
+  ImGui.SameLine()
+  freeModeBox()
+  ImGui.BeginChild("SDPReferenceList", 260, 330, true)
+  for i, entry in ipairs(refs) do
+    local mark = entry.coverage == "recreated" and "" or (entry.coverage == "native only" and " (native only)" or " (partial)")
+    if ImGui.Selectable(entry.title .. mark .. "##ref" .. i, i == refSelected) then
+      refSelected = i
+      refSummary = player:SDPQH_RefSummary(i - 1)
+    end
+  end
+  ImGui.EndChild()
+  ImGui.SameLine()
+  ImGui.BeginChild("SDPReferenceDetail", 0, 330, false)
+  ImGui.TextWrapped(refSummary)
+  if #refs > 0 then
+    ImGui.Separator()
+    ImGui.Text("Compile the recreation into program slot:")
+    for slot = 1, designs.slotCount do
+      if slot > 1 then ImGui.SameLine() end
+      if ImGui.Button(designs.slotLetters[slot] .. "##reference") then
+        local index = refSelected - 1
+        message = proto.call(function(p) return p:SDPQH_CompileReference(slot, index) end)
+      end
+    end
+    if ImGui.Button("Add craftable version to designs") then
+      local index = refSelected - 1
+      libraryAction(function(p) return p:SDPQH_RefToLibrary(index) end)
+      message = "Added the nearest craftable design (2/4/8 s, 10/25/50 damage) to the Designer tab."
+    end
+    ImGui.SameLine()
+    if ImGui.Button("Get native program (free mode)") then
+      if freeMode then
+        local index = refSelected - 1
+        message = proto.call(function(p) return p:SDPQH_RefGiveNative(index) end)
+      else
+        message = "Turn on free mode to get native programs for testing."
+      end
+    end
+  end
+  ImGui.EndChild()
+  ImGui.Separator()
+  ImGui.Text("Comparison meter")
+  ImGui.TextWrapped(meterReport)
+  if ImGui.Button("Clear meter") then
+    message = proto.call(function(p) return p:SDPQH_MeterClear() end)
+    meterReport = "Nothing measured yet."
+  end
+end
+
 local function drawSlots()
   ImGui.TextWrapped("Each slot is a program chip for your cyberdeck. Fabricate a chip, install it in the cyberdeck screen, "
     .. "then compile designs into its slot at any time; the chip runs whatever is compiled. Slots are stored in your save.")
   if components ~= "" then ImGui.Text("You have " .. components .. ".") end
-  local value, pressed = ImGui.Checkbox("Free mode (testing: no component costs)", freeMode)
-  if pressed then freeMode = value end
+  freeModeBox()
   for slot = 1, designs.slotCount do
     ImGui.Separator()
     local letter = designs.slotLetters[slot]
@@ -296,6 +383,7 @@ function M.update(delta)
   local player = backend()
   if not player then
     library, revision, slotStatus, slotSignature, slotName, components = {}, nil, {}, {}, {}, ""
+    refs = nil
     return
   end
   local ok = pcall(function()
@@ -303,6 +391,7 @@ function M.update(delta)
     if revision == nil then scanFile() end
     if not dirty and player:SDPQH_LibraryRevision() ~= revision then pull(player) end
     components = player:SDPQH_Components()
+    meterReport = player:SDPQH_MeterReport()
     for slot = 1, designs.slotCount do
       slotStatus[slot] = player:SDPQH_SlotStatus(slot)
       slotSignature[slot] = player:SDPQH_SlotSignature(slot)
@@ -335,6 +424,10 @@ function M.draw()
       end
       if ImGui.BeginTabItem("Program slots") then
         drawSlots()
+        ImGui.EndTabItem()
+      end
+      if ImGui.BeginTabItem("Native quickhacks") then
+        drawReferences()
         ImGui.EndTabItem()
       end
       if ImGui.BeginTabItem("Lab") then
