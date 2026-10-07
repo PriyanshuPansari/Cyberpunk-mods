@@ -2,8 +2,9 @@
 // A native upload (statuses tagged Quickhack, applied by V) or a program chip
 // upload opens an entry per target. Damage V deals with hacks and damage over
 // time, and the statuses involved, are added to the newest entry of the same
-// kind on that target: our pulses use our own attack record, so the two never
-// mix even on one target.
+// kind on that target: our pulses mark their hit flags (source SDPPrimitive)
+// and our statuses carry the SDPPrimitive tag, so the two never mix even on
+// one target.
 module SkillDrivenProgression
 
 public class SDPQHMeterEntry extends IScriptable {
@@ -150,8 +151,15 @@ public final func SDPQH_MeterDamage(target: ref<NPCPuppet>, evt: ref<gameDamageR
   let attack: ref<AttackData> = evt.hitEvent.attackData;
   let instigator: ref<PlayerPuppet> = attack.GetInstigator() as PlayerPuppet;
   if instigator != this { return; };
-  let record: wref<Attack_Record> = IsDefined(attack.GetAttackDefinition()) ? attack.GetAttackDefinition().GetRecord() : null;
-  let ours: Bool = IsDefined(record) && record.GetID() == t"SkillDrivenProgression.PrimitiveAttack";
+  // Our pulses carry native attack records too (SDPQHLook.MakeAttack): their
+  // hit flags' SDPPrimitive source tells them apart.
+  let ours: Bool = false;
+  let flags: array<SHitFlag> = attack.GetFlags();
+  let i: Int32 = 0;
+  while i < ArraySize(flags) && !ours {
+    ours = Equals(flags[i].source, n"SDPPrimitive");
+    i += 1;
+  };
   let kind: gamedataAttackType = attack.GetAttackType();
   if !ours && NotEquals(kind, gamedataAttackType.Hack) && NotEquals(kind, gamedataAttackType.Effect)
     && !attack.HasFlag(hitFlag.QuickHack) && !attack.HasFlag(hitFlag.DamageOverTime) { return; };

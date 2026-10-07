@@ -550,7 +550,7 @@ public class SDPQHDesignerPanel extends inkCustomController {
     this.m_costText.SetText("Compiling a reference is free; chips cost " + IntToString(SDPQHDesign.ChipCost()) + " uncommon components"
       + (this.m_free ? " (free mode)" : ""));
     this.m_summaryText.SetTintColor(reference.Supported() ? ThemeColors.PureWhite() : ThemeColors.Bittersweet());
-    this.m_summaryText.SetText(reference.Supported() ? reference.Spec().Description()
+    this.m_summaryText.SetText(reference.Supported() ? reference.Description()
       : "None of this quickhack's effects has a primitive yet, so it stays native only.");
   }
 

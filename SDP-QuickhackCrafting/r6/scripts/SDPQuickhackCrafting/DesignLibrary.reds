@@ -105,7 +105,7 @@ public class SDPQHSpec extends IScriptable {
       || !SDPQHDesign.ReferenceRuleValid(this.I(second), this.I(second + 1), this.I(second + 2), this.F(second + 3), this.F(second + 4), this.F(second + 5), false) {
       return "The native quickhack has no effect our primitives can recreate.";
     };
-    if this.I(3) == this.I(9) && this.I(4) == this.I(10) && this.I(5) == this.I(11) { return "Duplicate rules are not supported."; };
+    // Two parts of one kind are fine here: each wears a different native status.
     if this.I(1) < 1 || this.I(1) > 3 { return "Choose a program lifetime of 15, 30 or 60 seconds."; };
     if this.Spread() < 0 || this.Spread() > SDPQHDesign.MaxReferenceSpread() { return "Spread is out of range."; };
     return "";

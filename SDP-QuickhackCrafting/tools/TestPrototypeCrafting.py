@@ -118,7 +118,7 @@ local enabled = false
 local rejectAssemble = false
 local playerAvailable = true
 local recordsAvailable = true
-local backendVersion = 13
+local backendVersion = 14
 local nativeAccepted, rebuildable = true, true
 local parametersAccepted = true
 local spreadSequence = 0
@@ -207,7 +207,7 @@ function player:SDPQH_RefToLibrary(i)
   return store(-1, d.name, toValues(d))
 end
 function player:SDPQH_RefGiveNative(i) calls.refGive = i; return refTitles[i + 1] .. " added" end
-function player:SDPQH_DumpHeader() return "SDP native quickhack dump | build 13\n\n" end
+function player:SDPQH_DumpHeader() return "SDP native quickhack dump | build 14\n\n" end
 function player:SDPQH_RefDump(i) calls.dumped = (calls.dumped or 0) + 1; return "=== " .. refTitles[i + 1] .. "\n" end
 local meter = "Nothing measured yet."
 function player:SDPQH_MeterReport() return meter end
@@ -298,7 +298,7 @@ backendVersion = 2
 hotkeys.SDPPrototypeUpload()
 assert(calls.assemble == 0 and calls.upload == 0, "Outdated backend accepted an action")
 assert(notifications[#notifications]:find("Build mismatch"), "Version mismatch lacked feedback")
-backendVersion = 13
+backendVersion = 14
 hotkeys.SDPPrototypeUpload()
 assert(calls.upload == 0, "Failed assembly uploaded a stale build")
 assert(notifications[#notifications] == "Rejected", "Rejection was not shown on screen")
@@ -538,7 +538,7 @@ designer.update(0.016)
 assert(calls.dumped == #refTitles, "Dump did not cover every program")
 local dumpFile = assert(io.open("native-quickhacks-dump.txt", "r"))
 local dumped = dumpFile:read("*a"); dumpFile:close()
-assert(dumped:find("build 13", 1, true) and dumped:find("=== Ping T1", 1, true), "Dump file content")
+assert(dumped:find("build 14", 1, true) and dumped:find("=== Ping T1", 1, true), "Dump file content")
 click("Dump all to file")
 playerAvailable = false
 designer.update(0.016)
@@ -553,7 +553,7 @@ compiles = #calls.compile
 pick(combos, "Condition##Primary rule", 0)
 click("C##compile")
 assert(#calls.compile == compiles, "Compiled against an outdated backend")
-backendVersion = 13
+backendVersion = 14
 designer.shutdown()
 
 playerAvailable = false
@@ -626,8 +626,15 @@ reds_texts = {int(k): v for k, v in re.findall(r'case (\d+): return "([^"]+)";',
 lua_texts = designs_lua.payloadText
 for payload in designs_lua.programPayloads.values():
     assert reds_texts[payload] == lua_texts[payload], (payload, reds_texts.get(payload), lua_texts[payload])
-assert sorted(reds_texts) == sorted(designs_lua.programPayloads.values())
-print("PASS: payload costs and texts agree between Lua and redscript (payloads 1-12)")
+# Native behavior (13) exists only in recreations of native programs: redscript
+# names it and accepts it in reference rules, the designers never offer it.
+reference_only = re.search(r"func ReferencePayload\(payload: Int32\) -> Bool \{\s*return SDPQHDesign\.ProgramPayload\(payload\) \|\| (.+?);", reds)
+reference_only = {int(x) for x in re.findall(r"payload == (\d+)", reference_only.group(1))}
+assert reference_only == {13}, reference_only
+assert sorted(reds_texts) == sorted(list(designs_lua.programPayloads.values()) + sorted(reference_only))
+for payload in reference_only:
+    assert payload not in list(designs_lua.programPayloads.values()) and lua_texts[payload] is None
+print("PASS: payload costs and texts agree between Lua and redscript (payloads 1-12; 13 reference-only)")
 
 # Ensure adding the workbench did not replace the existing CET event owners.
 source = (MOD / "init.lua").read_text(encoding="utf-8")
@@ -636,3 +643,74 @@ for event in ("onDraw", "onUpdate", "onOverlayOpen", "onOverlayClose"):
 for path in MOD.glob("*.lua"):
     lua.execute("assert(loadstring(...))", path.read_text(encoding="utf-8"))
 print("PASS: all CET files parse under LuaJIT; event handlers remain single-owner")
+
+# The compressed native dump and the Build 14 recreation preview
+# (tools/ExplainNativeQuickhack.py mirrors SDPQHNativeRef.Measure).
+sys.path.insert(0, str(ROOT / "tools"))
+import CompressNativeDump
+import ExplainNativeQuickhack as explain
+
+native = explain.Dump(ROOT / "design/native-dump/native-quickhacks-compact.json")
+assert len(native.programs) == 77
+
+
+def recreation(name):
+    found = native.find(name)
+    assert len(found) == 1, name
+    return native.recreation(found[0])
+
+
+optics = recreation("Items.BlindProgram")
+assert [(p["payload"], explain.short(p["look"])) for p in optics["parts"]] == [(1, "ShortBlind"), (1, "QuickHackBlind")]
+assert optics["ports"] == ["police notice"] and not optics["missing"]
+assert any("Accuracy Multiplier 0.01" in k for k in native.look("BaseStatusEffect.ShortBlind")[0])
+cripple = recreation("Items.LocomotionMalfunctionProgram")
+assert cripple["parts"][0]["payload"] == 9
+assert any("woundedLocomotion_l_leg" in k for k in native.look(cripple["parts"][0]["look"])[0]), "Limp animation dropped"
+malfunction = recreation("Items.DisableCyberwareLvl4Program")
+assert [p["when"] for p in malfunction["parts"]] == ["CyberwareMalfunctionStacks = 2", "CyberwareMalfunctionStacks >= 3", None]
+assert not any(p["after"] for p in malfunction["parts"]), "The stack ladder reads stacks before the upload's own"
+assert all(p["payload"] != 3 or p["when"] for p in malfunction["parts"]), "Stack-8 explosion recreated as upload damage"
+assert any("CWMalfunctionEMPExplosion" in k for k in malfunction["kept"]) and not malfunction["missing"]
+circuit = recreation("Items.EMPOverloadLvl4Program")
+# An Overload hit, the EMP's pulses, and the weakspot combo when the target also malfunctions.
+assert [(p["payload"], p["interval"], bool(p["when"])) for p in circuit["parts"]] == [(3, 0.0, False), (3, 0.2, False), (13, 1.0, True)]
+assert circuit["parts"][2]["after"], "The weakspot combo reads the upload's own Overload"
+assert circuit["parts"][0]["attack"] == "Attacks.OverloadQuickHackAttackLevel4"
+contagion = recreation("Items.ContagionProgram")
+assert contagion["parts"][0]["stacks"] and contagion["spread"]["count"] == -1
+suicide = recreation("Items.SuicideLvl3Program")
+assert [(p["payload"], explain.short(p["look"])) for p in suicide["parts"]] == [(13, "SuicideWithWeapon")]
+assert suicide["ports"] == ["crime score"]
+assert recreation("Items.OverheatProgram")["spread"]["range"] == 6.0
+assert any("BlindHackSpreadOnDeath" in m for m in recreation("Items.BlindLvl4PlusPlusProgram")["missing"])
+for program in native.programs:
+    rec = native.recreation(program)
+    assert len(rec["parts"]) <= explain.MAX_PARTS, program["title"]
+    looks = [p["look"] for p in rec["parts"] if p["look"]]
+    assert len(looks) == len(set(looks)), ("A native status worn twice", program["title"])
+
+# Build 14 dump lines (part notes, chip ports, fixes, loose flats) still parse.
+sample = """SDP native quickhack dump | build 14 | full (Codeware: every field of every record)
+Player level 49 | Intelligence 20 | max RAM 41 | 1 programs
+
+=== Short Circuit T1 | Items.EMPOverloadProgram
+  Recreated part 1: payload 3 (electrical damage pulses) for 0.1s, amount 78, interval 0s, from Overload, native look ready, native hit OverloadQuickHackAttack
+  Chip runs: the police notice
+  Native bug fixed: quickhack damage bonus applies to OverloadQuickHackAttack (+7%)
+  Action: QuickHack.OverloadHack [ObjectAction]
+    actionName = Overload
+    ->: BaseStatusEffect.BaseOverload_inline1 [Effector]
+      effectorClassName = PlayVFXEffector
+      vfxName = hacks_overload
+      startOnUninitialize = false
+    ->: Prereqs.VisionDebuffPlayer [IPrereq]
+      prereqClassName = IsPlayerPrereq
+      invert = true
+"""
+header, programs, records, unknown, occurrences = CompressNativeDump.parse(sample)
+assert not unknown and len(programs) == 1 and occurrences == 3, unknown
+assert records["BaseStatusEffect.BaseOverload_inline1"]["variants"][0]["fields"]["vfxName"] == "hacks_overload"
+assert records["Prereqs.VisionDebuffPlayer"]["variants"][0]["fields"]["invert"] == "true"
+assert "Chip runs: the police notice" in programs[0]["notes"]
+print("PASS: native dump preview (looks, parts, ladder, ports, spread) and Build 14 dump lines parse")

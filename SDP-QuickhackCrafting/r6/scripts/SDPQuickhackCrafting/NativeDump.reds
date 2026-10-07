@@ -5,7 +5,11 @@
 // modifiers, effectors, attacks and prerequisites, including statuses that
 // effectors apply. With Codeware every field of every record is listed (field
 // names from reflection, values from TweakXL's flat reader); without it, the
-// record tree with the main values only.
+// record tree with the main values only. Effector and scripted prerequisite
+// records also list the loose flats their class reads (LooseFlats.reds):
+// vfxName, activationSFXName, attackPositionSlotName, playerAsInstigator,
+// invert and so on, which reflection cannot see (Build 14; the Build 13 dump
+// lacks them).
 module SkillDrivenProgression
 
 public class SDPQHDump extends IScriptable {
@@ -61,7 +65,18 @@ public class SDPQHDump extends IScriptable {
       let part: ref<SDPQHRefPart> = reference.parts[i];
       dump.Line(1, "Recreated part " + IntToString(i + 1) + ": payload " + IntToString(part.payload) + " (" + SDPQHDesign.PayloadText(part.payload)
         + ") for " + SDPQHDesign.Num(part.duration) + "s, amount " + SDPQHDesign.Num(part.amount) + ", interval " + SDPQHDesign.Num(part.interval)
-        + "s, from " + part.source + ", native look " + (SDPQHLook.Ready(part.look, part.payload) ? "ready" : "none"));
+        + "s, from " + part.source + ", native look " + (SDPQHLook.Ready(part.look) ? "ready" : (TDBID.IsValid(part.look) ? "missing" : "worn by another part"))
+        + ", native hit " + (SDPQHLook.AttackReady(part.attack) ? SDPQHNativeRef.Short(part.attack) : "none"));
+      i += 1;
+    };
+    i = 0;
+    while i < ArraySize(reference.ports) {
+      dump.Line(1, "Chip runs: " + SDPQHPorts.Text(reference.ports[i]));
+      i += 1;
+    };
+    i = 0;
+    while i < ArraySize(reference.fixes) {
+      dump.Line(1, "Native bug fixed: " + reference.fixes[i]);
       i += 1;
     };
     i = 0;
@@ -124,6 +139,16 @@ public class SDPQHDump extends IScriptable {
   }
 }
 
+// Loose flats of effector and scripted prerequisite records, by class (LooseFlats.reds).
+public func SDPQH_RecordLooseFlats(record: ref<TweakDBRecord>) -> array<String> {
+  let effector: ref<Effector_Record> = record as Effector_Record;
+  if IsDefined(effector) { return SDPQH_LooseFlats(effector.EffectorClassName()); };
+  let prereq: ref<IPrereq_Record> = record as IPrereq_Record;
+  if IsDefined(prereq) { return SDPQH_LooseFlats(prereq.PrereqClassName()); };
+  let none: array<String>;
+  return none;
+}
+
 // ---- With Codeware: every field ---------------------------------------------
 
 // Flat names follow the getters: StatusEffectType -> statusEffectType,
@@ -166,6 +191,7 @@ public func SDPQH_DumpFields(dump: ref<SDPQHDump>, record: ref<TweakDBRecord>, d
     };
     cls = cls.GetParent();
   };
+  let printed: array<String>;
   let n: Int32 = 0;
   while n < ArraySize(getters) {
     let names: array<String> = SDPQH_FlatNames(getters[n]);
@@ -176,9 +202,22 @@ public func SDPQH_DumpFields(dump: ref<SDPQHDump>, record: ref<TweakDBRecord>, d
       let type: ref<ReflectionType> = Reflection.GetTypeOf(value);
       if IsDefined(type) {
         dump.Line(depth, names[k] + " = " + SDPQH_DumpValue(dump, value, NameToString(type.GetName()), children));
+        ArrayPush(printed, names[k]);
         done = true;
       };
       k += 1;
+    };
+    n += 1;
+  };
+  let flats: array<String> = SDPQH_RecordLooseFlats(record);
+  n = 0;
+  while n < ArraySize(flats) {
+    let flat: String = StrBeforeFirst(flats[n], ":");
+    let value: Variant = TweakDBInterface.GetFlat(record.GetID() + TDBID.Create("." + flat));
+    let type: ref<ReflectionType> = Reflection.GetTypeOf(value);
+    if !ArrayContains(printed, flat) && IsDefined(type) {
+      dump.Line(depth, flat + " = " + SDPQH_DumpValue(dump, value, NameToString(type.GetName()), children));
+      ArrayPush(printed, flat);
     };
     n += 1;
   };
@@ -309,6 +348,19 @@ public func SDPQH_DumpFields(dump: ref<SDPQHDump>, record: ref<TweakDBRecord>, d
     while i < package.GetStatsCount() { dump.Child(package.GetStatsItem(i).GetID(), children); i += 1; };
     i = 0;
     while i < package.GetEffectorsCount() { dump.Child(package.GetEffectorsItem(i).GetID(), children); i += 1; };
+  };
+  let flats: array<String> = SDPQH_RecordLooseFlats(record);
+  i = 0;
+  while i < ArraySize(flats) {
+    let flat: String = StrBeforeFirst(flats[i], ":");
+    let kind: String = StrAfterFirst(flats[i], ":");
+    let id: TweakDBID = record.GetID() + TDBID.Create("." + flat);
+    if Equals(kind, "CName") { dump.Line(depth, flat + " = " + NameToString(TweakDBInterface.GetCName(id, n"None"))); };
+    if Equals(kind, "Bool") { dump.Line(depth, flat + " = " + (TweakDBInterface.GetBool(id, false) ? "true" : "false")); };
+    if Equals(kind, "Float") { dump.Line(depth, flat + " = " + FloatToString(TweakDBInterface.GetFloat(id, 0.00))); };
+    if Equals(kind, "Int32") { dump.Line(depth, flat + " = " + IntToString(TweakDBInterface.GetInt(id, 0))); };
+    if Equals(kind, "String") { dump.Line(depth, flat + " = \"" + TweakDBInterface.GetString(id, "") + "\""); };
+    i += 1;
   };
   let effector: ref<Effector_Record> = record as Effector_Record;
   if IsDefined(effector) {

@@ -8,7 +8,8 @@ public class SDPPrototypeRule extends IScriptable {
   public let trigger: Int32;
   // Payload: 1 blindness, 2 thermal, 3 electrical, 4 stun, 5 native reference (Lab),
   // 6 slow, 7 chemical, 8 physical, 9 immobilize, 10 weapon jam, 11 deafen/comms
-  // jam, 12 cyberware malfunction. Condition: 0 always, 1 blinded, 2 burning.
+  // jam, 12 cyberware malfunction, 13 native behavior (recreations only: the
+  // native status's own AI and effects). Condition: 0 always, 1 blinded, 2 burning.
   public let payload: Int32;
   public let condition: Int32;
   public let nativeEffect: TweakDBID;
@@ -19,6 +20,11 @@ public class SDPPrototypeRule extends IScriptable {
   // Native status whose look record (SDPQHLook) a recreation applies instead
   // of the plain primitive. Invalid for designed rules.
   public let look: TweakDBID;
+  // Native attack whose look attack (SDPQHLook.AttackID) a recreation's pulses
+  // use instead of our primitive attack. Invalid for designed rules.
+  public let attack: TweakDBID;
+  // The native damage package is stackable: each stack of the look adds a hit.
+  public let stacks: Bool;
 }
 
 public class SDPPrototypeHost extends IScriptable {
@@ -317,7 +323,7 @@ public class SDPPrototypeRuntime extends IScriptable {
 private let m_sdpPrototype: ref<SDPPrototypeRuntime>;
 
 @addMethod(PlayerPuppet)
-public final func SDP_PrototypeVersion() -> Int32 { return 13; }
+public final func SDP_PrototypeVersion() -> Int32 { return 14; }
 
 @addMethod(PlayerPuppet)
 public final func SDP_PrototypeEnable(enabled: Bool) -> String {

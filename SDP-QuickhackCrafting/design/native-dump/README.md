@@ -10,6 +10,12 @@ records[id]=[kind,variants]; variant=[overrides,computedNotes]. Reconstruct each
 
 An omitted field inherits its exact value from the template for that record kind. A listed `false`, `0`, `none` or empty array is never silently discarded. Templates must travel with their records. This preserves parsed field values, not indentation or repeated traversal order. Source-side depth limits and unexpanded references remain limitations.
 
+## Reading a program
+
+`python tools/ExplainNativeQuickhack.py "Overheat T3"` prints what a program does to its target from these files; `--recreation` shows what the Build 14 importer rebuilds from it (see design/NATIVE_RECREATION.md).
+
+Dumps from Build 13 lack the loose flats of effector and scripted prerequisite records (vfxName, activationSFXName, attackPositionSlotName, playerAsInstigator, invert...). Build 14 dumps list them.
+
 ## Regenerate
 
 From the SDP-QuickhackCrafting repository:

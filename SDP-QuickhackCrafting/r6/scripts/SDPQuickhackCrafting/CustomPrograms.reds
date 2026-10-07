@@ -123,13 +123,19 @@ public abstract class SDPQHDesign {
     return payload >= 1 && payload <= 12 && payload != 5;
   }
 
+  // Native behavior (13): a native status with no primitive of ours, worn
+  // with its own AI and effects. Only recreations of native programs use it.
+  public static func ReferencePayload(payload: Int32) -> Bool {
+    return SDPQHDesign.ProgramPayload(payload) || payload == 13;
+  }
+
   public static func MaxReferenceSpread() -> Int32 { return 8; }
 
   // Native references (NativeReferences.reds) use exact values: any duration up
   // to 600 s, any damage, and an interval of 0 for a single hit.
   public static func ReferenceRuleValid(t: Int32, p: Int32, c: Int32, d: Float, a: Float, i: Float, primary: Bool) -> Bool {
     if t == 0 { return !primary && p == 0 && c == 0; };
-    return t >= 1 && t <= 5 && SDPQHDesign.ProgramPayload(p) && c >= 0 && c <= 2
+    return t >= 1 && t <= 5 && SDPQHDesign.ReferencePayload(p) && c >= 0 && c <= 2
       && d >= 0.00 && d <= 600.00 && a >= 0.00 && a <= 100000.00 && i >= 0.00 && i <= 60.00;
   }
 
@@ -197,6 +203,7 @@ public abstract class SDPQHDesign {
       case 10: return "weapon jam";
       case 11: return "deafness and comms jam";
       case 12: return "cyberware malfunction";
+      case 13: return "native behavior";
     };
     return "nothing";
   }
@@ -226,6 +233,8 @@ public abstract class SDPQHDesign {
     if SDPQHDesign.Damaging(p) {
       text += ", " + SDPQHDesign.AmountText(a) + " base damage every " + SDPQHDesign.IntervalText(i);
     };
+    // Native statuses without a fixed duration (recreations only).
+    if d >= 600.00 { return text + " with no time limit."; };
     return text + " for " + SDPQHDesign.DurationText(d) + ".";
   }
 
@@ -339,7 +348,9 @@ public final func SDPQH_SlotDescription(slot: Int32) -> String {
       + " from Crafting > Quickhack Designer to load it.";
   };
   if spec.Reference() {
-    return lead + spec.name + ", rebuilt from our primitives with the native program's values.\n" + spec.Description();
+    let reference: ref<SDPQHNativeRef> = this.SDPQH_SlotReference(slot);
+    return lead + spec.name + ", rebuilt from our primitives with the native program's values and looks.\n"
+      + (IsDefined(reference) ? reference.Description() : spec.Description());
   };
   return lead + spec.name + ".\n" + spec.Description();
 }
@@ -358,10 +369,11 @@ private final func SDPQH_ApplySlot(slot: Int32) -> Void {
   // constant and the program's own cooldown. Shared perk modifiers still apply.
   let reference: ref<SDPQHNativeRef> = compiled && spec.Reference() ? this.SDPQH_SlotReference(slot) : null;
   if IsDefined(reference) {
-    ram = Cast<Float>(reference.ram);
+    ram = reference.ramBase;
     upload = reference.uploadBase;
     cooldown = reference.cooldown;
   };
+  SDPQHRecordBuilder.ApplyNative(slot, IsDefined(reference) ? TweakDBInterface.GetObjectActionRecord(reference.action) : null);
   TweakDBManager.SetFlat(SDPQHDesign.Record("CustomHack", slot, "_Ram.value"), ToVariant(ram));
   TweakDBManager.UpdateRecord(SDPQHDesign.Record("CustomHack", slot, "_Ram"));
   TweakDBManager.SetFlat(SDPQHDesign.Record("CustomHack", slot, "_Upload.value"), ToVariant(upload));
@@ -534,10 +546,19 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   let runtime: ref<SDPPrototypeRuntime> = this.m_sdpPrototype;
   let first: ref<SDPPrototypeRule> = spec.Rule(true);
   let second: ref<SDPPrototypeRule> = spec.Rule(false);
+  let extra: array<ref<SDPPrototypeRule>>;
   let reference: ref<SDPQHNativeRef> = spec.Reference() ? this.SDPQH_SlotReference(slot) : null;
-  if IsDefined(reference) {
-    first.look = reference.Look(0);
-    second.look = reference.Look(1);
+  if IsDefined(reference) && reference.Supported() {
+    // A recreation runs every native part on upload: the first two as the
+    // program's rules, the rest alongside them, each wearing its native look.
+    let rules: array<ref<SDPPrototypeRule>> = reference.Rules();
+    first = rules[0];
+    second = ArraySize(rules) > 1 ? rules[1] : SDPPrototypeRuntime.Rule(0, 0, 0);
+    let r: Int32 = 2;
+    while r < ArraySize(rules) {
+      ArrayPush(extra, rules[r]);
+      r += 1;
+    };
   };
   let expires: Float = SDPPrototypeRuntime.Now(this) + Cast<Float>(spec.LifetimeSeconds());
   let installed: array<ref<NPCPuppet>>;
@@ -545,7 +566,11 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   ArrayPush(installed, target);
   let spread: Int32 = spec.Spread();
   let range: Float = 8.00;
-  if IsDefined(reference) && reference.spreadRange > 0.00 { range = reference.spreadRange; };
+  if IsDefined(reference) {
+    // As SpreadInitEffector rolls it at upload.
+    spread = Min(reference.spread + reference.OverclockSpread(this), SDPQHDesign.MaxReferenceSpread());
+    if reference.spreadRange > 0.00 { range = reference.spreadRange; };
+  };
   if spread > 0 {
     let query: TargetSearchQuery;
     query.testedSet = TargetingSet.Complete;
@@ -573,7 +598,25 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   let n: Int32 = 0;
   while n < ArraySize(installed) {
     this.SDPQH_MeterProgram(installed[n], "Program " + SDPQHDesign.Letter(slot) + ": " + spec.name);
+    // Conditional parts in native completion order: those listed before the
+    // statuses read what was already on the target (Cyberware Malfunction's
+    // stack ladder), the rest read the upload's own statuses too.
+    if IsDefined(reference) { reference.RunConditional(this, runtime, installed[n], false); };
     runtime.Dispatch(this, installed[n], 4, null);
+    let e: Int32 = 0;
+    while e < ArraySize(extra) {
+      runtime.Apply(this, installed[n], extra[e]);
+      e += 1;
+    };
+    if IsDefined(reference) {
+      reference.RunConditional(this, runtime, installed[n], true);
+      // The native program's own completion effectors, on every recipient as its spread action does.
+      let p: Int32 = 0;
+      while p < ArraySize(reference.ports) {
+        SDPQHPorts.Run(this, installed[n], reference.ports[p]);
+        p += 1;
+      };
+    };
     n += 1;
   };
   let running: String = spec.Reference() ? " recreation running" : " running for " + IntToString(spec.LifetimeSeconds()) + "s";
@@ -595,7 +638,8 @@ public final func SDPQH_DecorateCommand(slot: Int32, command: ref<QuickhackData>
     };
     return;
   };
-  command.m_duration = spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds());
+  let reference: ref<SDPQHNativeRef> = spec.Reference() ? this.SDPQH_SlotReference(slot) : null;
+  command.m_duration = IsDefined(reference) ? reference.duration : (spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds()));
 }
 
 // Program chips reach the target through its object actions, matched by action
@@ -698,8 +742,8 @@ public final static func Make(itemRecord: wref<Item_Record>, player: wref<Player
   if slot == 0 || !IsDefined(data) || !IsDefined(player) { return data; };
   let spec: ref<SDPQHSpec> = player.SDPQH_LiveSlot(slot);
   if !IsDefined(spec) || !spec.Present() { return data; };
-  data.Duration = spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds());
   let reference: ref<SDPQHNativeRef> = spec.Reference() ? player.SDPQH_SlotReference(slot) : null;
+  data.Duration = IsDefined(reference) ? reference.duration : (spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds()));
   let native: ref<Item_Record> = IsDefined(reference) ? TweakDBInterface.GetItemRecord(reference.item) : null;
   if IsDefined(native) {
     let nativeData: ref<UIInventoryItemProgramData> = UIInventoryItemProgramData.Make(native, player);

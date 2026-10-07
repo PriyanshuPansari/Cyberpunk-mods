@@ -224,7 +224,7 @@ def build(source, output):
     for family, entries in families.items():
         lines.extend([f'### {family}', '', f'Exact records: [families/{slug(family)}.json](families/{slug(family)}.json)', ''])
         effects = defaultdict(set)
-        recreated, missing = set(), set()
+        recreated, missing, ported, fixed = set(), set(), set(), set()
         for p in entries:
             action = fields(records, p.get('action', ''))
             for phase in ('startEffects', 'completionEffects'):
@@ -241,9 +241,18 @@ def build(source, output):
                     recreated.add(re.sub(r'^Recreated part \d+: ', '', note))
                 if note.startswith('Not recreated: '):
                     missing.add(note.removeprefix('Not recreated: '))
+                # Build 14 dumps: effectors the chip runs from script, native bugs the recreation avoids.
+                if note.startswith('Chip runs: '):
+                    ported.add(note.removeprefix('Chip runs: '))
+                if note.startswith('Native bug fixed: '):
+                    fixed.add(note.removeprefix('Native bug fixed: '))
         for phase, values in effects.items():
             lines.append(f"- Native {phase}: " + '; '.join(f'`{v}`' for v in sorted(values)))
         lines.append('- Importer extracted payloads (tier values may differ): ' + ('; '.join(sorted(recreated)) or 'none reported'))
+        if ported:
+            lines.append('- Chip runs from script: ' + '; '.join(sorted(ported)))
+        if fixed:
+            lines.append('- Native bugs the recreation avoids: ' + '; '.join(sorted(fixed)))
         lines.append('- Importer gaps: ' + ('; '.join(f'`{v}`' for v in sorted(missing)) or 'none reported; not proof of complete equivalence'))
         lines.append('')
     (output / 'native-quickhacks-design-summary.md').write_text('\n'.join(lines).rstrip() + '\n', encoding='utf-8')
@@ -260,6 +269,11 @@ def build(source, output):
         'A listed `false`, `0`, `none` or empty array is never silently discarded. '
         'Templates must travel with their records. This preserves parsed field values, '
         'not indentation or repeated traversal order. Source-side depth limits and unexpanded references remain limitations.\n\n'
+        '## Reading a program\n\n'
+        '`python tools/ExplainNativeQuickhack.py "Overheat T3"` prints what a program does to its target from these files; '
+        '`--recreation` shows what the Build 14 importer rebuilds from it (see design/NATIVE_RECREATION.md).\n\n'
+        'Dumps from Build 13 lack the loose flats of effector and scripted prerequisite records (vfxName, '
+        'activationSFXName, attackPositionSlotName, playerAsInstigator, invert...). Build 14 dumps list them.\n\n'
         '## Regenerate\n\nFrom the SDP-QuickhackCrafting repository:\n\n'
         '```powershell\npython tools/CompressNativeDump.py "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cyberpunk 2077\\bin\\x64\\plugins\\cyber_engine_tweaks\\mods\\SDPQuickhackCrafting\\native-quickhacks-dump.txt"\n```\n\n'
         'Use `--output PATH` to choose another destination. The script rejects unparsed lines '

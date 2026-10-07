@@ -1,4 +1,4 @@
-# Quickhack Designer (Build 13)
+# Quickhack Designer (Build 14)
 
 Design quickhacks from the mod's primitives, compile them into program chips,
 install the chips in your cyberdeck, and use them from the game's own scanner
@@ -10,6 +10,44 @@ tier, is rebuilt from the same primitives with the native numbers. A
 **comparison meter** then measures what the native program and its recreation
 actually do, to check that the system works (see
 [Native quickhack references](#native-quickhack-references)).
+
+## What changed in Build 14
+
+Build 14 makes the native recreations faithful, from the native dump. The
+findings, per hack, are in [NATIVE_RECREATION.md](../design/NATIVE_RECREATION.md).
+
+- **Full native looks.** A recreation's status now keeps everything its native
+  status has: animations (Cripple Movement's limp), effects started by its
+  packages (Short Circuit's sparks, Weapon Glitch's gun effect), stat
+  mechanics (Reboot Optics' accuracy, speed, cover and sprint), other
+  effectors, stacking and the native duration with perk extensions. Only the
+  damage our pulses replace is removed. Build 13 dropped all of these, and its
+  weapon jam blocked every shot, which the native does not.
+- **Every native status is recreated.** Reboot Optics T1-T3 now apply both of
+  their statuses, Short Circuit T4+ its EMP. Statuses that are their own AI
+  behavior (Suicide, System Collapse, Memory Wipe, Detonate Grenade,
+  Cyberpsychosis, Bait, Ping, Request Backup) are recreated as native-behavior
+  parts instead of "native only".
+- **Conditional effects.** Cyberware Malfunction's stack ladder (cyberware
+  disabled for good at 2 stacks, damage over time from 3, explosion at 8) and
+  Short Circuit's weakspot combo are checked per target, as natively.
+- **Fixed: Cyberware Malfunction T5's recreation dealt its 1021-damage
+  explosion on every upload.** That explosion needs 8 stacks.
+- **Fixed: spread.** Upload spread is read from the action's start effects,
+  with the Overclock roll; Reboot Optics T5++'s spread on death is no longer
+  read as upload spread.
+- **Native hits.** Recreation pulses carry the native attack's damage type,
+  attack type and hit flags (`Nonlethal`, `ForceNoCrit`, the perk bonus flags).
+- **Native costs, category, target checks and icon** per slot for a recreation:
+  category perks and resistances apply, tier costs are separate records, and
+  the wheel refuses the targets the native refuses.
+- **Generic quickhack effects on every chip**: the hacked-armor reduction and
+  the ping refresh. Recreations also run their native program's police notice,
+  crime score, duration change, reveal-bar change and breach destruction.
+- **Native bug fixed**: the stat-screen quickhack damage bonus applies to every
+  recreated damage hack, not only Synapse Burnout.
+- **The dump lists loose flats** (effect and sound names, `invert`,
+  `playerAsInstigator`...) that the Build 13 dump could not see.
 
 ## What changed in Build 13
 
@@ -57,8 +95,8 @@ editors edit that same library. A new save starts with the starter designs.
 
 Deploy the whole `SDP-QuickhackCrafting` folder, then restart the game.
 
-- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `NativeDump.reds` (new in
-  Build 13), `NativeReferences.reds` and `ComparisonMeter.reds` (Build 12), `DesignLibrary.reds` and
+- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `LooseFlats.reds` (new in
+  Build 14), `NativeDump.reds` (Build 13), `NativeReferences.reds` and `ComparisonMeter.reds` (Build 12), `DesignLibrary.reds` and
   `DesignerUI.reds` (Build 11), and `CustomPrograms.reds` and
   `CustomProgramRecords.reds`.
 - `r6/tweaks/SDPQuickhackCrafting/*.yaml`, including `CustomPrograms.yaml`
@@ -194,7 +232,9 @@ that the game's scripts react to:
 Native statuses also drive AI reactions through their own AI data, which these
 statuses do not have. Your designs therefore get the script reactions in the
 table, not the native animations. Native-quickhack recreations do get them
-(see [Native look](#native-look)).
+(see [Native look](#native-look)), and since Build 14 they get only the
+native mechanics: a Weapon Glitch recreation plays the native jam and lowers
+accuracy, but does not block every shot as the designed weapon jam does.
 
 Native reference statuses (learned from equipped hacks in the Lab) cannot be
 compiled into your designs. Designs use the mod's own primitives only.
@@ -214,10 +254,12 @@ your current stats.
 | RAM | Base cost (`BaseScriptableAction.GetBaseCostStatic`) | The chip's RAM constant |
 | Upload | Activation time; its additive constant goes into the chip | The chip's upload constant |
 | Cooldown | The program's own cooldown status, without the shared group | The chip's cooldown constant |
-| Status effects | Completion effects on the target, with their applied duration | Blindness, immobilize, weapon jam, deafen, cyberware malfunction or stun, by gameplay tag |
-| Damage over time | `ContinuousAttackEffector`: attack damage and tick interval | Damage pulses of that type, same amount and interval, for the status duration |
+| Status effects | Completion effects on the target, and statuses their effectors apply | One part each, wearing the native look: blindness, immobilize, weapon jam, deafen, cyberware malfunction or stun by status type, otherwise native behavior |
+| Damage over time | `ContinuousAttackEffector`: attack damage and tick interval | Damage pulses of that type, same amount and interval, while the look lasts; once per stack for a stackable package |
 | Burst damage | `TriggerAttackEffector`: attack damage | A single hit of that type (interval 0) |
-| Spread | `SpreadInitEffector`: jumps and range, with your spread stats | Spread to that many enemies within that range |
+| Conditional effects | Completion effectors with a prerequisite | Parts checked per target at upload (stats, statuses, tags, AND/OR) |
+| Effectors without a status | Police notice, crime score, duration change, reveal bar, breach destruction | Run by the chip from script, as their game classes do |
+| Spread | `SpreadInitEffector` in the start effects: jumps and range, with your spread stats | Spread to that many enemies within that range, plus the Overclock roll |
 
 A recreation uses exact values (any duration, damage or interval), so it can
 only live in a program slot, not in the design library. It keeps a link to its
@@ -228,36 +270,42 @@ and again when the save loads.
 
 The list marks each entry:
 
-- **recreated:** every effect has a primitive and fits in two rules.
-- **partial:** the list's text says what is missing. Examples: Ping's network
-  reveal, Memory Wipe's AI reset, Whistle's lure, a third effect, or a second
-  effect of the same kind.
-- **native only:** nothing to recreate yet (ultimates such as Suicide or
-  System Reset, Ping, Whistle, Memory Wipe).
+- **recreated:** every native effect is a part, a checked condition or an
+  effector the chip runs.
+- **partial:** the text says what is missing, for example Bait T5's turn-away
+  on a second upload or Detonate Grenade T5's grenade swap.
+- **native only:** no part applies on every upload (Blackwall Gateway, whose
+  statuses depend on the target's rarity).
+
+A recreation runs every part on upload. The first two are the program's rules
+(and what "Add craftable version" snaps); the rest run alongside them.
 
 ### Native look
 
 When the game loads, `SDPQHLookTweak` makes a **look record** for every native
-status that a recreation uses: a copy of the native status with our
-mechanics swapped in.
+status a recreation can wear: a copy of the native status
+(`<native status>.SDPLook`).
 
-| Kept from the native status | Replaced with ours |
+| Kept from the native status | Changed |
 | --- | --- |
-| Status type, AI data (the reaction and animation the NPC's AI plays), VFX, SFX, UI data, immunities, gameplay tags | Duration (ours, trimmed to the exact native value), stacking, packages (no native damage, stat changes or effectors), plus our primitive's tags |
+| Status type, AI data (the reaction and animation the NPC's AI plays), VFX, SFX, UI data, immunities, gameplay tags, duration (with perk bonuses), stacking, and every package: stats, animation overrides, effect and sound effectors, other effectors (conditional ones keep their condition) | The unconditional damage effectors our pulses replace and spread effectors are removed (a package that loses one is copied as `<package>.SDPLook`). Not saved. Tags `SDPPrimitive` and `SDPLook` added. |
 
-The recreation applies the look record instead of the plain primitive. The
-NPC reacts as it does to the native quickhack: it burns, gets electrocuted,
-stumbles blinded or stays put. Damage, timing, triggers, conditions and spread
-are still the mod's. Each recreated rule in the list shows "Native look:
-*status*" or "Our look (no native status)". The second case happens when the
-native effect came from a completion effector rather than a status.
+The NPC reacts exactly as to the native status: it limps, stumbles blinded,
+plays the jam reaction, burns, gets electrocuted or shoots itself, with the
+native effects and stat changes. Our pulses deal the damage while the look is
+on the target, using a copy of the native attack without its values
+(`<attack>.SDPLook`). Each recreated rule in the list shows "Native look:
+*status*" and, for damage, "Native hit: *attack*".
 
-Because the native tags come along, the game's scripts also treat the look
-record as a quickhack status. The NPC becomes aware of you as with a native
-upload, and tier-specific tag effects apply: Weapon Glitch T4 still gives
-you its buff, for example. Native effects that live in a status's packages,
-such as a visual effect started by an effector, are not copied. The dump
-shows whether any recreation is missing one.
+Each native status is worn once. When one status yields two parts (System
+Collapse's knockout and its damage), the second runs as our plain primitive.
+
+Because looks keep the native tags and durations, the game treats them as
+quickhack statuses: the NPC becomes aware of you as with a native upload,
+tier-specific tag effects apply (Weapon Glitch T4 still gives you its buff),
+Intelligence perks extend them, and a second upload adds a stack where the
+native stacks (Overheat lasts longer, Contagion ticks harder, Cyberware
+Malfunction climbs its ladder).
 
 ### Sending the data
 
@@ -318,19 +366,17 @@ the session.
 
 Known differences to expect, which the meter will show:
 
-- **Perk damage bonuses.** Some damage bonuses are tied to native attack
-  records (flesh bonus, missing-RAM bonus, malfunction stacks). Recreations
-  get the general quickhack damage stats only.
-- **RAM.** The chip keeps Reboot Optics' cost modifiers. A perk that
-  discounts one category of quickhack can make the wheel cost differ by a
-  point or two; the base RAM matches.
-- **Package effects.** The look record keeps the native AI data, VFX and SFX,
-  but not effects started by the native status's packages (see [Native look](#native-look)).
-- **Perk-extended durations.** Look records carry the `Quickhack` tag, so
-  Intelligence perks try to extend them; the recreation still ends at the
-  native base duration.
+- **Quickhack damage bonus.** Recreations apply the stat-screen quickhack
+  damage bonus to every damage hack; the native applies it to Synapse Burnout
+  only (a native bug, see [NATIVE_RECREATION.md](../design/NATIVE_RECREATION.md#native-bugs)).
+  Expect the recreation's damage to be higher by that bonus.
+- **Perk bonuses tied to attack records.** Pulses carry the native hit flags,
+  so bonuses keyed on flags apply; bonuses keyed on the native attack record
+  itself do not.
 - **First tick.** Our first damage pulse lands on upload; a native damage over
   time may wait one interval.
+- **Spread recipients** get the parts, police notice and crime score, but not
+  the chip's generic effects (armor reduction, "was quickhacked").
 
 ## Cost model
 
@@ -367,7 +413,8 @@ and is off each time the menu or CET starts.
 | Compiled slots and their names | Persistent fields on the player's development data | Each save |
 | Which native program a slot recreates | Persistent field (`TweakDBID` per slot) | Each save |
 | Native reference list, comparison meter | Built in memory on first use | Session |
-| Native look records | Created in TweakDB at load (`SDPQHLookTweak`) | Session |
+| Native look records and attacks | Created in TweakDB at load (`SDPQHLookTweak`) | Session |
+| A recreation's category, costs, target checks, icon | Set on the slot's chip records when compiled or when the save loads | Session |
 | Data dump | `native-quickhacks-dump.txt` in the CET mod folder | Written only on request |
 | Chips | Your inventory or cyberdeck | Each save |
 | Export file | `quickhack-designs.json` in the CET mod folder | Written and read only on request |
@@ -404,9 +451,17 @@ keeps its compiled slots, but those slots have no names, so their chips read
   from TweakXL), measurement and recreation (`SDPQHNativeRef`), and the
   reference API for both editors.
 - `NativeReferences.reds` also holds `SDPQHLookTweak`, the load-time scriptable
-  tweak that makes the look records (`<native status>.SDPLook<payload>`).
+  tweak that makes the look records and attacks (`<native status>.SDPLook`,
+  `<attack>.SDPLook`), `SDPQHConditions` (per-target checks of effector
+  prerequisites) and `SDPQHPorts` (completion effectors the chip runs from
+  script, ported from their game classes).
+- `CustomProgramRecords.reds`: `SDPQHRecordBuilder.ApplyNative` gives a slot
+  its recreated program's category, cost records, target checks and icon, or
+  Reboot Optics' for a design.
 - `NativeDump.reds`: the data dump. With Codeware it lists each record's fields
-  through reflection and reads their values with TweakXL's `GetFlat`.
+  through reflection and reads their values with TweakXL's `GetFlat`. Effector
+  and scripted prerequisite records also list their loose flats from
+  `LooseFlats.reds` (generated by `tools/MakeLooseFlats.py`).
 - `ComparisonMeter.reds`: the meter, fed by `NPCPuppet.OnStatusEffectApplied` /
   `OnStatusEffectRemoved` and `GameObject.ProcessDamageReceived`.
 - `QuickhackPrimitives.reds`: the primitive statuses, damage pulses, the
@@ -432,7 +487,7 @@ action. Run it once after deploying. Every slot should read `ok`.
 
 - Some native surfaces still show Reboot Optics' text and icon, because the
   chips have no localization archive yet:
-  - the scanner wheel icon,
+  - the scanner wheel icon of a designed program (a recreation shows its native icon),
   - the cyberdeck tooltip's program list,
   - the item-received toast,
   - some upload labels.
@@ -447,14 +502,16 @@ action. Run it once after deploying. Every slot should read `ok`.
   the Crafting screen was chosen without seeing the screen. It may overlap
   Crafting-screen decorations until it is adjusted in game: change the root
   margin in `SDPQHDesignerPanel.OnCreate`.
-- The native reference catalog, its tag-based effect mapping and the meter
-  are written from the decompiled 2.31 scripts. The list and its numbers
-  still need checking in game against the program tooltips (check 19).
+- The native reference catalog, its effect mapping, looks, conditions, ports
+  and the meter are written from the decompiled 2.31 scripts and the native
+  dump. The list and its numbers still need checking in game against the
+  program tooltips (check 19), and the looks against the native hacks (checks 26-33).
+- What a recreation still lacks is listed in [NATIVE_RECREATION.md](../design/NATIVE_RECREATION.md#still-not-recreated).
 
 ## In-game acceptance checks (not yet run)
 
 1. Deploy, restart, open the CET window. **Check program records** reads `ok`
-   for A-D, and the window reads build 13.
+   for A-D, and the window reads build 14.
 2. Native menu: open Crafting. A third **Quickhack Designer** tab appears.
    Switching to it hides the crafting/upgrading lists and shows the three
    columns; switching back restores them. Q/E (or the bumpers) cycle all
@@ -520,13 +577,39 @@ action. Run it once after deploying. Every slot should read `ok`.
     It compiles at the designer's cost.
 23. Save and load with a recreation compiled. The slot still recreates the same
     native program, and the wheel shows its numbers.
-24. **Build 13 native look:** upload the Overheat, Reboot Optics, Short Circuit
+24. **Native look:** upload the Overheat, Reboot Optics, Short Circuit
     and Cripple Movement recreations. Each target reacts as it does to the
     native quickhack (burning, blinded, electrocuted, rooted), and the effect
-    ends at the native duration. The entries' text shows "Native look".
+    ends at the native duration (longer with duration perks). The entries'
+    text shows "Native look".
 25. **Dump all to file** finishes with "Wrote N native quickhacks" without a
     long freeze. `native-quickhacks-dump.txt` starts with your level and lists
     every program, each with its record tree.
+26. **Build 14 looks.** Upload the Cripple Movement recreation: the target
+    limps (not only stays put). Upload Short Circuit T1: sparks and the
+    electrocution sound play on hit. Upload Weapon Glitch: the gun glitches and
+    the NPC plays the jam reaction, then keeps shooting badly (it is not
+    blocked from firing). Upload Sonic Shock: the head effect plays.
+27. **Reboot Optics T1** recreation: the NPC stumbles blind for about 2 s, then
+    shows the blinded effect up to 8 s. Its shots miss badly while blind.
+28. **Native behavior**: the Suicide recreation makes the NPC shoot itself; System
+    Collapse knocks it out; Memory Wipe makes it forget you; Ping reveals its
+    squad; Request Backup calls reinforcements.
+29. **Stacking**: upload the Overheat recreation twice on one enemy; it burns
+    longer the second time. Upload the Cyberware Malfunction T4 recreation four
+    times on one enemy: on the third its cyberware is disabled for good, on the
+    fourth it also takes electrical damage over time.
+30. **Short Circuit T5** recreation: one hit, then 3 s of EMP damage ticks. On a
+    target with Cyberware Malfunction, its weakspots and breach are destroyed.
+31. **Costs and checks**: compile Overheat T3 into a slot. The wheel shows the
+    Overheat icon and the same RAM as the native Overheat T3, including with
+    a damage-quickhack RAM perk. Compile Weapon Glitch: the wheel refuses an
+    unarmed target as the native does.
+32. **Meter**: the recreation's damage is higher than the native's by your
+    stat-screen quickhack damage bonus (Synapse Burnout T4/T5 excepted, which
+    already read it).
+33. **Dump all to file** again: effector records list `vfxName`,
+    `activationSFXName` and similar, and `IsPlayerPrereq` records list `invert`.
 
 ## Developer checks
 
@@ -545,7 +628,16 @@ action. Run it once after deploying. Every slot should read `ok`.
     Build 12 was re-linted the same way, and a wrong hook signature and a type
     mismatch were injected again to confirm the lint still reports them.
     Build 13 (the dump, with and without Codeware, and the look tweak) was
-    linted in both variants with 0 diagnostics.
+    linted in both variants with 0 diagnostics. Build 14 was linted the same
+    way against the current redscript and Codeware sources (0 diagnostics in
+    the mod's files in both variants; Codeware's own sources report five
+    private-member errors with that compiler, unrelated to this mod).
+- `python tools/TestPrototypeCrafting.py` also checks the Build 14 recreation
+  preview (`tools/ExplainNativeQuickhack.py`) against the dump: Reboot Optics'
+  two looks, the limp animation kept, Cyberware Malfunction's ladder and its
+  explosion kept in the look, Short Circuit's parts and combo, Suicide as
+  native behavior, spread from the start effects, no status worn twice. It
+  also checks that Build 14 dump lines compress.
   - The lint also caught a real problem: redscript cannot save strings. That
     is why names are stored as character codes.
 
