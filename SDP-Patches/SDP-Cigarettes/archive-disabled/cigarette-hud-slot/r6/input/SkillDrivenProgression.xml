@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<bindings>
+  <mapping name="SDP_CigaretteSquareButton" type="Button">
+    <button id="IK_Pad_X_SQUARE" />
+  </mapping>
+  <context name="Abilities" append="true">
+    <action name="SDP_CigaretteSquare" map="SDP_CigaretteSquareButton" />
+  </context>
+  <hold action="SDP_CigaretteSquare" timeout="0.10" />
+</bindings>

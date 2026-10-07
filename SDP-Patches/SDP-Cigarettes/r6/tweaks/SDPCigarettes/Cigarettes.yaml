@@ -1,0 +1,115 @@
+# Cigarette items and their use action. These are owned by SkillDrivenProgression;
+# no other consumable/animation mod is required. Nerve recovery is applied by the
+# ConsumeAction wrapper in NerveCigarettes.reds when the action completes.
+# Gen_Misc keeps them out of the health-booster slot and junk auto-disassembly;
+# they are used from this mod's own HUD slot (CigaretteSlot.reds).
+SkillDrivenProgression.CigaretteConsume:
+  $base: ItemAction.Consume
+  actionName: Consume
+  activationTime: []
+  completionEffects: []
+  instigatorPrereqs: []
+  removeAfterUse: true
+
+SkillDrivenProgression.CigaretteYeheyuan:
+  $base: Items.GenericJunkItem23
+  itemType: ItemType.Gen_Misc
+  quality: Quality.Common
+  isSingleInstance: false
+  objectActions:
+    - SkillDrivenProgression.CigaretteConsume
+  tags: [Consumable, SkillDrivenProgression.Cigarette]
+  displayName: LocKey#sdp_cigarette_yeheyuan_name
+  localizedDescription: LocKey#sdp_cigarette_yeheyuan_description
+
+SkillDrivenProgression.CigaretteMorley:
+  $base: Items.GenericJunkItem24
+  itemType: ItemType.Gen_Misc
+  quality: Quality.Common
+  isSingleInstance: false
+  objectActions:
+    - SkillDrivenProgression.CigaretteConsume
+  tags: [Consumable, SkillDrivenProgression.Cigarette]
+  displayName: LocKey#sdp_cigarette_morley_name
+  localizedDescription: LocKey#sdp_cigarette_morley_description
+
+# Composure: the buff a cigarette gives. 5 minutes, one stack; smoking again
+# refreshes it. Effects are applied in CigaretteComposure.reds:
+#   +10% XP for all five skills, and 15% less recoil kick and base spread.
+SkillDrivenProgression.ComposureType:
+  $type: gamedataStatusEffectType_Record
+  enumComment: ''
+  enumName: Misc
+
+SkillDrivenProgression.ComposureDuration_Stat:
+  $type: gamedataConstantStatModifier_Record
+  value: 300
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
+
+SkillDrivenProgression.ComposureDuration:
+  $type: gamedataStatModifierGroup_Record
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    - SkillDrivenProgression.ComposureDuration_Stat
+
+SkillDrivenProgression.ComposureStacks_Stat:
+  $type: gamedataConstantStatModifier_Record
+  value: 1
+  modifierType: Additive
+  statType: BaseStats.MaxStacks
+
+SkillDrivenProgression.ComposureStacks:
+  $type: gamedataStatModifierGroup_Record
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    - SkillDrivenProgression.ComposureStacks_Stat
+
+UIIcon.SDPComposureIcon:
+  $type: gamedataUIIcon_Record
+  atlasPartName: loot_face
+  atlasResourcePath: base\gameplay\gui\common\icons\mappin_icons.inkatlas
+
+SkillDrivenProgression.ComposureUIData:
+  $type: gamedataStatusEffectUIData_Record
+  displayName: LocKey#sdp_composure_name
+  description: LocKey#sdp_composure_description
+  fluffText: ''
+  iconPath: SDPComposureIcon
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+SkillDrivenProgression.Composure:
+  $type: gamedataStatusEffect_Record
+  duration: SkillDrivenProgression.ComposureDuration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: SkillDrivenProgression.ComposureStacks
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: False
+  removeOnStoryTier: False
+  replicated: False
+  savable: True
+  statusEffectType: SkillDrivenProgression.ComposureType
+  stopActiveSfxOnDeactivate: True
+  uiData: SkillDrivenProgression.ComposureUIData
+  debugTags: []
+  gameplayTags:
+    - Buff
+    - SDPComposure
+  immunityStats: []
+  packages: []
+  SFX: []
+  VFX: []
