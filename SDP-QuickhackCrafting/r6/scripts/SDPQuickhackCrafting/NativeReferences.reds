@@ -16,6 +16,9 @@ public class SDPQHRefPart extends IScriptable {
   // Seconds between damage pulses; 0 = a single hit.
   public let interval: Float;
   public let source: String;
+  // The native status this effect came from; its look record (SDPQHLook)
+  // gives the recreation the native animation, AI reaction and effects.
+  public let look: TweakDBID;
 }
 
 public class SDPQHNativeRef extends IScriptable {
@@ -213,7 +216,7 @@ public class SDPQHNativeRef extends IScriptable {
         };
       } else {
         if onTarget && IsDefined(effect.EffectorToTrigger())
-          && !this.ScanEffector(player, effect.EffectorToTrigger(), 0.00, NameToString(effect.EffectorToTrigger().EffectorClassName())) {
+          && !this.ScanEffector(player, effect.EffectorToTrigger(), 0.00, NameToString(effect.EffectorToTrigger().EffectorClassName()), t"") {
           ArrayPush(this.missing, NameToString(effect.EffectorToTrigger().EffectorClassName()));
         };
       };
@@ -229,7 +232,7 @@ public class SDPQHNativeRef extends IScriptable {
     let handled: Bool = false;
     let control: Int32 = SDPQHNativeRef.ControlPayload(status);
     if control > 0 {
-      this.AddPart(control, length, 0.00, 1.00, source);
+      this.AddPart(control, length, 0.00, 1.00, source, status.GetID());
       handled = true;
     };
     let packages: array<wref<GameplayLogicPackage_Record>>;
@@ -240,7 +243,7 @@ public class SDPQHNativeRef extends IScriptable {
       packages[i].Effectors(effectors);
       let j: Int32 = 0;
       while j < ArraySize(effectors) {
-        if this.ScanEffector(player, effectors[j], length, source) { handled = true; };
+        if this.ScanEffector(player, effectors[j], length, source, status.GetID()) { handled = true; };
         j += 1;
       };
       i += 1;
@@ -250,7 +253,7 @@ public class SDPQHNativeRef extends IScriptable {
   }
 
   // Damage and spread effectors. True when the effector was recreated or read.
-  public final func ScanEffector(player: ref<PlayerPuppet>, effector: ref<Effector_Record>, length: Float, source: String) -> Bool {
+  public final func ScanEffector(player: ref<PlayerPuppet>, effector: ref<Effector_Record>, length: Float, source: String, look: TweakDBID) -> Bool {
     if !IsDefined(effector) { return false; };
     let spreader: ref<SpreadInitEffector_Record> = effector as SpreadInitEffector_Record;
     if IsDefined(spreader) {
@@ -276,7 +279,9 @@ public class SDPQHNativeRef extends IScriptable {
     let pulseLength: Float = length >= 600.00 ? MaxF(interval, 0.10) : length;
     ArrayPush(this.damage, SDPQHDesign.Num(amount) + " " + SDPQHDesign.DamageTypeText(payload)
       + (interval > 0.00 ? " every " + SDPQHDesign.Num(interval) + "s for " + SDPQHDesign.Num(pulseLength) + "s" : " in one hit"));
-    this.AddPart(payload, interval > 0.00 ? pulseLength : MaxF(0.10, MinF(length, 1.00)), amount, interval, source);
+    // A single hit keeps its native status for its native length: that status
+    // carries the hit's reaction (an electrocution, for example).
+    this.AddPart(payload, interval > 0.00 ? pulseLength : (length >= 600.00 ? 1.00 : MaxF(0.10, length)), amount, interval, source, look);
     return true;
   }
 
@@ -304,7 +309,7 @@ public class SDPQHNativeRef extends IScriptable {
 
   // One part per primitive: a second native effect of the same kind is listed
   // as not recreated, since a program cannot hold two identical rules.
-  public final func AddPart(payload: Int32, length: Float, amount: Float, interval: Float, source: String) -> Void {
+  public final func AddPart(payload: Int32, length: Float, amount: Float, interval: Float, source: String, look: TweakDBID) -> Void {
     let i: Int32 = 0;
     while i < ArraySize(this.parts) {
       if this.parts[i].payload == payload {
@@ -319,10 +324,17 @@ public class SDPQHNativeRef extends IScriptable {
     part.amount = amount;
     part.interval = interval;
     part.source = source;
+    part.look = look;
     ArrayPush(this.parts, part);
   }
 
   public final func Supported() -> Bool { return ArraySize(this.parts) > 0; }
+
+  // The native status behind recreated rule `index` (0 or 1), if it has a look record.
+  public final func Look(index: Int32) -> TweakDBID {
+    if index < 0 || index >= ArraySize(this.parts) || index > 1 { return t""; };
+    return SDPQHLook.Ready(this.parts[index].look, this.parts[index].payload) ? this.parts[index].look : t"";
+  }
 
   // Everything recreated: at most two effects and nothing native-only.
   public final func Complete() -> Bool { return this.Supported() && ArraySize(this.parts) <= 2 && ArraySize(this.missing) == 0; }
@@ -379,6 +391,11 @@ public class SDPQHNativeRef extends IScriptable {
     return spec;
   }
 
+  public final func LookText(index: Int32) -> String {
+    let look: TweakDBID = this.Look(index);
+    return TDBID.IsValid(look) ? " Native look: " + SDPQHNativeRef.Short(look) + "." : " Our look (no native status).";
+  }
+
   public final static func Nearest(value: Float, a: Float, b: Float, c: Float) -> Float {
     let best: Float = a;
     if AbsF(value - b) < AbsF(value - best) { best = b; };
@@ -404,9 +421,9 @@ public class SDPQHNativeRef extends IScriptable {
     if this.Supported() {
       text += "\nRecreation:";
       let spec: ref<SDPQHSpec> = this.Spec();
-      text += "\n  " + SDPQHDesign.RuleSentence(spec.I(3), spec.I(4), spec.I(5), spec.F(6), spec.F(7), spec.F(8));
+      text += "\n  " + SDPQHDesign.RuleSentence(spec.I(3), spec.I(4), spec.I(5), spec.F(6), spec.F(7), spec.F(8)) + this.LookText(0);
       if spec.I(9) != 0 {
-        text += "\n  " + SDPQHDesign.RuleSentence(spec.I(9), spec.I(10), spec.I(11), spec.F(12), spec.F(13), spec.F(14));
+        text += "\n  " + SDPQHDesign.RuleSentence(spec.I(9), spec.I(10), spec.I(11), spec.F(12), spec.F(13), spec.F(14)) + this.LookText(1);
       };
     };
     let left: array<String> = this.missing;
@@ -567,4 +584,111 @@ public final func SDPQH_SlotRefIndex(slot: Int32) -> Int32 {
   let data: ref<PlayerDevelopmentData> = PlayerDevelopmentSystem.GetData(this);
   if !IsDefined(data) || !TDBID.IsValid(data.SDPQH_SlotRef(slot)) { return -1; };
   return this.SDPQH_RefCatalog().IndexOf(data.SDPQH_SlotRef(slot));
+}
+
+// Native look for recreations. For every native status a recreation can use,
+// a copy is made at TweakDB load with our mechanics swapped in: our open-ended
+// duration, our stacking, our packages (no native damage, stat changes or
+// effectors) and our primitive's tags added to the native ones. Everything
+// else stays native: status type, AI data (the reaction and animation the
+// NPC's AI plays), VFX, SFX, UI data and immunities. Damage, timing, triggers
+// and spread remain the mod's.
+public abstract class SDPQHLook {
+  public static func ID(status: TweakDBID, payload: Int32) -> TweakDBID {
+    return status + TDBID.Create(".SDPLook" + IntToString(payload));
+  }
+
+  public static func Ready(status: TweakDBID, payload: Int32) -> Bool {
+    return TDBID.IsValid(status) && IsDefined(TweakDBInterface.GetStatusEffectRecord(SDPQHLook.ID(status, payload)));
+  }
+
+  // The payloads our recreation takes from a native status.
+  public static func Payloads(status: ref<StatusEffect_Record>) -> array<Int32> {
+    let list: array<Int32>;
+    let control: Int32 = SDPQHNativeRef.ControlPayload(status);
+    if control > 0 { ArrayPush(list, control); };
+    let packages: array<wref<GameplayLogicPackage_Record>>;
+    status.Packages(packages);
+    let i: Int32 = 0;
+    while i < ArraySize(packages) {
+      let effectors: array<wref<Effector_Record>>;
+      packages[i].Effectors(effectors);
+      let j: Int32 = 0;
+      while j < ArraySize(effectors) {
+        let attack: ref<Attack_Record>;
+        let single: ref<TriggerAttackEffector_Record> = effectors[j] as TriggerAttackEffector_Record;
+        let continuous: ref<ContinuousAttackEffector_Record> = effectors[j] as ContinuousAttackEffector_Record;
+        if IsDefined(single) { attack = single.AttackRecord(); };
+        if IsDefined(continuous) { attack = continuous.AttackRecord(); };
+        let payload: Int32 = IsDefined(attack) ? SDPQHNativeRef.DamagePayload(attack) : 0;
+        if payload > 0 && !ArrayContains(list, payload) { ArrayPush(list, payload); };
+        j += 1;
+      };
+      i += 1;
+    };
+    return list;
+  }
+
+  public static func Make(status: ref<StatusEffect_Record>, payload: Int32) -> Bool {
+    let id: TweakDBID = SDPQHLook.ID(status.GetID(), payload);
+    if IsDefined(TweakDBInterface.GetStatusEffectRecord(id)) { return true; };
+    let primitive: ref<StatusEffect_Record> = TweakDBInterface.GetStatusEffectRecord(
+      TDBID.Create("SkillDrivenProgression.Prototype" + SDPPrimitiveInstance.Name(payload) + "Long"));
+    if !IsDefined(primitive) || !TweakDBManager.CloneRecord(id, status.GetID()) { return false; };
+    // Named after its native status, so dumps and the meter can show it.
+    TweakDBManager.RegisterName(StringToName(TDBID.ToStringDEBUG(status.GetID()) + ".SDPLook" + IntToString(payload)));
+    let tags: array<CName> = status.GameplayTags();
+    let ours: array<CName> = primitive.GameplayTags();
+    let i: Int32 = 0;
+    while i < ArraySize(ours) {
+      if !ArrayContains(tags, ours[i]) { ArrayPush(tags, ours[i]); };
+      i += 1;
+    };
+    let packages: array<TweakDBID>;
+    i = 0;
+    while i < primitive.GetPackagesCount() {
+      ArrayPush(packages, primitive.GetPackagesItem(i).GetID());
+      i += 1;
+    };
+    TweakDBManager.SetFlat(id + t".gameplayTags", ToVariant(tags));
+    TweakDBManager.SetFlat(id + t".packages", ToVariant(packages));
+    TweakDBManager.SetFlat(id + t".duration", ToVariant(t"SkillDrivenProgression.PrimitiveDurationLong"));
+    TweakDBManager.SetFlat(id + t".maxStacks", ToVariant(t"SkillDrivenProgression.PrimitiveStacks"));
+    TweakDBManager.SetFlat(id + t".savable", ToVariant(false));
+    return TweakDBManager.UpdateRecord(id);
+  }
+}
+
+// Runs after the YAML tweaks, so PrototypeCrafting.yaml's primitives exist.
+public class SDPQHLookTweak extends ScriptableTweak {
+  protected cb func OnApply() -> Void {
+    let records: array<ref<TweakDBRecord>> = TweakDBInterface.GetRecords(n"Item");
+    let i: Int32 = 0;
+    while i < ArraySize(records) {
+      let item: ref<Item_Record> = records[i] as Item_Record;
+      if IsDefined(item) && IsDefined(item.ItemType()) && Equals(item.ItemType().Type(), gamedataItemType.Prt_Program)
+        && SDPQHDesign.SlotForItem(item.GetID()) == 0 {
+        let action: ref<ObjectAction_Record> = SDPQHNativeRef.PuppetAction(item);
+        if IsDefined(action) {
+          let effects: array<wref<ObjectActionEffect_Record>>;
+          action.CompletionEffects(effects);
+          let j: Int32 = 0;
+          while j < ArraySize(effects) {
+            let status: ref<StatusEffect_Record> = effects[j].StatusEffect();
+            if IsDefined(status) && status.GetID() != t"BaseStatusEffect.WasQuickHacked" && status.GetID() != t"BaseStatusEffect.QuickHackUploaded"
+              && (!IsDefined(effects[j].Recipient()) || Equals(effects[j].Recipient().Type(), gamedataObjectActionReference.Target)) {
+              let payloads: array<Int32> = SDPQHLook.Payloads(status);
+              let k: Int32 = 0;
+              while k < ArraySize(payloads) {
+                SDPQHLook.Make(status, payloads[k]);
+                k += 1;
+              };
+            };
+            j += 1;
+          };
+        };
+      };
+      i += 1;
+    };
+  }
 }

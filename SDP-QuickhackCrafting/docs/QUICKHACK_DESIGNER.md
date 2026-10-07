@@ -1,4 +1,4 @@
-# Quickhack Designer (Build 12)
+# Quickhack Designer (Build 13)
 
 Design quickhacks from the mod's primitives, compile them into program chips,
 install the chips in your cyberdeck, and use them from the game's own scanner
@@ -10,6 +10,16 @@ tier, is rebuilt from the same primitives with the native numbers. A
 **comparison meter** then measures what the native program and its recreation
 actually do, to check that the system works (see
 [Native quickhack references](#native-quickhack-references)).
+
+## What changed in Build 13
+
+- **Recreations use the native look.** Each recreation now applies a copy of
+  the native status with our mechanics swapped in, so NPCs should play the
+  native reaction and animation and show the native effects: an Overheat
+  recreation burns, a Reboot Optics recreation stumbles blinded. See [Native look](#native-look).
+- **Data dump for exact recreations.** **Dump all to file** on the CET window's
+  Native quickhacks tab writes every native quickhack's full record tree, with
+  values, to `native-quickhacks-dump.txt`. See [Sending the data](#sending-the-data).
 
 ## What changed in Build 12
 
@@ -47,8 +57,8 @@ editors edit that same library. A new save starts with the starter designs.
 
 Deploy the whole `SDP-QuickhackCrafting` folder, then restart the game.
 
-- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `NativeReferences.reds`
-  and `ComparisonMeter.reds` (new in Build 12), `DesignLibrary.reds` and
+- `r6/scripts/SDPQuickhackCrafting/*.reds`, including `NativeDump.reds` (new in
+  Build 13), `NativeReferences.reds` and `ComparisonMeter.reds` (Build 12), `DesignLibrary.reds` and
   `DesignerUI.reds` (Build 11), and `CustomPrograms.reds` and
   `CustomProgramRecords.reds`.
 - `r6/tweaks/SDPQuickhackCrafting/*.yaml`, including `CustomPrograms.yaml`
@@ -181,8 +191,10 @@ that the game's scripts react to:
 | Deafen + comms jam | `Deaf`, `CommsNoiseJam` | Hearing off, no calls for help, no tracked accuracy against you |
 | Cyberware malfunction | `CyberwareMalfunction` | No counter-hacking you; counts for cyberware-malfunction damage bonuses |
 
-Native statuses also drive AI reactions through their own behaviour data, which
-these statuses do not copy. The comparison meter is how to see the difference.
+Native statuses also drive AI reactions through their own AI data, which these
+statuses do not have. Your designs therefore get the script reactions in the
+table, not the native animations. Native-quickhack recreations do get them
+(see [Native look](#native-look)).
 
 Native reference statuses (learned from equipped hacks in the Lab) cannot be
 compiled into your designs. Designs use the mod's own primitives only.
@@ -223,6 +235,56 @@ The list marks each entry:
 - **native only:** nothing to recreate yet (ultimates such as Suicide or
   System Reset, Ping, Whistle, Memory Wipe).
 
+### Native look
+
+When the game loads, `SDPQHLookTweak` makes a **look record** for every native
+status that a recreation uses: a copy of the native status with our
+mechanics swapped in.
+
+| Kept from the native status | Replaced with ours |
+| --- | --- |
+| Status type, AI data (the reaction and animation the NPC's AI plays), VFX, SFX, UI data, immunities, gameplay tags | Duration (ours, trimmed to the exact native value), stacking, packages (no native damage, stat changes or effectors), plus our primitive's tags |
+
+The recreation applies the look record instead of the plain primitive. The
+NPC reacts as it does to the native quickhack: it burns, gets electrocuted,
+stumbles blinded or stays put. Damage, timing, triggers, conditions and spread
+are still the mod's. Each recreated rule in the list shows "Native look:
+*status*" or "Our look (no native status)". The second case happens when the
+native effect came from a completion effector rather than a status.
+
+Because the native tags come along, the game's scripts also treat the look
+record as a quickhack status. The NPC becomes aware of you as with a native
+upload, and tier-specific tag effects apply: Weapon Glitch T4 still gives
+you its buff, for example. Native effects that live in a status's packages,
+such as a visual effect started by an effector, are not copied. The dump
+shows whether any recreation is missing one.
+
+### Sending the data
+
+The recreations are built from rules that read the game's records. Wrong
+"partial" marks, missing effects and missing looks are fixed by reading the
+records themselves:
+
+1. Load a save and open the CET window's **Native quickhacks** tab.
+2. Press **Dump all to file**. It writes four programs per frame and reports
+   progress, then "Wrote N native quickhacks".
+3. Send `native-quickhacks-dump.txt` from the CET mod folder
+   (`bin/x64/plugins/cyber_engine_tweaks/mods/SDPQuickhackCrafting/`).
+
+The file starts with your level, Intelligence and max RAM, because the computed
+numbers depend on them. Then, for each program at each tier:
+
+- the measured numbers, the recreated parts and what is not recreated;
+- the whole record tree from the quickhack action down: costs, upload,
+  start and completion effects, every status (type, duration, stacking, tags,
+  AI data, VFX, SFX, UI data), packages, stat modifiers, effectors, attacks,
+  attack statuses and prerequisites, including statuses that effectors apply.
+
+With Codeware installed, every field of every record is listed with its
+value; without Codeware, the dump is an outline with the main values only.
+Also send a few meter lines from native-versus-recreation tests, so the
+numbers can be checked against what happened in game.
+
 **Add craftable version to designs** snaps a recreation to the designer's
 choices (2/4/8 s, 10/25/50 damage, 0.5/1/2 s pulses, spread up to 3, one
 pulse in a 2 s window for a single hit). The result is an ordinary design
@@ -241,7 +303,7 @@ what the crafting economy changes.
    first. For example (illustrative numbers):
 
    `[native] OverheatLevel3 on Tyger Claw: 312 damage in 6 hits over 5s, first at +1s | OverheatLevel3 6s`
-   `[ours] Program A: Overheat T3 on Tyger Claw: 300 damage in 6 hits over 5s, first at +0s | PrototypeBurnLong 6s`
+   `[ours] Program A: Overheat T3 on Tyger Claw: 300 damage in 6 hits over 5s, first at +0s | OverheatLevel3.SDPLook2 6s`
 
    That is the damage dealt (after armour and resistances), the number of
    hits, the time from the first hit to the last, and how long each status
@@ -256,15 +318,17 @@ the session.
 
 Known differences to expect, which the meter will show:
 
-- **Perk bonuses.** Native statuses carry the `Quickhack` tag. Intelligence
-  perks extend those statuses' durations, and some damage bonuses are tied
-  to native attack records (flesh bonus, missing-RAM bonus, malfunction
-  stacks). Recreations get the general quickhack damage stats only.
+- **Perk damage bonuses.** Some damage bonuses are tied to native attack
+  records (flesh bonus, missing-RAM bonus, malfunction stacks). Recreations
+  get the general quickhack damage stats only.
 - **RAM.** The chip keeps Reboot Optics' cost modifiers. A perk that
   discounts one category of quickhack can make the wheel cost differ by a
   point or two; the base RAM matches.
-- **AI reactions** come from the native statuses' behaviour data, which our
-  primitives don't copy (see the tag table above).
+- **Package effects.** The look record keeps the native AI data, VFX and SFX,
+  but not effects started by the native status's packages (see [Native look](#native-look)).
+- **Perk-extended durations.** Look records carry the `Quickhack` tag, so
+  Intelligence perks try to extend them; the recreation still ends at the
+  native base duration.
 - **First tick.** Our first damage pulse lands on upload; a native damage over
   time may wait one interval.
 
@@ -303,6 +367,8 @@ and is off each time the menu or CET starts.
 | Compiled slots and their names | Persistent fields on the player's development data | Each save |
 | Which native program a slot recreates | Persistent field (`TweakDBID` per slot) | Each save |
 | Native reference list, comparison meter | Built in memory on first use | Session |
+| Native look records | Created in TweakDB at load (`SDPQHLookTweak`) | Session |
+| Data dump | `native-quickhacks-dump.txt` in the CET mod folder | Written only on request |
 | Chips | Your inventory or cyberdeck | Each save |
 | Export file | `quickhack-designs.json` in the CET mod folder | Written and read only on request |
 | Chip display names | TweakDB string flats, refreshed from the save | Session |
@@ -337,6 +403,10 @@ keeps its compiled slots, but those slots have no names, so their chips read
 - `NativeReferences.reds`: the native program catalog (`TweakDBInterface.GetRecords`
   from TweakXL), measurement and recreation (`SDPQHNativeRef`), and the
   reference API for both editors.
+- `NativeReferences.reds` also holds `SDPQHLookTweak`, the load-time scriptable
+  tweak that makes the look records (`<native status>.SDPLook<payload>`).
+- `NativeDump.reds`: the data dump. With Codeware it lists each record's fields
+  through reflection and reads their values with TweakXL's `GetFlat`.
 - `ComparisonMeter.reds`: the meter, fed by `NPCPuppet.OnStatusEffectApplied` /
   `OnStatusEffectRemoved` and `GameObject.ProcessDamageReceived`.
 - `QuickhackPrimitives.reds`: the primitive statuses, damage pulses, the
@@ -384,7 +454,7 @@ action. Run it once after deploying. Every slot should read `ok`.
 ## In-game acceptance checks (not yet run)
 
 1. Deploy, restart, open the CET window. **Check program records** reads `ok`
-   for A-D, and the window reads build 12.
+   for A-D, and the window reads build 13.
 2. Native menu: open Crafting. A third **Quickhack Designer** tab appears.
    Switching to it hides the crafting/upgrading lists and shows the three
    columns; switching back restores them. Q/E (or the bumpers) cycle all
@@ -450,6 +520,13 @@ action. Run it once after deploying. Every slot should read `ok`.
     It compiles at the designer's cost.
 23. Save and load with a recreation compiled. The slot still recreates the same
     native program, and the wheel shows its numbers.
+24. **Build 13 native look:** upload the Overheat, Reboot Optics, Short Circuit
+    and Cripple Movement recreations. Each target reacts as it does to the
+    native quickhack (burning, blinded, electrocuted, rooted), and the effect
+    ends at the native duration. The entries' text shows "Native look".
+25. **Dump all to file** finishes with "Wrote N native quickhacks" without a
+    long freeze. `native-quickhacks-dump.txt` starts with your level and lists
+    every program, each with its record tree.
 
 ## Developer checks
 
@@ -467,6 +544,8 @@ action. Run it once after deploying. Every slot should read `ok`.
     a type mismatch, and an unknown method in the Codeware-only menu code.
     Build 12 was re-linted the same way, and a wrong hook signature and a type
     mismatch were injected again to confirm the lint still reports them.
+    Build 13 (the dump, with and without Codeware, and the look tweak) was
+    linted in both variants with 0 diagnostics.
   - The lint also caught a real problem: redscript cannot save strings. That
     is why names are stored as character codes.
 

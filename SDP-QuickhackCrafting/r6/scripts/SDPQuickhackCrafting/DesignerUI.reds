@@ -322,7 +322,7 @@ public class SDPQHDesignerPanel extends inkCustomController {
     this.m_designTools = tools;
     let refTools: ref<inkCanvas> = this.Canvas(root, 0.00, 1010.00, 800.00, 170.00);
     this.Button(refTools, "Re-read with current stats", 0.00, 0.00, 800.00, 72.00, SDPQHUIKind.RefRefresh, 0);
-    this.Text(refTools, "Every native quickhack program at every tier,\nread from the game's records.", 0.00, 90.00, 26, ThemeColors.Bittersweet());
+    this.Text(refTools, "Every native quickhack at every tier, from the game's records.\nFull data dump: CET window > Native quickhacks.", 0.00, 90.00, 26, ThemeColors.Bittersweet());
     refTools.SetVisible(false);
     this.m_refTools = refTools;
   }

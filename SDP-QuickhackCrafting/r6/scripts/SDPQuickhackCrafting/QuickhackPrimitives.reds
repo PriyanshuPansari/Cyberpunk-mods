@@ -32,6 +32,7 @@ public class SDPPrimitiveInstance extends IScriptable {
   }
 
   public final static func Record(rule: ref<SDPPrototypeRule>) -> TweakDBID {
+    if SDPQHLook.Ready(rule.look, rule.payload) { return SDPQHLook.ID(rule.look, rule.payload); };
     let name: String = SDPPrimitiveInstance.Name(rule.payload);
     if StrLen(name) == 0 { return t""; };
     let suffix: String = "Long";
@@ -67,7 +68,8 @@ public class SDPPrimitiveInstance extends IScriptable {
     let fresh: Bool = expires <= 0.00;
     entry.expires = fresh ? now + MaxF(rule.duration, 0.10) : expires;
     entry.nextPulse = fresh ? now : nextPulse;
-    if !SDPPrimitiveInstance.FixedDuration(rule.duration) {
+    // Look records and open-ended records last 600 s until trimmed here.
+    if !SDPPrimitiveInstance.FixedDuration(rule.duration) || TDBID.IsValid(rule.look) {
       GameInstance.GetStatusEffectSystem(player.GetGame()).SetStatusEffectRemainingDuration(target.GetEntityID(), record, entry.expires - now);
     };
     ArrayPush(runtime.effects, entry);

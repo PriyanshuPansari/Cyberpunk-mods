@@ -118,7 +118,7 @@ local enabled = false
 local rejectAssemble = false
 local playerAvailable = true
 local recordsAvailable = true
-local backendVersion = 12
+local backendVersion = 13
 local nativeAccepted, rebuildable = true, true
 local parametersAccepted = true
 local spreadSequence = 0
@@ -207,6 +207,8 @@ function player:SDPQH_RefToLibrary(i)
   return store(-1, d.name, toValues(d))
 end
 function player:SDPQH_RefGiveNative(i) calls.refGive = i; return refTitles[i + 1] .. " added" end
+function player:SDPQH_DumpHeader() return "SDP native quickhack dump | build 13\n\n" end
+function player:SDPQH_RefDump(i) calls.dumped = (calls.dumped or 0) + 1; return "=== " .. refTitles[i + 1] .. "\n" end
 local meter = "Nothing measured yet."
 function player:SDPQH_MeterReport() return meter end
 function player:SDPQH_MeterClear() calls.meterClear = (calls.meterClear or 0) + 1; return "Comparison meter cleared." end
@@ -296,7 +298,7 @@ backendVersion = 2
 hotkeys.SDPPrototypeUpload()
 assert(calls.assemble == 0 and calls.upload == 0, "Outdated backend accepted an action")
 assert(notifications[#notifications]:find("Build mismatch"), "Version mismatch lacked feedback")
-backendVersion = 12
+backendVersion = 13
 hotkeys.SDPPrototypeUpload()
 assert(calls.upload == 0, "Failed assembly uploaded a stale build")
 assert(notifications[#notifications] == "Rejected", "Rejection was not shown on screen")
@@ -528,6 +530,20 @@ click("Re-read with current stats")
 assert(calls.refRefresh == 1)
 click("Clear meter")
 assert(calls.meterClear == 1)
+-- The dump writes a few programs per frame and finishes on its own.
+click("Dump all to file")
+assert(calls.dumped == nil, "Dump ran in the click frame")
+designer.update(0.016)
+designer.update(0.016)
+assert(calls.dumped == #refTitles, "Dump did not cover every program")
+local dumpFile = assert(io.open("native-quickhacks-dump.txt", "r"))
+local dumped = dumpFile:read("*a"); dumpFile:close()
+assert(dumped:find("build 13", 1, true) and dumped:find("=== Ping T1", 1, true), "Dump file content")
+click("Dump all to file")
+playerAvailable = false
+designer.update(0.016)
+playerAvailable = true
+assert(calls.dumped == #refTitles, "Dump continued without a save")
 click("Open in-game designer menu")
 hotkeys.SDPDesignerMenu()
 assert(calls.openMenu == 2, "Native menu not requested")
@@ -537,7 +553,7 @@ compiles = #calls.compile
 pick(combos, "Condition##Primary rule", 0)
 click("C##compile")
 assert(#calls.compile == compiles, "Compiled against an outdated backend")
-backendVersion = 12
+backendVersion = 13
 designer.shutdown()
 
 playerAvailable = false

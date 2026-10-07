@@ -9,6 +9,7 @@ local M = {}
 
 local libraryFile = "quickhack-designs.json"
 local legacyFile = "prototype-recipe.json"
+local dumpFile = "native-quickhacks-dump.txt"
 
 local proto
 local library = {}
@@ -26,6 +27,8 @@ local refs = nil
 local refSelected = 1
 local refSummary = ""
 local meterReport = "Nothing measured yet."
+-- A running dump: written a few programs per frame so the game does not stall.
+local dumpState = nil
 
 local triggerNames = {"Opponent starts reloading", "Your ranged hit", "Your ranged headshot", "On upload", "After 3 seconds"}
 local payloadNames = {"Blindness", "Thermal pulses", "Electrical pulses", "Stun", "Movement restriction", "Chemical pulses", "Physical pulses",
@@ -262,6 +265,42 @@ local function loadRefs(player, remeasure)
     or "No native quickhack programs were found. The catalog needs TweakXL."
 end
 
+local function startDump(player)
+  local file = io.open(dumpFile, "w")
+  if not file then message = "Could not write " .. dumpFile .. "."; return end
+  local ok, header = pcall(function() return player:SDPQH_DumpHeader() end)
+  if not ok then file:close(); message = "Dump failed: " .. tostring(header); return end
+  file:write(header)
+  dumpState = {file = file, index = 0, count = player:SDPQH_RefCount()}
+  message = "Dumping " .. dumpState.count .. " native quickhacks..."
+end
+
+local function stepDump()
+  if not dumpState then return end
+  local player = backend()
+  if not player then
+    dumpState.file:close()
+    dumpState = nil
+    message = "Dump stopped: the save was unloaded."
+    return
+  end
+  local ok, err = pcall(function()
+    for _ = 1, 4 do
+      if dumpState.index >= dumpState.count then break end
+      dumpState.file:write(player:SDPQH_RefDump(dumpState.index), "\n")
+      dumpState.index = dumpState.index + 1
+    end
+  end)
+  if ok and dumpState.index < dumpState.count then
+    message = "Dumping native quickhacks: " .. dumpState.index .. "/" .. dumpState.count
+    return
+  end
+  dumpState.file:close()
+  message = ok and ("Wrote " .. dumpState.count .. " native quickhacks to " .. dumpFile .. " in the CET mod folder.")
+    or ("Dump failed: " .. tostring(err))
+  dumpState = nil
+end
+
 local function freeModeBox()
   local value, pressed = ImGui.Checkbox("Free mode (testing: no component costs)", freeMode)
   if pressed then freeMode = value end
@@ -280,6 +319,12 @@ local function drawReferences()
   if ImGui.Button("Re-read with current stats") then
     local ok = pcall(loadRefs, player, true)
     message = ok and ("Re-read " .. #refs .. " native quickhacks.") or "Could not read native quickhacks."
+  end
+  ImGui.SameLine()
+  if dumpState then
+    ImGui.Text("Dumping " .. dumpState.index .. "/" .. dumpState.count .. "...")
+  elseif ImGui.Button("Dump all to file") then
+    startDump(player)
   end
   ImGui.SameLine()
   freeModeBox()
@@ -373,6 +418,7 @@ end
 -- Keeps the mirror in step with the save: pushes this window's edits after a
 -- short pause and re-reads the library when anything else changed it.
 function M.update(delta)
+  stepDump()
   if dirty then
     dirtyAge = dirtyAge + delta
     if dirtyAge >= 0.5 then flush() end
@@ -442,6 +488,7 @@ end
 
 function M.shutdown()
   pcall(flush)
+  if dumpState then dumpState.file:close(); dumpState = nil end
 end
 
 return M

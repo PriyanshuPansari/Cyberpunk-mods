@@ -534,16 +534,18 @@ public final func SDPQH_Execute(slot: Int32, target: ref<NPCPuppet>) -> Void {
   let runtime: ref<SDPPrototypeRuntime> = this.m_sdpPrototype;
   let first: ref<SDPPrototypeRule> = spec.Rule(true);
   let second: ref<SDPPrototypeRule> = spec.Rule(false);
+  let reference: ref<SDPQHNativeRef> = spec.Reference() ? this.SDPQH_SlotReference(slot) : null;
+  if IsDefined(reference) {
+    first.look = reference.Look(0);
+    second.look = reference.Look(1);
+  };
   let expires: Float = SDPPrototypeRuntime.Now(this) + Cast<Float>(spec.LifetimeSeconds());
   let installed: array<ref<NPCPuppet>>;
   if !IsDefined(runtime.InstallProgram(this, target, first, second, expires)) { return; };
   ArrayPush(installed, target);
   let spread: Int32 = spec.Spread();
   let range: Float = 8.00;
-  if spec.Reference() {
-    let reference: ref<SDPQHNativeRef> = this.SDPQH_SlotReference(slot);
-    if IsDefined(reference) && reference.spreadRange > 0.00 { range = reference.spreadRange; };
-  };
+  if IsDefined(reference) && reference.spreadRange > 0.00 { range = reference.spreadRange; };
   if spread > 0 {
     let query: TargetSearchQuery;
     query.testedSet = TargetingSet.Complete;
