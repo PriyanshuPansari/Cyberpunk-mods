@@ -482,8 +482,8 @@ public class SDPQHNativeRef extends IScriptable {
     let mods: array<wref<StatModifier_Record>>;
     attack.StatModifiers(mods);
     // As InventoryDataManagerV2.ProcessQuickhackEffects computes the tooltip value.
-    let native: Float = MaxF(1.00, RPGManager.CalculateStatModifiers(mods, player.GetGame(), player, playerID, playerID));
-    let amount: Float = native;
+    let nativeAmount: Float = MaxF(1.00, RPGManager.CalculateStatModifiers(mods, player.GetGame(), player, playerID, playerID));
+    let amount: Float = nativeAmount;
     // Native bug (Quickhack Damage Fix): the stat-screen quickhack damage bonus
     // reaches only attacks whose record reads it (Synapse Burnout). Every
     // recreated damage hack gets it.
@@ -495,7 +495,7 @@ public class SDPQHNativeRef extends IScriptable {
       };
     };
     let pulseLength: Float = length >= 600.00 ? MaxF(interval, 0.10) : length;
-    ArrayPush(this.damage, SDPQHDesign.Num(native) + " " + SDPQHDesign.DamageTypeText(payload)
+    ArrayPush(this.damage, SDPQHDesign.Num(nativeAmount) + " " + SDPQHDesign.DamageTypeText(payload)
       + (interval > 0.00 ? " every " + SDPQHDesign.Num(interval) + "s for " + SDPQHDesign.Num(pulseLength) + "s" : " in one hit"));
     // A single hit keeps its native status for its native length: that status
     // carries the hit's reaction (an electrocution, for example).
@@ -567,7 +567,7 @@ public class SDPQHNativeRef extends IScriptable {
   public final func RunConditional(player: ref<PlayerPuppet>, runtime: ref<SDPPrototypeRuntime>, target: ref<NPCPuppet>, after: Bool) -> Void {
     let i: Int32 = 0;
     while i < ArraySize(this.parts) {
-      if this.parts[i].Conditional() && this.parts[i].after == after && this.parts[i].Met(player, target) {
+      if this.parts[i].Conditional() && Equals(this.parts[i].after, after) && this.parts[i].Met(player, target) {
         runtime.Apply(player, target, this.parts[i].Rule());
       };
       i += 1;
@@ -1154,8 +1154,8 @@ public abstract class SDPQHConditions {
       if !IsDefined(holder) { return false; };
       let has: Bool;
       if IsDefined(status.StatusEffect()) {
-        let native: TweakDBID = status.StatusEffect().GetID();
-        has = StatusEffectSystem.ObjectHasStatusEffect(holder, native) || StatusEffectSystem.ObjectHasStatusEffect(holder, SDPQHLook.ID(native));
+        let nativeStatus: TweakDBID = status.StatusEffect().GetID();
+        has = StatusEffectSystem.ObjectHasStatusEffect(holder, nativeStatus) || StatusEffectSystem.ObjectHasStatusEffect(holder, SDPQHLook.ID(nativeStatus));
       } else {
         has = StatusEffectSystem.ObjectHasStatusEffectWithTag(holder, status.TagToCheck());
       };

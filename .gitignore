@@ -1,0 +1,15 @@
+.deployment/
+__pycache__/
+*.pyc
+.validation/
+**/.validation/
+**/.stage/
+SDP-TestLab/dist/
+**/testlab-reports.jsonl
+/redscript-cli.exe
+/vanilla-decompiled.reds
+/final-inspect.reds
+/wkit-extract/
+/wkit-cli*/
+/WolvenKit.Console-*.zip
+/SkillDrivenProgression/

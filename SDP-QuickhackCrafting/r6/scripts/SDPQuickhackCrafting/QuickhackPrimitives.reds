@@ -117,8 +117,8 @@ public class SDPPrimitiveInstance extends IScriptable {
     let context: AttackInitContext;
     // A recreation's pulse is the native hit without its damage values
     // (SDPQHLook.MakeAttack): native damage type, attack type and hit flags.
-    let native: Bool = SDPQHLook.AttackReady(entry.rule.attack);
-    context.record = TweakDBInterface.GetAttackRecord(native ? SDPQHLook.AttackID(entry.rule.attack) : t"SkillDrivenProgression.PrimitiveAttack");
+    let nativeAttackReady: Bool = SDPQHLook.AttackReady(entry.rule.attack);
+    context.record = TweakDBInterface.GetAttackRecord(nativeAttackReady ? SDPQHLook.AttackID(entry.rule.attack) : t"SkillDrivenProgression.PrimitiveAttack");
     context.instigator = player;
     context.source = player;
     if !IsDefined(context.record) { runtime.lastEvent = "Missing primitive attack record."; return; };
@@ -142,11 +142,11 @@ public class SDPPrimitiveInstance extends IScriptable {
     hit.attackData.SetSource(player);
     hit.attackData.SetInstigator(player);
     let kind: gamedataAttackType = gamedataAttackType.Hack;
-    if native && IsDefined(context.record.AttackType()) { kind = context.record.AttackType().Type(); };
+    if nativeAttackReady && IsDefined(context.record.AttackType()) { kind = context.record.AttackType().Type(); };
     hit.attackData.SetAttackType(kind);
     // The SDPPrimitive source marks our pulses for the comparison meter.
     hit.attackData.AddFlag(hitFlag.QuickHack, n"SDPPrimitive");
-    if native {
+    if nativeAttackReady {
       // As TriggerAttackOnOwnerEffect turns the record's hit flags into the hit's.
       let flags: array<String> = context.record.HitFlags();
       let f: Int32 = 0;

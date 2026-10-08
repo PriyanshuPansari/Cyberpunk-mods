@@ -90,6 +90,52 @@ public func SDP_EncounterSkillName(index: Int32) -> String {
   return "Headhunter";
 }
 
+// NPC death tasks can run concurrently. All encounter open/reset/close and
+// neutralization updates must use the same system request queue, including
+// ticks from the player loop/CET. Otherwise an explosion killing two NPCs can
+// make both death threads clear and grow the same counter arrays at once.
+public class SDPEncounterTickRequest extends PlayerScriptableSystemRequest {
+  public let inCombat: Bool;
+}
+
+public class SDPEncounterPlayerDeathRequest extends PlayerScriptableSystemRequest {}
+
+public class SDPEncounterNeutralizedRequest extends PlayerScriptableSystemRequest {
+  // Keep the victim alive until the queued update has read its metadata.
+  public let npc: ref<NPCPuppet>;
+  public let type: Int32;
+}
+
+@addMethod(PlayerDevelopmentData)
+private final func SDP_EncounterQueue(request: ref<PlayerScriptableSystemRequest>) -> Void {
+  if !IsDefined(this.m_owner) { return; };
+  let system: ref<ScriptableSystem> = GameInstance.GetScriptableSystemsContainer(this.m_owner.GetGame()).Get(n"PlayerDevelopmentSystem");
+  if !IsDefined(system) { return; };
+  request.owner = this.m_owner;
+  system.QueueRequest(request);
+}
+
+@addMethod(PlayerDevelopmentSystem)
+private final func OnSDPEncounterTick(request: ref<SDPEncounterTickRequest>) -> Void {
+  if !IsDefined(request.owner) { return; };
+  let data: ref<PlayerDevelopmentData> = this.GetDevelopmentData(request.owner);
+  if IsDefined(data) { data.SDP_EncounterApplyTick(request.inCombat); };
+}
+
+@addMethod(PlayerDevelopmentSystem)
+private final func OnSDPEncounterPlayerDeath(request: ref<SDPEncounterPlayerDeathRequest>) -> Void {
+  if !IsDefined(request.owner) { return; };
+  let data: ref<PlayerDevelopmentData> = this.GetDevelopmentData(request.owner);
+  if IsDefined(data) { data.SDP_EncounterApplyPlayerDeath(); };
+}
+
+@addMethod(PlayerDevelopmentSystem)
+private final func OnSDPEncounterNeutralized(request: ref<SDPEncounterNeutralizedRequest>) -> Void {
+  if !IsDefined(request.owner) || !IsDefined(request.npc) { return; };
+  let data: ref<PlayerDevelopmentData> = this.GetDevelopmentData(request.owner);
+  if IsDefined(data) { data.SDP_EncounterApplyNeutralized(request.npc, request.type); };
+}
+
 @addMethod(PlayerDevelopmentData)
 private final func SDP_EncounterReset() -> Void {
   ArrayClear(this.m_sdpEncShard);
@@ -124,6 +170,14 @@ private final func SDP_EncounterNow() -> Float {
 // Called twice a second from the player loop.
 @addMethod(PlayerDevelopmentData)
 public final func SDP_EncounterTick(inCombat: Bool) -> Void {
+  let request: ref<SDPEncounterTickRequest> = new SDPEncounterTickRequest();
+  request.inCombat = inCombat;
+  this.SDP_EncounterQueue(request);
+}
+
+// Called only by the PlayerDevelopmentSystem request handler.
+@addMethod(PlayerDevelopmentData)
+public final func SDP_EncounterApplyTick(inCombat: Bool) -> Void {
   let now: Float = this.SDP_EncounterNow();
   if this.m_sdpEncDead {
     // Cleared once the player is alive again (reload, or a revive).
@@ -149,6 +203,11 @@ public final func SDP_EncounterTick(inCombat: Bool) -> Void {
 
 @addMethod(PlayerDevelopmentData)
 public final func SDP_EncounterOnPlayerDeath() -> Void {
+  this.SDP_EncounterQueue(new SDPEncounterPlayerDeathRequest());
+}
+
+@addMethod(PlayerDevelopmentData)
+public final func SDP_EncounterApplyPlayerDeath() -> Void {
   if this.m_sdpEncDead { return; };
   this.m_sdpEncDead = true;
   this.m_sdpEncInCombat = false;
@@ -658,6 +717,15 @@ private final func SDP_EncounterNeutMethod(id: EntityID) -> Int32 {
 // type: 0 killed, 1 defeated, 2 unconscious.
 @addMethod(PlayerDevelopmentData)
 public final func SDP_EncounterOnNeutralized(npc: ref<NPCPuppet>, type: Int32) -> Void {
+  if !IsDefined(npc) { return; };
+  let request: ref<SDPEncounterNeutralizedRequest> = new SDPEncounterNeutralizedRequest();
+  request.npc = npc;
+  request.type = type;
+  this.SDP_EncounterQueue(request);
+}
+
+@addMethod(PlayerDevelopmentData)
+public final func SDP_EncounterApplyNeutralized(npc: ref<NPCPuppet>, type: Int32) -> Void {
   if !IsDefined(npc) || this.m_sdpEncDead { return; };
   let now: Float = this.SDP_EncounterNow();
   if !this.m_sdpEncOpen {

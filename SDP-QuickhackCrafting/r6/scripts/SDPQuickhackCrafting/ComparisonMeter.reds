@@ -92,7 +92,7 @@ public class SDPQHMeter extends IScriptable {
     let i: Int32 = ArraySize(this.entries) - 1;
     while i >= 0 {
       let entry: ref<SDPQHMeterEntry> = this.entries[i];
-      if entry.target == target && entry.program == program {
+      if entry.target == target && Equals(entry.program, program) {
         return entry.Active() || now - entry.lastActivity <= window ? entry : null;
       };
       i -= 1;

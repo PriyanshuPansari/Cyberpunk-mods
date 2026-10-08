@@ -744,9 +744,9 @@ public final static func Make(itemRecord: wref<Item_Record>, player: wref<Player
   if !IsDefined(spec) || !spec.Present() { return data; };
   let reference: ref<SDPQHNativeRef> = spec.Reference() ? player.SDPQH_SlotReference(slot) : null;
   data.Duration = IsDefined(reference) ? reference.duration : (spec.Reference() ? spec.MaxDuration() : Cast<Float>(spec.LifetimeSeconds()));
-  let native: ref<Item_Record> = IsDefined(reference) ? TweakDBInterface.GetItemRecord(reference.item) : null;
-  if IsDefined(native) {
-    let nativeData: ref<UIInventoryItemProgramData> = UIInventoryItemProgramData.Make(native, player);
+  let nativeItem: ref<Item_Record> = IsDefined(reference) ? TweakDBInterface.GetItemRecord(reference.item) : null;
+  if IsDefined(nativeItem) {
+    let nativeData: ref<UIInventoryItemProgramData> = UIInventoryItemProgramData.Make(nativeItem, player);
     if IsDefined(nativeData) { data.AttackEffects = nativeData.AttackEffects; };
   };
   return data;

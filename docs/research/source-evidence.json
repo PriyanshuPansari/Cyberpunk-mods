@@ -1,0 +1,607 @@
+{
+  "research_date": "2026-10-08",
+  "evidence": "Static source inspection; no new gameplay run",
+  "installed_executable_observed": {
+    "product_version": "2.31",
+    "file_version": "3.0.5294808"
+  },
+  "provenance_limit": "Existing decompilation, described as 2.31 by earlier project notes; not regenerated from the executable during this research.",
+  "sources": {
+    "vanilla-decompiled.reds": {
+      "sha256": "464681e56067d298fa666f6b6a98ba8808b40cab2fa84b7c6e4face4d312f968",
+      "bytes": 21629231,
+      "lines": 534325
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/SDPDurability.reds": {
+      "sha256": "a689075ec642fc4b5badf8b771fb631a4a5dd8bcf719a76f6c442e7a4ee7b1df",
+      "bytes": 11854,
+      "lines": 228
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/SDPArmor.reds": {
+      "sha256": "a890b8fef074f6a3c4c29eab427f4dc9546eecee5b631840443e170622440c4f",
+      "bytes": 12545,
+      "lines": 268
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/CE/CE_HitZones.reds": {
+      "sha256": "179e6a7468c534418f314ddce871a16a645ca25c7cb5621c0b8f91eb8d6a1ea4",
+      "bytes": 8855,
+      "lines": 182
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/SDPCadence.reds": {
+      "sha256": "4f529f1b8645e743a7e1ad54cb760514bfba01116144f143b09155b61fe0a813",
+      "bytes": 5095,
+      "lines": 107
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/SDPBlindFire.reds": {
+      "sha256": "41af782d340cfbd97b9cce16f84a6415de0c8968778abf7e55f1282dc691584d",
+      "bytes": 5424,
+      "lines": 131
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/CE/CE_Suppression.reds": {
+      "sha256": "c5d101dad51a082d8d45c7c3e49a064839bcbb8e45ae6e0ff3700d73d7555b81",
+      "bytes": 3594,
+      "lines": 82
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/CE/CE_Flank.reds": {
+      "sha256": "3410a6e2c8e2f041783d071eeeb85f7e8bd8ddb8836ad1bb40f22a0c4e3f56a7",
+      "bytes": 3680,
+      "lines": 94
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/CE/CE_AuthoredControl.reds": {
+      "sha256": "58e5bfe934426f04cc0d0727b455b63af5dccd60c234a7cec90f01c06c4ca3c2",
+      "bytes": 3107,
+      "lines": 64
+    },
+    "SDP-Combat/r6/scripts/SDPCombat/CE/CE_ChromeDist_Detect.reds": {
+      "sha256": "dab14d8965b31bf92f2d51c59b94a9a9469befe26d7e77cd860211022ebb4a35",
+      "bytes": 3425,
+      "lines": 78
+    },
+    "SDP-Skills/r6/scripts/SDPSkills/SkillTotalLevel.reds": {
+      "sha256": "df8dd8b96b62e902b6166282e9ff4c9827316e5283fd3a0e651799663cfaef31",
+      "bytes": 3260,
+      "lines": 68
+    },
+    "SDP-Skills/r6/scripts/SDPSkills/SkillMilestones.reds": {
+      "sha256": "e810d46ecfdabcb1cef55440e5120a0c6bf95cc4ae5ad867f934a027fea429c5",
+      "bytes": 8936,
+      "lines": 191
+    },
+    "SDP-Perks/r6/scripts/SkillDrivenProgression/ShardPerkCompatibility.reds": {
+      "sha256": "d9124d74458404c79200be5ac024591667d1099b8ce041447e76252230396812",
+      "bytes": 689,
+      "lines": 16
+    },
+    "SDP-QuickhackCrafting/r6/scripts/SDPQuickhackCrafting/CustomPrograms.reds": {
+      "sha256": "786444060e7805825ffcbe94ae80fc80298383848635767900e9b21c24040387",
+      "bytes": 35017,
+      "lines": 764
+    },
+    "SDP-QuickhackCrafting/r6/scripts/SDPQuickhackCrafting/DesignLibrary.reds": {
+      "sha256": "ea40f19de1fa6bb4f90d0c3c015338722d5688cc4b10ec360132e88b34bddd63",
+      "bytes": 18132,
+      "lines": 403
+    },
+    "final-inspect.reds": {
+      "sha256": "464681e56067d298fa666f6b6a98ba8808b40cab2fa84b7c6e4face4d312f968",
+      "bytes": 21629231,
+      "lines": 534325
+    },
+    "SDP-Skills/r6/tweaks/SDPSkills/SkillDrivenPowerLevel.yaml": {
+      "sha256": "0570d8cc71333b959e92f23621e60e374d44fb3e75c159c91f27be1c264dedd1",
+      "bytes": 1621,
+      "lines": 49
+    },
+    "SDP-Skills/r6/tweaks/SDPSkills/SkillDrivenCapacity.yaml": {
+      "sha256": "d7a67f5cc690cf0a2a9b642dd84cf8dc840895c58169229b79c464989c1cfd85",
+      "bytes": 1325,
+      "lines": 41
+    },
+    "SDP-Patches/SDP-CyberwareEx/r6/scripts/SDPCyberwareEx/CyberwareExSlots.reds": {
+      "sha256": "b987944732118a6b46ad042e439955f22b48132a6f98abcf672ada367c78309f",
+      "bytes": 2408,
+      "lines": 48
+    },
+    "SDP-Combat/r6/tweaks/SDPCombat/ChaseLimits.yaml": {
+      "sha256": "49196ac4f99e66d232dea10621fafb6d754cacef29ac352b27973a98dd39884f",
+      "bytes": 509,
+      "lines": 8
+    },
+    "SDP-Combat/design/SDP_COMBAT_REALISM_PASS.md": {
+      "sha256": "e2422ea8fb8e66b1d87c5dd92614a487712cef0bc34df383ec0fc4cc4b470c0f",
+      "bytes": 63705,
+      "lines": 911
+    },
+    "SDP-Combat/design/WORLD_PROGRESSION_BACKEND.md": {
+      "sha256": "9451a1d41afba5c9a738c7750dcd4e2ac1497380b8615d0901dad7d4e2fffd41",
+      "bytes": 14470,
+      "lines": 215
+    },
+    "SDP-Perks/design/WORLD_PROGRESSION_SOURCE_AUDIT.md": {
+      "sha256": "e5523047cdf57a0719b3b413eb3c3a87679e9cbd4b24f2769afdb1a0795e9b97",
+      "bytes": 8842,
+      "lines": 129
+    },
+    "SDP-QuickhackCrafting/design/native-dump/compression-report.json": {
+      "sha256": "2a04a52f47aebf55b97cf6634fb96c0232f77e0c4c407a531241f9334a5b24d2",
+      "bytes": 2070,
+      "lines": 17
+    },
+    "SDP-QuickhackCrafting/design/native-dump/families/overheat.json": {
+      "sha256": "0cfada9f1961cd9e70c5b0e1f2cd256f872c1bbc74b0eb2b47d8d525c3e6b865",
+      "bytes": 63142,
+      "lines": 196
+    },
+    "SDP-QuickhackCrafting/design/NATIVE_RECREATION.md": {
+      "sha256": "c7482b61a758281f24ca8410c288830b841bfe1a80f46348cdcbfed6c28be94d",
+      "bytes": 23223,
+      "lines": 277
+    }
+  },
+  "anchors": [
+    {
+      "id": "N-xp",
+      "file": "vanilla-decompiled.reds",
+      "start": 76538,
+      "end": 76670,
+      "expected": "func AddExperience",
+      "subject": "Native proficiency XP"
+    },
+    {
+      "id": "N-rewards",
+      "file": "vanilla-decompiled.reds",
+      "start": 76474,
+      "end": 76504,
+      "expected": "ProcessProficiencyPassiveBonus",
+      "subject": "Skill rewards and restoration"
+    },
+    {
+      "id": "N-perks",
+      "file": "vanilla-decompiled.reds",
+      "start": 77159,
+      "end": 77227,
+      "expected": "func BuyNewPerk",
+      "subject": "Perk purchase and special side effects"
+    },
+    {
+      "id": "N-equip",
+      "file": "vanilla-decompiled.reds",
+      "start": 57003,
+      "end": 57021,
+      "expected": "CheckEquipPrereqs",
+      "subject": "Equipment prerequisites"
+    },
+    {
+      "id": "N-equip-packages",
+      "file": "vanilla-decompiled.reds",
+      "start": 57391,
+      "end": 57403,
+      "expected": "GetSlotGLPs",
+      "subject": "Slot and item gameplay packages"
+    },
+    {
+      "id": "N-capacity",
+      "file": "vanilla-decompiled.reds",
+      "start": 40737,
+      "end": 40737,
+      "expected": "HumanityAvailable",
+      "subject": "Capacity stat naming"
+    },
+    {
+      "id": "N-crafting",
+      "file": "vanilla-decompiled.reds",
+      "start": 67025,
+      "end": 67116,
+      "expected": "func CraftItem",
+      "subject": "Recipe and inventory transaction"
+    },
+    {
+      "id": "N-upgrade",
+      "file": "vanilla-decompiled.reds",
+      "start": 67484,
+      "end": 67529,
+      "expected": "func UpgradeItem",
+      "subject": "Item upgrade transaction"
+    },
+    {
+      "id": "N-damage",
+      "file": "vanilla-decompiled.reds",
+      "start": 79912,
+      "end": 79938,
+      "expected": "func ProcessPipeline",
+      "subject": "Real and projected damage pipelines"
+    },
+    {
+      "id": "N-preprocess",
+      "file": "vanilla-decompiled.reds",
+      "start": 80154,
+      "end": 80213,
+      "expected": "func PreProcess",
+      "subject": "Preprocessing and localized damage order"
+    },
+    {
+      "id": "N-process",
+      "file": "vanilla-decompiled.reds",
+      "start": 80454,
+      "end": 80476,
+      "expected": "func Process(",
+      "subject": "Damage processing and projection gate"
+    },
+    {
+      "id": "N-target-mods",
+      "file": "vanilla-decompiled.reds",
+      "start": 81502,
+      "end": 81506,
+      "expected": "CalculateTargetModifiers",
+      "subject": "Armor call site"
+    },
+    {
+      "id": "N-armor",
+      "file": "vanilla-decompiled.reds",
+      "start": 81868,
+      "end": 81942,
+      "expected": "func ProcessArmor",
+      "subject": "Native armor calculation"
+    },
+    {
+      "id": "N-friendly-fire",
+      "file": "vanilla-decompiled.reds",
+      "start": 81710,
+      "end": 81736,
+      "expected": "hitEvent.target ==",
+      "subject": "Self damage and friendly-fire filters"
+    },
+    {
+      "id": "N-charges",
+      "file": "vanilla-decompiled.reds",
+      "start": 191729,
+      "end": 191765,
+      "expected": "class ConsumablesChargesHelper",
+      "subject": "Consumable charge pools"
+    },
+    {
+      "id": "N-charge-listeners",
+      "file": "vanilla-decompiled.reds",
+      "start": 191859,
+      "end": 191973,
+      "expected": "class BaseChargesStatListener",
+      "subject": "Charge UI and grenade recharge"
+    },
+    {
+      "id": "N-heal-listener",
+      "file": "vanilla-decompiled.reds",
+      "start": 233814,
+      "end": 233824,
+      "expected": "class HealingItemsChargeStatListener",
+      "subject": "Healing recharge feedback"
+    },
+    {
+      "id": "N-hack-cost",
+      "file": "vanilla-decompiled.reds",
+      "start": 26319,
+      "end": 26490,
+      "expected": "func GetCost",
+      "subject": "RAM calculation and perk branches"
+    },
+    {
+      "id": "N-hack-effects",
+      "file": "vanilla-decompiled.reds",
+      "start": 26065,
+      "end": 26111,
+      "expected": "func ProcessStatusEffects",
+      "subject": "Action recipient/effect application"
+    },
+    {
+      "id": "N-queue",
+      "file": "vanilla-decompiled.reds",
+      "start": 116748,
+      "end": 116864,
+      "expected": "class QuickHackableQueueHelper",
+      "subject": "Player quickhack queue"
+    },
+    {
+      "id": "N-ice",
+      "file": "vanilla-decompiled.reds",
+      "start": 117293,
+      "end": 117299,
+      "expected": "func GetICELevel",
+      "subject": "ICE and level coupling"
+    },
+    {
+      "id": "N-access",
+      "file": "vanilla-decompiled.reds",
+      "start": 113573,
+      "end": 113625,
+      "expected": "func SetIsBreached",
+      "subject": "Access-point breach state and propagation"
+    },
+    {
+      "id": "N-incoming-hack",
+      "file": "vanilla-decompiled.reds",
+      "start": 21852,
+      "end": 21908,
+      "expected": "func OnHackTargetEvent",
+      "subject": "BeingHacked gate and retry"
+    },
+    {
+      "id": "N-player-hacker",
+      "file": "vanilla-decompiled.reds",
+      "start": 43595,
+      "end": 43599,
+      "expected": "func OnHackTargetEvent",
+      "subject": "Player tracks attacking netrunner ID"
+    },
+    {
+      "id": "N-ai-upload",
+      "file": "vanilla-decompiled.reds",
+      "start": 240050,
+      "end": 240114,
+      "expected": "class AIQuickHackAction",
+      "subject": "NPC upload pool and timing"
+    },
+    {
+      "id": "N-upload-listener",
+      "file": "vanilla-decompiled.reds",
+      "start": 185347,
+      "end": 185425,
+      "expected": "class UploadFromNPCToPlayerListener",
+      "subject": "Upload HUD and save lock"
+    },
+    {
+      "id": "N-ai-hack",
+      "file": "vanilla-decompiled.reds",
+      "start": 473098,
+      "end": 473189,
+      "expected": "class AISubActionQuickHack",
+      "subject": "AI hack subaction and proxy visualization"
+    },
+    {
+      "id": "N-proxy",
+      "file": "vanilla-decompiled.reds",
+      "start": 156656,
+      "end": 156708,
+      "expected": "func GetNetrunnerProxy",
+      "subject": "Security sensor and squad proxy selection"
+    },
+    {
+      "id": "N-tag",
+      "file": "vanilla-decompiled.reds",
+      "start": 103227,
+      "end": 103245,
+      "expected": "func TagObject",
+      "subject": "Tag/reveal/HUD fanout"
+    },
+    {
+      "id": "N-minimap",
+      "file": "vanilla-decompiled.reds",
+      "start": 401540,
+      "end": 401618,
+      "expected": "func Update",
+      "subject": "Minimap reveal conditions"
+    },
+    {
+      "id": "N-sensor",
+      "file": "vanilla-decompiled.reds",
+      "start": 143537,
+      "end": 143585,
+      "expected": "func GetCurrentTargets",
+      "subject": "Sensor target lists and shutdown"
+    },
+    {
+      "id": "N-control",
+      "file": "vanilla-decompiled.reds",
+      "start": 146477,
+      "end": 146565,
+      "expected": "class TakeOverControlSystem",
+      "subject": "Remote control and quest locks"
+    },
+    {
+      "id": "N-perception",
+      "file": "vanilla-decompiled.reds",
+      "start": 148739,
+      "end": 148920,
+      "expected": "class TargetTrackingExtension",
+      "subject": "Threat tracking and injection"
+    },
+    {
+      "id": "N-tickets",
+      "file": "vanilla-decompiled.reds",
+      "start": 150094,
+      "end": 150152,
+      "expected": "func EvaluateTicketActivation",
+      "subject": "Ticket activation and deactivation"
+    },
+    {
+      "id": "N-ai-condition",
+      "file": "vanilla-decompiled.reds",
+      "start": 152864,
+      "end": 152885,
+      "expected": "class AICondition",
+      "subject": "Native activation evaluation boundary"
+    },
+    {
+      "id": "N-ai-target",
+      "file": "vanilla-decompiled.reds",
+      "start": 156532,
+      "end": 156556,
+      "expected": "func Get(",
+      "subject": "Native target evaluation boundary"
+    },
+    {
+      "id": "N-ai-update",
+      "file": "vanilla-decompiled.reds",
+      "start": 288313,
+      "end": 288373,
+      "expected": "func Update",
+      "subject": "Action, animation and ticket lifecycle"
+    },
+    {
+      "id": "N-ai-phases",
+      "file": "vanilla-decompiled.reds",
+      "start": 288585,
+      "end": 288742,
+      "expected": "func UpdateSubActions",
+      "subject": "General/startup/loop/recovery updates"
+    },
+    {
+      "id": "N-ai-record",
+      "file": "vanilla-decompiled.reds",
+      "start": 289753,
+      "end": 289780,
+      "expected": "class TweakAIAction",
+      "subject": "Behavior task to TweakDB record"
+    },
+    {
+      "id": "N-shoot",
+      "file": "vanilla-decompiled.reds",
+      "start": 431792,
+      "end": 431948,
+      "expected": "func Update",
+      "subject": "Shoot action, tracking and cadence"
+    },
+    {
+      "id": "N-hit-gate",
+      "file": "vanilla-decompiled.reds",
+      "start": 164844,
+      "end": 164869,
+      "expected": "func HandleBeingShot",
+      "subject": "Time-between-hits enable gate and miss offset"
+    },
+    {
+      "id": "N-hit-clock",
+      "file": "vanilla-decompiled.reds",
+      "start": 165023,
+      "end": 165089,
+      "expected": "func CalculateTimeBetweenHits",
+      "subject": "Time-between-hits coefficients"
+    },
+    {
+      "id": "N-grenade",
+      "file": "vanilla-decompiled.reds",
+      "start": 422619,
+      "end": 422727,
+      "expected": "func ThrowItem",
+      "subject": "NPC grenade launch and slot removal"
+    },
+    {
+      "id": "M-durability",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/SDPDurability.reds",
+      "start": 85,
+      "end": 184,
+      "expected": "func Apply",
+      "subject": "Current armor mutation and penetration"
+    },
+    {
+      "id": "M-armor-hook",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/SDPDurability.reds",
+      "start": 187,
+      "end": 209,
+      "expected": "@wrapMethod",
+      "subject": "Armor replacement and one-shot protection"
+    },
+    {
+      "id": "M-armor-kit",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/SDPArmor.reds",
+      "start": 59,
+      "end": 88,
+      "expected": "func Covering",
+      "subject": "Best covering piece and repair"
+    },
+    {
+      "id": "M-limbs",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/CE/CE_HitZones.reds",
+      "start": 8,
+      "end": 87,
+      "expected": "@wrapMethod",
+      "subject": "Current pre-armor NPC limb damage hook"
+    },
+    {
+      "id": "M-cadence",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/SDPCadence.reds",
+      "start": 14,
+      "end": 79,
+      "expected": "@wrapMethod",
+      "subject": "Weapon-derived cadence and player position read"
+    },
+    {
+      "id": "M-blind",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/SDPBlindFire.reds",
+      "start": 27,
+      "end": 58,
+      "expected": "func Observe",
+      "subject": "Sight-derived memory and frozen blind aim"
+    },
+    {
+      "id": "M-suppress",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/CE/CE_Suppression.reds",
+      "start": 27,
+      "end": 76,
+      "expected": "func OnStim",
+      "subject": "Player gunshot/camera-direction suppression proxy"
+    },
+    {
+      "id": "M-flank",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/CE/CE_Flank.reds",
+      "start": 7,
+      "end": 44,
+      "expected": "func OnHit",
+      "subject": "Flank selection and live velocity read"
+    },
+    {
+      "id": "M-authored",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/CE/CE_AuthoredControl.reds",
+      "start": 20,
+      "end": 50,
+      "expected": "func GBPUnderAuthoredControl",
+      "subject": "Quest/workspot/scene command guards"
+    },
+    {
+      "id": "M-chrome",
+      "file": "SDP-Combat/r6/scripts/SDPCombat/CE/CE_ChromeDist_Detect.reds",
+      "start": 1,
+      "end": 6,
+      "expected": "module",
+      "subject": "Chrome detection; distribution omitted"
+    },
+    {
+      "id": "M-level",
+      "file": "SDP-Skills/r6/scripts/SDPSkills/SkillTotalLevel.reds",
+      "start": 17,
+      "end": 59,
+      "expected": "func SDP_GetSkillRank",
+      "subject": "Derived rank/level and XP interception"
+    },
+    {
+      "id": "M-milestones",
+      "file": "SDP-Skills/r6/scripts/SDPSkills/SkillMilestones.reds",
+      "start": 1,
+      "end": 67,
+      "expected": "module",
+      "subject": "Existing level-15/35 milestone changes"
+    },
+    {
+      "id": "M-perk-compat",
+      "file": "SDP-Perks/r6/scripts/SkillDrivenProgression/ShardPerkCompatibility.reds",
+      "start": 1,
+      "end": 16,
+      "expected": "module",
+      "subject": "Perk activation/deactivation compatibility"
+    },
+    {
+      "id": "M-custom-hacks",
+      "file": "SDP-QuickhackCrafting/r6/scripts/SDPQuickhackCrafting/CustomPrograms.reds",
+      "start": 647,
+      "end": 700,
+      "expected": "@wrapMethod",
+      "subject": "Custom menu integration and player-only execution"
+    },
+    {
+      "id": "M-hack-save",
+      "file": "SDP-QuickhackCrafting/r6/scripts/SDPQuickhackCrafting/DesignLibrary.reds",
+      "start": 207,
+      "end": 218,
+      "expected": "@addField",
+      "subject": "Saved design library representation"
+    }
+  ]
+}

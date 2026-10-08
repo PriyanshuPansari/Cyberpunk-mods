@@ -277,11 +277,11 @@ public abstract class SDPQHRecordBuilder {
   // ("immune", "needs a ranged weapon") match the native. Our _Ram constant
   // replaces the first cost record's constant. A designed program or an empty
   // slot gets Optics', the chip's base.
-  public static func ApplyNative(slot: Int32, native: ref<ObjectAction_Record>) -> Void {
+  public static func ApplyNative(slot: Int32, nativeAction: ref<ObjectAction_Record>) -> Void {
     let base: ref<ObjectAction_Record> = TweakDBInterface.GetObjectActionRecord(t"QuickHack.BlindHack");
     let action: TweakDBID = SDPQHDesign.ActionRecord(slot);
     if !IsDefined(base) || !IsDefined(TweakDBInterface.GetObjectActionRecord(action)) { return; };
-    let source: ref<ObjectAction_Record> = IsDefined(native) ? native : base;
+    let source: ref<ObjectAction_Record> = IsDefined(nativeAction) ? nativeAction : base;
     if IsDefined(source.HackCategory()) { TweakDBManager.SetFlat(action + t".hackCategory", ToVariant(source.HackCategory().GetID())); };
     TweakDBManager.SetFlat(action + t".gameplayCategory", ToVariant(IsDefined(source.GameplayCategory()) ? source.GameplayCategory().GetID() : t""));
     let cost: TweakDBID = TDBID.Create(SDPQHRecordBuilder.Name(slot, "_Cost"));
@@ -302,16 +302,16 @@ public abstract class SDPQHRecordBuilder {
     };
     let active: array<TweakDBID> = SDPQHRecordBuilder.BaseTargetChecks(base, true);
     let checks: array<TweakDBID> = SDPQHRecordBuilder.BaseTargetChecks(base, false);
-    if IsDefined(native) {
+    if IsDefined(nativeAction) {
       let i: Int32 = 0;
-      while i < native.GetTargetActivePrereqsCount() {
-        let id: TweakDBID = native.GetTargetActivePrereqsItem(i).GetID();
+      while i < nativeAction.GetTargetActivePrereqsCount() {
+        let id: TweakDBID = nativeAction.GetTargetActivePrereqsItem(i).GetID();
         if !ArrayContains(active, id) { ArrayPush(active, id); };
         i += 1;
       };
       i = 0;
-      while i < native.GetTargetPrereqsCount() {
-        let id: TweakDBID = native.GetTargetPrereqsItem(i).GetID();
+      while i < nativeAction.GetTargetPrereqsCount() {
+        let id: TweakDBID = nativeAction.GetTargetPrereqsItem(i).GetID();
         if !ArrayContains(checks, id) { ArrayPush(checks, id); };
         i += 1;
       };

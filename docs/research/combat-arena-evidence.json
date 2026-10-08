@@ -1,0 +1,83 @@
+{
+  "audit_date": "2026-10-08",
+  "mod_url": "https://www.nexusmods.com/cyberpunk2077/mods/27580?tab=description",
+  "staging_root": "C:/Users/incre/AppData/Roaming/Vortex/cyberpunk2077/mods/Combat Arena 27580 1 2026-08-16T15-04Z Co8doeskP",
+  "game_root": "C:/Program Files (x86)/Steam/steamapps/common/Cyberpunk 2077",
+  "local_script_build": "47",
+  "package_folder_version_label": "1",
+  "web_header_version_label": "0.9",
+  "runtime_verified": false,
+  "archive_unpacked": false,
+  "files": [
+    {
+      "relative_path": "archive/pc/mod/CombatArena.archive",
+      "bytes": 12288,
+      "staged_sha256": "f782c341adb3d80e4e4c572a83e1ba2f42a04f1bf5d91302b061385350e12f03",
+      "deployed_sha256": "f782c341adb3d80e4e4c572a83e1ba2f42a04f1bf5d91302b061385350e12f03",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/input/CombatArena.xml",
+      "bytes": 1792,
+      "staged_sha256": "8dc02ba698314a54806a5b82924d26aff89a6d320c7461e755fa176673432c42",
+      "deployed_sha256": "8dc02ba698314a54806a5b82924d26aff89a6d320c7461e755fa176673432c42",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/Arena.reds",
+      "bytes": 52398,
+      "staged_sha256": "d7f5c159bd85b13e31bcfd656293d74ea49b373ad384718bf8a3dae59efa27d8",
+      "deployed_sha256": "d7f5c159bd85b13e31bcfd656293d74ea49b373ad384718bf8a3dae59efa27d8",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/arena_spawner.reds",
+      "bytes": 47019,
+      "staged_sha256": "45eb019e398827db597370c371fa179a05ffba97a3ebe26cad1f592780cd0d45",
+      "deployed_sha256": "45eb019e398827db597370c371fa179a05ffba97a3ebe26cad1f592780cd0d45",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/CmmBridge.reds",
+      "bytes": 1926,
+      "staged_sha256": "4d35f6d2115acfcb72ec4293089843e2a9ac936a49f63de0e3920210e4f93066",
+      "deployed_sha256": "4d35f6d2115acfcb72ec4293089843e2a9ac936a49f63de0e3920210e4f93066",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/Data.reds",
+      "bytes": 17178,
+      "staged_sha256": "1d47d7c512940057e1a5bd8c41a1b238a02d6f3c743c323453b17f0ab2c9d6a7",
+      "deployed_sha256": "1d47d7c512940057e1a5bd8c41a1b238a02d6f3c743c323453b17f0ab2c9d6a7",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/Hud.reds",
+      "bytes": 2264,
+      "staged_sha256": "a2db3ca706e98a2ed48850560107503391d28683dfd536ebacbeea0e7b850064",
+      "deployed_sha256": "a2db3ca706e98a2ed48850560107503391d28683dfd536ebacbeea0e7b850064",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/Settings.reds",
+      "bytes": 2216,
+      "staged_sha256": "ddf1b976154c23109ae9249b9166bb941b4140f2b424016a929ab04040ce4a25",
+      "deployed_sha256": "ddf1b976154c23109ae9249b9166bb941b4140f2b424016a929ab04040ce4a25",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/scripts/CombatArena/Terminal.reds",
+      "bytes": 43641,
+      "staged_sha256": "3b4283c4341c23e0b1a3dfc5f52e1efbc4c7612aeef208a0d1c0eb6ff9725e12",
+      "deployed_sha256": "3b4283c4341c23e0b1a3dfc5f52e1efbc4c7612aeef208a0d1c0eb6ff9725e12",
+      "matches": true
+    },
+    {
+      "relative_path": "r6/tweaks/CombatArena.yaml",
+      "bytes": 3457,
+      "staged_sha256": "6c55cf61f6eaad19d7bee2c0737a6eba56e5031d6fd142117fe384eea4a902f1",
+      "deployed_sha256": "6c55cf61f6eaad19d7bee2c0737a6eba56e5031d6fd142117fe384eea4a902f1",
+      "matches": true
+    }
+  ]
+}

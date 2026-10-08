@@ -1,8 +1,8 @@
 # Copy this repo's deployable files into Vortex's staging copy of the mod,
 # then click Deploy Mods in Vortex. Vortex deploys only its staging folder.
-$root = Split-Path $PSScriptRoot -Parent
 # Usage: .\tools\Sync-ToVortex.ps1 [-Only SDP-Cigarettes,SDP-ScannerDilation]
 param([string[]]$Only)
+$root = Split-Path $PSScriptRoot -Parent
 if (-not $Only -or $Only -contains "SDP-Cigarettes") {
   $stage = Join-Path $env:APPDATA "Vortex\cyberpunk2077\mods\SDP-Cigarettes"
   $folders = @(
@@ -66,4 +66,3 @@ if (-not $Only -or $Only -contains "SDP-Cigarettes") {
     Write-Host "Patched $($cq.Name)."
   }
 }
-
